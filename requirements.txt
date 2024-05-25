@@ -13,16 +13,13 @@ pygal
 networkx
 autograd
 k3d
-graphviz
 geopandas
-# problematic
-# keplergl
 scikit-learn
 folium
 vega_datasets
 dash
 streamlit
-gradio
+# gradio
 
 # tooling
 jupyterlab
