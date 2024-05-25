@@ -1,0 +1,3 @@
+city,postcode,t1_nb,t1_price,t1_junk,t2_nb,t2_price,t2_junk,t3_nb,t3_price,t3_junk
+London,90000,1,1000,foo,2,2000,bar,0,0,none
+Paris,75000,0,0,none,2,4000,tutu,0,0,none
