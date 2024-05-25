@@ -5,58 +5,58 @@ root: README
 parts:
 - caption: exercices numpy
   chapters:
-  - file: ds-exos/numpy/EXO-indices-nb
-  - file: ds-exos/numpy/EXO-mandelbrot-nb
-  - file: ds-howtos/HOWTO-numpy-meshgrid-nb
+  - file: exos/numpy/EXO-indices-nb
+  - file: exos/numpy/EXO-mandelbrot-nb
+  - file: howtos/HOWTO-numpy-meshgrid-nb
 - caption: TPs numpy
   chapters:
-  - file: ds-tps/sounds/README-sounds-nb
-  - file: ds-tps/images/README-images-toc-nb
+  - file: tps/sounds/README-sounds-nb
+  - file: tps/images/README-images-toc-nb
     sections:
-    - glob: ds-tps/images/README-images[0-9]-nb
-  - file: ds-tps/taylor/README-taylor-toc-nb.md
+    - glob: tps/images/README-images[0-9]-nb
+  - file: tps/taylor/README-taylor-toc-nb.md
     sections:
-    - glob: ds-tps/taylor/README-taylor-[0-9]*-nb
-  - file: ds-tps/pentominos/README-pentominos-nb
+    - glob: tps/taylor/README-taylor-[0-9]*-nb
+  - file: tps/pentominos/README-pentominos-nb
 - caption: howto opencv - yolo
   chapters:
-  - file: ds-howtos/opencv-yolo/HOWTO-opencv-yolo-nb
+  - file: howtos/opencv-yolo/HOWTO-opencv-yolo-nb
 - caption: exercices pandas
   chapters:
-  - file: ds-exos/pandas/EXO-mosaique-nb
-  - file: ds-exos/pandas/EXO-titanic-nb
-  - file: ds-exos/pandas/EXO-bornes-nb
-  - file: ds-exos/pandas/EXO-stack-simple-nb
-  - file: ds-exos/pandas/EXO-stack-multicol-nb
+  - file: exos/pandas/EXO-mosaique-nb
+  - file: exos/pandas/EXO-titanic-nb
+  - file: exos/pandas/EXO-bornes-nb
+  - file: exos/pandas/EXO-stack-simple-nb
+  - file: exos/pandas/EXO-stack-multicol-nb
 - caption: TP pandas
   chapters:
-  - file: ds-tps/television/README-television-nb
-  - file: ds-tps/marathon/README-marathon-nb
-  - file: ds-tps/collages/README-collages-nb
-  - file: ds-tps/groupby-draw/README-groupby-draw-nb
-  - file: ds-tps/covid/README-covid-nb
+  - file: tps/television/README-television-nb
+  - file: tps/marathon/README-marathon-nb
+  - file: tps/collages/README-collages-nb
+  - file: tps/groupby-draw/README-groupby-draw-nb
+  - file: tps/covid/README-covid-nb
 - caption: geo data
   chapters:
-  - file: ds-geo/folium/README-folium-nb
-  - file: ds-geo/tp-addresses/README-addresses-nb
+  - file: geo/folium/README-folium-nb
+  - file: geo/tp-addresses/README-addresses-nb
 - caption: howtos pandas
   chapters:
-  - file: ds-howtos/HOWTO-split-count-into-columns-nb
-  - file: ds-howtos/HOWTO-pivot-vs-stack-unstack-nb
-  - file: ds-howtos/HOWTO-timeseries-clean-smooth-nb
-  - file: ds-howtos/HOWTO-groupby-ratings-nb
-  - file: ds-howtos/HOWTO-fremont-bridge-nb
-  # transformed into a TP (see above in the ds-tps area)
+  - file: howtos/HOWTO-split-count-into-columns-nb
+  - file: howtos/HOWTO-pivot-vs-stack-unstack-nb
+  - file: howtos/HOWTO-timeseries-clean-smooth-nb
+  - file: howtos/HOWTO-groupby-ratings-nb
+  - file: howtos/HOWTO-fremont-bridge-nb
+  # transformed into a TP (see above in the tps area)
   # kept for the interact part, although that seems 
   # to no longer work very well, under jbook at least
-  # - file: ds-howtos/HOWTO-covid-interact-obsolete-nb.md
+  # - file: howtos/HOWTO-covid-interact-obsolete-nb.md
 - caption: dashboards
   chapters:
-  - file: ds-dashboards/streamlit/README-streamlit-nb
+  - file: dashboards/streamlit/README-streamlit-nb
     sections:
-      - file: ds-dashboards/streamlit/streamlit-sinus
-      - file: ds-dashboards/streamlit/streamlit-taylor
-  - file: ds-dashboards/dashboard-with-dash-nb
+      - file: dashboards/streamlit/streamlit-sinus
+      - file: dashboards/streamlit/streamlit-taylor
+  - file: dashboards/dashboard-with-dash-nb
 - caption: quizzes pandas
   chapters:
-  - glob: ds-quizzes/QUIZ*-nb
+  - glob: quizzes/QUIZ*-nb
