@@ -3,7 +3,7 @@
 title: Python Exercices
 author: Thierry Parmentelat
 # this is tweaked by a sed command in ds/.readthedocs.yaml
-logo: media/logo-exos-python.svg
+logo: media/logo-exos-ds.svg
 
 # we want the corriges to build as well
 # only_build_toc_files: true
