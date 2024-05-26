@@ -1,14 +1,12 @@
-# flotpython exos
+# flotpython exos: data-science 
 
 this repo contains exercises and TPs that [complement the Python MOOC](https://www.fun-mooc.fr/en/cours/python-3-des-fondamentaux-aux-concepts-avances-du-langage/)
 
 excluded are the auto-corrected exercises mentioned in the MOOC
-[bundled in the main course repo](https://github.com/flotpython/course);  
-that was historically for technical reasons, although it is not clear that it's
-still relevant
+[these are bundled in the main course repo](https://github.com/flotpython/course)
 
 in any case, in the present repo we try to gather all the other, generally more
-informal, material for practising Python and/or the Data-Science ecosystem
+informal, material for **practising the Data-Science ecosystem** (for stuff about pure Python, see the other repo <https://github.com/flotpython/exos-python>)
 
 ## there is no runtime tool here !
 
@@ -28,22 +26,15 @@ use [the emergency resources at the bottom of this page](label-lite-tools)
 
 the material is organized along these rather vague categories:
 
-- stuff about [pure Python](https://flotpython-exos-python.readthedocs.io/)
-- and about [Data-Science ecosystem](https://flotpython-exos-ds.readthedocs.io/) (i.e. numpy pandas matplotlib and related)
-
-and in each category we try to make a distinction between
-
 * `exos`: short, simple one-shot assignments
 * `tps`: more elaborate assignments, with several steps, that let students
   achieve something
 * `howtos`: more for reading than for practising, that can be recipes to achieve
   some common tasks
 
-as well as, less interesting probably:
+as well as, less interesting probably, some low-order categories like `samples`, `reading`, `quizzes`, etc.
 
-* `samples`: miscell pieces of code that can come in handy
-* `reading`: the idea was to gather full-length projects, that students could
-  read; may disappear on the long run, and merged with `samples`
+**historical note**: in an older version, this repo contained material about both pure Python and the Data Science tools; it has been split in two to ease its maintenance - github slugs are now `flotpython/exos-python` and `flotpython/exos-ds` respectively
 
 ## formats & jupytext
 
