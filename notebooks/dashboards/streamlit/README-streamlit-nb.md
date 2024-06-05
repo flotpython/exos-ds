@@ -1,10 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -jupytext.custom_cell_magics, -language_info.version, -language_info.codemirror_mode.version,
-    -language_info.codemirror_mode, -language_info.file_extension, -language_info.mimetype,
-    -toc, -vscode
   text_representation:
     extension: .md
     format_name: myst
@@ -39,7 +34,7 @@ mais voyons un peu comment ça marche...
 
 ## c'est du Python, mais ..
 
-le code est du Python, avec toutefois une particularité car il ne se lance pas, 
+le code est du Python, avec toutefois une particularité car **il ne se lance pas**,  
 comme on en a l'habitude, avec `python monscript.py`, mais avec 
 
 ```bash
@@ -137,6 +132,24 @@ si vous n'avez pas trouvé dans la cheatsheet, vous avez toujours bien sûr la v
 vous trouverez enfin dans ce même dossier deux exemples (si nécessaire: {download}`télécharger le zip<./ARTEFACTS-streamlit.zip>`)
 
 * [la fonction sinus](./streamlit-sinux.py)
-  hyper basique: on peut régler la fréquence et l'amplitude
+  hyper basique: on peut régler la fréquence et l'amplitude; pour le lancer
+  ```bash
+  streamlit run streamlit-sinux.py
+  ```
+  ça ressemble à ceci
+  ```{image} media/streamlit-sinus.png
+  :align: center
+  :width: 500px
+  ```
 * [approximation de taylor](./streamlit-taylor.py)  
   un peu plus évolué, on affiche l'approximation de `sin(x)` par une série de Taylor, et on choisit le degré
+  ```{image} media/streamlit-taylor.png
+  :align: center
+  :width: 500px
+  ```
+  ```{admonition} version de bokeh
+  :class: warning
+  
+  en Juin 2024, je dois bidouiller ce deuxième exemple pour qu'il fonctionne avec bokeh-3.x  
+  les détails sont dans le code
+  ```

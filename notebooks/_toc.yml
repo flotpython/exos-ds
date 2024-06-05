@@ -53,9 +53,6 @@ parts:
 - caption: dashboards
   chapters:
   - file: dashboards/streamlit/README-streamlit-nb
-    sections:
-      - file: dashboards/streamlit/streamlit-sinus
-      - file: dashboards/streamlit/streamlit-taylor
   - file: dashboards/marimo/README-marimo-nb
   - file: dashboards/dash/README-dash-nb
 - caption: quizzes pandas

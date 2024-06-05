@@ -1,41 +1,3 @@
-# ---
-# jupyter:
-#   jupytext:
-#     cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-#     notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version,
-#       -jupytext.text_representation.format_version,-language_info.version, -language_info.codemirror_mode.version,
-#       -language_info.codemirror_mode,-language_info.file_extension, -language_info.mimetype,
-#       -toc, -rise, -version
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
-#   language_info:
-#     name: python
-#     nbconvert_exporter: python
-#     pygments_lexer: ipython3
-# ---
-
-# # a streamlit dashboard for Taylor
-
-# ````{admonition} attention
-# :class: warning
-#
-# this code won't work from a notebook, you need to kick it off from a terminal using (download as .py if needed)
-# ```bash
-# streamlit run streamlit-taylor.py
-# ```
-# ````
-#
-# This will open a browser page where you can interact with a dashboard that looks like this
-#
-# ```{image} streamlit-taylor.png
-# :width: 500px
-# ```
-
 from math import factorial
 
 import autograd
@@ -43,15 +5,39 @@ import autograd.numpy as np
 
 from bokeh.plotting import figure, show
 
-# +
 import streamlit as st
 
 FORMULA = r"""
 F_n(x) = \sum_{i=0}^{n} \frac{f^{(i)}(0)x^{i}}{i!}
 """
 
+# 2024 june
+# StreamlitAPIException: Streamlit only supports Bokeh version 2.4.3, but you have version 3.4.1 installed.
+# Please run pip install --force-reinstall --no-deps bokeh==2.4.3 to install the correct version.
+#
+# to work around that, inspired from
+# https://github.com/streamlit/streamlit/issues/5858#issuecomment-1482042533
 
-# -
+
+import streamlit.components.v1 as components
+from bokeh.plotting import figure, save
+from bokeh.io import output_file
+
+
+def use_file_for_bokeh(chart: figure, chart_height=500, **kwargs):
+    if kwargs:
+        print(f"ignoring extra keyword args {kwargs}")
+    output_file('bokeh_graph.html')
+    save(chart)
+    with open("bokeh_graph.html", 'r', encoding='utf-8') as f:
+        html = f.read()
+    components.html(html, height=chart_height)
+
+
+st.bokeh_chart = use_file_for_bokeh
+
+# end workaround
+
 
 class Taylor:
     """
