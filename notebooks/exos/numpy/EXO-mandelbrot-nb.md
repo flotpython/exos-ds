@@ -1,9 +1,7 @@
 ---
 jupytext:
-  cell_metadata_filter: all
   cell_metadata_json: true
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
     format_name: myst
@@ -12,10 +10,7 @@ kernelspec:
   language: python
   name: python3
 notebookname: Mandelbrot
-version: '1.0'
 ---
-
-+++ {"run_control": {"frozen": false, "read_only": false}}
 
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
@@ -24,19 +19,13 @@ version: '1.0'
 
 ```{code-cell}
 ---
-run_control:
-  frozen: false
-  read_only: false
 slideshow:
   slide_type: slide
-trusted: true
 ---
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib ipympl
 ```
-
-+++ {"run_control": {"frozen": false, "read_only": false}}
 
 # l'ensemble de Mandelbrot
 
@@ -48,7 +37,7 @@ il s'agit de calculer l'image de la convergence de mandelbrot:
 
 ## comment ça marche ?
 
-+++ {"cell_style": "center", "run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
 
 * dans l'espace complexe, on définit pour chaque $c\in\mathbb{C}$ la suite
    * $z_0 = c$
@@ -56,7 +45,7 @@ il s'agit de calculer l'image de la convergence de mandelbrot:
 * on démontre que 
   * lorsque $|z_n|>2$, la suite diverge
 
-+++ {"cell_style": "center", "run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "-"}}
++++ {"cell_style": "center", "slideshow": {"slide_type": "-"}}
 
 il s'agit pour nous de 
 
@@ -73,7 +62,7 @@ il s'agit pour nous de
     alors on affecte `diverge[z] = n`
 * on n'a plus qu'à afficher ensuite l'image obtenue avec `plt.imshow`
 
-+++ {"run_control": {"frozen": false, "read_only": false}, "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 *indices*
 
@@ -81,8 +70,6 @@ il s'agit pour nous de
   on pourra regarder `np.linspace` et `np.meshgrid`
 
 ```{code-cell}
-:trusted: true
-
 # à vous de jouer
 def mandelbrot(w, h):
     pass

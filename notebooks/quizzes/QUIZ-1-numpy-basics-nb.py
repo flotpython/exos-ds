@@ -2,12 +2,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
 #     formats: py:percent
-#     notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version,
-#       -jupytext.text_representation.format_version, -language_info.version, -language_info.codemirror_mode.version,
-#       -language_info.codemirror_mode, -language_info.file_extension, -language_info.mimetype,
-#       -toc
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -67,7 +62,7 @@ rainfall = pd.read_csv(URL)["PRCP"].to_numpy()
 # your code here
 
 # %% [markdown]
-# ## 3. Let's the following questions
+# ## Let's answer the following questions
 
 # %% [markdown]
 # **What is the shape and dype of the ndarray?**
