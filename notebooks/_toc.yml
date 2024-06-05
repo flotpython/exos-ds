@@ -57,6 +57,7 @@ parts:
       - file: dashboards/streamlit/streamlit-sinus
       - file: dashboards/streamlit/streamlit-taylor
   - file: dashboards/dashboard-with-dash-nb
+  - file: dashboards/marimo/README-marimo-nb
 - caption: quizzes pandas
   chapters:
   - glob: quizzes/QUIZ*-nb
