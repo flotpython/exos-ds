@@ -1,9 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -79,7 +75,7 @@ import seaborn as sns
 
 ```{code-cell} ipython3
 plt.rcParams["figure.figsize"] = (12, 4)
-plt.style.use('seaborn')
+# plt.style.use('seaborn')
 sns.set(rc={'figure.figsize': (12, 4)})
 ```
 
@@ -242,17 +238,26 @@ m2
 ```{code-cell} ipython3
 import seaborn as sns
 
-sns.relplot(data=m2, kind='line')
-plt.savefig("media/groupby-draw-both.png")
+# has to comment off this one  - hopefully this is temporary
+# turns out pandas 2.2.2 runs into this bug
+# https://github.com/pandas-dev/pandas/issues/57663
+#
+# getting this error
+# KeyError: "The following id_vars or value_vars are not present in the DataFrame: ['@index']"
+# 
+# sns.relplot(data=m2, kind='line')
+# plt.savefig("media/groupby-draw-both.png")
 ```
 
 ### idem avec pivot_table
 
 ```{code-cell} ipython3
 # la même chose avec un pivot_table
+
 m3 = m.pivot_table(values=['Sessions', 'Waiters'], index='Date', columns='Site Name')
 ```
 
 ```{code-cell} ipython3
-sns.relplot(data=m3, kind='line');
+# same as above, need to comment off
+# sns.relplot(data=m3, kind='line');
 ```

@@ -17,8 +17,9 @@ geopandas
 scikit-learn
 folium
 vega_datasets
-dash
 streamlit
+dash
+openpyxl
 # gradio
 
 # tooling

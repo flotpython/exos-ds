@@ -1,10 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -43,18 +39,11 @@ un petit TP pour travailler
 import pandas as pd
 ```
 
-on utilise ici un utilitaire pour regarder le début d'un fichier texte
-
 ```{code-cell} ipython3
-# sur les plateformes Unix on peut faire simplement
-# 
-# ! head -5 data/marathon.txt
-#
-# mais sur Windows ça ne fonctionne pas, alors...
-
-from head import head
-
-help(head)
+# regardons les 5 premières lignes du fichier de données
+with open("data/marathon.txt") as f:
+    for _ in range(5):
+        print(next(f), end="")
 ```
 
 # TP: une dataframe simple
@@ -119,13 +108,7 @@ c'est mieux, mais les noms des colonnes ne sont pas corrects
 
 en effet par défaut, `read_csv` utilise la première ligne pour déterminer les noms des colonnes
 
-or dans le fichier texte il n'y a pas le nom des colonnes !
-
-```{code-cell} ipython3
-# NOTE: si vous n'avez pas le module head, ouvrez le fichier dans votre éditeur favori
-
-head("data/marathon.txt", 5)
-```
+or dans le fichier texte il n'y a pas le nom des colonnes ! (voyez ci-dessus)
 
 +++ {"tags": ["level_basic"]}
 
@@ -270,10 +253,9 @@ isinstance(cities, np.ndarray)
 
 ## des extraits
 
-```{code-cell} ipython3
-# attention mes numéros de ligne commencent à 1
-head("data/marathon.txt", 12)
-```
+attention ici les numéros de ligne **commencent à 1**
+
++++
 
 ### extrait #1
 
