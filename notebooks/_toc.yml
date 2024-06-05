@@ -18,7 +18,7 @@ parts:
     sections:
     - glob: tps/taylor/README-taylor-[0-9]*-nb
   - file: tps/pentominos/README-pentominos-nb
-- caption: howto opencv - yolo
+- caption: numpy images & videos
   chapters:
   - file: howtos/opencv-yolo/HOWTO-opencv-yolo-nb
 - caption: exercices pandas
@@ -28,17 +28,6 @@ parts:
   - file: exos/pandas/EXO-bornes-nb
   - file: exos/pandas/EXO-stack-simple-nb
   - file: exos/pandas/EXO-stack-multicol-nb
-- caption: TP pandas
-  chapters:
-  - file: tps/television/README-television-nb
-  - file: tps/marathon/README-marathon-nb
-  - file: tps/collages/README-collages-nb
-  - file: tps/groupby-draw/README-groupby-draw-nb
-  - file: tps/covid/README-covid-nb
-- caption: geo data
-  chapters:
-  - file: geo/folium/README-folium-nb
-  - file: geo/tp-addresses/README-addresses-nb
 - caption: howtos pandas
   chapters:
   - file: howtos/HOWTO-split-count-into-columns-nb
@@ -50,6 +39,17 @@ parts:
   # kept for the interact part, although that seems 
   # to no longer work very well, under jbook at least
   # - file: howtos/HOWTO-covid-interact-obsolete-nb.md
+- caption: TP pandas
+  chapters:
+  - file: tps/television/README-television-nb
+  - file: tps/marathon/README-marathon-nb
+  - file: tps/collages/README-collages-nb
+  - file: tps/groupby-draw/README-groupby-draw-nb
+  - file: tps/covid/README-covid-nb
+- caption: geo data
+  chapters:
+  - file: geo/folium/README-folium-nb
+  - file: geo/tp-addresses/README-addresses-nb
 - caption: dashboards
   chapters:
   - file: dashboards/streamlit/README-streamlit-nb
