@@ -15,6 +15,7 @@ language_info:
 ---
 
 # matplotlib & ipympl
+(label-dashboard-ipympl)=
 
 ipympl (the name comes from IPython - MatPlotLib) is the modern way to display matplotlib outputs under IPython / Jupyter
 
@@ -91,12 +92,18 @@ if you find yourself in a situation where you have done a figure with the the de
 
 ## some examples
 
-copied mostly as-is right from the doc here <https://matplotlib.org/ipympl/examples/full-example.html>
+the examples below are essentially copied as-is right from the doc here <https://matplotlib.org/ipympl/examples/full-example.html>
 
-````{admonition} got to that page for more details
+````{admonition} go to that page for more details
 
 in particular regarding the use of `ion()` / `ioff()`
 ````
+
+```{admonition} another useful page
+:class: admonition-small seealso
+
+this page here might turn out useful too for learning about ipywidgets <https://kapernikov.com/ipywidgets-with-matplotlib/>
+```
 
 +++
 

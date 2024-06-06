@@ -151,5 +151,6 @@ vous trouverez enfin dans ce même dossier deux exemples (si nécessaire: {downl
   :class: warning
   
   en Juin 2024, je dois bidouiller ce deuxième exemple pour qu'il fonctionne avec bokeh-3.x  
-  les détails sont dans le code
+  les détails sont dans le code  
+  voir aussi <https://github.com/matplotlib/ipympl/issues/469> pour suivre ce point
   ```
