@@ -132,7 +132,7 @@ interactive_taylor(
 
 le but du jeu est d'obtenir un matplotlib interactif de ce genre
 
-```{image} taylor-3-example.png
+```{image} media/taylor-3-example.png
 :align: center
 ```
 
