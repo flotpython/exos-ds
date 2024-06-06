@@ -15,7 +15,7 @@ nbhosting:
   title: Taylor et numpy
 ---
 
-# Taylor (2/3)
+# Taylor (2/3): convergence
 
 +++
 
@@ -69,14 +69,26 @@ def taylor1(X, derivatives):
 avec sinus
 
 ```{code-cell} ipython3
+# les valeurs de sin et de ses dérivées successives en 0
+# pour l'instant on les passe en dur
+# (dans la partie suivante on les calculera)
+
 sinus10 = [0, 1, 0, -1, 0, 1, 0, -1, 0, 1]
 ```
 
-écrivez le code qui plotte le résultat de `taylor1` sur le domaine X = $[-2\pi, 2\pi]$
+écrivez le code qui plotte le résultat de `taylor1` sur le domaine X = $[-2\pi, 2\pi]$ - devrait ressembler à ceci:
 
-+++
+```{image} media/taylor2-v1.png
+:width: 300px
+```
+
+```{code-cell} ipython3
+X = np.linspace(-2*np.pi, 2*np.pi)
+```
 
 ## exo v2
+
+une fois que la logique d'accumulation est acquise, on va calculer les dérivées successives de la fonction
 
 ```{code-cell} ipython3
 from autograd import grad
@@ -97,6 +109,11 @@ def taylor2(X, f, n):
 
 ### testez la
 
+````{admonition} rappel
+
+pour comparer des flottants, il faut utiliser `isclose()` et non pas `==`
+````
+
 +++
 
 avec sinus
@@ -105,11 +122,22 @@ avec sinus
 # calculez Y2 l'image de X par l'approximation de Taylor pour sinus au degré 10
 ```
 
+comparez Y2 avec Y, le résultat de sinus sur X en les dessinant - devrait ressembler à ceci:
+
+```{image} media/taylor2-v2-sin.png
+:width: 300px
+```
+
++++
+
+avec cosinus, au degré 0  - devrait ressembler à ceci:
+
+```{image} media/taylor2-v2-cos.png
+:width: 300px
+```
+
 ```{code-cell} ipython3
-# comparez Y2 avec Y, le résultat de sinus sur X
-# avec ==
-# avec isclose
-# en les dessinant
+# à vous
 ```
 
 avec une fonction custom
@@ -133,19 +161,15 @@ def custom(X):
 ```{code-cell} ipython3
 :tags: [raises-exception]
 
-# calculez Y4 l'image de X par l'approx. de custom d'ordre 20
+# calculez Y4 l'image de X par l'approx. de custom d'ordre 14
 ```
 
-```{code-cell} ipython3
-# comparez Y3 et Y4 comme ci-dessus
+comparez Y3 et Y4 comme ci-dessus - devrait avoir cette allure
 
-...
+```{image} media/taylor2-v2-custom.png
+:width: 300px
 ```
 
-```{code-cell} ipython3
-:tags: [raises-exception]
-
-Y3/Y4
-```
++++
 
 ***

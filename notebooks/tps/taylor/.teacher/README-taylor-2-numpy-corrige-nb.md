@@ -1,9 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -19,7 +15,7 @@ nbhosting:
   title: Taylor et numpy
 ---
 
-# Taylor (2/3)
+# Taylor (2/3): convergence
 
 +++
 
@@ -78,24 +74,38 @@ def taylor1(X, derivatives):
 avec sinus
 
 ```{code-cell} ipython3
+# les valeurs de sin et de ses dérivées successives en 0
+# pour l'instant on les passe en dur
+# (dans la partie suivante on les calculera)
+
 sinus10 = [0, 1, 0, -1, 0, 1, 0, -1, 0, 1]
 ```
 
-écrivez le code qui plotte le résultat de `taylor1` sur le domaine X = $[-2\pi, 2\pi]$
+écrivez le code qui plotte le résultat de `taylor1` sur le domaine X = $[-2\pi, 2\pi]$ - devrait ressembler à ceci:
+
+```{image} media/taylor2-v1.png
+:width: 300px
+```
+
+```{code-cell} ipython3
+X = np.linspace(-2*np.pi, 2*np.pi)
+```
 
 ```{code-cell} ipython3
 :tags: [level_basic]
 
 # prune-cell 
 
-X = np.linspace(-2*np.pi, 2*np.pi)
 Y1 = taylor1(X, sinus10)
 
 plt.figure()
-plt.plot(X, Y1);
+plt.plot(X, Y1)
+plt.savefig("media/taylor2-v1.png");
 ```
 
 ## exo v2
+
+une fois que la logique d'accumulation est acquise, on va calculer les dérivées successives de la fonction
 
 ```{code-cell} ipython3
 from autograd import grad
@@ -113,15 +123,21 @@ def taylor2(X, f, n):
     retourne un tableau Y qui est l'approximation de Taylor sur ce domaine pour cette fonction à ce degré
     """
     derivatives = []                                      # prune-line
-    for degree in range(n):                               # prune-line
+    # la somme est de 0 à n inclusivement                 # prune-line
+    for degree in range(n+1):                             # prune-line
         # attention à bien passer 0. et pas l'entier 0    # prune-line
         derivatives.append(f(0.))                         # prune-line
         f = grad(f)                                       # prune-line
-    print(derivatives)                                    # prune-line
+    # print(derivatives)                                  # prune-line
     return taylor1(X, derivatives)                        # prune-line
 ```
 
 ### testez la
+
+````{admonition} rappel
+
+pour comparer des flottants, il faut utiliser `isclose()` et non pas `==`
+````
 
 +++
 
@@ -140,18 +156,18 @@ avec sinus
 Y2 = taylor2(X, np.sin, 10)
 ```
 
-```{code-cell} ipython3
-# comparez Y2 avec Y, le résultat de sinus sur X
-# avec ==
-# avec isclose
-# en les dessinant
+comparez Y2 avec Y, le résultat de sinus sur X en les dessinant - devrait ressembler à ceci:
+
+```{image} media/taylor2-v2-sin.png
+:width: 300px
 ```
 
 ```{code-cell} ipython3
-:tags: [level_basic]
+:tags: [level_advanced]
 
 # prune-cell
 
+# pas demandé, mais:
 Y = np.sin(X)
 
 print("with ==\n", Y2 == Y)
@@ -166,7 +182,34 @@ print("with np.isclose\n", np.isclose(Y2, Y))
 
 plt.figure()
 plt.plot(X, Y)
-plt.plot(X, Y2);
+plt.plot(X, Y2)
+plt.savefig("media/taylor2-v2-sin.png")
+```
+
+avec cosinus, au degré 0  - devrait ressembler à ceci:
+
+```{image} media/taylor2-v2-cos.png
+:width: 300px
+```
+
+```{code-cell} ipython3
+# à vous
+```
+
+```{code-cell} ipython3
+:tags: [level_basic]
+
+# prune-cell
+
+Y = np.cos(X)
+Y2 = taylor2(X, np.cos, 0)
+
+# prune-cell
+
+plt.figure()
+plt.plot(X, Y)
+plt.plot(X, Y2)
+plt.savefig("media/taylor2-v2-cos.png")
 ```
 
 avec une fonction custom
@@ -193,15 +236,15 @@ Y3 = custom(X)                            # prune-line
 ```{code-cell} ipython3
 :tags: [raises-exception]
 
-# calculez Y4 l'image de X par l'approx. de custom d'ordre 20
+# calculez Y4 l'image de X par l'approx. de custom d'ordre 14
 
-Y4 = taylor2(X, custom, 20)                # prune-line
+Y4 = taylor2(X, custom, 14)                # prune-line
 ```
 
-```{code-cell} ipython3
-# comparez Y3 et Y4 comme ci-dessus
+comparez Y3 et Y4 comme ci-dessus - devrait avoir cette allure
 
-...
+```{image} media/taylor2-v2-custom.png
+:width: 300px
 ```
 
 ```{code-cell} ipython3
@@ -211,15 +254,24 @@ Y4 = taylor2(X, custom, 20)                # prune-line
 
 print("with ==\n", Y3 == Y4)
 
-print("with np.isclose\n", np.isclose(Y3, Y4, rtol=10**-3))
-
 plt.figure()
 plt.plot(X, Y3)
-plt.plot(X, Y4);
+plt.plot(X, Y4)
+plt.savefig("media/taylor2-v2-custom.png")
 ```
 
 ```{code-cell} ipython3
-:tags: [raises-exception]
+:tags: [level_advanced]
+
+# prune-cell
+
+print("with np.isclose\n", np.isclose(Y3, Y4, rtol=10**-3))
+```
+
+```{code-cell} ipython3
+:tags: [raises-exception, level_advanced]
+
+# prune-cell
 
 Y3/Y4
 ```
