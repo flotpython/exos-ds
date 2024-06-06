@@ -58,9 +58,8 @@ tracks:
     - notebooks/geo/tp-addresses/README-addresses-nb
   - name: dashboards
     notebooks:
+    - notebooks/dashboards/ipympl/README-ipympl-nb
     - notebooks/dashboards/streamlit/README-streamlit-nb
-    - notebooks/dashboards/streamlit/streamlit-sinus
-    - notebooks/dashboards/streamlit/streamlit-taylor
     - notebooks/dashboards/marimo/README-marimo-nb
     - notebooks/dashboards/dash/README-dash-nb
   - name: quizzes pandas

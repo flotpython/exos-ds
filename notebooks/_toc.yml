@@ -36,7 +36,7 @@ parts:
   - file: howtos/HOWTO-groupby-ratings-nb
   - file: howtos/HOWTO-fremont-bridge-nb
   # transformed into a TP (see above in the tps area)
-  # kept for the interact part, although that seems 
+  # kept for the interact part, although that seems
   # to no longer work very well, under jbook at least
   # - file: howtos/HOWTO-covid-interact-obsolete-nb.md
 - caption: TP pandas
@@ -52,6 +52,7 @@ parts:
   - file: geo/tp-addresses/README-addresses-nb
 - caption: dashboards
   chapters:
+  - file: dashboards/ipympl/README-ipympl-nb
   - file: dashboards/streamlit/README-streamlit-nb
   - file: dashboards/marimo/README-marimo-nb
   - file: dashboards/dash/README-dash-nb
