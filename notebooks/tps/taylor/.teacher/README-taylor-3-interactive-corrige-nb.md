@@ -82,9 +82,16 @@ et au changement de paramètre, on va changer **seulement la courbe de l'approxi
 ```
 
 ```{code-cell} ipython3
-# from v2
+# from TP#2
 
 from autograd import grad
+
+def taylor1(X, derivatives):
+    shape = X.size,                                    # prune-line
+    Y = np.zeros(shape)                                # prune-line
+    for degree, derivative in enumerate(derivatives):  # prune-line
+        Y += X**degree * derivative/factorial(degree)  # prune-line
+    return Y                                           # prune-line
 
 def taylor2(X, f, n):
     derivatives = []                                      # prune-line
@@ -102,21 +109,23 @@ from ipywidgets import AppLayout, Dropdown, IntSlider, FloatSlider, HBox, VBox
 plt.ioff()
 
 # the widgets
-degree = IntSlider(min=0, max=30, step=1, value=0, description="degree")
-# degree.layout.width = '80%'
-# degree.layout.margin = '0px 20px'
+degree = IntSlider(
+    min=0, max=30, step=1,
+    value=0, description="degree",
+    layout=dict(margin='0px 10px'),
+)
 
 function = Dropdown(options={
-    'sinus': np.sin,
-    'cosinus': np.cos,
-    'exp': np.exp,
-    '2sin(x) + cos(x/4)': custom,
-},
+        'sinus': np.sin,
+        'cosinus': np.cos,
+        'exp': np.exp,
+        '2sin(x) + cos(x/4)': custom,
+    },
     value=np.cos,
     description="function to approximate",
+    layout={'width': 'max-content'},
    )
-function.layout.width = '80%'
-function.layout.margin = '0px 20px'
+function.layout.margin = '0px 20px 0px 150px'
 
 domain = FloatSlider(min=1., max=100, value=10., 
                      description = "domain")
@@ -164,12 +173,16 @@ def update_function(change):
 function.observe(update_function, names='value')
 
 def update_domain(change):
+    # so that the change sticks in other update functions
+    global X
     X = np.linspace(-domain.value, domain.value, 200)
     Y1 = function.value(X)
     Y2 = taylor2(X, function.value, degree.value)
     lines1[0].set_data(X, Y1)
     lines2[0].set_data(X, Y2)
     update_title()
+    # otherwise we're stuck and always look at the original domain
+    plt.xlim(-domain.value, domain.value)
     fig.canvas.draw()
     fig.canvas.flush_events()
 
