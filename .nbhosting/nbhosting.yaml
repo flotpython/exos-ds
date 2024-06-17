@@ -21,8 +21,8 @@ tracks:
     - notebooks/exos-numpy/EXO-mandelbrot-nb
   - name: howtos numpy
     notebooks:
-    - notebooks/howtos/HOWTO-numpy-meshgrid-nb
-    - notebooks/howtos/opencv-yolo/HOWTO-opencv-yolo-nb
+    - notebooks/howtos-numpy/meshgrid/HOWTO-meshgrid-nb
+    - notebooks/howtos-numpy/opencv-yolo/HOWTO-opencv-yolo-nb
   - name: TPs numpy
     notebooks:
     - notebooks/tps/sounds/README-sounds-nb
@@ -40,11 +40,11 @@ tracks:
     - notebooks/exos-pandas/EXO-stack-multicol-nb
   - name: howtos pandas
     notebooks:
-    - notebooks/howtos/HOWTO-split-count-into-columns-nb
-    - notebooks/howtos/HOWTO-pivot-vs-stack-unstack-nb
-    - notebooks/howtos/HOWTO-timeseries-clean-smooth-nb
-    - notebooks/howtos/HOWTO-groupby-ratings-nb
-    - notebooks/howtos/HOWTO-fremont-bridge-nb
+    - notebooks/howtos-pandas/split-count/HOWTO-split-count-nb
+    - notebooks/howtos-pandas/pivot-unstack-groupby/HOWTO-pivot-unstack-groupby-nb
+    - notebooks/howtos-pandas/timeseries-clean-smooth/HOWTO-timeseries-clean-smooth-nb
+    - notebooks/howtos-pandas/grouping-tricks/HOWTO-grouping-tricks-nb
+    - notebooks/howtos-pandas/fremont-bridge/HOWTO-fremont-bridge-nb
   - name: TP pandas
     notebooks:
     - notebooks/tps/television/README-television-nb

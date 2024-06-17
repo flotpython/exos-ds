@@ -1,9 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -33,29 +29,30 @@ import pandas as pd
 we have the following dataset, these are the results of a survey
 there is one line per answer, and each person participating has answered 3 questions
 
-* what is the overall rating of the trademark
-* what are the most-liked and least-liked site (among a finite list)
+* what is the overall rating of the trademark - from 1 to 4
+* what are the most-liked and least-liked sites (among a finite list)
 
 ```{code-cell} ipython3
 df1 = pd.read_excel('data/groupby-ratings.xlsx')
 df1.head()
 ```
 
+### objective
 we want to compute, for each rating, the number of occurrences of each site among the `favorite` and `least-liked` columns
 
 ```{code-cell} ipython3
 :tags: [level_basic]
 
-# here the dataset is a little small
+# here the dataset is small
 
 grouped = df1.groupby('rating')
-
 grouped.size()
 ```
 
 this is a good opportunity to see that when calling `GroupBy.aggregrate`, **one can pass a dictionary**, that says how to deal with each column
 
 ```{code-cell} ipython3
+# if you need to see the doc, uncomment this line
 # grouped.aggregate?
 ```
 
@@ -74,10 +71,15 @@ counts = grouped.aggregate({
 counts
 ```
 
+how to understand this ? e.g. the **first line** means that:
+* among the people who gave a **rating of 1**:
+  * 2 have mentioned oxford as their favorite,
+  * and 1 have mentioned oxford as their least-liked
+
 ```{code-cell} ipython3
 :tags: [level_basic]
 
-# as always, the resulting dataframe has both its indexes that are multiindexes
+# here again, the resulting dataframe has a multi-index for both horizontal and vertical dimensions
 
 len(counts.index.levels), len(counts.columns.levels)
 ```

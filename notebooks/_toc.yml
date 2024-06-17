@@ -9,8 +9,8 @@ parts:
   - file: exos-numpy/EXO-mandelbrot-nb
 - caption: howtos numpy
   chapters:
-  - file: howtos/HOWTO-numpy-meshgrid-nb
-  - file: howtos/opencv-yolo/HOWTO-opencv-yolo-nb
+  - file: howtos-numpy/meshgrid/HOWTO-meshgrid-nb
+  - file: howtos-numpy/opencv-yolo/HOWTO-opencv-yolo-nb
     title: "images et vidéos avec OpenCV YOLO"
 - caption: TPs numpy
   chapters:
@@ -31,16 +31,16 @@ parts:
   - file: exos-pandas/EXO-stack-multicol-nb
 - caption: howtos pandas
   chapters:
-  - file: howtos/HOWTO-split-count-into-columns-nb
-  - file: howtos/HOWTO-pivot-vs-stack-unstack-nb
-  - file: howtos/HOWTO-timeseries-clean-smooth-nb
-  - file: howtos/HOWTO-groupby-ratings-nb
-  - file: howtos/HOWTO-fremont-bridge-nb
+  - file: howtos-pandas/split-count/HOWTO-split-count-nb
+  - file: howtos-pandas/pivot-unstack-groupby/HOWTO-pivot-unstack-groupby-nb
+  - file: howtos-pandas/timeseries-clean-smooth/HOWTO-timeseries-clean-smooth-nb
+  - file: howtos-pandas/grouping-tricks/HOWTO-grouping-tricks-nb
+  - file: howtos-pandas/fremont-bridge/HOWTO-fremont-bridge-nb
   # transformed into a TP (see above in the tps area)
   # kept for the interact part, although that seems
   # to no longer work very well, under jbook at least
-  # - file: howtos/HOWTO-covid-interact-obsolete-nb.md
-- caption: TP pandas
+  # - file: howtos-pandas/HOWTO-covid-interact-obsolete-nb.md
+- caption: TPs pandas
   chapters:
   - file: tps/television/README-television-nb
   - file: tps/marathon/README-marathon-nb

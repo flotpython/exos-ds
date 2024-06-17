@@ -1,9 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -19,7 +15,7 @@ nbhosting:
   title: pivot vs stack/unstack
 ---
 
-# stack / unstack et pivot
+# pivot / unstack / groupby
 
 +++
 
@@ -162,7 +158,7 @@ stacked2 = pivot.stack().stack()
 type(stacked2)
 ```
 
-et donc si vous avez suivi, le nombre de niveau dans l'index de cette série, c'est ?
+et donc si vous avez suivi, le nombre de niveaux dans l'index de cette série, c'est ?
 
 ```{code-cell} ipython3
 len(stacked2.index.levels)
@@ -219,3 +215,59 @@ df_1column.unstack().unstack()
 ```{code-cell} ipython3
 df_1column.unstack("name").unstack("tyre")
 ```
+
+## et groupby ?
+
+ici on a pris des données dans lesquelles il n'y a pas de répétition (par ex., on a une seule donnée pour Bob/2013/Front/1), on n'a donc pas eu besoin de faire de groupement ni d'agrégation.
+
+dans le cas général, `pivot_table` sait aussi faire de l'agrégation  
+voyons, toujours pour le sport, comment on ferait à la main une pivot_table dans ce cas-là  
+et pour ça on va prendre notre éternal titanic
+
+```{code-cell} ipython3
+import seaborn as sns
+
+titanic = sns.load_dataset('titanic')
+titanic.head()
+```
+
+### objectif
+
+reproduire ceci sans utiliser `pivot_table()`:
+
+```{code-cell} ipython3
+titanic.pivot_table(index='sex', columns='pclass', values='survived')
+```
+
+### groupby
+
+regardons pour commencer le résultat d'un `groupby` avec ces deux critères, et qui agrège avec `mean` pour faire la moyenne
+
+```{code-cell} ipython3
+grouped = titanic.groupby(by=['sex', 'pclass']).survived.mean()
+
+grouped
+```
+
+on obtient donc une série parce que
+- avec `.groupby` on obtient une collection de dataframes
+- en faisant `.survived` on s'est ramené à une collection de séries
+- en faisans `.mean()` on s'est ramené à une collection de nombres (les moyennes)
+
+et surtout ce qui nous intéresse ici c'est que l'index de cette série est **de profondeur 2** (parce qu'on a donné 2 critères au groupby)
+
+```{code-cell} ipython3
+grouped.index
+```
+
+### pivot_table = groupby + unstack
+
+et donc on peut tout simplement reproduire le premier `pivot_table()` en faisant
+
+```{code-cell} ipython3
+pivot2 = titanic.groupby(by=['sex', 'pclass']).survived.mean().unstack()
+
+pivot2
+```
+
+bon c'est beaucoup plus court et lisible avec `pivot_table()`, mais vous pouvez constater que c'est vraiment une fonction de confort uniquement, qui se refait assez facilement par d'autres moyens
