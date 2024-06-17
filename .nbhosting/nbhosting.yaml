@@ -19,7 +19,10 @@ tracks:
     notebooks:
     - notebooks/exos-numpy/EXO-indices-nb
     - notebooks/exos-numpy/EXO-mandelbrot-nb
+  - name: howtos numpy
+    notebooks:
     - notebooks/howtos/HOWTO-numpy-meshgrid-nb
+    - notebooks/howtos/opencv-yolo/HOWTO-opencv-yolo-nb
   - name: TPs numpy
     notebooks:
     - notebooks/tps/sounds/README-sounds-nb
@@ -28,9 +31,6 @@ tracks:
     - notebooks/tps/taylor/README-taylor-toc-nb
     - notebooks/tps/taylor/README-taylor-[0-9]*-nb
     - notebooks/tps/pentominos/README-pentominos-nb
-  - name: numpy images & videos
-    notebooks:
-    - notebooks/howtos/opencv-yolo/HOWTO-opencv-yolo-nb
   - name: exercices pandas
     notebooks:
     - notebooks/exos-pandas/EXO-mosaique-nb

@@ -7,7 +7,11 @@ parts:
   chapters:
   - file: exos-numpy/EXO-indices-nb
   - file: exos-numpy/EXO-mandelbrot-nb
+- caption: howtos numpy
+  chapters:
   - file: howtos/HOWTO-numpy-meshgrid-nb
+  - file: howtos/opencv-yolo/HOWTO-opencv-yolo-nb
+    title: "images et vidéos avec OpenCV YOLO"
 - caption: TPs numpy
   chapters:
   - file: tps/sounds/README-sounds-nb
@@ -18,9 +22,6 @@ parts:
     sections:
     - glob: tps/taylor/README-taylor-[0-9]*-nb
   - file: tps/pentominos/README-pentominos-nb
-- caption: numpy images & videos
-  chapters:
-  - file: howtos/opencv-yolo/HOWTO-opencv-yolo-nb
 - caption: exercices pandas
   chapters:
   - file: exos-pandas/EXO-mosaique-nb
