@@ -1,10 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -jupytext.custom_cell_magics, -language_info.version, -language_info.codemirror_mode.version,
-    -language_info.codemirror_mode, -language_info.file_extension, -language_info.mimetype,
-    -toc, -vscode
   text_representation:
     extension: .md
     format_name: myst
@@ -20,9 +15,13 @@ language_info:
 
 # un mot sur folium
 
-la bibliothèque `folium` (<hhttps://python-visualization.github.io/folium/latest/>) est un utilitaire qui permet de dessiner des cartes géographiques
+la bibliothèque `folium` (<https://python-visualization.github.io/folium/latest/>) est un utilitaire qui permet de dessiner des cartes géographiques
 
 elle est donc souvent utilisée en conjonction avec `geopandas`
+
++++
+
+pour exécuter ce notebook sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-folium.zip>`
 
 +++
 

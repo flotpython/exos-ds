@@ -48,7 +48,7 @@ parts:
   - file: tps/covid/README-covid-nb
 - caption: geo data
   chapters:
-  - file: geo/folium/README-folium-nb
+  - file: geo/folium/HOWTO-folium-nb
   - file: geo/tp-addresses/README-addresses-nb
 - caption: dashboards
   chapters:

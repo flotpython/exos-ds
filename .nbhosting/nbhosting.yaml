@@ -54,7 +54,7 @@ tracks:
     - notebooks/tps/covid/README-covid-nb
   - name: geo data
     notebooks:
-    - notebooks/geo/folium/README-folium-nb
+    - notebooks/geo/folium/HOWTO-folium-nb
     - notebooks/geo/tp-addresses/README-addresses-nb
   - name: dashboards
     notebooks:
