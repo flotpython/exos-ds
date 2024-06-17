@@ -1,9 +1,9 @@
 city;to-improve
 aberdeen;bins, flowers
-aberdeen;flowers, toilet
-oxford;bins, flowers
+aberdeen;flowers, restroom
+oxford;dump, flowers
 oxford;bin, toilets
-oxford;flowers, home, bins, 
-aberdeen;home, toilet, flowers
+oxford;flowers, home, trash,
+aberdeen;home, bathroom, flowers
 london;flowers
 london;bathroom, bin, flowers

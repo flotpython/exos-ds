@@ -1,9 +1,5 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -16,16 +12,14 @@ language_info:
   nbconvert_exporter: python
   pygments_lexer: ipython3
 nbhosting:
-  title: éclater des cellules en colonnes
+  title: "\xE9clater des cellules en colonnes"
 ---
+
+# groupements et décomptes
 
 ```{code-cell} ipython3
 import pandas as pd
 ```
-
-# groupements
-
-+++
 
 on a fait un sondage, on a demandé à des gens ce qu'ils pensaient devoir être amélioré dans leur environnement
 
@@ -131,21 +125,21 @@ comme c'est **une classe**, on peut **l'appeler** pour construire un objet - de 
 
 ```{code-cell} ipython3
 # un exemple d'appel de Counter sur une liste
+
 Counter(['john', 'mary', 'mary', 'john', 'john', 'john', 'mary'])
 ```
 
 ```{code-cell} ipython3
-# je peux donc utiliser apply
-# sur la série 'to-improve'
-# pour calculer une nouvelle série
-# dont les éléments sont des objets 'Counter'
+# je peux donc utiliser apply sur la série 'to-improve'
+# pour calculer une nouvelle série dont les éléments sont des objets 'Counter'
+
 totals['to-improve'].apply(Counter)
 ```
 
 ```{code-cell} ipython3
 # et pour l'insérer dans la dataframe, à la place de la précédente
-totals['to-improve'] = totals['to-improve'].apply(Counter)
 
+totals['to-improve'] = totals['to-improve'].apply(Counter)
 totals
 ```
 
@@ -153,12 +147,14 @@ totals
 
 ```{code-cell} ipython3
 # il faut savoir qu'un objet Counter est aussi un dictionnaire
+
 c = Counter(['john', 'mary', 'mary', 'john', 'john', 'john', 'mary'])
 isinstance(c, dict)
 ```
 
 ```{code-cell} ipython3
 # on peut donc créer une Series à partir d'un Counter
+
 pd.Series(c)
 ```
 
@@ -166,22 +162,22 @@ pd.Series(c)
 
 +++
 
-Maintenant ce qu'on va faire c'est en gros éclater chaque cellule de droite en ... une nouvelle Series
-
-et là c'est un peu magique il faut bien avouer
+Maintenant ce qu'on va faire c'est en gros éclater chaque cellule de droite en ... une nouvelle Series  
+et là c'est **un peu magique** il faut bien avouer:
 
 1. d'abord la création de la `Series` à partir de `Counter`; qui fait exactement ce qu'on veut, les clés dans l'objet `Counter` servent à remplir l'index de la `Series` 
 1. ensuite en remplaçant chaque valeur dans la Series par une nouvelle `Series`, on crée .. une dataframe
 
 ```{code-cell} ipython3
 # pour bien voir le point #1:
+
 pd.Series(Counter([True, False, False, True, True, True, False]))
 ```
 
 ```{code-cell} ipython3
 # et maintenant grâce au point 2, on obtient .. ce qu'on voulait
-improvements = totals['to-improve'].apply(pd.Series)
 
+improvements = totals['to-improve'].apply(pd.Series)
 improvements
 ```
 
@@ -195,12 +191,12 @@ improvements
 2. remplacer les n/a par zéro
 3. enfin si on regarde attentivement, il y a une colonne en trop, avec un nom vide
 
-  c'est lié à la ligne #4 dans la df de départ, la chaine se termine par une `,`
-
+  c'est lié à la ligne #4 dans la df de départ, la chaine se termine par une `,`  
   du coup quand on fait le `split()` ça nous ajoute une chaine vide, parce que:
 
 ```{code-cell} ipython3
 # remarquez la chaine vide à la fin du résultat
+
 "a,b,c,".split(',')
 ```
 
@@ -215,6 +211,7 @@ complete
 
 ```{code-cell} ipython3
 # en option on peut renommer la colonne 'to-improve'
+
 complete = complete.rename(columns={'to-improve': 'answers'})
 complete
 ```
@@ -223,6 +220,7 @@ complete
 
 ```{code-cell} ipython3
 # on en profite pour remettre des entiers ...
+
 complete.fillna(value=0, inplace=True, downcast='infer')
 complete
 ```
@@ -234,25 +232,41 @@ complete
 on aurait pu traiter le problème à un stade plus précoce, mais à ce stade-ci on peut toujours simplement enlever la colonne
 
 ```{code-cell} ipython3
-del complete['']
+complete.columns
+```
+
+```{code-cell} ipython3
+# à n'exécuter qu'une seule fois
+
+# del complete['']
+
+# du coup juste pour être tolérant par rapport à un éventuel double-run
+if '' in complete:
+    del complete['']
 complete
 ```
 
 ## dessiner
 
 ```{code-cell} ipython3
-import matplotlib.pyplot as plt
-```
+# ça nécessite un `pip install ipympl`
 
-```{code-cell} ipython3
 %matplotlib ipympl
 ```
 
 ```{code-cell} ipython3
-complete.plot();
+import matplotlib.pyplot as plt
 ```
 
 ```{code-cell} ipython3
+# pas forcément très intéressant, car df.plot() dessine les colonnes
+
+# complete.plot();
+```
+
+```{code-cell} ipython3
+# du coup c'est plus pertinent de le faire sur la transposée
+
 complete.T.plot();
 ```
 
