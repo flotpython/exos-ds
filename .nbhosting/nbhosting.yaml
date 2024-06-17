@@ -17,8 +17,8 @@ tracks:
   sections:
   - name: exercices numpy
     notebooks:
-    - notebooks/exos/numpy/EXO-indices-nb
-    - notebooks/exos/numpy/EXO-mandelbrot-nb
+    - notebooks/exos-numpy/EXO-indices-nb
+    - notebooks/exos-numpy/EXO-mandelbrot-nb
     - notebooks/howtos/HOWTO-numpy-meshgrid-nb
   - name: TPs numpy
     notebooks:
@@ -33,11 +33,11 @@ tracks:
     - notebooks/howtos/opencv-yolo/HOWTO-opencv-yolo-nb
   - name: exercices pandas
     notebooks:
-    - notebooks/exos/pandas/EXO-mosaique-nb
-    - notebooks/exos/pandas/EXO-titanic-nb
-    - notebooks/exos/pandas/EXO-bornes-nb
-    - notebooks/exos/pandas/EXO-stack-simple-nb
-    - notebooks/exos/pandas/EXO-stack-multicol-nb
+    - notebooks/exos-pandas/EXO-mosaique-nb
+    - notebooks/exos-pandas/EXO-titanic-nb
+    - notebooks/exos-pandas/EXO-bornes-nb
+    - notebooks/exos-pandas/EXO-stack-simple-nb
+    - notebooks/exos-pandas/EXO-stack-multicol-nb
   - name: howtos pandas
     notebooks:
     - notebooks/howtos/HOWTO-split-count-into-columns-nb

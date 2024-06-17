@@ -5,8 +5,8 @@ root: README
 parts:
 - caption: exercices numpy
   chapters:
-  - file: exos/numpy/EXO-indices-nb
-  - file: exos/numpy/EXO-mandelbrot-nb
+  - file: exos-numpy/EXO-indices-nb
+  - file: exos-numpy/EXO-mandelbrot-nb
   - file: howtos/HOWTO-numpy-meshgrid-nb
 - caption: TPs numpy
   chapters:
@@ -23,11 +23,11 @@ parts:
   - file: howtos/opencv-yolo/HOWTO-opencv-yolo-nb
 - caption: exercices pandas
   chapters:
-  - file: exos/pandas/EXO-mosaique-nb
-  - file: exos/pandas/EXO-titanic-nb
-  - file: exos/pandas/EXO-bornes-nb
-  - file: exos/pandas/EXO-stack-simple-nb
-  - file: exos/pandas/EXO-stack-multicol-nb
+  - file: exos-pandas/EXO-mosaique-nb
+  - file: exos-pandas/EXO-titanic-nb
+  - file: exos-pandas/EXO-bornes-nb
+  - file: exos-pandas/EXO-stack-simple-nb
+  - file: exos-pandas/EXO-stack-multicol-nb
 - caption: howtos pandas
   chapters:
   - file: howtos/HOWTO-split-count-into-columns-nb
