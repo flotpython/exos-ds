@@ -15,15 +15,15 @@ tracks:
   id: data-science
   name: Data Science
   sections:
-  - name: exercices numpy
+  - name: numpy exercices
     notebooks:
     - notebooks/numpy-exos/EXO-indices-nb
     - notebooks/numpy-exos/EXO-mandelbrot-nb
-  - name: howtos numpy
+  - name: numpy howtos
     notebooks:
     - notebooks/numpy-howtos/meshgrid/HOWTO-meshgrid-nb
     - notebooks/numpy-howtos/opencv-yolo/HOWTO-opencv-yolo-nb
-  - name: TPs numpy
+  - name: numpy TPs
     notebooks:
     - notebooks/numpy-tps/sounds/README-sounds-nb
     - notebooks/numpy-tps/images/README-images-toc-nb
@@ -31,31 +31,31 @@ tracks:
     - notebooks/numpy-tps/taylor/README-taylor-toc-nb
     - notebooks/numpy-tps/taylor/README-taylor-[0-9]*-nb
     - notebooks/numpy-tps/pentominos/README-pentominos-nb
-  - name: exercices pandas
+  - name: pandas exercices
     notebooks:
     - notebooks/pandas-exos/EXO-mosaique-nb
     - notebooks/pandas-exos/EXO-titanic-nb
-    - notebooks/pandas-exos/EXO-bornes-nb
     - notebooks/pandas-exos/EXO-stack-simple-nb
+    - notebooks/pandas-exos/EXO-bornes-nb
     - notebooks/pandas-exos/EXO-stack-multicol-nb
-  - name: howtos pandas
+  - name: pandas howtos
     notebooks:
     - notebooks/pandas-howtos/split-count/HOWTO-split-count-nb
     - notebooks/pandas-howtos/pivot-unstack-groupby/HOWTO-pivot-unstack-groupby-nb
     - notebooks/pandas-howtos/timeseries-clean-smooth/HOWTO-timeseries-clean-smooth-nb
     - notebooks/pandas-howtos/grouping-tricks/HOWTO-grouping-tricks-nb
     - notebooks/pandas-howtos/fremont-bridge/HOWTO-fremont-bridge-nb
-  - name: TPs pandas
+  - name: pandas TPs
     notebooks:
     - notebooks/pandas-tps/television/README-television-nb
     - notebooks/pandas-tps/marathon/README-marathon-nb
     - notebooks/pandas-tps/collages/README-collages-nb
     - notebooks/pandas-tps/groupby-draw/README-groupby-draw-nb
     - notebooks/pandas-tps/covid/README-covid-nb
-  - name: geo data
+  - name: geo data & maps
     notebooks:
-    - notebooks/geo/folium/HOWTO-folium-nb
-    - notebooks/geo/tp-addresses/README-addresses-nb
+    - notebooks/geo-howtos/folium/HOWTO-folium-nb
+    - notebooks/geo-tps/addresses/README-addresses-nb
   - name: dashboards
     notebooks:
     - notebooks/dashboards/ipympl/README-ipympl-nb

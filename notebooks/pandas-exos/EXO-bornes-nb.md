@@ -17,7 +17,7 @@ nbhosting:
   title: exo bornes
 ---
 
-# `stack()` pour énumérer une liste
+# `stack()`: pour énumérer une liste
 
 ```{code-cell} ipython3
 import pandas as pd

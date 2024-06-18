@@ -3,16 +3,16 @@
 format: jb-book
 root: README
 parts:
-- caption: exercices numpy
+- caption: numpy exercices
   chapters:
   - file: numpy-exos/EXO-indices-nb
   - file: numpy-exos/EXO-mandelbrot-nb
-- caption: howtos numpy
+- caption: numpy howtos
   chapters:
   - file: numpy-howtos/meshgrid/HOWTO-meshgrid-nb
   - file: numpy-howtos/opencv-yolo/HOWTO-opencv-yolo-nb
     title: "images et vidéos avec OpenCV YOLO"
-- caption: TPs numpy
+- caption: numpy TPs
   chapters:
   - file: numpy-tps/sounds/README-sounds-nb
   - file: numpy-tps/images/README-images-toc-nb
@@ -22,14 +22,14 @@ parts:
     sections:
     - glob: numpy-tps/taylor/README-taylor-[0-9]*-nb
   - file: numpy-tps/pentominos/README-pentominos-nb
-- caption: exercices pandas
+- caption: pandas exercices
   chapters:
   - file: pandas-exos/EXO-mosaique-nb
   - file: pandas-exos/EXO-titanic-nb
-  - file: pandas-exos/EXO-bornes-nb
   - file: pandas-exos/EXO-stack-simple-nb
+  - file: pandas-exos/EXO-bornes-nb
   - file: pandas-exos/EXO-stack-multicol-nb
-- caption: howtos pandas
+- caption: pandas howtos
   chapters:
   - file: pandas-howtos/split-count/HOWTO-split-count-nb
   - file: pandas-howtos/pivot-unstack-groupby/HOWTO-pivot-unstack-groupby-nb
@@ -40,14 +40,14 @@ parts:
   # kept for the interact part, although that seems
   # to no longer work very well, under jbook at least
   # - file: pandas-howtos/HOWTO-covid-interact-obsolete-nb.md
-- caption: TPs pandas
+- caption: pandas TPs
   chapters:
   - file: pandas-tps/television/README-television-nb
   - file: pandas-tps/marathon/README-marathon-nb
   - file: pandas-tps/collages/README-collages-nb
   - file: pandas-tps/groupby-draw/README-groupby-draw-nb
   - file: pandas-tps/covid/README-covid-nb
-- caption: geo data
+- caption: geo data & maps
   chapters:
   - file: geo-howtos/folium/HOWTO-folium-nb
   - file: geo-tps/addresses/README-addresses-nb

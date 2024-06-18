@@ -19,7 +19,7 @@ nbhosting:
 import pandas as pd
 ```
 
-# `stack()` en usage un peu plus avancé
+# `stack()`: usage un peu plus avancé
 
 ```{code-cell} ipython3
 df = pd.read_csv("data/stack-multicol.csv")

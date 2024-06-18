@@ -15,7 +15,7 @@ nbhosting:
   title: stack() simple
 ---
 
-# usage typique de `stack()`
+# `stack()`: usage typique
 
 ```{code-cell} ipython3
 import pandas as pd
