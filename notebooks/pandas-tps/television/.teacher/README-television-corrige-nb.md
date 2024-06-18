@@ -146,7 +146,6 @@ le mieux c'est d'utiliser `dropna`
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 df = pd.read_csv("data/television.txt", sep="\t")
@@ -191,7 +190,6 @@ def is_empty_column(df, colname):
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 def is_empty_column(df, col):
@@ -235,7 +233,6 @@ empty_columns = ...
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 df = pd.read_csv("data/television.txt", sep="\t")
@@ -262,7 +259,6 @@ Bien sûr on a découpé le problème en deux mais en fait ça peut se récrire 
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :lines_to_next_cell: 2
 :tags: [level_basic]
 
@@ -300,7 +296,6 @@ uniques = ...
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 uniques = df.cLT2FREQ.unique()
@@ -379,7 +374,6 @@ expected_lines
 ### option 1: `df.drop()`
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # on recharge à tout hasard
 df = pd.read_csv("data/television.txt", sep="\t").dropna(axis='columns', how='all')
@@ -403,7 +397,6 @@ option 1: on peut utiliser `df.drop()`, l'avantage étant qu'on peut faire l'op�
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 # on calcule l'index de la dataframe qui matche notre critère
@@ -422,7 +415,6 @@ df.shape == (7386, 4)
 ### option 2: sélection avec un masque et `[]`
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # on recharge à tout hasard
 df = pd.read_csv("data/television.txt", sep="\t").dropna(axis='columns', how='all')
@@ -439,7 +431,6 @@ option 2: il y a plein d'autres façons de faire, on peut aussi utiliser tout si
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 
@@ -470,7 +461,6 @@ filename = "television.xlsx"
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 

@@ -314,8 +314,6 @@ expected_lines
 ### option 1: `df.drop()`
 
 ```{code-cell} ipython3
-:hide_input: false
-
 # on recharge à tout hasard
 df = pd.read_csv("data/television.txt", sep="\t").dropna(axis='columns', how='all')
 print(df.shape)
@@ -349,8 +347,6 @@ df.shape == (7386, 4)
 ### option 2: sélection avec un masque et `[]`
 
 ```{code-cell} ipython3
-:hide_input: false
-
 # on recharge à tout hasard
 df = pd.read_csv("data/television.txt", sep="\t").dropna(axis='columns', how='all')
 print(df.shape)

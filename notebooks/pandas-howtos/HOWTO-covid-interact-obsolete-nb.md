@@ -183,7 +183,6 @@ columns = df.columns
 du coup maintenant si on voulait retrouver les données d'un pays on ferait juste
 
 ```{code-cell} ipython3
-:hide_input: false
 
 df_france = df.loc['France']; df_france
 ```

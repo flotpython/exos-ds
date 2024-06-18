@@ -34,7 +34,7 @@ voici les différentes étapes du TP en résumé
 1. enfin on verra comment passer à l'échelle pour visualiser plusieurs dizaines de milliers de points
 ````
 
-+++ {"tags": ["hide-input"], "hide_input": true}
++++ {"tags": ["hide-input"]}
 
 le résultat final sera de produire une carte comme ceci
 

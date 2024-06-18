@@ -450,21 +450,16 @@ cars = ...
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [raises-exception]
 
 cars.head(5)
 ```
-
-+++ {"hide_input": false}
 
 * le nombre de lignes dans la dataframe
 
 ```{code-cell} ipython3
 # votre code
 ```
-
-+++ {"hide_input": false}
 
 * nombre de colonnes dans la dataframe
 
@@ -493,8 +488,6 @@ cars.head(5)
 ```{code-cell} ipython3
 # votre code
 ```
-
-+++ {"hide_input": false}
 
 * le nombre de NaN par ligne
 

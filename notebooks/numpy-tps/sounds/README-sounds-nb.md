@@ -987,7 +987,7 @@ pourquoi ? de cette façon on va artificiellement
 * diminuer la durée par 2 (2 fois moins d'échantillons, toujours à la même fréquence d'échantillonage de 44.100 Hz)
 * et du coup multiplier par 2 la fréquence des sons perçus
 
-+++ {"hide_input": false}
++++
 
 ```{image} media/sounds-sample-2-1.png
 :align: center

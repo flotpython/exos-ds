@@ -142,7 +142,6 @@ dans l'autre sens quand on a produit une dataframe et qu'on veut sauver le résu
 par exemple je crée ici un fichier qu'on peut relire sous excel
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [raises-exception]
 
 loop = "marathon-loop.csv"
@@ -322,7 +321,7 @@ formatted_average == "2h 12' 13''"
 
 ### combien de marathons par an
 
-+++ {"hide_input": false, "tags": ["level_basic"]}
++++ {"tags": ["level_basic"]}
 
 si maintenant je veux produire une série qui compte par année combien il y a eu de marathons
 

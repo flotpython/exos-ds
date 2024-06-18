@@ -188,7 +188,6 @@ inputs = (4, 8, 12, 5, 10, 20)
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -233,7 +232,6 @@ figure.suptitle(f'Syracuse on {inputs}');
    - il faut la vectoriser en utilisant le décorateur `numpy.vectorize`
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-begin
@@ -250,7 +248,6 @@ def abs (n):
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 print("sans vectorisation")
@@ -263,7 +260,6 @@ except Exception as exc:
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 print("\n\navec vectorisation")
@@ -297,7 +293,6 @@ def abs (n):
    - plotter votre fonction en 3D
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -354,7 +349,6 @@ df1 = ...
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -395,7 +389,6 @@ df2 = ...
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -426,7 +419,6 @@ df = ...
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -467,7 +459,6 @@ affichez les types des colonnes
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -484,7 +475,6 @@ affichez un résumé / des informations générales
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -511,7 +501,6 @@ df.describe()
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -539,7 +528,6 @@ df = ...
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -583,7 +571,6 @@ prune-cell
 on transforme `Gender` en une catégorie; plusieurs variantes sont possibles
 
 ```{code-cell} ipython3
-:hide_input: false
 :lines_to_next_cell: 2
 :tags: [level_basic]
 
@@ -609,7 +596,6 @@ df.dtypes
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -640,7 +626,6 @@ df.head()
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -649,7 +634,6 @@ df.Gender.value_counts().count()
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -664,7 +648,6 @@ len(df.Gender.unique())
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -679,7 +662,6 @@ df.Weight.mean()
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -701,7 +683,6 @@ df['Mass Index'].std()
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -711,7 +692,6 @@ df.boxplot(column='Height');
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -731,7 +711,6 @@ df.boxplot(column='Weight');
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -746,7 +725,6 @@ women.plot('Height', 'Weight', kind='scatter',
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -769,7 +747,6 @@ plt.scatter(women.Weight, women.Height,
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -785,7 +762,6 @@ plt.plot(np.sort(df["Height"]));
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -802,7 +778,6 @@ plt.plot(np.sort(df[df["Gender"] == 'Female']["Height"]));
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -830,7 +805,6 @@ cars = ...
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -839,13 +813,12 @@ cars = pd.read_csv("data/car_sales.csv")
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [raises-exception]
 
 cars.head(5)
 ```
 
-+++ {"hide_input": false}
++++
 
 * le nombre de lignes dans la dataframe
 
@@ -854,7 +827,6 @@ cars.head(5)
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -867,7 +839,7 @@ cars.head(5)
 len(cars)
 ```
 
-+++ {"hide_input": false}
++++
 
 * nombre de colonnes dans la dataframe
 
@@ -876,7 +848,6 @@ len(cars)
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -894,7 +865,6 @@ len(cars.columns)
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -909,7 +879,6 @@ cars.columns
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -928,7 +897,6 @@ cars.iloc[9:14]
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -936,7 +904,7 @@ cars.iloc[9:14]
 np.sum(cars.isna())
 ```
 
-+++ {"hide_input": false}
++++
 
 * le nombre de NaN par ligne
 
@@ -945,7 +913,6 @@ np.sum(cars.isna())
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -954,7 +921,6 @@ np.sum(cars.isna(), axis=1)
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -978,7 +944,6 @@ cars.isna().any(axis=0).count()
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -998,7 +963,6 @@ cars.dropna(thresh=152, axis=1)
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -1015,7 +979,6 @@ cars.dropna(thresh=11, axis=0)
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell
@@ -1030,7 +993,6 @@ cars.dropna(how='any')
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [level_basic]
 
 # prune-cell

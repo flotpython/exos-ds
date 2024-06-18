@@ -92,7 +92,6 @@ df1 = pd.read_csv(URL)
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 
@@ -124,7 +123,6 @@ df = ... # pd.read_csv(URL)
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 # si en plus on précise le nom des colonnes 
@@ -160,7 +158,6 @@ dans l'autre sens quand on a produit une dataframe et qu'on veut sauver le résu
 par exemple je crée ici un fichier qu'on peut relire sous excel
 
 ```{code-cell} ipython3
-:hide_input: false
 :tags: [raises-exception]
 
 loop = "marathon-loop.csv"
@@ -186,7 +183,6 @@ df_1971 = ...
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 df_1971 = df[df.year == 1971]
@@ -209,7 +205,6 @@ df_london_1981 = ...
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 df_london_1981 = df[(df.city == 'LONDON') & (df.year == 1981)]
@@ -235,7 +230,6 @@ cities = ...
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 cities = df.city.unique()
@@ -269,7 +263,6 @@ df_10_to_12 = ...
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 df_10_to_12 = df.iloc[9:12]
@@ -296,7 +289,6 @@ s_paris_2000 = ...
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 
@@ -334,7 +326,6 @@ df_paris_2000_ys = ...
 ```
 
 ```{code-cell} ipython3
-:hide_input: false
 
 # prune-cell
 
@@ -371,7 +362,6 @@ seconds_average = ...
 
 ```{code-cell} ipython3
 :cell_style: center
-:hide_input: false
 
 # prune-cell
 
@@ -399,7 +389,6 @@ formatted_average = ...
 
 ```{code-cell} ipython3
 :cell_style: center
-:hide_input: false
 
 # prune-cell
 
@@ -419,7 +408,7 @@ formatted_average == "2h 12' 13''"
 
 ### combien de marathons par an
 
-+++ {"hide_input": false, "tags": ["level_basic"]}
++++ {"tags": ["level_basic"]}
 
 si maintenant je veux produire une série qui compte par année combien il y a eu de marathons
 
