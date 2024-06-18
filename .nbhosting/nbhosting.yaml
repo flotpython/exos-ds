@@ -25,12 +25,12 @@ tracks:
     - notebooks/howtos-numpy/opencv-yolo/HOWTO-opencv-yolo-nb
   - name: TPs numpy
     notebooks:
-    - notebooks/tps/sounds/README-sounds-nb
-    - notebooks/tps/images/README-images-toc-nb
-    - notebooks/tps/images/README-images[0-9]-nb
-    - notebooks/tps/taylor/README-taylor-toc-nb
-    - notebooks/tps/taylor/README-taylor-[0-9]*-nb
-    - notebooks/tps/pentominos/README-pentominos-nb
+    - notebooks/tps-numpy/sounds/README-sounds-nb
+    - notebooks/tps-numpy/images/README-images-toc-nb
+    - notebooks/tps-numpy/images/README-images[0-9]-nb
+    - notebooks/tps-numpy/taylor/README-taylor-toc-nb
+    - notebooks/tps-numpy/taylor/README-taylor-[0-9]*-nb
+    - notebooks/tps-numpy/pentominos/README-pentominos-nb
   - name: exercices pandas
     notebooks:
     - notebooks/exos-pandas/EXO-mosaique-nb
@@ -45,13 +45,13 @@ tracks:
     - notebooks/howtos-pandas/timeseries-clean-smooth/HOWTO-timeseries-clean-smooth-nb
     - notebooks/howtos-pandas/grouping-tricks/HOWTO-grouping-tricks-nb
     - notebooks/howtos-pandas/fremont-bridge/HOWTO-fremont-bridge-nb
-  - name: TP pandas
+  - name: TPs pandas
     notebooks:
-    - notebooks/tps/television/README-television-nb
-    - notebooks/tps/marathon/README-marathon-nb
-    - notebooks/tps/collages/README-collages-nb
-    - notebooks/tps/groupby-draw/README-groupby-draw-nb
-    - notebooks/tps/covid/README-covid-nb
+    - notebooks/tps-pandas/television/README-television-nb
+    - notebooks/tps-pandas/marathon/README-marathon-nb
+    - notebooks/tps-pandas/collages/README-collages-nb
+    - notebooks/tps-pandas/groupby-draw/README-groupby-draw-nb
+    - notebooks/tps-pandas/covid/README-covid-nb
   - name: geo data
     notebooks:
     - notebooks/geo/folium/HOWTO-folium-nb

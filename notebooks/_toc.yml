@@ -14,14 +14,14 @@ parts:
     title: "images et vidéos avec OpenCV YOLO"
 - caption: TPs numpy
   chapters:
-  - file: tps/sounds/README-sounds-nb
-  - file: tps/images/README-images-toc-nb
+  - file: tps-numpy/sounds/README-sounds-nb
+  - file: tps-numpy/images/README-images-toc-nb
     sections:
-    - glob: tps/images/README-images[0-9]-nb
-  - file: tps/taylor/README-taylor-toc-nb.md
+    - glob: tps-numpy/images/README-images[0-9]-nb
+  - file: tps-numpy/taylor/README-taylor-toc-nb.md
     sections:
-    - glob: tps/taylor/README-taylor-[0-9]*-nb
-  - file: tps/pentominos/README-pentominos-nb
+    - glob: tps-numpy/taylor/README-taylor-[0-9]*-nb
+  - file: tps-numpy/pentominos/README-pentominos-nb
 - caption: exercices pandas
   chapters:
   - file: exos-pandas/EXO-mosaique-nb
@@ -42,11 +42,11 @@ parts:
   # - file: howtos-pandas/HOWTO-covid-interact-obsolete-nb.md
 - caption: TPs pandas
   chapters:
-  - file: tps/television/README-television-nb
-  - file: tps/marathon/README-marathon-nb
-  - file: tps/collages/README-collages-nb
-  - file: tps/groupby-draw/README-groupby-draw-nb
-  - file: tps/covid/README-covid-nb
+  - file: tps-pandas/television/README-television-nb
+  - file: tps-pandas/marathon/README-marathon-nb
+  - file: tps-pandas/collages/README-collages-nb
+  - file: tps-pandas/groupby-draw/README-groupby-draw-nb
+  - file: tps-pandas/covid/README-covid-nb
 - caption: geo data
   chapters:
   - file: geo/folium/HOWTO-folium-nb
