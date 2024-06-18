@@ -5,48 +5,48 @@ root: README
 parts:
 - caption: exercices numpy
   chapters:
-  - file: exos-numpy/EXO-indices-nb
-  - file: exos-numpy/EXO-mandelbrot-nb
+  - file: numpy-exos/EXO-indices-nb
+  - file: numpy-exos/EXO-mandelbrot-nb
 - caption: howtos numpy
   chapters:
-  - file: howtos-numpy/meshgrid/HOWTO-meshgrid-nb
-  - file: howtos-numpy/opencv-yolo/HOWTO-opencv-yolo-nb
+  - file: numpy-howtos/meshgrid/HOWTO-meshgrid-nb
+  - file: numpy-howtos/opencv-yolo/HOWTO-opencv-yolo-nb
     title: "images et vidéos avec OpenCV YOLO"
 - caption: TPs numpy
   chapters:
-  - file: tps-numpy/sounds/README-sounds-nb
-  - file: tps-numpy/images/README-images-toc-nb
+  - file: numpy-tps/sounds/README-sounds-nb
+  - file: numpy-tps/images/README-images-toc-nb
     sections:
-    - glob: tps-numpy/images/README-images[0-9]-nb
-  - file: tps-numpy/taylor/README-taylor-toc-nb.md
+    - glob: numpy-tps/images/README-images[0-9]-nb
+  - file: numpy-tps/taylor/README-taylor-toc-nb.md
     sections:
-    - glob: tps-numpy/taylor/README-taylor-[0-9]*-nb
-  - file: tps-numpy/pentominos/README-pentominos-nb
+    - glob: numpy-tps/taylor/README-taylor-[0-9]*-nb
+  - file: numpy-tps/pentominos/README-pentominos-nb
 - caption: exercices pandas
   chapters:
-  - file: exos-pandas/EXO-mosaique-nb
-  - file: exos-pandas/EXO-titanic-nb
-  - file: exos-pandas/EXO-bornes-nb
-  - file: exos-pandas/EXO-stack-simple-nb
-  - file: exos-pandas/EXO-stack-multicol-nb
+  - file: pandas-exos/EXO-mosaique-nb
+  - file: pandas-exos/EXO-titanic-nb
+  - file: pandas-exos/EXO-bornes-nb
+  - file: pandas-exos/EXO-stack-simple-nb
+  - file: pandas-exos/EXO-stack-multicol-nb
 - caption: howtos pandas
   chapters:
-  - file: howtos-pandas/split-count/HOWTO-split-count-nb
-  - file: howtos-pandas/pivot-unstack-groupby/HOWTO-pivot-unstack-groupby-nb
-  - file: howtos-pandas/timeseries-clean-smooth/HOWTO-timeseries-clean-smooth-nb
-  - file: howtos-pandas/grouping-tricks/HOWTO-grouping-tricks-nb
-  - file: howtos-pandas/fremont-bridge/HOWTO-fremont-bridge-nb
+  - file: pandas-howtos/split-count/HOWTO-split-count-nb
+  - file: pandas-howtos/pivot-unstack-groupby/HOWTO-pivot-unstack-groupby-nb
+  - file: pandas-howtos/timeseries-clean-smooth/HOWTO-timeseries-clean-smooth-nb
+  - file: pandas-howtos/grouping-tricks/HOWTO-grouping-tricks-nb
+  - file: pandas-howtos/fremont-bridge/HOWTO-fremont-bridge-nb
   # transformed into a TP (see above in the tps area)
   # kept for the interact part, although that seems
   # to no longer work very well, under jbook at least
-  # - file: howtos-pandas/HOWTO-covid-interact-obsolete-nb.md
+  # - file: pandas-howtos/HOWTO-covid-interact-obsolete-nb.md
 - caption: TPs pandas
   chapters:
-  - file: tps-pandas/television/README-television-nb
-  - file: tps-pandas/marathon/README-marathon-nb
-  - file: tps-pandas/collages/README-collages-nb
-  - file: tps-pandas/groupby-draw/README-groupby-draw-nb
-  - file: tps-pandas/covid/README-covid-nb
+  - file: pandas-tps/television/README-television-nb
+  - file: pandas-tps/marathon/README-marathon-nb
+  - file: pandas-tps/collages/README-collages-nb
+  - file: pandas-tps/groupby-draw/README-groupby-draw-nb
+  - file: pandas-tps/covid/README-covid-nb
 - caption: geo data
   chapters:
   - file: geo/folium/HOWTO-folium-nb

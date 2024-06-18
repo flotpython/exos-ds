@@ -17,41 +17,41 @@ tracks:
   sections:
   - name: exercices numpy
     notebooks:
-    - notebooks/exos-numpy/EXO-indices-nb
-    - notebooks/exos-numpy/EXO-mandelbrot-nb
+    - notebooks/numpy-exos/EXO-indices-nb
+    - notebooks/numpy-exos/EXO-mandelbrot-nb
   - name: howtos numpy
     notebooks:
-    - notebooks/howtos-numpy/meshgrid/HOWTO-meshgrid-nb
-    - notebooks/howtos-numpy/opencv-yolo/HOWTO-opencv-yolo-nb
+    - notebooks/numpy-howtos/meshgrid/HOWTO-meshgrid-nb
+    - notebooks/numpy-howtos/opencv-yolo/HOWTO-opencv-yolo-nb
   - name: TPs numpy
     notebooks:
-    - notebooks/tps-numpy/sounds/README-sounds-nb
-    - notebooks/tps-numpy/images/README-images-toc-nb
-    - notebooks/tps-numpy/images/README-images[0-9]-nb
-    - notebooks/tps-numpy/taylor/README-taylor-toc-nb
-    - notebooks/tps-numpy/taylor/README-taylor-[0-9]*-nb
-    - notebooks/tps-numpy/pentominos/README-pentominos-nb
+    - notebooks/numpy-tps/sounds/README-sounds-nb
+    - notebooks/numpy-tps/images/README-images-toc-nb
+    - notebooks/numpy-tps/images/README-images[0-9]-nb
+    - notebooks/numpy-tps/taylor/README-taylor-toc-nb
+    - notebooks/numpy-tps/taylor/README-taylor-[0-9]*-nb
+    - notebooks/numpy-tps/pentominos/README-pentominos-nb
   - name: exercices pandas
     notebooks:
-    - notebooks/exos-pandas/EXO-mosaique-nb
-    - notebooks/exos-pandas/EXO-titanic-nb
-    - notebooks/exos-pandas/EXO-bornes-nb
-    - notebooks/exos-pandas/EXO-stack-simple-nb
-    - notebooks/exos-pandas/EXO-stack-multicol-nb
+    - notebooks/pandas-exos/EXO-mosaique-nb
+    - notebooks/pandas-exos/EXO-titanic-nb
+    - notebooks/pandas-exos/EXO-bornes-nb
+    - notebooks/pandas-exos/EXO-stack-simple-nb
+    - notebooks/pandas-exos/EXO-stack-multicol-nb
   - name: howtos pandas
     notebooks:
-    - notebooks/howtos-pandas/split-count/HOWTO-split-count-nb
-    - notebooks/howtos-pandas/pivot-unstack-groupby/HOWTO-pivot-unstack-groupby-nb
-    - notebooks/howtos-pandas/timeseries-clean-smooth/HOWTO-timeseries-clean-smooth-nb
-    - notebooks/howtos-pandas/grouping-tricks/HOWTO-grouping-tricks-nb
-    - notebooks/howtos-pandas/fremont-bridge/HOWTO-fremont-bridge-nb
+    - notebooks/pandas-howtos/split-count/HOWTO-split-count-nb
+    - notebooks/pandas-howtos/pivot-unstack-groupby/HOWTO-pivot-unstack-groupby-nb
+    - notebooks/pandas-howtos/timeseries-clean-smooth/HOWTO-timeseries-clean-smooth-nb
+    - notebooks/pandas-howtos/grouping-tricks/HOWTO-grouping-tricks-nb
+    - notebooks/pandas-howtos/fremont-bridge/HOWTO-fremont-bridge-nb
   - name: TPs pandas
     notebooks:
-    - notebooks/tps-pandas/television/README-television-nb
-    - notebooks/tps-pandas/marathon/README-marathon-nb
-    - notebooks/tps-pandas/collages/README-collages-nb
-    - notebooks/tps-pandas/groupby-draw/README-groupby-draw-nb
-    - notebooks/tps-pandas/covid/README-covid-nb
+    - notebooks/pandas-tps/television/README-television-nb
+    - notebooks/pandas-tps/marathon/README-marathon-nb
+    - notebooks/pandas-tps/collages/README-collages-nb
+    - notebooks/pandas-tps/groupby-draw/README-groupby-draw-nb
+    - notebooks/pandas-tps/covid/README-covid-nb
   - name: geo data
     notebooks:
     - notebooks/geo/folium/HOWTO-folium-nb

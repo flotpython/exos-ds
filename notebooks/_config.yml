@@ -14,7 +14,7 @@ exclude_patterns:
   - "book-ds/**/*"
   # consider only filenames that start with an uppercase
   # there is something fishy here:
-  # if we don't put the extension part, it will exclude things like ds-exos-numpy
+  # if we don't put the extension part, it will exclude things like ds-numpy-exos
   # with everything below; so we make sure to target only files and not directories
   # also this turns out to suppress too much content, like e.g. stuff in _static
   # and possibly other things that we don't want to exclude
