@@ -34,11 +34,17 @@ voici les différentes étapes du TP en résumé
 1. enfin on verra comment passer à l'échelle pour visualiser plusieurs dizaines de milliers de points
 ````
 
-+++ {"tags": ["hide-input"]}
++++
 
 le résultat final sera de produire une carte comme ceci
 
-<iframe src="../../_static/addresses-final.html" style="width: 100%; height: 400px;"></iframe>
++++ {"tags": ["hide-input"]}
+
+<iframe src="../../../_static/addresses-final.html" style="width: 100%; height: 400px;"></iframe>
+
++++ {"tags": ["hide-input", "prune-cell"]}
+
+<iframe src="../../../_static/addresses-final.html" style="width: 100%; height: 400px;"></iframe>
 
 +++
 
