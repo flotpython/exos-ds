@@ -345,37 +345,29 @@ pivoted.T.shape
 ```
 
 ```{code-cell} ipython3
-# en 2018 il fallait passer à sklearn un tableau numpy
-# il semble que depuis sklearn est mieux intégré à pandas
-# et il y a donc aussi la possibilité
-# de travailler directement à partir d'une dataframe pandas
-# mais pour nous ceci est 'good enough'
-
-X1 = pivoted.fillna(0).T.to_numpy()
-X1.shape
-```
-
-```{code-cell} ipython3
 # ! pip install sklearn
 from sklearn.decomposition import PCA
 ```
 
 ```{code-cell} ipython3
-X2 = PCA(2, svd_solver='full').fit_transform(X1)
+# on transpose, et on remplit les trous avec des 0
+pca_input = pivoted.T.fillna(0)
+
+# on utilise le PCA de scikit-learn comme une boite noire
+pca_output = PCA(2, svd_solver='full').fit_transform(pca_input)
 ```
 
 ```{code-cell} ipython3
-X2.shape
-```
+# on obtient un tableau numpy avec deux colonnes seulement
+# car on a demandé les deux premières composantes principales
 
-```{code-cell} ipython3
-type(X2)
+type(pca_output), pca_output.shape
 ```
 
 ```{code-cell} ipython3
 # on voit effectivement que cet ACP semble bien séparer deux clusters
 
-plt.scatter(X2[:, 0], X2[:, 1]);
+plt.scatter(pca_output[:, 0], pca_output[:, 1], marker='.', color='green');
 ```
 
 ```{code-cell} ipython3
@@ -385,7 +377,7 @@ from sklearn.mixture import GaussianMixture
 gmm = GaussianMixture(2)
 
 # c'est ici que tout se passe
-labels = gmm.fit(X1).predict(X1)
+labels = gmm.fit(pca_input).predict(pca_input)
 
 
 # la sortie est une association jour -> type
@@ -395,7 +387,7 @@ labels.shape, labels
 ```{code-cell} ipython3
 # cette prédiction est bien en phase avec les deux clusters de tout à l'heure
 
-plt.scatter(X2[:, 0], X2[:, 1], c=labels, cmap='rainbow')
+plt.scatter(pca_output[:, 0], pca_output[:, 1], c=labels, cmap='rainbow')
 plt.colorbar();
 ```
 
@@ -407,7 +399,7 @@ plt.colorbar();
 
 # ça correspond donc aux jours de la semaine
 
-pivoted.T.loc[labels==0].T.plot(legend=False, alpha=0.01);
+pivoted.loc[:, labels==0].plot(legend=False, alpha=0.01);
 ```
 
 ### `label==1` (en rouge) : les weekends
@@ -415,7 +407,7 @@ pivoted.T.loc[labels==0].T.plot(legend=False, alpha=0.01);
 ```{code-cell} ipython3
 # et les jours classés label==1
 
-pivoted.T[labels==1].T.plot(legend=False, alpha=0.01);
+pivoted.loc[:, labels==1].plot(legend=False, alpha=0.01);
 ```
 
 ### les deux clusters avec le jour de la semaine
@@ -449,7 +441,7 @@ dayofweek.shape, dayofweek
 # qu'on va utiliser pour mettre les jours en couleur
 # les jours de weekend sont en orange et rouge
 
-plt.scatter(X2[:, 0], X2[:, 1], c=dayofweek, cmap='rainbow')
+plt.scatter(pca_output[:, 0], pca_output[:, 1], c=dayofweek, cmap='rainbow')
 # pour la légende
 plt.colorbar();
 ```
