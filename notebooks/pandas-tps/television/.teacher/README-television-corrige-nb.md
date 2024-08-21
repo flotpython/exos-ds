@@ -12,9 +12,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  show_up_down_buttons: true
-  title: exo nettoyage
 ---
 
 # television (nettoyage)
@@ -146,7 +143,6 @@ le mieux c'est d'utiliser `dropna`
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 df = pd.read_csv("data/television.txt", sep="\t")
 
@@ -190,7 +186,6 @@ def is_empty_column(df, colname):
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 def is_empty_column(df, col):
     s = df[col]
@@ -219,7 +214,7 @@ col5 = 'Unnamed: 4'
 is_empty_column(df, col5)
 ```
 
-+++ {"hide_input": true, "tags": ["level_basic"]}
++++ {"tags": ["level_basic", "remove-input"]}
 
 ensuite il ne reste qu'à calculer la liste des colonnes vides, pour la passer à `df.drop()`
 
@@ -233,7 +228,6 @@ empty_columns = ...
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 df = pd.read_csv("data/television.txt", sep="\t")
 
@@ -259,7 +253,6 @@ Bien sûr on a découpé le problème en deux mais en fait ça peut se récrire 
 ```
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
 :tags: [level_basic]
 
 # prune-cell
@@ -296,7 +289,6 @@ uniques = ...
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 uniques = df.cLT2FREQ.unique()
 ```
@@ -374,7 +366,6 @@ expected_lines
 ### option 1: `df.drop()`
 
 ```{code-cell} ipython3
-
 # on recharge à tout hasard
 df = pd.read_csv("data/television.txt", sep="\t").dropna(axis='columns', how='all')
 print(df.shape)
@@ -397,7 +388,6 @@ option 1: on peut utiliser `df.drop()`, l'avantage étant qu'on peut faire l'op�
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 # on calcule l'index de la dataframe qui matche notre critère
 df.drop(index=df[df.cLT2FREQ.isna()].index, inplace=True)
@@ -415,7 +405,6 @@ df.shape == (7386, 4)
 ### option 2: sélection avec un masque et `[]`
 
 ```{code-cell} ipython3
-
 # on recharge à tout hasard
 df = pd.read_csv("data/television.txt", sep="\t").dropna(axis='columns', how='all')
 print(df.shape)
@@ -431,7 +420,6 @@ option 2: il y a plein d'autres façons de faire, on peut aussi utiliser tout si
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 
 df = df[~ df.cLT2FREQ.isna()]
@@ -448,7 +436,7 @@ df.shape == (7386, 4)
 
 ## sauver un fichier excel
 
-+++ {"hide_input": true, "tags": ["level_basic"]}
++++ {"tags": ["level_basic", "remove-input"]}
 
 je vous laisse conclure le TP, il s'agit d'enregistrer nos données nettoyées dans un fichier excel
 
@@ -461,7 +449,6 @@ filename = "television.xlsx"
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 
 # ce module est nécessaire - au moins dans mon environnement

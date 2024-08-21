@@ -12,9 +12,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  show_up_down_buttons: true
-  title: exo nettoyage
 ---
 
 # television (nettoyage)
@@ -200,7 +197,7 @@ col5 = 'Unnamed: 4'
 is_empty_column(df, col5)
 ```
 
-+++ {"hide_input": true, "tags": ["level_basic"]}
++++ {"tags": ["level_basic", "remove-input"]}
 
 ensuite il ne reste qu'à calculer la liste des colonnes vides, pour la passer à `df.drop()`
 
@@ -372,7 +369,7 @@ df.shape == (7386, 4)
 
 ## sauver un fichier excel
 
-+++ {"hide_input": true, "tags": ["level_basic"]}
++++ {"tags": ["level_basic", "remove-input"]}
 
 je vous laisse conclure le TP, il s'agit d'enregistrer nos données nettoyées dans un fichier excel
 
