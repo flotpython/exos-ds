@@ -12,9 +12,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  show_up_down_buttons: true
-  title: exo marathon
 ---
 
 # marathon (divers basique)
@@ -31,7 +28,7 @@ un petit TP pour travailler
 * un peu de groupby
 * un peu de gestion du temps et des durées
 
-+++ {"tags": []}
++++
 
 # outils
 
@@ -277,11 +274,11 @@ df_paris_2000_ys = ...
  and df_paris_2000_ys.iloc[-2].seconds == 7780)
 ```
 
-+++ {"hide_input": true, "tags": []}
++++ {"tags": ["remove-input"]}
 
 ## aggrégats
 
-+++ {"tags": []}
++++
 
 ### moyenne
 

@@ -12,9 +12,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  show_up_down_buttons: true
-  title: exo marathon
 ---
 
 # marathon (divers basique)
@@ -31,7 +28,7 @@ un petit TP pour travailler
 * un peu de groupby
 * un peu de gestion du temps et des durées
 
-+++ {"tags": []}
++++
 
 # outils
 
@@ -92,7 +89,6 @@ df1 = pd.read_csv(URL)
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 
 df1 = pd.read_csv(URL, sep='\t')
@@ -123,7 +119,6 @@ df = ... # pd.read_csv(URL)
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 # si en plus on précise le nom des colonnes 
 # ça commence à être franchement mieux
@@ -183,7 +178,6 @@ df_1971 = ...
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 df_1971 = df[df.year == 1971]
 ```
@@ -205,7 +199,6 @@ df_london_1981 = ...
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 df_london_1981 = df[(df.city == 'LONDON') & (df.year == 1981)]
 ```
@@ -230,7 +223,6 @@ cities = ...
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 cities = df.city.unique()
 cities
@@ -263,7 +255,6 @@ df_10_to_12 = ...
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 df_10_to_12 = df.iloc[9:12]
 df_10_to_12
@@ -289,7 +280,6 @@ s_paris_2000 = ...
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 
 # pour bien décortiquer, en deux temps
@@ -326,7 +316,6 @@ df_paris_2000_ys = ...
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 
 # on peut repartir de paris_2000
@@ -342,11 +331,11 @@ df_paris_2000_ys = df_paris_2000[['year', 'seconds']]
  and df_paris_2000_ys.iloc[-2].seconds == 7780)
 ```
 
-+++ {"hide_input": true, "tags": []}
++++ {"tags": ["remove-input"]}
 
 ## aggrégats
 
-+++ {"tags": []}
++++
 
 ### moyenne
 
