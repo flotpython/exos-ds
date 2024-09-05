@@ -80,7 +80,11 @@ il y a plein de façons de le faire, google et/ou stackoverflow sont vos amis...
 `(r, g, b) = (255, 255, 255)` donne la couleur blanche  
 `(r, g, b) = (0, 0, 0)` donne la couleur noire  
 `(r, g, b) = (255, 255, 0)` donne la couleur jaune ...
-<img src='media/synthese-additive.png' width=200>
+
+```{image} media/synthese-additive.png
+:width: 300px
+:align: center
+```
 
 * pour afficher le tableau `im` comme une image, utilisez: `plt.imshow(im)`
 * pour afficher plusieurs images dans une même cellule de notebook faire `plt.show()` après chaque `plt.imshow(...)`
