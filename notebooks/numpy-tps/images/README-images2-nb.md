@@ -40,30 +40,28 @@ from matplotlib import pyplot as plt
 
 +++ {"tags": ["framed_cell"]}
 
-**notions intervenant dans ce TP**
+````{admonition} → **notions intervenant dans ce TP**
 
-````{admonition} →
-sur les tableaux `numpy.ndarray`
+* sur les tableaux `numpy.ndarray`
+  * `reshape()`, masques booléens, *ufunc*, agrégation, opérations linéaires
+  * pour l'exercice `patchwork`:  
+    on peut le traiter sans, mais l'exercice se prête bien à l'utilisation d'une [indexation d'un tableau par un tableau - voyez par exemple ceci](https://ue12-p24-numerique.readthedocs.io/en/main/1-14-numpy-optional-indexing-nb.html)
+  * pour l'exercice `sepia`:  
+    ici aussi on peut le faire "naivement" mais l'utilisation de `np.dot()` peut rendre le code beaucoup plus court
+* pour la lecture, l'écriture et l'affichage d'images
+  * utilisez `plt.imread()`, `plt.imshow()`
+  * utilisez `plt.show()` entre deux `plt.imshow()` si vous affichez plusieurs images dans une même cellule
 
-* `reshape()`, tests, masques booléens, *ufunc*, agrégation, opérations linéaires sur les `numpy.ndarray`
-* les autres notions utilisées sont rappelées (très succinctement)
+  ```{admonition} **note à propos de l'affichage**
+  :class: seealso dropdown admonition-small
 
-pour la lecture, l'écriture et l'affichage d'images
-
-* utilisez `plt.imread`, `plt.imshow`
-* utilisez `plt.show()` entre deux `plt.imshow()` dans la même cellule
-
-**note**
-
-* nous utilisons les fonctions de base sur les images de `pyplot` par souci de simplicité
-* nous ne signifions pas là du tout que ce sont les meilleures  
-par exemple `matplotlib.pyplot.imsave` ne vous permet pas de donner la qualité de la compression  
-alors que la fonction `save` de `PIL` le permet
-
-* vous êtes libres d'utiliser une autre librairie comme `opencv`  
-  si vous la connaissez assez pour vous débrouiller (et l'installer), les images ne sont qu'un prétexte
-
-**n'oubliez pas d'utiliser le help en cas de problème.**
+  * nous utilisons les fonctions d'affichage d'images de `pyplot` par souci de simplicité
+  * nous ne signifions pas là du tout que ce sont les meilleures!  
+    par exemple `matplotlib.pyplot.imsave` ne vous permet pas de donner la qualité de la compression  
+    alors que la fonction `save` de `PIL` le permet
+  * vous êtes libres d'utiliser une autre librairie comme `opencv`  
+    si vous la connaissez assez pour vous débrouiller (et l'installer), les images ne sont qu'un prétexte...
+  ```
 ````
 
 +++
@@ -99,29 +97,37 @@ Lisez cette table en `Python` et rangez-la dans la structure qui vous semble ad�
    * prend une liste de couleurs et la structure donnant le code des couleurs RGB
    * et retourne un tableau `numpy` avec un patchwork de ces couleurs  
    * (pas trop petits les patchs - on doit voir clairement les taches de couleurs  
-   si besoin de compléter l'image mettez du blanc  
-   (`numpy.indices` peut être utilisé)
+   si besoin de compléter l'image mettez du blanc
+
++++
+
+````{admonition} indices
+:class: dropdown
+  
+* sont potentiellement utiles pour cet exo:
+  * la fonction `np.indices()`
+  * [l'indexation d'un tableau par un tableau](https://ue12-p24-numerique.readthedocs.io/en/main/1-14-numpy-optional-indexing-nb.html)
+* aussi, ça peut être habile de couper le problème en deux, et de commencer par écrire une fonction `rectangle_size(n)` qui vous donne la taille du patchwork en fonction du nombre de couleurs  
+  ```{admonition} et pour calculer la taille au plus juste
+  :class: tip dropdown
+
+  en version un peu brute, on pourrait utiliser juste la racine carrée;
+  par exemple avec 5 couleurs créer un carré 3x3 - mais 3x2 c'est quand même mieux !
+
+  voici pour vous aider à calculer le rectangle qui contient n couleurs
+
+  n | rect | n | rect | n | rect | n | rect |
+  -|-|-|-|-|-|-|-|
+  1 | 1x1 | 5 | 2x3 | 9 | 3x3 | 14 | 4x4 |
+  2 | 1x2 | 6 | 2x3 | 10 | 3x4 | 15 | 4x4 |
+  3 | 2x2 | 7 | 3x3 | 11 | 3x4 | 16 | 4x4 |
+  4 | 2x2 | 8 | 3x3 | 12 | 3x4 | 17 | 4x5 |
+  ```
+````
 
 ```{code-cell} ipython3
 # votre code
 ```
-
-````{tip}
-en version un peu brute, on pourrait utiliser juste la racine carrée;
-par exemple avec 5 couleurs créer un carré 3x3 - mais 3x2 c'est quand même mieux !
-
-
-pour calculer le rectangle qui contient n couleurs
-
-n | rect | n | rect | n | rect | n | rect |
--|-|-|-|-|-|-|-|
-1 | 1x1 | 5 | 2x3 | 9 | 3x3 | 14 | 4x4 |
-2 | 1x2 | 6 | 2x3 | 10 | 3x4 | 15 | 4x4 |
-3 | 2x2 | 7 | 3x3 | 11 | 3x4 | 16 | 4x4 |
-4 | 2x2 | 8 | 3x3 | 12 | 3x4 | 17 | 4x5 |
-````
-
-+++
 
 4. Tirez aléatoirement une liste de couleurs et appliquez votre fonction à ces couleurs.
 
@@ -156,7 +162,7 @@ vous devriez obtenir quelque chose comme ceci
 # votre code
 ```
 
-## Somme des valeurs RGB d'une image
+## Somme dans une image & overflow
 
 +++
 
@@ -172,28 +178,36 @@ vous devriez obtenir quelque chose comme ceci
 # votre code
 ```
 
-2. Affichez l'image (pas terrible), son maximum et son type
+2. Regardez le type de cette image-somme, et son maximum; que remarquez-vous?  
+   Affichez cette image-somme; comme elle ne contient qu'un canal il est habile de l'afficher en "niveaux de gris" (normalement le résultat n'est pas terrible ...)
+
+
+   ```{admonition} niveaux de gris ?
+   :class: dropdown tip
+
+   cherchez sur google `pyplot imshow cmap gray`
+   ```
 
 ```{code-cell} ipython3
 # votre code
 ```
 
-3. Créez un nouveau tableau `numpy.ndarray` en sommant **avec la fonction d'agrégation `np.sum`** les valeurs RGB des pixels de votre image
+3. Créez un nouveau tableau `numpy.ndarray` en sommant mais cette fois **avec la fonction d'agrégation `np.sum`** les valeurs RGB des pixels de votre image
 
 ```{code-cell} ipython3
 # votre code
 ```
 
-4. Affichez l'image, son maximum et son type
+4. Comme dans le 2., regardez son maximum et son type, et affichez la
 
 ```{code-cell} ipython3
 # votre code
 ```
 
-5. Pourquoi cette différence ? Utilisez le help `np.sum?`
+5. Les deux images sont de qualité très différente, pourquoi cette différence ? Utilisez le help `np.sum?`
 
 ```{code-cell} ipython3
-# votre code
+# votre code / explication
 ```
 
 6. Passez l'image en niveaux de gris de type entiers non-signés 8 bits  
