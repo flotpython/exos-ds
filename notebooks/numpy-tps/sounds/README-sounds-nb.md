@@ -24,6 +24,10 @@ Licence CC BY-NC-ND, Valérie Roy & Thierry Parmentelat
 
 +++
 
+pour réaliser ce TP localement sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-sounds.zip>`
+
++++
+
 # TP - un peu de musique
 
 +++
@@ -117,8 +121,17 @@ $$
 ````
 
 ```{code-cell} ipython3
+# bien sûr ce n'est pas comme ça qu'il faut faire
+# mais pour que la suite soit vaguement cohérente 
+# et que l'énoncé ne contienne pas des milliers d'erreurs...
+
+la_1seconde = np.arange(RATE) / RATE
+```
+
+```{code-cell} ipython3
 # votre code
-la_1seconde = ...
+
+# la_1seconde = ...
 ```
 
 ***
@@ -181,10 +194,18 @@ commencez par vous demander combien d'échantillons on doit produire
 ````
 
 ```{code-cell} ipython3
-# votre code
+# pareil ici: je donne une implémentation folklorique
+# pour ne pas avoir plein d'erreurs dans l'énoncé
 
 def sine(freq, duration=1, amplitude=1.):
-    ...
+    return la_1seconde
+```
+
+```{code-cell} ipython3
+# votre code
+
+# def sine(freq, duration=1, amplitude=1.):
+#     ...
 ```
 
 ```{code-cell} ipython3

@@ -2,14 +2,7 @@
 execution:
   allow_errors: true
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: 'all, -jupytext.text_representation.jupytext_version,
-    -jupytext.text_representation.format_version,
-
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-
-    -language_info.file_extension, -language_info.mimetype, -toc'
   text_representation:
     extension: .md
     format_name: myst
@@ -28,6 +21,10 @@ nbhosting:
 +++ {"slideshow": {"slide_type": ""}, "tags": []}
 
 Licence CC BY-NC-ND, Valérie Roy & Thierry Parmentelat
+
++++
+
+pour réaliser ce TP localement sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-sounds.zip>`
 
 +++
 
@@ -124,8 +121,17 @@ $$
 ````
 
 ```{code-cell} ipython3
+# bien sûr ce n'est pas comme ça qu'il faut faire
+# mais pour que la suite soit vaguement cohérente 
+# et que l'énoncé ne contienne pas des milliers d'erreurs...
+
+la_1seconde = np.arange(RATE) / RATE
+```
+
+```{code-cell} ipython3
 # votre code
-la_1seconde = ...
+
+# la_1seconde = ...
 ```
 
 ***
@@ -219,10 +225,18 @@ commencez par vous demander combien d'échantillons on doit produire
 ````
 
 ```{code-cell} ipython3
-# votre code
+# pareil ici: je donne une implémentation folklorique
+# pour ne pas avoir plein d'erreurs dans l'énoncé
 
 def sine(freq, duration=1, amplitude=1.):
-    ...
+    return la_1seconde
+```
+
+```{code-cell} ipython3
+# votre code
+
+# def sine(freq, duration=1, amplitude=1.):
+#     ...
 ```
 
 ```{code-cell} ipython3
