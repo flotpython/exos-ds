@@ -40,7 +40,7 @@ le résultat final sera de produire une carte comme ceci
 
 +++ {"tags": ["hide-input"]}
 
-<iframe src="../../../_static/addresses-final.html" style="width: 100%; height: 400px;"></iframe>
+<iframe src="../../_static/addresses-final.html" style="width: 100%; height: 400px;"></iframe>
 
 +++
 
