@@ -18,8 +18,6 @@ nbhosting:
   title: TP - un peu de musique
 ---
 
-+++ {"slideshow": {"slide_type": ""}, "tags": []}
-
 Licence CC BY-NC-ND, Valérie Roy & Thierry Parmentelat
 
 +++
@@ -138,11 +136,8 @@ la_1seconde = np.arange(RATE) / RATE
 ***
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: ''
-tags: [raises-exception]
----
+:tags: [raises-exception]
+
 # pour écouter le résultat
 # remarquez qu'on a maintenant perdu la fréquence d'échantillonnage
 # il faut repasser cette information au lecteur de musique
@@ -161,21 +156,16 @@ def MyAudio(what, **kwds):
 
 ```{code-cell} ipython3
 ---
-cell_style: split
 slideshow:
   slide_type: ''
-tags: [raises-exception]
+tags: [raises-exception, gridwidth-1-2]
 ---
 MyAudio(la_1seconde)
 ```
 
 ```{code-cell} ipython3
----
-cell_style: split
-slideshow:
-  slide_type: ''
-tags: [raises-exception]
----
+:tags: [raises-exception, gridwidth-1-2]
+
 MyAudio(la_1seconde, autoplay=True)
 ```
 
@@ -410,14 +400,15 @@ du coup avec le type `int16` on va pouvoir encoder l'intervalle [-32768, 32767]
 ````{admonition} signé ou pas signé ?
 
 pour coder le son, faut-il utiliser des entiers signés ou non signés ?
-* fabriquez un tableau de -5 à 5 comme des entiers 16 bits non signés
-* fabriquez un tableau contenant les entiers de 32764 à 32771 comme des entiers 16 bits signés
-* que constatez-vous
-* qu'est-ce que cela signifie pour la génération de son ?
+
+* essayez de fabriquer un tableau de -5 à 5 comme des entiers 16 bits non signés
+* idem avec un tableau contenant les entiers de 32764 à 32771 comme des entiers 16 bits signés
+* que constatez-vous ?
 
 ```{note}
-d'ailleurs il semble qu'avec les versions futures de numpy, ce genre de manipes tordues provoquera une exception...
+avec la version actuelle de numpy, ce genre de manipes tordues provoque une exception...
 ```
+
 ````
 
 ```{code-cell} ipython3
