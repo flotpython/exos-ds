@@ -14,13 +14,11 @@ language_info:
   pygments_lexer: ipython3
 ---
 
++++ {"tags": ["level_basic"]}
+
 # marathon (divers basique)
 
-+++
-
 pour réaliser ce TP localement sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-marathon.zip>`
-
-+++
 
 un petit TP pour travailler
 
@@ -50,7 +48,9 @@ with open("data/marathon.txt") as f:
 On va étudier un jeu de données trouvé sur Internet
 
 ```{code-cell} ipython3
-URL = "http://www.xavierdupre.fr/enseignement/complements/marathon.txt"
+# 2024: le site original semble être *down*
+# URL = "http://www.xavierdupre.fr/enseignement/complements/marathon.txt"
+URL = "data/marathon.txt"
 ```
 
 ## chargement
@@ -93,23 +93,28 @@ df1 = pd.read_csv(URL)
 df1.shape == (358, 4) and df1.iloc[0, 0] == 'PARIS' and df1.columns[0] == 'PARIS'
 ```
 
-c'est mieux, mais les noms des colonnes ne sont pas corrects
++++ {"tags": [], "slideshow": {"slide_type": ""}}
 
-en effet par défaut, `read_csv` utilise la première ligne pour déterminer les noms des colonnes
-
+c'est mieux, mais les noms des colonnes ne sont pas corrects  
+en effet par défaut, `read_csv` utilise la première ligne pour déterminer les noms des colonnes  
 or dans le fichier texte il n'y a pas le nom des colonnes ! (voyez ci-dessus)
-
-+++ {"tags": ["level_basic"]}
 
 du coup ce serait pertinent de donner un nom aux colonnes
 
 ```{code-cell} ipython3
+:tags: []
+
 NAMES = ["city", "year", "duration", "seconds"]
 ```
 
 ```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
 # à vous de créer une donnée bien propre
-df = ... # pd.read_csv(URL)
+df = ...
 ```
 
 ```{code-cell} ipython3
@@ -146,10 +151,12 @@ df.to_csv(loop, sep=";", index=False)
 ```
 
 ```{code-cell} ipython3
+:scrolled: true
 :tags: [raises-exception]
 
 # pour voir un aperçu
-head(loop, 4)
+
+%cat marathon-loop.csv
 ```
 
 ## des recherches
@@ -160,6 +167,7 @@ head(loop, 4)
 
 ```{code-cell} ipython3
 # à vous de calculer les éditions de 1971
+
 df_1971 = ...
 ```
 
@@ -167,6 +175,7 @@ df_1971 = ...
 :tags: [raises-exception]
 
 # ceci doit retourner True
+
 df_1971.shape == (3, 4) and df_1971.seconds.max() == 8574
 ```
 
@@ -176,6 +185,7 @@ df_1971.shape == (3, 4) and df_1971.seconds.max() == 8574
 
 ```{code-cell} ipython3
 # à vous
+
 df_london_1981 = ...
 ```
 
@@ -183,6 +193,7 @@ df_london_1981 = ...
 :tags: [raises-exception]
 
 # ceci doit retourner True
+
 df_london_1981.shape == (1, 4) and df_london_1981.iloc[0].seconds == 7908
 ```
 
@@ -198,18 +209,13 @@ on veut construire une collection de toutes les villes qui apparaissent au moins
 cities = ...
 ```
 
-```{code-cell} ipython3
-# intéressez-vous au type du résultat
+intéressez-vous au type du résultat (dataframe, series, ndarray, liste ?)
 
-# la version la plus naïve retourne un ndarray
-import numpy as np
-
-isinstance(cities, np.ndarray)
-```
++++
 
 ## des extraits
 
-attention ici les numéros de ligne **commencent à 1**
+attention ici dans les consignes, les numéros de ligne **commencent à 1**
 
 +++
 
@@ -221,6 +227,7 @@ les entrées correspondant aux lignes 10 à 12 inclusivement
 
 ```{code-cell} ipython3
 # à vous
+
 df_10_to_12 = ...
 ```
 
@@ -228,6 +235,7 @@ df_10_to_12 = ...
 :tags: [raises-exception]
 
 # ceci doit retourner True
+
 df_10_to_12.shape == (3, 4) and df_10_to_12.iloc[0].year == 2002 and df_10_to_12.iloc[-1].year == 2000
 ```
 
@@ -248,9 +256,13 @@ s_paris_2000
 ```
 
 ```{code-cell} ipython3
-:tags: [raises-exception]
-
+---
+slideshow:
+  slide_type: ''
+tags: [raises-exception]
+---
 # ceci doit retourner True
+
 isinstance(s_paris_2000, pd.Series) and len(s_paris_2000) == 12 and s_paris_2000.iloc[-1] == 2000
 ```
 
@@ -266,9 +278,13 @@ df_paris_2000_ys = ...
 ```
 
 ```{code-cell} ipython3
-:tags: [raises-exception]
-
+---
+slideshow:
+  slide_type: ''
+tags: [raises-exception]
+---
 # ceci doit retourner True
+
 (isinstance(df_paris_2000_ys, pd.DataFrame)
  and df_paris_2000_ys.shape == (12, 2) 
  and df_paris_2000_ys.iloc[-2].seconds == 7780)
@@ -293,9 +309,13 @@ seconds_average = ...
 ```
 
 ```{code-cell} ipython3
-:tags: [raises-exception]
-
+---
+slideshow:
+  slide_type: ''
+tags: [raises-exception]
+---
 # pour vérifier
+
 import math
 math.isclose(seconds_average, 7933.660167130919)
 ```
@@ -310,9 +330,13 @@ formatted_average = ...
 ```
 
 ```{code-cell} ipython3
-:tags: [raises-exception]
-
+---
+slideshow:
+  slide_type: ''
+tags: [raises-exception]
+---
 # pour vérifier
+
 formatted_average == "2h 12' 13''"
 ```
 
@@ -367,11 +391,19 @@ commençons par écarter une fausse bonne idée
 dans `read_csv` il y a une option `parse_dates`; mais regardez ce que ça donne
 
 ```{code-cell} ipython3
-df_broken = pd.read_csv(URL, sep='\t', 
-                        names=['city', 'year', 'duration', 'seconds'], 
-                        parse_dates=['duration'])
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
+df_broken = pd.read_csv(
+    URL, sep='\t', 
+    names=['city', 'year', 'duration', 'seconds'], 
+    parse_dates=['duration'])
 df_broken
 ```
+
++++ {"slideshow": {"slide_type": ""}, "tags": []}
 
 **ça ne va pas !**
 
@@ -396,16 +428,23 @@ voyez la documentation de cette fonction, et modifiez la dataframe `df` pour que
 ```
 
 ```{code-cell} ipython3
-:tags: [raises-exception]
-
+---
+slideshow:
+  slide_type: ''
+tags: [raises-exception]
+---
 # pour vérifier - doit retourner True
+
 df.duration.dtype == 'timedelta64[ns]'
 ```
 
 ```{code-cell} ipython3
-:tags: [raises-exception]
-
-# et effectivement c'est beaucoup mieux
+---
+slideshow:
+  slide_type: ''
+tags: [raises-exception]
+---
+# et maintenant ça devrait être beaucoup mieux
 
 df.head(2)
 ```
