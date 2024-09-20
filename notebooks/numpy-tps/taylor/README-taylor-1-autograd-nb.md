@@ -7,12 +7,6 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-language_info:
-  name: python
-  nbconvert_exporter: python
-  pygments_lexer: ipython3
-nbhosting:
-  title: Taylor et autograd
 ---
 
 # Taylor (1/3): intro à autograd
@@ -21,7 +15,7 @@ nbhosting:
 
 le package est ici
 
-* sources https://github.com/HIPS/autograd
+* sources <https://github.com/HIPS/autograd>
 
 +++
 
@@ -31,14 +25,15 @@ le package est ici
 
 donc comme toujours on l'installe avec `pip`
 
-```{code-cell} ipython3
+```{code-cell}
 # si nécessaire
 # %pip install autograd
 ```
 
 ## comment s'en servir
 
-```{code-cell} ipython3
+```{code-cell}
+# À LA PLACE de l'habituel 'import numpy as np'
 import autograd.numpy as np
 
 from autograd import grad
@@ -64,45 +59,32 @@ deux points à retenir
 
 calculez le domaine des réels entre 0 et 2π
 
-```{code-cell} ipython3
+```{code-cell}
 # votre code
+
+# X = ...
 ```
 
 ### Q2
 
 +++
 
-appliquez à ce domaine la dérivée de *sin*
+1. utilisez la librairie `grad` pour calculer `sin_der`, une fomction dérivée de la fonction *sin*
+2. appliquez-la à ce domaine
 
 **[indice]** on rappelle que pour appliquer une fonction sur un tableau, il faut qu'elle soit vectorisée
 
-```{code-cell} ipython3
+```{code-cell}
 # votre code
+#
 # votre job est de définir sin_der qui
 # est la fonction dérivée de sinus
 ```
 
-```{code-cell} ipython3
-:tags: [level_basic, raises-exception]
-
-sin_der(0.)
-```
-
-```{code-cell} ipython3
-:tags: [level_basic]
-
-# mais
-try:
-    sin_der(X)
-except Exception as exc:
-    print(f"{type(exc)} - {exc}")
-```
-
-```{code-cell} ipython3
-:tags: [level_basic, raises-exception]
-
-# du coup on vectorise avec numpy
-sin_der_vec = np.vectorize(sin_der)
+```{code-cell}
+# et pour tester
+#
+sin_der(X)
 ```
 
 ### Q3
@@ -111,8 +93,14 @@ sin_der_vec = np.vectorize(sin_der)
 
 vérifiez que vous obtenez bien le *cos* de ce domaine
 
-```{code-cell} ipython3
+```{code-cell}
 # votre code
 ```
+
+### Q4 (optionnel)
+
+affichez les courbes des deux fonctions (cosinus et sa dérivée) une au dessus de l'autre
+
++++
 
 ***
