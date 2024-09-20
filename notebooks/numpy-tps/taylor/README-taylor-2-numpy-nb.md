@@ -11,8 +11,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  title: Taylor et numpy
 ---
 
 # Taylor (2/3): convergence
@@ -32,14 +30,15 @@ $$f_n(x) = \sum_{i=0}^{n}\frac{f^{(i)}(0).x^i}{i!}$$
 # %pip install autograd
 
 import autograd.numpy as np
-
-from math import factorial
 ```
 
 ```{code-cell} ipython3
-import matplotlib.pyplot as plt
+# et on aura besoin aussi de 
+
+from math import factorial
 
 %matplotlib ipympl
+import matplotlib.pyplot as plt
 ```
 
 ## exo v1
@@ -49,12 +48,14 @@ import matplotlib.pyplot as plt
 ### écrivez une fonction
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 def taylor1(X, derivatives):
     """
     X le domaine (sous-entendu, X[0]<0 et X[-1]>0)
     derivatives: une liste ou un tableau contenant les dérivées successives de f en 0
       i.e. derivatives[n] = f(n)(0) la dérivée n-ième de f en 0
-    
+
     retourne un tableau Y qui est l'approximation de Taylor sur ce domaine pour une fonction
     qui aurait ces dérivées-là
     """
@@ -86,17 +87,25 @@ sinus10 = [0, 1, 0, -1, 0, 1, 0, -1, 0, 1]
 X = np.linspace(-2*np.pi, 2*np.pi)
 ```
 
+```{code-cell} ipython3
+# votre code
+```
+
 ## exo v2
 
 une fois que la logique d'accumulation est acquise, on va calculer les dérivées successives de la fonction
 
 ```{code-cell} ipython3
+# en utilisant l'outil qu'on a vu dans la première partie
+
 from autograd import grad
 ```
 
 ### écrivez une fonction
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 def taylor2(X, f, n):
     """
     X: le domaine
@@ -107,30 +116,47 @@ def taylor2(X, f, n):
     """
 ```
 
-### testez la
-
-````{admonition} rappel
-
-pour comparer des flottants, il faut utiliser `isclose()` et non pas `==`
-````
+## testons la v2
 
 +++
 
-avec sinus
+### avec sinus au degré 10
 
 ```{code-cell} ipython3
-# calculez Y2 l'image de X par l'approximation de Taylor pour sinus au degré 10
+:tags: []
+
+# Y est le sinus de X
+# Y2 est l'image de X par l'approximation de Taylor pour sinus au degré 10
+
+Y  = np.sin(X)
+Y2 = taylor2(X, np.sin, 10)
 ```
 
-comparez Y2 avec Y, le résultat de sinus sur X en les dessinant - devrait ressembler à ceci:
+1. comparez Y2 avec Y en les dessinant sur la même courbe - devrait ressembler à ceci:
 
 ```{image} media/taylor2-v2-sin.png
 :width: 300px
 ```
 
+```{code-cell} ipython3
+# votre code
+```
+
+2. regardez la coincidence de Y et Y2
+
+quel est le pourcentage du domaine pour lequel l'approximation est valide à $10^{-3}$ près ?
+
+````{admonition} rappel
+:class: admonition-small dropdown
+
+on rappelle que `==` n'est pas le bon outil pour comparer les flottants
+````
+
 +++
 
-avec cosinus, au degré 0  - devrait ressembler à ceci:
+### avec cosinus, au degré 0
+
+1. affichez cos et son approximation au degré 0, qui devrait ressembler à ceci:
 
 ```{image} media/taylor2-v2-cos.png
 :width: 300px
@@ -140,11 +166,13 @@ avec cosinus, au degré 0  - devrait ressembler à ceci:
 # à vous
 ```
 
-avec une fonction custom
+### avec une fonction custom
+
++++
+
+1. à vous de compléter cette fonction
 
 ```{code-cell} ipython3
-# à vous
-
 def custom(X):
     """
     retourne 2 * sin(X) + cos(X/4)
@@ -152,24 +180,25 @@ def custom(X):
     ...
 ```
 
-```{code-cell} ipython3
-:tags: [raises-exception]
++++ {"tags": ["raises-exception"]}
 
-# calculez Y3 l'image de X par custom
-```
+2. calculez Y3 l'image de X par custom  
+   et Y4 l'image de X par l'approx. de custom d'ordre 14
 
-```{code-cell} ipython3
-:tags: [raises-exception]
++++
 
-# calculez Y4 l'image de X par l'approx. de custom d'ordre 14
-```
-
-comparez Y3 et Y4 comme ci-dessus - devrait avoir cette allure
+3. comparez Y3 et Y4 comme ci-dessus - devrait avoir cette allure
 
 ```{image} media/taylor2-v2-custom.png
 :width: 300px
 ```
 
-+++
+```{code-cell} ipython3
+# votre code
+```
 
-***
+4. sur quel pourcentage du domaine a-t-on coincidence à $10^{-3}$ près ?
+
+```{code-cell} ipython3
+# votre code
+```

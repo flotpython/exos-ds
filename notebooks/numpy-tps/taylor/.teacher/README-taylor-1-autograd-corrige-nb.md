@@ -3,12 +3,14 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.16.4
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+language_info:
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
 ---
 
 # Taylor (1/3): intro à autograd
@@ -92,19 +94,12 @@ X = np.linspace(0, 2*np.pi)
 ```
 
 ```{code-cell} ipython3
-# et pour tester
-#
-sin_der(X)
-```
-
-```{code-cell} ipython3
 :tags: [level_basic]
 
 # prune-begin
 
 sin_der = grad(np.sin)
 ```
-
 
 attention à ce stade on n'a pas une fonction vectorisée
 
@@ -137,6 +132,12 @@ sin_der = np.vectorize(sin_der)
 
 ```{code-cell} ipython3
 # prune-end
+```
+
+```{code-cell} ipython3
+# et pour tester
+#
+sin_der(X)
 ```
 
 ### Q3
@@ -181,13 +182,10 @@ top.plot(X, Y)
 top.set_title("cos")
 # pareil
 bottom.plot(X, Y2)
-bottom.set_title("sin derivée")
+bottom.set_title("sin derivée");
 
 # c'est optionnel de faire ceci
 # plt.show()
-
-# on finit par un point-virgule pour évitez l'affichage du dernier résultat de la cellule
-;
 ```
 
 ***

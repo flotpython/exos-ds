@@ -7,6 +7,10 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+language_info:
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
 ---
 
 # Taylor (1/3): intro à autograd
@@ -25,14 +29,14 @@ le package est ici
 
 donc comme toujours on l'installe avec `pip`
 
-```{code-cell}
+```{code-cell} ipython3
 # si nécessaire
 # %pip install autograd
 ```
 
 ## comment s'en servir
 
-```{code-cell}
+```{code-cell} ipython3
 # À LA PLACE de l'habituel 'import numpy as np'
 import autograd.numpy as np
 
@@ -59,7 +63,7 @@ deux points à retenir
 
 calculez le domaine des réels entre 0 et 2π
 
-```{code-cell}
+```{code-cell} ipython3
 # votre code
 
 # X = ...
@@ -74,14 +78,14 @@ calculez le domaine des réels entre 0 et 2π
 
 **[indice]** on rappelle que pour appliquer une fonction sur un tableau, il faut qu'elle soit vectorisée
 
-```{code-cell}
+```{code-cell} ipython3
 # votre code
 #
 # votre job est de définir sin_der qui
 # est la fonction dérivée de sinus
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et pour tester
 #
 sin_der(X)
@@ -93,7 +97,7 @@ sin_der(X)
 
 vérifiez que vous obtenez bien le *cos* de ce domaine
 
-```{code-cell}
+```{code-cell} ipython3
 # votre code
 ```
 

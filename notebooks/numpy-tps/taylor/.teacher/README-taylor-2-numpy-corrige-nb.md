@@ -11,8 +11,6 @@ language_info:
   name: python
   nbconvert_exporter: python
   pygments_lexer: ipython3
-nbhosting:
-  title: Taylor et numpy
 ---
 
 # Taylor (2/3): convergence
@@ -32,14 +30,15 @@ $$f_n(x) = \sum_{i=0}^{n}\frac{f^{(i)}(0).x^i}{i!}$$
 # %pip install autograd
 
 import autograd.numpy as np
-
-from math import factorial
 ```
 
 ```{code-cell} ipython3
-import matplotlib.pyplot as plt
+# et on aura besoin aussi de 
+
+from math import factorial
 
 %matplotlib ipympl
+import matplotlib.pyplot as plt
 ```
 
 ## exo v1
@@ -49,12 +48,14 @@ import matplotlib.pyplot as plt
 ### écrivez une fonction
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 def taylor1(X, derivatives):
     """
     X le domaine (sous-entendu, X[0]<0 et X[-1]>0)
     derivatives: une liste ou un tableau contenant les dérivées successives de f en 0
       i.e. derivatives[n] = f(n)(0) la dérivée n-ième de f en 0
-    
+
     retourne un tableau Y qui est l'approximation de Taylor sur ce domaine pour une fonction
     qui aurait ces dérivées-là
     """
@@ -92,6 +93,10 @@ X = np.linspace(-2*np.pi, 2*np.pi)
 ```
 
 ```{code-cell} ipython3
+# votre code
+```
+
+```{code-cell} ipython3
 :tags: [level_basic]
 
 # prune-cell 
@@ -99,8 +104,10 @@ X = np.linspace(-2*np.pi, 2*np.pi)
 Y1 = taylor1(X, sinus10)
 
 plt.figure()
-plt.plot(X, Y1)
-plt.savefig("media/taylor2-v1.png");
+plt.plot(X, Y1);
+
+# do not overwrite each time as it messes incremental builds
+# plt.savefig("media/taylor2-v1.png")
 ```
 
 ## exo v2
@@ -108,12 +115,16 @@ plt.savefig("media/taylor2-v1.png");
 une fois que la logique d'accumulation est acquise, on va calculer les dérivées successives de la fonction
 
 ```{code-cell} ipython3
+# en utilisant l'outil qu'on a vu dans la première partie
+
 from autograd import grad
 ```
 
 ### écrivez une fonction
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 def taylor2(X, f, n):
     """
     X: le domaine
@@ -132,47 +143,30 @@ def taylor2(X, f, n):
     return taylor1(X, derivatives)                        # prune-line
 ```
 
-### testez la
-
-````{admonition} rappel
-
-pour comparer des flottants, il faut utiliser `isclose()` et non pas `==`
-````
+## testons la v2
 
 +++
 
-avec sinus
+### avec sinus au degré 10
 
 ```{code-cell} ipython3
-# calculez Y2 l'image de X par l'approximation de Taylor pour sinus au degré 10
-```
+:tags: []
 
-```{code-cell} ipython3
-:scrolled: true
-:tags: [level_basic]
+# Y est le sinus de X
+# Y2 est l'image de X par l'approximation de Taylor pour sinus au degré 10
 
-# prune-cell
-
+Y  = np.sin(X)
 Y2 = taylor2(X, np.sin, 10)
 ```
 
-comparez Y2 avec Y, le résultat de sinus sur X en les dessinant - devrait ressembler à ceci:
+1. comparez Y2 avec Y en les dessinant sur la même courbe - devrait ressembler à ceci:
 
 ```{image} media/taylor2-v2-sin.png
 :width: 300px
 ```
 
 ```{code-cell} ipython3
-:tags: [level_advanced]
-
-# prune-cell
-
-# pas demandé, mais:
-Y = np.sin(X)
-
-print("with ==\n", Y2 == Y)
-
-print("with np.isclose\n", np.isclose(Y2, Y))
+# votre code
 ```
 
 ```{code-cell} ipython3
@@ -182,11 +176,32 @@ print("with np.isclose\n", np.isclose(Y2, Y))
 
 plt.figure()
 plt.plot(X, Y)
-plt.plot(X, Y2)
-plt.savefig("media/taylor2-v2-sin.png")
+plt.plot(X, Y2);
+# plt.savefig("media/taylor2-v2-sin.png")
 ```
 
-avec cosinus, au degré 0  - devrait ressembler à ceci:
+2. regardez la coincidence de Y et Y2
+
+quel est le pourcentage du domaine pour lequel l'approximation est valide à $10^{-3}$ près ?
+
+````{admonition} rappel
+:class: admonition-small dropdown
+
+on rappelle que `==` n'est pas le bon outil pour comparer les flottants
+````
+
+```{code-cell} ipython3
+:tags: [level_basic]
+
+# prune-cell
+
+compare = np.isclose(Y2, Y, rtol=10**-3)
+sum(compare) / len(compare)
+```
+
+### avec cosinus, au degré 0
+
+1. affichez cos et son approximation au degré 0, qui devrait ressembler à ceci:
 
 ```{image} media/taylor2-v2-cos.png
 :width: 300px
@@ -208,15 +223,18 @@ Y2 = taylor2(X, np.cos, 0)
 
 plt.figure()
 plt.plot(X, Y)
-plt.plot(X, Y2)
-plt.savefig("media/taylor2-v2-cos.png")
+plt.plot(X, Y2);
+
+# plt.savefig("media/taylor2-v2-cos.png")
 ```
 
-avec une fonction custom
+### avec une fonction custom
+
++++
+
+1. à vous de compléter cette fonction
 
 ```{code-cell} ipython3
-# à vous
-
 def custom(X):
     """
     retourne 2 * sin(X) + cos(X/4)
@@ -225,26 +243,28 @@ def custom(X):
     return 2*np.sin(X) + np.cos(X/4)      # prune-line
 ```
 
-```{code-cell} ipython3
-:tags: [raises-exception]
++++ {"tags": ["raises-exception"]}
 
-# calculez Y3 l'image de X par custom
-
-Y3 = custom(X)                            # prune-line
-```
+2. calculez Y3 l'image de X par custom  
+   et Y4 l'image de X par l'approx. de custom d'ordre 14
 
 ```{code-cell} ipython3
-:tags: [raises-exception]
+:tags: [raises-exception, level_basic]
 
-# calculez Y4 l'image de X par l'approx. de custom d'ordre 14
+# prune-cell
 
-Y4 = taylor2(X, custom, 14)                # prune-line
+Y3 = custom(X)
+Y4 = taylor2(X, custom, 14)
 ```
 
-comparez Y3 et Y4 comme ci-dessus - devrait avoir cette allure
+3. comparez Y3 et Y4 comme ci-dessus - devrait avoir cette allure
 
 ```{image} media/taylor2-v2-custom.png
 :width: 300px
+```
+
+```{code-cell} ipython3
+# votre code
 ```
 
 ```{code-cell} ipython3
@@ -252,28 +272,26 @@ comparez Y3 et Y4 comme ci-dessus - devrait avoir cette allure
 
 # prune-cell 
 
-print("with ==\n", Y3 == Y4)
-
 plt.figure()
 plt.plot(X, Y3)
-plt.plot(X, Y4)
-plt.savefig("media/taylor2-v2-custom.png")
+plt.plot(X, Y4);
+
+#don't do this repeatedly to not mess incremental builds
+# plt.savefig("media/taylor2-v2-custom.png")
+```
+
+4. sur quel pourcentage du domaine a-t-on coincidence à $10^{-3}$ près ?
+
+```{code-cell} ipython3
+# votre code
 ```
 
 ```{code-cell} ipython3
-:tags: [level_advanced]
+:scrolled: true
+:tags: [level_basic]
 
 # prune-cell
 
-print("with np.isclose\n", np.isclose(Y3, Y4, rtol=10**-3))
+compare = np.isclose(Y3, Y4, rtol=10**-3)
+sum(compare) / len(compare)
 ```
-
-```{code-cell} ipython3
-:tags: [raises-exception, level_advanced]
-
-# prune-cell
-
-Y3/Y4
-```
-
-***
