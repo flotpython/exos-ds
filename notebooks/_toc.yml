@@ -47,6 +47,7 @@ parts:
   - file: pandas-tps/collages/README-collages-nb
   - file: pandas-tps/groupby-draw/README-groupby-draw-nb
   - file: pandas-tps/covid/README-covid-nb
+  - file: pandas-tps/leases/README-leases-nb
 - caption: geo data & maps
   chapters:
   - file: geo-howtos/folium/HOWTO-folium-nb
