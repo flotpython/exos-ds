@@ -14,7 +14,7 @@ language_info:
   pygments_lexer: ipython3
 ---
 
-+++ {"tags": ["level_basic"]}
++++ {"tags": []}
 
 # marathon (divers basique)
 
@@ -26,22 +26,11 @@ un petit TP pour travailler
 * un peu de groupby
 * un peu de gestion du temps et des durées
 
-+++
-
-# outils
-
 ```{code-cell} ipython3
 import pandas as pd
 ```
 
-```{code-cell} ipython3
-# regardons les 5 premières lignes du fichier de données
-with open("data/marathon.txt") as f:
-    for _ in range(5):
-        print(next(f), end="")
-```
-
-# TP: une dataframe simple
+## les données
 
 +++
 
@@ -50,7 +39,17 @@ On va étudier un jeu de données trouvé sur Internet
 ```{code-cell} ipython3
 # 2024: le site original semble être *down*
 # URL = "http://www.xavierdupre.fr/enseignement/complements/marathon.txt"
-URL = "data/marathon.txt"
+
+DATA = "data/marathon.txt"
+```
+
+```{code-cell} ipython3
+# regardons les 5 premières lignes du fichier de données
+# (ou bien ouvrez-le dans vs-code)
+
+with open(DATA) as f:
+    for _ in range(5):
+        print(next(f), end="")
 ```
 
 ## chargement
@@ -59,13 +58,12 @@ URL = "data/marathon.txt"
 
 Le premier réflexe pour charger un fichier de ce genre, c'est d'utiliser la fonction `read_csv` de pandas
 
-
 ```{code-cell} ipython3
 # votre cellule de code
 # qu'on va faire descendre
 # et raffiner au fur et à mesure
 
-df0 = pd.read_csv(URL)
+df0 = pd.read_csv(DATA)
 df0.head()
 ```
 
@@ -86,21 +84,22 @@ et pour commencer je vous invite à préciser le séparateur:
 ```{code-cell} ipython3
 # à vous de modifier cette première approche
 
-df1 = pd.read_csv(URL)
+df1 = pd.read_csv(DATA)
 ```
 
 ```{code-cell} ipython3
 # prune-cell
 
-df1 = pd.read_csv(URL, sep='\t')
+df1 = pd.read_csv(DATA, sep='\t')
 ```
 
 ```{code-cell} ipython3
 # pour vérifier, ceci doit afficher True
+
 df1.shape == (358, 4) and df1.iloc[0, 0] == 'PARIS' and df1.columns[0] == 'PARIS'
 ```
 
-+++ {"tags": [], "slideshow": {"slide_type": ""}}
++++ {"tags": ["level_basic"], "slideshow": {"slide_type": ""}}
 
 c'est mieux, mais les noms des colonnes ne sont pas corrects  
 en effet par défaut, `read_csv` utilise la première ligne pour déterminer les noms des colonnes  
@@ -125,17 +124,23 @@ df = ...
 ```
 
 ```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
 # prune-cell
 # si en plus on précise le nom des colonnes 
 # ça commence à être franchement mieux
 
-df = pd.read_csv(URL, sep="\t", names=NAMES)
+df = pd.read_csv(DATA, sep="\t", names=NAMES)
 ```
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
 
 # pour vérifier, ceci doit afficher True
+
 df.shape == (359, 4) and df.iloc[0, 0] == 'PARIS' and df.columns[0] == 'city'
 ```
 
@@ -143,6 +148,7 @@ df.shape == (359, 4) and df.iloc[0, 0] == 'PARIS' and df.columns[0] == 'city'
 :tags: [raises-exception]
 
 # ce qui maintenant nous donne ceci
+
 df.head(2)
 ```
 
@@ -150,7 +156,7 @@ df.head(2)
 
 +++
 
-dans l'autre sens quand on a produit une dataframe et qu'on veut sauver le résultat dans un fichier texte
+dans l'autre sens, quand on a produit une dataframe et qu'on veut sauver le résultat dans un fichier texte
 
 ```{code-cell} ipython3
 # df.to_csv?
@@ -170,13 +176,15 @@ df.to_csv(loop, sep=";", index=False)
 :tags: [raises-exception]
 
 # pour voir un aperçu
+#  nouveau vous pouvez regarder le fichier avec vs-code 
+# ou encore dans le terminal avec $ less marathon-loop.csv (sortir avec 'q')
 
 %cat marathon-loop.csv
 ```
 
 ## des recherches
 
-+++
++++ {"tags": ["level_basic"]}
 
 ### les éditions de 1971
 
@@ -371,7 +379,7 @@ tags: [raises-exception]
  and df_paris_2000_ys.iloc[-2].seconds == 7780)
 ```
 
-+++ {"tags": ["remove-input"]}
++++ {"tags": [], "slideshow": {"slide_type": ""}}
 
 ## aggrégats
 
@@ -411,25 +419,72 @@ import math
 math.isclose(seconds_average, 7933.660167130919)
 ```
 
-****
++++ {"slideshow": {"slide_type": ""}, "tags": []}
+
+### combien de marathons par an
+
++++ {"tags": ["level_basic"], "slideshow": {"slide_type": ""}}
+
+si maintenant je veux produire une série qui compte par année combien il y a eu de marathons
+
+il y a plein de façons de faire, si vous en voyez plusieurs n'hésitez pas...
 
 ```{code-cell} ipython3
-# en guise de révision de Python, transformez cette valeur en chaine
-# au format 2h 12' 13''
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
+# à vous
 
-formatted_average = ...
+count_by_year = ...
 ```
 
 ```{code-cell} ipython3
-:cell_style: center
-
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
 # prune-cell
 
-hours = int(seconds_average // 3600)
-minutes = int(seconds_average % 3600 // 60)
-seconds = int(seconds_average % 60)
+count_by_year = df.groupby(by='year').size()
+```
 
-formatted_average = f"{hours}h {minutes}' {seconds}''"
+```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
+# prune-cell
+
+# toutes les colonnes vont contenir les mêmes infos, on peut en prendre une au hasard
+count_by_year = df.groupby(by='year').count().city
+```
+
+```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
+# prune-cell 
+
+# il y a plein de variantes, on peut inverser le count() et le city
+count_by_year = df.groupby(by='year').city.count()
+```
+
+```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
+# prune-cell
+
+# on peut appeler .agg('count')
+count_by_year = df.groupby(by='year').agg('count')['city']
 ```
 
 ```{code-cell} ipython3
@@ -440,59 +495,14 @@ tags: [raises-exception]
 ---
 # pour vérifier
 
-formatted_average == "2h 12' 13''"
-```
-
-### combien de marathons par an
-
-+++ {"tags": ["level_basic"]}
-
-si maintenant je veux produire une série qui compte par année combien il y a eu de marathons
-
-```{code-cell} ipython3
-# à vous
-
-count_by_year = ...
-```
-
-```{code-cell} ipython3
-# prune-cell
-
-count_by_year = df.groupby(by='year').size()
-```
-
-```{code-cell} ipython3
-# prune-cell
-
-# toutes les colonnes vont contenir les mêmes infos, on peut en prendre une au hasard
-count_by_year = df.groupby(by='year').count().city
-```
-
-```{code-cell} ipython3
-# prune-cell 
-
-# il y a plein de variantes, on peut inverser le count() et le city
-count_by_year = df.groupby(by='year').city.count()
-```
-
-```{code-cell} ipython3
-# prune-cell
-
-# on peut appeler .agg('count')
-count_by_year = df.groupby(by='year').agg('count')['city']
-count_by_year
-```
-
-```{code-cell} ipython3
-:tags: [raises-exception]
-
-# pour vérifier
 (isinstance(count_by_year, pd.Series)
  and len(count_by_year) == 65
  and count_by_year.loc[1947] == 1
  and count_by_year.loc[2007] == 9
  and count_by_year.loc[2011] == 5)
 ```
+
++++ {"slideshow": {"slide_type": ""}, "tags": []}
 
 ## les durées
 
@@ -511,11 +521,11 @@ pour cela on va commencer par convertir la colonne `duration` en quelque chose d
 
 voir plus de détails si nécessaire ici: <https://numpy.org/doc/stable/reference/arrays.datetime.html>
 
-+++
++++ {"slideshow": {"slide_type": ""}, "tags": []}
 
 ### `read_csv(parse_dates=)`
 
-+++
++++ {"slideshow": {"slide_type": ""}, "tags": []}
 
 commençons par écarter une fausse bonne idée
 
@@ -528,7 +538,7 @@ slideshow:
 tags: []
 ---
 df_broken = pd.read_csv(
-    URL, sep='\t', 
+    DATA, sep='\t', 
     names=['city', 'year', 'duration', 'seconds'], 
     parse_dates=['duration'])
 df_broken
@@ -538,19 +548,28 @@ df_broken
 
 **ça ne va pas !**
 
-le truc c'est que ici, on n'a **pas une date** mais c'est une **durée**
+le truc c'est que ici, on n'a **pas une date**, ce que nous avons c'est **une durée**
+
++++ {"slideshow": {"slide_type": ""}, "tags": []}
+
+### `pd.to_timedelta()`
 
 ```{code-cell} ipython3
-:tags: [raises-exception]
-
+---
+slideshow:
+  slide_type: ''
+tags: [raises-exception]
+---
 # repartons des données de départ
+
+df = pd.read_csv(DATA, sep="\t", names=NAMES)
 
 df.dtypes
 ```
 
-+++ {"tags": ["level_basic"]}
++++ {"tags": ["level_basic"], "slideshow": {"slide_type": ""}}
 
-non, pour convertir la colonne en `datetime64` on va utiliser `pd.to_timedelta`
+non, pour convertir la colonne en `datetime64` on va utiliser `pd.to_timedelta()`
 
 voyez la documentation de cette fonction, et modifiez la dataframe `df` pour que la colonne `duration` soit maintenant du type `timedelta64`
 
@@ -559,9 +578,14 @@ voyez la documentation de cette fonction, et modifiez la dataframe `df` pour que
 ```
 
 ```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
 # prune-cell
 
-df.duration = pd.to_timedelta(df.duration)
+df['duration'] = pd.to_timedelta(df.duration)
 ```
 
 ```{code-cell} ipython3
@@ -586,18 +610,30 @@ tags: [raises-exception]
 df.head(2)
 ```
 
+```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
+df.duration.dt.components
+```
+
++++ {"slideshow": {"slide_type": ""}, "tags": []}
+
 ### duration == seconds ?
 
-+++
++++ {"slideshow": {"slide_type": ""}, "tags": []}
 
 à présent qu'on a converti `duration` dans le bon type, on peut utiliser toutes les fonctions disponibles sur ce type.  
 en pratique ça se fait en deux temps
 
-* sur l'objet `Series` on applique l'attribut `dt` pour, en quelque sorte, se projeter dans l'espace des 'date-time', exactement comme on l'a vu déjà avec le `.str` lorsqu'on a besoin d'appliquer des méthodes comme `.lower()`  
+* sur l'objet `Series` on applique l'attribut `dt` pour, en quelque sorte, se projeter dans l'espace des 'date-time'  
+  c'est exactement comme on l'a vu déjà avec le `.str` lorsqu'on a eu besoin d'appliquer des méthodes comme `.lower()` ou `replace()` sur les chaines et non pas sur la série  
   plus de détails ici <https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.html>
 * de là on peut appeler toutes les méthodes disponibles sur les objets `timedelta` - on pourra en particulier s'intéresser à `total_seconds`
 
-+++ {"tags": ["level_basic"]}
++++ {"tags": ["level_basic"], "slideshow": {"slide_type": ""}}
 
 du coup pour vérifier que la colonne `seconds` correspond bien à `duration`, on écrirait quoi comme code (qui doit afficher `True`)
 
@@ -619,35 +655,87 @@ total_seconds = df.duration.dt.total_seconds().astype(int)
 np.all(total_seconds == df.seconds)
 ```
 
-+++ {"tags": ["level_basic"]}
++++ {"slideshow": {"slide_type": ""}, "tags": []}
+
+### colonnes `hour` `minute` et `second`
+
++++ {"tags": ["level_basic"], "slideshow": {"slide_type": ""}}
 
 on se propose maintenant de rajouter des colonnes `hour` `minute` et `second` - qui doivent être de type entier
 
+pour cela deux approches:
+
+- "à la main": on fait les calculs nous-mêmes
+- après quoi on découvre par hasard dans une question SO que c'est disponible directement dans la colonne `duration` - mais c'est bien caché...
+
++++ {"tags": [], "slideshow": {"slide_type": ""}}
+
+#### à la main
+
 **indices**
-* on peut calculer le quotient et le reste entre deux objets `timedelta` avec les opérateurs usuels `//` et `%`
-* on peut construire un objet `timedelta` comme par exemple `timedelta(hours=1)`
+
+* on peut calculer le quotient et le reste entre deux objets de type "durée" avec les opérateurs usuels `//` et `%`
 
 ```{code-cell} ipython3
-from datetime import timedelta
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
+# par exemple
+import numpy as np
+
+# une durée de 1h
+one_hour = np.timedelta64(1, 'h')
+# guess what...
+one_minute = np.timedelta64(1, 'm')
+one_second = np.timedelta64(1, 's')
+
+# une durée de 2h25
+random_duration = 2*one_hour + np.timedelta64(25, 'm')
+
+
+# eh bien on peut faire comme avec des entiers
+
+quotient, reste = random_duration // one_hour, random_duration % one_hour
+
+quotient, reste
 ```
 
++++ {"slideshow": {"slide_type": ""}, "tags": ["level_basic"]}
+
+maintenant qu'on sait faire tout ça, on peut calculer les colonnes `hour`, `minute` et `second`
+
 ```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
 # à vous
 ```
 
 ```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
 # prune-cell
 
-df['hour'] = df.duration // timedelta(hours=1)
-df['minute'] = df.duration % timedelta(hours = 1) // timedelta(minutes=1)
-df['second'] = df.duration % timedelta(minutes=1) // timedelta(seconds=1)
+df['hour'] = df.duration // one_hour
+df['minute'] = df.duration % one_hour // one_minute
+df['second'] = df.duration % one_minute // one_second
 
 df.head()
 ```
 
 ```{code-cell} ipython3
-:tags: [raises-exception]
-
+---
+slideshow:
+  slide_type: ''
+tags: [raises-exception]
+---
 # pour vérifier
 (    np.all(df.loc[0, ['hour', 'minute', 'second']] == [2, 6, 29])
  and df.hour.dtype == int
@@ -655,4 +743,66 @@ df.head()
  and df.second.dtype == int)
 ```
 
-***
++++ {"slideshow": {"slide_type": ""}, "tags": []}
+
+#### version paresseuse avec `dt.components`
+
+il se trouve qu'on peut faire le même travail sans s'embêter autant, une fois qu'on découvre que [l'accesseur `.dt` possède un attribut qui donne accès à ce genre de détails ](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.components.html)
+
+```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
+# on défait le travail de la section précédente, si nécessaire
+
+for col in 'hour', 'minute', 'second':
+    if col in df.columns:
+        df.drop(columns=col, inplace=True)
+```
+
+```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
+# à vous
+```
+
+```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
+# prune-cell
+
+# on pourrait aussi faire en 3 lignes
+# df['hour'] = df.duration.dt.components.hours
+# df['minute'] = df.duration.dt.components.minutes
+# df['second'] = df.duration.dt.components.seconds
+
+# mais c'est aussi un merge en fait, juste que les noms ne correspondent pas.
+df = df.merge(
+    df.duration.dt.components
+    [['hours', 'minutes', 'seconds']]
+    .rename(
+        columns={'hours': 'hour', 'minutes': 'minute', 'seconds': 'second'}),
+    left_index=True, right_index=True
+)
+```
+
+```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: [raises-exception]
+---
+# pour vérifier
+(    np.all(df.loc[0, ['hour', 'minute', 'second']] == [2, 6, 29])
+ and df.hour.dtype == int
+ and df.minute.dtype == int 
+ and df.second.dtype == int)
+```
