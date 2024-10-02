@@ -19,6 +19,21 @@
 # # grouping through time and category
 #
 # to work on this assignment locally on your laptop, {download}`start with downloading the zip<./ARTEFACTS-leases.zip>`
+#
+# in this TP we work on 
+#
+# - data that represents *periods* and not just one timestamp
+# - checking for overlaps
+# - grouping by time
+#   - later grouping by time and category
+# - and some simple visualization tools
+#
+# here's an example of the outputs we will obtain
+#
+# ```{image} media/result-m.png
+# :width: 300px
+# :align: center
+# ```
 
 # %% [markdown]
 # ## imports
@@ -41,10 +56,10 @@ import matplotlib.pyplot as plt
 
 # %%
 leases = pd.read_csv("data/leases.csv")
-leases.head(4)
+leases.head(10)
 
 # %% [markdown]
-# adapt the type of each columns
+# ### adapt the type of each columns
 
 # %%
 # your code
@@ -57,7 +72,7 @@ leases.dtypes
 # %% [markdown]
 # ### raincheck
 #
-# check that the data is well-formed, i.e. the `end` timestamp **happens after** `beg`
+# check that the data is well-formed, i.e. **the `end`** timestamp **happens after `beg`**
 
 # %%
 # your code
@@ -66,7 +81,7 @@ leases.dtypes
 # ### are there any overlapping events ?
 
 # %% [markdown]
-#    it turns out there are no event overlap, but write a code that checks that this is true
+#    it turns out there are **no event overlap**, but write a code that checks that this is true
 #
 #    ```{admonition} note
 #    :class: tip
@@ -80,7 +95,7 @@ leases.dtypes
 # %% [markdown]
 # ### timespan
 #
-# What is the timespan (earliest and latest events, and duration in-between) involved ?
+# What is the timespan coverred by the dataset (**earliest** and **latest** events, and **duration** in-between) ?
 
 # %%
 # your code
@@ -90,20 +105,22 @@ leases.dtypes
 #
 # so, given that there is no overlap, we can assume this corresponds to "reservations" attached to a unique resource (hence the term  *lease*)
 #
-# write a code that computes the overall reservation time, and the average usage ratio
+# write a code that computes the **overall reservation time**, as well as the **average usage ratio** over the active period  
 
 # %%
 # your code
 
 # %% [markdown]
-# ## visualization - a simple sum
+# ## visualization - grouping by time only
 #
 # ### usage by period
 #
-# grouping by periods: by week, by month or by year, display the usage in that period  
+# grouping by periods: by week, by month or by year, display the **total usage in that period**  
 # (when ambiguous, use the `beg` column to determine if a lease is in a period or the other)
 #
-# more now, just get the grouping right, we'll improve miscellaneous details below
+# for now, just get the grouping right, we'll improve miscellaneous details below
+#
+# also you can [refer to this section below](#label-sample-results) to get a glimpse of the expected output, even though for now we have no grouping, so a single color for all bars.
 
 # %%
 # your code
@@ -111,7 +128,9 @@ leases.dtypes
 # %% [markdown]
 # ### improve the title and bottom ticks
 #
-# particularly when doing the per-week visu, we don't get to read the labels on the horizontal axis, because there are too many of them  
+# add a title to your visualisations
+#
+# also, and particularly relevant in the case of the per-week visu, we don't get to read **the labels on the horizontal axis**, because there are **too many of them**  
 # to improve this, you can use matplotlib's `set_xticks()` function; you can either figure out by yourself, or read the few tips below
 #
 # ````{admonition} a few tips
@@ -172,7 +191,7 @@ test_convert_timedelta_to_hours()
 # %% [markdown]
 # ### use it to display totals in hours
 #
-# keep the same visu, but display years on the Y axis
+# keep the same visu, but display **the Y axis in hours**
 #
 # btw, what was the unit in the graphs above ?
 
@@ -180,7 +199,7 @@ test_convert_timedelta_to_hours()
 # your code
 
 # %% [markdown]
-# ## by region
+# ## grouping by time and by region
 #
 # the following table allows you to map each country into a region
 
@@ -210,7 +229,9 @@ countries.region.value_counts()
 # your code
 
 # %% [markdown]
-# ### visu by region
+# (label-sample-results)=
+#
+# ### visu by time and by region
 #
 # you can now produce the target figures; the expected final results looks like this
 #
