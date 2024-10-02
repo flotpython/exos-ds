@@ -303,7 +303,7 @@ data.groupby(data.index.time).mean().plot();
 # une courbe par jour: les colonnes sont les jours
 # en X les heures: les lignes sont les heures
 
-# ça pourrait se faire à coups de grouppy/unstack 
+# ça pourrait se faire à coups de groupby/unstack
 # mais c'est quand même plus simple comme ceci
 
 pivoted = data.pivot_table('Total', index=data.index.time, columns=data.index.date)
