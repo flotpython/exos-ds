@@ -111,7 +111,12 @@ pivot
 
 +++
 
-`unstack()` va faire migrer un étage de l'index des colonnes (ici on a deux niveaux year et visit) vers l'espace des colonnes
+`unstack()` va faire migrer **un étage de l'index des colonnes** (ici on a deux niveaux year et visit) vers **l'espace des colonnes**
+
+```{image} media/unstack-tyre-data.png
+:width: 700px
+:align: center
+```
 
 ```{code-cell} ipython3
 # unstack : on part de la dimension des lignes
