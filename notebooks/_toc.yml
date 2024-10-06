@@ -50,6 +50,7 @@ parts:
   - file: pandas-tps/leases/README-leases-nb
 - caption: geo data & maps
   chapters:
+  - file: geo-tps/polls/README-polls-nb
   - file: geo-howtos/folium/HOWTO-folium-nb
   - file: geo-tps/addresses/README-addresses-nb
 - caption: dashboards
