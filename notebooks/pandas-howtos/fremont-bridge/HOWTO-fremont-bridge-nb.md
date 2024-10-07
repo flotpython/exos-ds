@@ -18,11 +18,17 @@ nbhosting:
 
 # Les vélos sur le pont de Fremont
 
+pour exécuter ce code localement sur votre ordi, 
+{download}`commencez par télécharger le zip<./ARTEFACTS-fremont-bridge.zip>`
+
 +++
 
-Voir la version originale de ce TP - par Jake Vanderplas - sur Youtube
+````{admonition} lien vers la version originale
+
+Voir la version originale de ce code - par Jake Vanderplas - sur Youtube
 
 <https://www.youtube.com/watch?v=_ZEWDGpM-vM&list=PLYCpMb24GpOC704uO9svUrihl-HY1tTJJ>
+````
 
 +++
 
