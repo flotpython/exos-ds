@@ -27,6 +27,10 @@ pour réaliser ce TP localement sur votre ordi, {download}`commencez par téléc
 import pandas as pd
 ```
 
+## simple critère
+
++++
+
 on a trois fichiers à recoller
 
 ```{code-cell} ipython3
@@ -56,7 +60,7 @@ on peut envisager deux versions de l'exercice, selon qu'on choisit ou non d'inde
 
 +++
 
-## sans index
+### sans index
 
 ```{code-cell} ipython3
 # à vous
@@ -74,7 +78,13 @@ df123 = pd.concat([df12, df3])
 df123
 ```
 
-## avec index
+```{code-cell} ipython3
+# prune-cell
+
+df123.to_csv("data/collages-all.csv")
+```
+
+### avec index
 
 +++
 
@@ -99,4 +109,82 @@ df123i = pd.concat([df12i, df3i])
 df123i
 ```
 
-----
+## multiples critères
+
+même idée, mais on n'a plus unicité des prénoms
+
+```{code-cell} ipython3
+m1 = pd.read_csv("data/multi1.csv")
+m1
+```
+
+```{code-cell} ipython3
+m2 = pd.read_csv("data/multi2.csv")
+m2
+```
+
+```{code-cell} ipython3
+m3 = pd.read_csv("data/multi3.csv")
+m3
+```
+
+```{code-cell} ipython3
+# à vous - c'est vous qui décidez comment gérer les index
+# juste, à la fin on voudrait un index "raisonnable"
+```
+
+```{code-cell} ipython3
+# prune-begin
+```
+
+```{code-cell} ipython3
+# option 1
+# sur les colonnes
+
+m12 = pd.merge(
+    m1, m2, 
+    left_on=("prenom", "nom"),
+    right_on=("first_name", "last_name"),
+).drop(columns=["first_name", "last_name"])
+
+m12
+```
+
+```{code-cell} ipython3
+all = (
+    pd.concat([
+    m12, 
+    m3.rename(columns={"first": "prenom", "last": "nom"})
+])
+    .set_index(["prenom", "nom"])
+)
+
+all
+```
+
+```{code-cell} ipython3
+# option 2
+
+# sur les index, c'est plutôt plus simple
+
+m1i = m1.set_index(["prenom", "nom"])
+m2i = (m2
+    .rename(columns={"first_name": "prenom", "last_name": "nom"})
+    .set_index(["prenom", "nom"])
+)
+m3i = (m3
+    .rename(columns={"first": "prenom", "last": "nom"})
+    .set_index(["prenom", "nom"])
+)
+
+all = pd.concat([pd.merge(m1i, m2i, left_index=True, right_index=True), m3i])
+all
+```
+
+```{code-cell} ipython3
+all.to_csv("data/multi-all.csv")
+```
+
+```{code-cell} ipython3
+# prune-end
+```

@@ -27,6 +27,10 @@ pour réaliser ce TP localement sur votre ordi, {download}`commencez par téléc
 import pandas as pd
 ```
 
+## simple critère
+
++++
+
 on a trois fichiers à recoller
 
 ```{code-cell} ipython3
@@ -56,13 +60,13 @@ on peut envisager deux versions de l'exercice, selon qu'on choisit ou non d'inde
 
 +++
 
-## sans index
+### sans index
 
 ```{code-cell} ipython3
 # à vous
 ```
 
-## avec index
+### avec index
 
 +++
 
@@ -74,4 +78,26 @@ puis recollez les morceaux comme dans le premier exercice
 # à vous
 ```
 
-----
+## multiples critères
+
+même idée, mais on n'a plus unicité des prénoms
+
+```{code-cell} ipython3
+m1 = pd.read_csv("data/multi1.csv")
+m1
+```
+
+```{code-cell} ipython3
+m2 = pd.read_csv("data/multi2.csv")
+m2
+```
+
+```{code-cell} ipython3
+m3 = pd.read_csv("data/multi3.csv")
+m3
+```
+
+```{code-cell} ipython3
+# à vous - c'est vous qui décidez comment gérer les index
+# juste, à la fin on voudrait un index "raisonnable"
+```
