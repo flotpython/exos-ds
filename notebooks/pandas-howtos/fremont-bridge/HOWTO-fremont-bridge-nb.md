@@ -119,12 +119,6 @@ data.drop_duplicates(inplace=True)
 data.shape
 ```
 
-**exercice**: supprimer les doublons - voir `drop_duplicates`; attention car cette fonction ignore l'index !
-
-comme ça n'affecte pas les résultats, on continue avec ces données-là
-
-+++
-
 ## parser les dates
 
 ```{code-cell} ipython3
@@ -142,18 +136,20 @@ bref le point ici c'est que les dates sont **des chaines et pas des dates**
 ```{code-cell} ipython3
 # la version lente
 
-# on choisit la date comme index, et on demande à parser les dates
-# du coup tout de suite c'est plus lent à charger, un peu de patience..
+# avec cette forme, on demanderait à read_csv:
+# de mettre la date comme index,
+# et de parser les dates
+# mais on ne va pas le faire car
+# 1. c'est peu sûr
+# 2. c'est trop lent
+
 # data = pd.read_csv(local_file, index_col='Date', parse_dates=True); data.head()
 ```
 
 ```{code-cell} ipython3
-data
-```
+# une meilleure idée, pour améliorer ces deux points d'un coup
+# est de fournir nous-même le format des dates
 
-```{code-cell} ipython3
-# mais si on veut améliorer les performances 
-# il vaut mieux fournir le format des dates
 data.index = pd.to_datetime(data.Date, format="%m/%d/%Y %I:%M:%S %p")
 del data['Date']
 data.head()
@@ -182,14 +178,23 @@ data[data['Total'].isna()]
 
 ```{code-cell} ipython3
 # ou encore si on préfère
+
 data[data.isna().any(axis=1)].shape
 ```
 
 on pourrait nettoyer, mais ici on va choisir d'ignorer ces données manquantes; à la place on va les remettre sous la forme d'entiers
 
 ```{code-cell} ipython3
+# ceci va nous permettre d'avoir des colonnes d'entiers - avec des nan
+
 data = data.convert_dtypes(convert_integer=True)
 data.head()
+```
+
+```{code-cell} ipython3
+# ça ressemble à ceci
+
+data.dtypes
 ```
 
 ```{code-cell} ipython3
@@ -210,6 +215,8 @@ sns.set(rc={'figure.figsize': (12, 4)})
 ```
 
 ```{code-cell} ipython3
+# un premier jet, pas terrible du tout
+
 data[['East', 'West']].plot();
 ```
 
@@ -227,13 +234,21 @@ data.resample('W').sum().plot();
 
 juste pour être en phase (pouvoir vérifier nos résultats par rapport à ceux de la vidéo), on va s'arrêter à la fin de 2017
 
-(un détail à noter aussi, les données de la vidéo ne contiennent pas la colonne 'total'...)
+(un détail à noter aussi, les données de la vidéo ne contenaient pas la colonne 'total'...)
 
 ```{code-cell} ipython3
 # c'est facile de couper, la date correpond à l'index de la df
 # et grâce au type 'datetime' on peut simplement faire une comparaison
+
 data = data[data.index.year <= 2017]
 ```
+
+````{admonition} quiz
+
+ici on s'en sort bien car on coupe au début d'une année  
+mais comment ferait-on pour couper au 12 Février à 14h32:30 ?
+
+````
 
 ```{code-cell} ipython3
 data.tail(3)
@@ -397,18 +412,18 @@ plt.scatter(pca_output[:, 0], pca_output[:, 1], c=labels, cmap='rainbow')
 plt.colorbar();
 ```
 
-### `label==0` (en bleu): les jours de la semaine
+### première famille : `label==0` 
 
 ```{code-cell} ipython3
 # pour vérifier notre classification on peut redessiner
 # les jours classés label==0 
 
-# ça correspond donc aux jours de la semaine
+# ça correspond donc aux jours de la semaine (à moins que ce soit l'inverse..)
 
 pivoted.loc[:, labels==0].plot(legend=False, alpha=0.01);
 ```
 
-### `label==1` (en rouge) : les weekends
+### deuxième famille `label==1`
 
 ```{code-cell} ipython3
 # et les jours classés label==1
