@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Altair Chart with Refresh</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body style="font-family:sans-serif">
+  <h2>Yield Chart (with Refresh)</h2>
+  <button id="refresh">🔄 Refresh</button>
+  <div id="visual"></div>
+
+  <script type="text/javascript">
+    const spec = {"$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "config": {"view": {"continuousHeight": 300, "continuousWidth": 300}}, "data": {"url": "http://localhost:8000/api/yields/1931/1933"}, "encoding": {"color": {"field": "site", "type": "nominal"}, "x": {"field": "variety", "type": "nominal"}, "y": {"aggregate": "sum", "field": "yield", "type": "quantitative"}}, "height": 300, "mark": {"type": "bar"}, "params": [{"bind": "scales", "name": "param_12", "select": {"encodings": ["x", "y"], "type": "interval"}}], "title": "Barley yields", "width": 800};
+    const container = document.getElementById('visual');
+
+    function render() {
+      vegaEmbed(container, spec, { actions: false });
+    }
+
+    // Initial render
+    render();
+
+    // Reload button handler
+    document.getElementById('refresh').addEventListener('click', () => {
+      // Force Vega-Lite to reload the URL by tweaking it with a cache-busting parameter
+      const url = new URL(spec.data.url);
+      url.searchParams.set('_t', Date.now());
+      spec.data.url = url.toString();
+      render();
+    });
+  </script>
+</body>
+</html>
