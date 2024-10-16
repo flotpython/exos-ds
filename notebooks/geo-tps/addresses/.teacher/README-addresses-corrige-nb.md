@@ -64,10 +64,8 @@ on va utiliser principalement
 
 ## géolocalisation
 
-pour obtenir des coordonnées latitude/longitude à partir d'une adresse, en France on peut utiliser un service public et gratuit ici
-
-<https://adresse.data.gouv.fr/api-doc/adresse>
-
+pour obtenir des coordonnées latitude/longitude à partir d'une adresse, en France on peut utiliser un service public et gratuit ici  
+**<https://adresse.data.gouv.fr/api-doc/adresse>**  
 lisez bien cette page, et notamment tout en bas il y a une zone où vous pouvez faire une recherche en ligne
 
 ```{code-cell} ipython3
@@ -122,17 +120,92 @@ addresses.iloc[:10].to_csv('addresses-small.csv', index=False)
 
 +++
 
-c'est très pratique de pouvoir faire une recherche des adresses 'une par une'; voici comment ça se présenterait
+c'est très pratique de pouvoir faire une recherche des adresses 'une par une'; voici comment ça on s'y prendrait:
+
+- après avoir bien lu la doc de l'API, commencez par taper dans un navigateur  
+  `https://api-adresse.data.gouv.fr/search/?q=3+rue+tourelles,Paris`
+- observez le format de ce que vous recevez, qu'est-ce que ça peut être ?
+- ajoutez `&limit=1` à l'url pour que cela donne  
+  `https://api-adresse.data.gouv.fr/search/?q=3+rue+tourelles,Paris&limit=1`
+  quelle est la différence ?
+
++++
+
+````{admonition} ? et & dans l'URL
+:class: note
+
+ici lorsqu'on envoie donc une requête vers l'URL  
+`https://api-adresse.data.gouv.fr/search/?q=18+rue+BERNARDINS,Paris&limit=1`  
+les caractères `?` et `&` **jouent un rôle particulier**
+
+pour information, la syntaxe générale c'est
+```
+http://le.host.name/le/path?param1=truc&param2=bidule&param3=machinechose
+```
+
+et donc de cette façon, c'est un peu comme si on appelait une fonction à distance, en lui passant
+- `q=18+rue+BERNARDINS,Paris` (`q` pour *query*)
+- et `limit=1` (pour avoir seulement la première réponse)
+
+```{admonition} pour vous faire réfléchir
+:class: dropdown quiz
+il se passerait quoi si par exemple dans la colonne `name` il y avait un caractère `&` (imaginez la rue *Bouvart & Ratinet*)
+```
+````
+
++++
+
+fort de toutes ces observations, allez chercher sur Internet la doc d'une librairie Python qui s'appelle `requests`  
+et notamment vous devriez tomber sur une page qui commence avec cet exemple
+```
+r = requests.get('https://api.github.com/user', auth=('user', 'pass'))
+r.status_code
+200
+r.headers['content-type']
+'application/json; charset=utf8'
+r.encoding
+'utf-8'
+r.text
+'{"type":"User"...'
+r.json()
+{'private_gists': 419, 'total_private_repos': 77, ...}
+```
+
+qui devrait vous inspirer pour l'écriture de la fonction suivante
 
 ```{code-cell} ipython3
 # requests is the swiss knife for doing http
 import requests
+```
+
+```{code-cell} ipython3
+:tags: [level_basic]
+
+# votre code ici
+
+def localize_one(num, typ, nom):
+    """
+    return the first record provided by the government API
+    when localizing this address in Paris
+
+    typically called with s.t. like
+    localize(3, "rue", "tourelles")
+
+    """
+    
+    pass
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+# prune-cell
 
 def localize_one(num, typ, nom):
 
     # we build the URL which directly contains the address pieces
     url = f"https://api-adresse.data.gouv.fr/search/?q={num}+{typ}+{nom},Paris&limit=1"
-    print(f"localize_one is fetching page\n{url}")
+    # print(f"localize_one is fetching page\n{url}")
 
     # sending request to the web server
     response = requests.get(url)
@@ -158,6 +231,8 @@ localize_one(18, 'rue', 'BERNARDINS')
 ***MAIS*** on ne va pas faire comme ça... pourquoi d'après vous ?
 
 ```{hint}
+:class: dropdown
+
 * mesurez combien de temps ça a pris de résoudre cette adresse
     * pour cela vous pouvez utiliser la *magic* `%%timeit`
     * ou encore le module `time`, sachant que `time.time()` compte des secondes
@@ -191,41 +266,21 @@ details = localize_one(18, 'rue', 'BERNARDINS')
 # prune-cell
 # on observe un temps de l'ordre de 100ms par requête
 # ce qui fait pas loin d'une heure pour le tout
-30_000 * .100
+30_000 * .050
 ```
-
-````{admonition} ? et & dans l'URL
-:class: note dropdown
-
-dans une autre dimension complètement: ici on envoie donc une requête vers l'URL  
-`https://api-adresse.data.gouv.fr/search/?q=18+rue+BERNARDINS,Paris&limit=1`
-
-Les caractères `?` et `&` jouent un rôle particulier: pour information, la syntaxe générale c'est
-```
-http://le.host.name/le/path?param1=truc&param2=bidule&param3=machinechose
-```
-
-et donc de cette façon, c'est un peu comme si on appelait une fonction à distance, en lui passant
-- `q=18+rue+BERNARDINS,Paris` (`q` pour *query*)
-- et `limit=1` (pour avoir seulement la première réponse)
-
-et pour vous faire réfléchir: il se passerait quoi si par exemple dans la colonne `name` il y avait un caractère `&` (imaginez la rue *Bouvart & Ratinet*)
-````
-
-+++
 
 ### en un seul coup
 
-si vous avez bien lu la page qui décrit l'API, vous devez avoir remarqué qu'il y a une autre façon de lui soumettre une recherche
-
-c'est ce qui est indiqué ici (cherchez `search/csv` dans la page de l'API)
+si vous avez bien lu la page qui décrit l'API, vous devez avoir remarqué qu'il y a une autre façon de lui soumettre une recherche  
+c'est ce qui est indiqué ici (**cherchez `search/csv` dans la page de l'API**)
 ```
 curl -X POST -F data=@path/to/file.csv -F columns=voie -F columns=ville https://api-adresse.data.gouv.fr/search/csv/
 ```
 
 +++
 
-***mais comment ça se lit ce bidule ?***
+````{admonition} mais comment ça se lit ce bidule ?
+:class: dropdown tip
 
 * `curl` est un programme qu'on peut utiliser directement dans le terminal pour faire des requêtes http
 * dans son utilisation la plus simple, il permet par exemple d'aller chercher une page web: vous copiez l'URL depuis le navigateur, et vous la donnez à `curl`, qui peut ranger la page dans un fichier
@@ -233,13 +288,16 @@ curl -X POST -F data=@path/to/file.csv -F columns=voie -F columns=ville https://
   ```bash
   curl -o lapageweb.html http://github.com/flotpython/
   ```
-* quand on utilise une API, comme on vient de le faire pour aller chercher la position de la rue des bernardins, on doit **passer des paramètres** à l'API; pour faire ça dans une requête http, il y a deux mécanismes: GET et POST
+* quand on utilise une API, comme on vient de le faire pour aller chercher la position de la rue des bernardins, on doit **passer des paramètres** à l'API  
+et pour faire ça dans une requête http, il y a **deux mécanismes: GET et POST**
+````
 
 +++ {"tags": ["framed_cell"]}
 
 #### GET
 
-**`GET`**: c'est le comportement par défaut de `curl`; dans ce mode de fonctionnement les paramètres sont passés **directement dans l'URL** comme on l'a fait tout à l'heure quand on a vu ceci
+**`GET`**: c'est le comportement par défaut de `curl`  
+dans ce mode de fonctionnement les paramètres sont passés **directement dans l'URL** comme on l'a fait tout à l'heure quand on avait vu ceci
 ```console
 localize_one is fetching page
 https://api-adresse.data.gouv.fr/search/?q=18+rue+BERNARDINS,Paris&limit=1
@@ -249,7 +307,8 @@ https://api-adresse.data.gouv.fr/search/?q=18+rue+BERNARDINS,Paris&limit=1
 
 #### POST
 
-**`POST`**: dans ce mode-là, on ne passe plus les paramètres dans l'URL, mais dans le header http; bon je sais ça ne vous parle pas forcément, et ce n'est pas hyper important de savoir exactement ce que ça signifie, mais le point important c'est qu'on ne va plus passer les paramètres de la même façon
+**`POST`**: dans ce mode-là, on ne **passe plus les paramètres dans l'URL**, mais dans le header http  
+bon je sais ça ne vous parle pas forcément, et ce n'est pas hyper important de savoir exactement ce que ça signifie, mais le point important c'est qu'**on ne va plus passer les paramètres de la même façon**
 
 et donc pour revenir à notre phrase:
 
@@ -257,9 +316,10 @@ et donc pour revenir à notre phrase:
 curl -X POST -F data=@path/to/file.csv -F columns=voie -F columns=ville https://api-adresse.data.gouv.fr/search/csv/
 ```
 
-ce qui se passe ici, c'est qu'on utilise `curl` pour envoyer une requête `POST` avec des paramètres `data` et `columns`; le bon sens nous dit que
+ce qu'il se passe ici, c'est qu'on utilise `curl` pour envoyer une requête `POST` avec des paramètres `data` et `columns`  
+le bon sens nous dit que
 
-* `data` désigne le nom d'un fichier csv qui contient les données à géolocaliser, une par ligne
+* `data` désigne un fichier csv qui contient les données à géolocaliser, une par ligne
 * `columns` désigne les noms des colonnes qui contiennent l'adresse
 
 +++
@@ -287,8 +347,9 @@ sauf que nous, on ne veut pas utiliser `curl`, on veut faire cette requête en P
   ```
 * et donc dans notre cas, puisque `data` est un paramètre de type fichier, alors que `columns` est un paramètre usuel, on fera
   ```python
-  response = requests.post(url, file={'data': filename}, data={'columns': ['col1', ...]})
+  response = requests.post(url, files={'data': file_like}, data={'columns': ['col1', ...]})
   ```
+  dans lequel `file_like` désigne le résultat d'un `open()` 
 * enfin, `pd.read_csv` s'attend à un paramètre de type fichier, i.e. du genre de ce qu'on obtient avec `open()`  
   et du coup pour reconstruire une dataframe à partir du texte obtenu dans la requête http, on a deux choix
   1. soit on commence par sauver le texte dans un fichier temporaire (juste faire attention à choisir un nom de fichier qui n'existe pas, de préférence dans un dossier temporaire, voir le module `tempfile`)
@@ -299,42 +360,13 @@ sauf que nous, on ne veut pas utiliser `curl`, on veut faire cette requête en P
 
 +++
 
-je vous recommande d'y aller pas à pas, commencez par juste l'étape 1, puis 1 et 2, et enfin de 1 à 3
-
+je vous donne ma solution; si vous essayez de la chercher par vous-même,
+je vous recommande d'y aller pas à pas, commencez par juste l'étape 1, puis 1 et 2, et enfin de 1 à 3  
 c'est utile aussi de commencer par une toute petite dataframe pour ne pas attendre des heures pendant la mise au point...
 
 ```{code-cell} ipython3
-:tags: [level_basic]
+:tags: []
 
-# your code here
-
-def localize_many(filename, col_number, col_type, col_name, col_city):
-    """
-    calls the https://api-adresse.data.gouv.fr API
-    and returns an augmented dataframe with 4 new columns
-    latitude, longitude, result_city and result_type
-
-    Parameters:
-      filename:
-        the name of the input csv file
-      col_number:
-      col_type:
-      col_name:
-      col_city:
-        you must provide the names of the 4 columns where to find
-        street number, street type, street name and city name
-        to be used for geolocating
-    """
-
-    pass
-```
-
-```{code-cell} ipython3
-:tags: [level_intermediate]
-
-# prune-cell
-
-# again...
 import requests
 # this one is to fake a file from a string
 import io
@@ -431,8 +463,9 @@ addresses_small = localize_many("addresses-small.csv", "number", "type", "name",
 
 # at this point you should store the data
 # it's just good practice, as you've done one important step of the process
+# plus it takes quite some time to redo
 
-# store geolocalized addresses in addresses-geoloc.csv
+# so: store geolocalized addresses in addresses-geoloc.csv
 
 # your code
 ```

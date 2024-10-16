@@ -17,8 +17,10 @@
 
 # %% [markdown]
 # # data from 538.com with altair
-#
-# 538.com - actually it is <http://fivethirtyeight.com> - is a site hosted by ABC news, that exposes data about the US presidential election
+
+# %% [markdown]
+# to run this code on your own laptop,
+# {download}`start with downloading the zip file<./ARTEFACTS-polls.zip>`
 
 # %%
 import pandas as pd
@@ -28,6 +30,8 @@ import matplotlib.pyplot as plt
 
 # %% [markdown]
 # ## presidential averages
+#
+# 538.com - actually it is <http://fivethirtyeight.com> - is a site hosted by ABC news, that exposes data about the US presidential election
 #
 # we're gonna use the data in this URL:
 
