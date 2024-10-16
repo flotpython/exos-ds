@@ -9,6 +9,10 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+language_info:
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
 notebookname: Mandelbrot
 ---
 
@@ -17,7 +21,7 @@ notebookname: Mandelbrot
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
 </div>
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: slide
@@ -31,7 +35,10 @@ import matplotlib.pyplot as plt
 
 il s'agit de calculer l'image de la convergence de mandelbrot:
 
-<img src="media/mandelbrot.svg">
+```{image} media/mandelbrot.svg
+:width: 400px
+:align: right
+```
 
 +++
 
@@ -49,30 +56,35 @@ il s'agit de calculer l'image de la convergence de mandelbrot:
 
 il s'agit pour nous de 
 
-* partir d'un pavé rectangulaire  
-  par exemple sur la figure, on a pris l'habituel  
+* partir d'un pavé rectangulaire; par exemple sur la figure, on a pris l'habituel  
   $re \in [-2, 0.8]$ et  $im \in [-1.4, 1.4]$
-* découper ce pavé en un maillage de $w \times h$ points  
-  (sur la figure, 1000 x 1000)
-* on se fixe un nombre maximal `max` d'itérations (disons 20)
-  * et pour chaque point du maillage, on va calculer si la suite diverge avant `max` itérations
+* découper ce pavé en un maillage de $h \times w$ points  (sur la figure, 1000 x 1000)
+* on se fixe un nombre maximal `max` d'itérations (disons 20)  
+  et pour chaque point du maillage, on va calculer si la suite diverge avant `max` itérations
 * c'est-à-dire plus spécifiquement on calcule un tableau `diverge` de la taille du maillage
   * pour chaque point `z`, on calcule les `max` premiers termes de la suite
   * et à la première itération `n` où la suite diverge (son module est supérieur à 2)  
     alors on affecte `diverge[z] = n`
-* on n'a plus qu'à afficher ensuite l'image obtenue avec `plt.imshow`
+* on n'a plus qu'à afficher ensuite l'image obtenue `diverge` avec `plt.imshow`
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-*indices*
+````{admonition} indices
 
-* pour fabriquer la grille des points de départ, 
-  on pourra regarder `np.linspace` et `np.meshgrid`
+pour fabriquer la grille des points de départ, on pourra regarder `np.linspace` et `np.meshgrid`
+````
 
-```{code-cell}
+```{code-cell} ipython3
 # à vous de jouer
-def mandelbrot(w, h):
+
+def mandelbrot(h, w):
     pass
+```
+
+```{code-cell} ipython3
+# et pour la tester, pour produire la mème figure que ci-dessus
+
+mandelbrot(1000, 1000)
 ```
 
 ## v2
@@ -84,3 +96,27 @@ def mandelbrot(w, h):
   * quels formats sont disponibles ?
   * sauvez votre image dans un format vectoriel
   * affichez cette depuis votre notebook
+
+```{code-cell} ipython3
+# à vous de jouer
+# je vous laisse définir la signature de votre fonction
+
+def mandelbrot2():
+    pass
+```
+
+et je vous demande de mettre ici quelques tests de votre deuxième fonction
+
+```{code-cell} ipython3
+# test #1
+```
+
+```{code-cell} ipython3
+# test #2
+```
+
+```{code-cell} ipython3
+# test #3
+```
+
+----
