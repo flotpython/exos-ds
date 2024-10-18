@@ -178,15 +178,28 @@ def convert_timedelta_to_hours(timedelta):
 
 # if an hour has started even by one second, it is counted
 # seconds, hours
-test_cases = ( (0, 0), (1, 1), (3600, 1), (3601, 2), (7199, 2), (7200, 2), (7200, 3))
+test_cases = ( 
+    (0, 0), 
+    (1, 1), (3600, 1), 
+    (3601, 2), (7199, 2), (7200, 2), 
+    (7201, 3), (pd.Timedelta(3, 'h') + pd.Timedelta(2, 'm'), 4),
+    (pd.Timedelta(2, 'D'), 48),
+)
 
 def test_convert_timedelta_to_hours():
     for seconds, exp in test_cases:
-        timedelta = pd.Timedelta(seconds=seconds)
+        if not isinstance(seconds, pd.Timedelta):
+            timedelta = pd.Timedelta(seconds=seconds)
+        else:
+            timedelta = seconds
         got = convert_timedelta_to_hours(timedelta)
         print(f"with {timedelta=} we get {got} and expected {exp} -> {got == exp}")
 
 test_convert_timedelta_to_hours()
+
+# %%
+convert_timedelta_to_hours(pd.Timedelta(2, 'D'))
+
 
 # %% [markdown]
 # ### use it to display totals in hours
