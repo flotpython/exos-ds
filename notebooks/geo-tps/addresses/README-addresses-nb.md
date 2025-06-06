@@ -90,7 +90,7 @@ mais avant cela, je vous recommande de produire un fichier `addresses-small.csv`
 ```{code-cell} ipython3
 :tags: [level_basic]
 
-# produce a small extract into addresses-small.csv
+# produce a small extract into data/addresses-small.csv
 
 # your code here
 ```
@@ -343,7 +343,7 @@ def localize_many(filename, col_number, col_type, col_name, col_city):
 
 # try your code on the small sample for starters
 
-addresses_small = localize_many("addresses-small.csv", "number", "type", "name", "city")
+addresses_small = localize_many("data/addresses-small.csv", "number", "type", "name", "city")
 addresses_small
 ```
 
