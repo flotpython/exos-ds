@@ -9,8 +9,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # TP géoloc addresses
@@ -491,7 +491,11 @@ une fonction très sympatique de `folium`, c'est qu'on peut sauver cette carte s
 :tags: [raises-exception]
 
 map_small = map_addresses(addresses_small)
-map_small.save("addresses-small.html")
+
+# je commente car à ce stade dans le notebook étudiant
+# on a map_small is None et donc si on essaie de faire cela
+# le notebook plante
+# map_small.save("addresses-small.html")
 ```
 
 et maintenant pour voir le résultat, ouvrez le fichier dans un autre tab du navigateur
@@ -920,8 +924,8 @@ final_map
 
 # makes sense to save the hard work
 
-geoaddresses.to_csv("addresses-final.csv")
-final_map.save("addresses-final.html")
+# geoaddresses.to_csv("addresses-final.csv")
+# final_map.save("addresses-final.html")
 ```
 
 ## références
