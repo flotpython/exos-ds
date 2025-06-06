@@ -465,7 +465,7 @@ addresses_small = localize_many("data/addresses-small.csv", "number", "type", "n
 # it's just good practice, as you've done one important step of the process
 # plus it takes quite some time to redo
 
-# so: store geolocalized addresses in addresses-geoloc.csv
+# so: store geolocalized addresses in data/addresses-geoloc.csv
 
 # your code
 ```
@@ -477,11 +477,11 @@ addresses_small = localize_many("data/addresses-small.csv", "number", "type", "n
 
 from pathlib import Path
 
-if not Path("addresses-geoloc.csv").exists():
+if not Path("data/addresses-geoloc.csv").exists():
     addresses = localize_many("data/addresses.csv", "number", "type", "name", "city")
-    addresses.to_csv("addresses-geoloc.csv", index=False)
+    addresses.to_csv("data/addresses-geoloc.csv", index=False)
 else:
-    addresses = pd.read_csv("addresses-geoloc.csv")
+    addresses = pd.read_csv("data/addresses-geoloc.csv")
 ```
 
 ## afficher sur une carte

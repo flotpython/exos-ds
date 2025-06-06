@@ -385,7 +385,7 @@ addresses_small
 # it's just good practice, as you've done one important step of the process
 # plus it takes quite some time to redo
 
-# so: store geolocalized addresses in addresses-geoloc.csv
+# so: store geolocalized addresses in data/addresses-geoloc.csv
 
 # your code
 ```
