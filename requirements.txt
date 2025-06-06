@@ -20,6 +20,8 @@ vega_datasets
 streamlit
 dash
 openpyxl
+# to save altair figures
+vl-convert-python
 # gradio
 
 # tooling
