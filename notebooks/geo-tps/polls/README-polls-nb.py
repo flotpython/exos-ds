@@ -110,7 +110,11 @@ us_states_shapefile_url = "https://www2.census.gov/geo/tiger/GENZ2018/shp/cb_201
 # %%
 import geopandas as gpd
 
-gdf = gdf = gpd.read_file(us_states_shapefile_url)
+# temporary for https://github.com/geopandas/geopandas/issues/3592#issuecomment-2948969717
+gpd.show_versions()
+
+# %%
+gdf = gpd.read_file(us_states_shapefile_url)
 
 gdf.head()
 
@@ -223,8 +227,6 @@ chart.display()
 # :width: 800px
 # :align: center
 # ```
-#
-#
 
 # %% tags=["level_basic"]
 # your code
