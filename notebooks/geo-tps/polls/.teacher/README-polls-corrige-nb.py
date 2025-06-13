@@ -66,7 +66,7 @@ def reload():
     if Path(CACHE).exists():
         df = pd.read_csv(CACHE)
     else:
-        print("the URL is no longer online,make sure you find the {CACHE} file")
+        print(f"the URL is no longer online, make sure you find the {CACHE} file")
         return
         # df = pd.read_csv(URL)
         # df.to_csv(CACHE)
@@ -214,13 +214,7 @@ US_STATES_SHAPEFILE_CACHE = "data/us-states.zip"
 # and we can load it like so:
 
 # %%
-# # temporary for https://github.com/geopandas/geopandas/issues/3592#issuecomment-2948969717
-# gpd.show_versions()
-
-# %%
 # so instead of doing this
-# import requests
-# req = requests.get(US_STATES_SHAPEFILE_URL)
 # gdf = gpd.read_file(US_STATES_SHAPEFILE_URL)
 
 # we'll do this
