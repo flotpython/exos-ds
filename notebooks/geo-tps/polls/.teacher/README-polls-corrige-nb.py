@@ -39,27 +39,37 @@ import matplotlib.pyplot as plt
 URL = "https://projects.fivethirtyeight.com/polls/data/presidential_general_averages.csv"
 
 # %% [markdown]
-# write a function that loads this URL; ideally it should
+# ```{admonition} update 2025
+#
+# initially we would have written a function that loads this URL; it would
 #
 # - cache it on your hard drive so you can reload it faster
 # - do any type conversion that you see fit
+#
+# as of 2025 **this URL is no longer online** so we'll just 
+#
+# - load the data from `data/DATA.csv`
+# - still be careful about the columns types
+# ```
 
 # %% tags=["level_basic"]
 # your code
+
+CACHE = "data/DATA.csv"
 
 # %%
 # prune-cell
 
 from pathlib import Path
 
-CACHE = "DATA.csv"
-
 def reload():
     if Path(CACHE).exists():
         df = pd.read_csv(CACHE)
     else:
-        df = pd.read_csv(URL)
-        df.to_csv(CACHE)
+        print("the URL is no longer online,make sure you find the {CACHE} file")
+        return
+        # df = pd.read_csv(URL)
+        # df.to_csv(CACHE)
 
     # convert into time; but we cannot save this in the csv
     # so we must do it afterwards
@@ -67,6 +77,7 @@ def reload():
     return df
 
 df = reload()
+df.head(2)
 
 # %% [markdown]
 # And what we want to do is to plot the average of the polls for each candidate.  
@@ -177,24 +188,45 @@ df.candidate.value_counts()
 # %% [markdown]
 # ### digression 1: loading shapefiles with geopandas
 
+# %%
+# here's the typical nickname for geopandas
+
+import geopandas as gpd
+
 # %% [markdown]
 # first we need a definition of the various US states; there is one here
 
+# %% [markdown]
+# ```{admonition} update 2025
+#
+# here again, there's been a change since 2024: this URL no longer comes with a valid SSL certificate  
+# so we'll use the version stored under `data/` again
+#
+# ```
+
 # %%
-us_states_shapefile_url = "https://www2.census.gov/geo/tiger/GENZ2018/shp/cb_2018_us_state_20m.zip"
+# no longer easily readable by geopandas because of an SSL certificate issue
+US_STATES_SHAPEFILE_URL = "https://www2.census.gov/geo/tiger/GENZ2018/shp/cb_2018_us_state_20m.zip"
+
+US_STATES_SHAPEFILE_CACHE = "data/us-states.zip"
 
 # %% [markdown]
 # and we can load it like so:
 
 # %%
-import geopandas as gpd
-
-# temporary for https://github.com/geopandas/geopandas/issues/3592#issuecomment-2948969717
-gpd.show_versions()
+# # temporary for https://github.com/geopandas/geopandas/issues/3592#issuecomment-2948969717
+# gpd.show_versions()
 
 # %%
-gdf = gpd.read_file(us_states_shapefile_url)
+# so instead of doing this
+# import requests
+# req = requests.get(US_STATES_SHAPEFILE_URL)
+# gdf = gpd.read_file(US_STATES_SHAPEFILE_URL)
 
+# we'll do this
+gdf = gpd.read_file(US_STATES_SHAPEFILE_CACHE)
+
+# and we get this
 gdf.head()
 
 # %% [markdown]
