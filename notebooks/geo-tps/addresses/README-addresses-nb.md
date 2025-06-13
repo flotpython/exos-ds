@@ -73,14 +73,13 @@ import pandas as pd
 vous pouvez charger le fichier `data/addresses.csv`; toutes ces adresses sont situées à PARIS
 
 ```{code-cell} ipython3
-:tags: [level_basic]
+:tags: []
 
 # load the data in data/addresses.csv
 # and display a few first lines
 
-# your code here
-
-addresses = ...
+addresses = pd.read_csv('data/addresses.csv')
+addresses.head(4)
 ```
 
 et la première chose qu'on va faire, c'est naturellement d'utiliser cette API pour géolocaliser ces adresses
@@ -137,16 +136,16 @@ il se passerait quoi si par exemple dans la colonne `name` il y avait un caract�
 fort de toutes ces observations, allez chercher sur Internet la doc d'une librairie Python qui s'appelle `requests`  
 et notamment vous devriez tomber sur une page qui commence avec cet exemple
 ```
-r = requests.get('https://api.github.com/user', auth=('user', 'pass'))
-r.status_code
+>>> r = requests.get('https://api.github.com/user', auth=('user', 'pass'))
+>>> r.status_code
 200
-r.headers['content-type']
+>>> r.headers['content-type']
 'application/json; charset=utf8'
-r.encoding
+>>> r.encoding
 'utf-8'
-r.text
+>>> r.text
 '{"type":"User"...'
-r.json()
+>>> r.json()
 {'private_gists': 419, 'total_private_repos': 77, ...}
 ```
 
@@ -154,25 +153,33 @@ qui devrait vous inspirer pour l'écriture de la fonction suivante
 
 ```{code-cell} ipython3
 # requests is the swiss knife for doing http
+
 import requests
 ```
 
 ```{code-cell} ipython3
-:tags: [level_basic]
+:tags: []
 
-# votre code ici
+# here's how to use the API
 
 def localize_one(num, typ, nom):
-    """
-    return the first record provided by the government API
-    when localizing this address in Paris
 
-    typically called with s.t. like
-    localize(3, "rue", "tourelles")
+    # we build the URL which directly contains the address pieces
+    url = f"https://api-adresse.data.gouv.fr/search/?q={num}+{typ}+{nom},Paris&limit=1"
+    # print(f"localize_one is fetching page\n{url}")
 
-    """
-    
-    pass
+    # sending request to the web server
+    response = requests.get(url)
+
+    # if all is OK, http returns a code in the [200 .. 300[ range
+    if not (200 <= response.status_code < 300):
+        print("WHOOPS....")
+        return
+
+    # we can then read the answer 
+    # remember it's a JSON string
+    # so we can decode it on the fly
+    return response.json()
 ```
 
 ```{code-cell} ipython3
@@ -212,10 +219,11 @@ c'est ce qui est indiqué ici (**cherchez `search/csv` dans la page de l'API**)
 curl -X POST -F data=@path/to/file.csv -F columns=voie -F columns=ville https://api-adresse.data.gouv.fr/search/csv/
 ```
 
-+++
++++ {"tags": ["framed_cell"]}
 
-````{admonition} mais comment ça se lit ce bidule ?
-:class: dropdown tip
+`````{admonition} mais comment ça se lit ce bidule ?
+:class: warning dropdown
+:open:
 
 * `curl` est un programme qu'on peut utiliser directement dans le terminal pour faire des requêtes http
 * dans son utilisation la plus simple, il permet par exemple d'aller chercher une page web: vous copiez l'URL depuis le navigateur, et vous la donnez à `curl`, qui peut ranger la page dans un fichier
@@ -225,11 +233,10 @@ curl -X POST -F data=@path/to/file.csv -F columns=voie -F columns=ville https://
   ```
 * quand on utilise une API, comme on vient de le faire pour aller chercher la position de la rue des bernardins, on doit **passer des paramètres** à l'API  
 et pour faire ça dans une requête http, il y a **deux mécanismes: GET et POST**
-````
 
-+++ {"tags": ["framed_cell"]}
 
-#### GET
+````{admonition} GET
+:class: dropdown
 
 **`GET`**: c'est le comportement par défaut de `curl`  
 dans ce mode de fonctionnement les paramètres sont passés **directement dans l'URL** comme on l'a fait tout à l'heure quand on avait vu ceci
@@ -237,13 +244,14 @@ dans ce mode de fonctionnement les paramètres sont passés **directement dans l
 localize_one is fetching page
 https://api-adresse.data.gouv.fr/search/?q=18+rue+BERNARDINS,Paris&limit=1
 ```
+````
 
-+++ {"tags": ["framed_cell"]}
+````{admonition} POST
+:class: dropdown
 
-#### POST
-
-**`POST`**: dans ce mode-là, on ne **passe plus les paramètres dans l'URL**, mais dans le header http  
+**`POST`**: dans ce mode-là, on ne **passe plus** les paramètres dans l'URL, mais **dans les headers HTTP**  
 bon je sais ça ne vous parle pas forcément, et ce n'est pas hyper important de savoir exactement ce que ça signifie, mais le point important c'est qu'**on ne va plus passer les paramètres de la même façon**
+````
 
 et donc pour revenir à notre phrase:
 
@@ -255,7 +263,9 @@ ce qu'il se passe ici, c'est qu'on utilise `curl` pour envoyer une requête `POS
 le bon sens nous dit que
 
 * `data` désigne un fichier csv qui contient les données à géolocaliser, une par ligne
-* `columns` désigne les noms des colonnes qui contiennent l'adresse
+* `columns` désigne les noms des colonnes qui contiennent (les morceaux de) l'adresse
+
+`````
 
 +++
 
