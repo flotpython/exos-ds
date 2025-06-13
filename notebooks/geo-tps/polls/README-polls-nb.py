@@ -26,7 +26,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# %matplotlib ipympl
+# activate this if running under jlab
+# # %matplotlib ipympl
 
 # %% [markdown]
 # ## presidential averages
@@ -165,7 +166,7 @@ gdf.head()
 import altair as alt
 
 # this is for rendering altair charts within the notebook
-alt.renderers.enable("mimetype")
+alt.renderers.enable("html")
 
 # %%
 # to show a geographic map from that geo-df
