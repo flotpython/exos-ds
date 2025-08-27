@@ -211,6 +211,26 @@ localize_one(18, 'rue', 'BERNARDINS')
 # your code here
 ```
 
+````{admonition} ? et & dans l'URL
+:class: note dropdown
+
+dans une autre dimension complètement: ici on envoie donc une requête vers l'URL  
+`https://api-adresse.data.gouv.fr/search/?q=18+rue+BERNARDINS,Paris&limit=1`
+
+Les caractères `?` et `&` jouent un rôle particulier: pour information, la syntaxe générale c'est
+```
+http://le.host.name/le/path?param1=truc&param2=bidule&param3=machinechose
+```
+
+et donc de cette façon, c'est un peu comme si on appelait une fonction à distance, en lui passant
+- `q=18+rue+BERNARDINS,Paris` (`q` pour *query*)
+- et `limit=1` (pour avoir seulement la première réponse)
+
+et pour vous faire réfléchir: il se passerait quoi si par exemple dans la colonne `name` il y avait un caractère `&` (imaginez la rue *Bouvart & Ratinet*)
+````
+
++++
+
 ### en un seul coup
 
 si vous avez bien lu la page qui décrit l'API, vous devez avoir remarqué qu'il y a une autre façon de lui soumettre une recherche  

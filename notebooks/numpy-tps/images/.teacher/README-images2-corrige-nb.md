@@ -46,8 +46,10 @@ from matplotlib import pyplot as plt
   * `reshape()`, masques booléens, *ufunc*, agrégation, opérations linéaires
   * pour l'exercice `patchwork`:  
     on peut le traiter sans, mais l'exercice se prête bien à l'utilisation d'une [indexation d'un tableau par un tableau - voyez par exemple ceci](https://ue12-p24-numerique.readthedocs.io/en/main/1-14-numpy-optional-indexing-nb.html)
+
   * pour l'exercice `sepia`:  
     ici aussi on peut le faire "naivement" mais l'utilisation de `np.dot()` peut rendre le code beaucoup plus court
+
 * pour la lecture, l'écriture et l'affichage d'images
   * utilisez `plt.imread()`, `plt.imshow()`
   * utilisez `plt.show()` entre deux `plt.imshow()` si vous affichez plusieurs images dans une même cellule
@@ -59,6 +61,7 @@ from matplotlib import pyplot as plt
   * nous ne signifions pas là du tout que ce sont les meilleures!  
     par exemple `matplotlib.pyplot.imsave` ne vous permet pas de donner la qualité de la compression  
     alors que la fonction `save` de `PIL` le permet
+
   * vous êtes libres d'utiliser une autre librairie comme `opencv`  
     si vous la connaissez assez pour vous débrouiller (et l'installer), les images ne sont qu'un prétexte...
   ```
@@ -117,12 +120,22 @@ for c in ['Red', 'Lime', 'Blue']:
     print(c, colors_dict[c])
 ```
 
-3. Faites une fonction `patchwork` qui  
+3. Faites une fonction `patchwork` qui prend deux paramètres obligatoires:
 
-   * prend une liste de couleurs et la structure donnant le code des couleurs RGB
-   * et retourne un tableau `numpy` avec un patchwork de ces couleurs  
-   * (pas trop petits les patchs - on doit voir clairement les taches de couleurs  
-   si besoin de compléter l'image mettez du blanc
+   * une liste de couleurs
+   * et la structure donnant le code des couleurs RGB qu'on a obtenue à l'étape 1  
+   et retourne un tableau `numpy` avec un patchwork de ces couleurs
+
+   Testez votre fonction en affichant le résultat obtenu sur un jeu de couleurs fourni
+
+````{admonition} consignes supplémentaires
+
+* chacun des carrés de couleur a une certaine "épaisseur" - pour fixer les idées disons 10 pixels  
+  ça pourrait être - comme on le suggère ci-dessous - un paramètre optionnel de la fonction `patchwork`
+
+* si besoin de compléter l'image, mettez du blanc; ici aussi si vous voulez améliorer un peu,
+  vous pouvez accepter un paramètre optionnel qui est le nom de la couleur de remplissage
+````
 
 +++
 
@@ -152,10 +165,17 @@ for c in ['Red', 'Lime', 'Blue']:
 
 ```{code-cell} ipython3
 # votre code
+def rectangle_size(n):
+    """
+    return a tuple (lines, cols) for
+    the smallest rectangle that contains n cells
+    """
+    ...
 ```
 
 ```{code-cell} ipython3
-# prune-cell
+# prune-cell 3.a
+
 # a rougher approach would just use a square
 def rectangle_size(n):
     '''
@@ -172,7 +192,16 @@ for n in range(1, 18):
 ```
 
 ```{code-cell} ipython3
-# prune-cell
+# votre code 
+def patchwork(colors, colormap, side=10):
+    """
+    """
+    ...
+```
+
+```{code-cell} ipython3
+# prune-cell 3.b
+
 def patchwork (col_list, col_dict, side=5, background='White'):
     '''
     create an image with a patchwork of the col_list colors
@@ -186,38 +215,58 @@ def patchwork (col_list, col_dict, side=5, background='White'):
 
     # we create the ndarray of the colors
     # (each color has an indice from 0 to len(col_list)-1)
+    
     # initialized with the background color
-    colormap = np.array(l*c*[col_dict[background]], dtype=np.uint8)
-    # at this point col_tab is of shape (l*c), 3
-    # because col_dict[background itself has 3 values]
-
-    # we assign the array with the resolved colors
-    colormap[0:len(col_list)] = [col_dict[k] for k in col_list]
     # if this puzzles you, evaluate 10 * [[255, 0, 0]]
-    print(f"{colormap.shape=}")
+    colormap = np.array(l*c*[col_dict[background]], dtype=np.uint8)
+
+    # at this point col_tab is of shape (l*c), 3
+    # because col_dict[background] itself has 3 values
+
+    # we assign the array with the provided colors
+    # remember the remaining ones are already set with the background
+    colormap[0:len(col_list)] = [col_dict[k] for k in col_list]
+
+    # again this is (l*c), 3
+    # if this puzzles you, evaluate 10 * [[255, 0, 0]]
+    # print(f"{colormap.shape=}")
 
     # the final image is a rectangle of (l*side, c*side) of pixels
     # we compute its indices
     i, j = np.indices((l*side, c*side))
-    # we pass the indices in the patchwork of l*c patches (i.e. //side)
+    # change of coordinates: in the patchwork of l*c patches (i.e. //side)
     I, J = i//side, j//side
+    # if you are curious
+    # print(f"{j[:2]=}")
+    # print(f"{J[:2]=}")
 
     # c*I + J transforms I and J in the corresponding color indices in the colormap
     # its shape is the same as the final image
-    # print(f"{j[:2]=}")
-    # print(f"{J[:2]=}")
-    # print(f"{c*I+J=}")
+    pattern = c*I + J
+    # print(f"{pattern}")
 
     # so all we are left with is .. a simple array-by-array indexation
-    return colormap[c*I + J]
+    return colormap[pattern]
+```
 
+```{code-cell} ipython3
+# votre code
+
+# affichez le résultat obtenu avec ce jeu de couleurs
 
 colors = [
-    'DarkBlue', 'AntiqueWhite', 'LimeGreen',
-    'NavajoWhite', 'Tomato', 'DarkGoldenrod',
-    'LightGoldenrodYellow', 'OliveDrab',
+    'DarkBlue', 'AntiqueWhite', 'LimeGreen', 'NavajoWhite',
+    'Tomato', 'DarkGoldenrod', 'LightGoldenrodYellow', 'OliveDrab',
+    'Red', 'Lime',
 ]
-plt.imshow(patchwork(colors, colors_dict, side=5));
+
+# plt.imshow(...)
+```
+
+```{code-cell} ipython3
+# prune-cell
+
+plt.imshow(patchwork(colors, colors_dict, side=5, background='DarkGray'));
 ```
 
 4. Tirez aléatoirement une liste de couleurs et appliquez votre fonction à ces couleurs.
@@ -228,6 +277,7 @@ plt.imshow(patchwork(colors, colors_dict, side=5));
 
 ```{code-cell} ipython3
 # prune-cell 4.
+
 import random
 k = 19
 im = patchwork(random.sample(list(colors_dict.keys()), k),
@@ -246,6 +296,7 @@ même chose pour des jaunes
 
 ```{code-cell} ipython3
 # prune-cell 5.
+
 for s in ['white', 'red']: #, 'blue', 'medium', 'light', 'brown'
     colors = [k for k in colors_dict.keys() if s in k.lower()]
     print(f'{len(colors)} "{s}" colors')
@@ -262,6 +313,7 @@ et sauver ce patchwork dans le fichier `patchwork.png` avec `plt.imsave`
 
 ```{code-cell} ipython3
 # prune-cell 6.
+
 im_all = patchwork(list(colors_dict.keys()), colors_dict, side=100)
 plt.imshow(im_all);
 ```

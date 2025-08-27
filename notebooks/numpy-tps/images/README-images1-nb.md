@@ -82,7 +82,7 @@ il y a plein de façons de le faire, google et/ou stackoverflow sont vos amis...
 `(r, g, b) = (255, 255, 0)` donne la couleur jaune ...
 
 ```{image} media/synthese-additive.png
-:width: 300px
+:width: 200px
 :align: center
 ```
 
@@ -93,22 +93,21 @@ il y a plein de façons de le faire, google et/ou stackoverflow sont vos amis...
 
 **Exercices**
 
-1. Créez un tableau blanc, de 91 pixels de côté, d'entiers non-signés 8 bits et affichez-le  
-   indices:  
-   . le tableau n'est pas forcément initialisé à ce stade  
+1. Créez un tableau **non initialisé**, pour représenter une image carrée **de 91 pixels de côté**, d'entiers 8 bits non-signés, et affichez-le  
+   indice:  
    . il vous faut pouvoir stocker 3 uint8 par pixel pour ranger les 3 couleurs
 
 ```{code-cell} ipython3
 # votre code
 ```
 
-2. Transformez le en tableau noir (en un seul slicing) et affichez-le
+2. Transformez le en tableau blanc (en un seul slicing) et affichez-le
 
 ```{code-cell} ipython3
 # votre code
 ```
 
-3. Transformez le en tableau jaune (en un seul slicing) et affichez-le
+3. Transformez le en tableau vert (en un seul slicing) et affichez-le
 
 ```{code-cell} ipython3
 # votre code
@@ -197,6 +196,7 @@ si il ne l'est pas copiez-le
 (ne dupliquez pas le code)
 
 **[indices]**
+
 * vous pouvez créer plusieurs figures depuis une seule cellule
 * vous pouvez ensuite choisir de 'replier' ou non la zone *output* en hauteur;  
   c'est-à-dire d'afficher soit toute la hauteur, soit une zone de taille fixe avec une scrollbar pour naviguer  

@@ -231,8 +231,8 @@ def sine_linear(freq1, freq2, duration):
 ```{code-cell} ipython3
 :tags: [level_intermediate]
 
-# pour écouter
-MyAudio(sine_linear(440, 660, 3))
+# décommenter pour écouter
+#MyAudio(sine_linear(440, 660, 3))
 ```
 
 ## réglage du volume
@@ -256,8 +256,8 @@ crescendo_la_1seconde = ...
 ```
 
 ```{code-cell} ipython3
-# pour écouter
-MyAudio(crescendo_la_1seconde) #, autoplay=True)
+# décommenter pour écouter
+#MyAudio(crescendo_la_1seconde) #, autoplay=True)
 ```
 
 2. en faire une fonction
@@ -274,8 +274,8 @@ def crescendo_sine(freq, duration):
 ```
 
 ```{code-cell} ipython3
-# pour écouter
-MyAudio(crescendo_sine(LA, 2)) #, autoplay=True)
+# décommenter pour écouter
+#MyAudio(crescendo_sine(LA, 2)) #, autoplay=True)
 ```
 
 3. ajouter un paramètre pour pouvoir décroître
@@ -291,9 +291,9 @@ def crescendo_sine(freq, duration, increase=True):
 ```
 
 ```{code-cell} ipython3
-# pour écouter
+# décommenter pour écouter
 
-MyAudio(crescendo_sine(LA, 2, increase=False)) #, autoplay=True)
+#MyAudio(crescendo_sine(LA, 2, increase=False)) #, autoplay=True)
 ```
 
 4. avancés:
@@ -328,9 +328,9 @@ la_do = ...
 ```
 
 ```{code-cell} ipython3
-# pour écouter
+# décommenter pour écouter
 
-MyAudio(la_do, autoplay=True)
+#MyAudio(la_do, autoplay=True)
 ```
 
 ## amplitude et types
@@ -360,7 +360,7 @@ par contre pour les entiers **signés**, on va devoir utiliser **un bit comme bi
 +++
 
 | entier |    int8    |     uint8    |
-|--------|------------|--------------|
+|-------:|------------|--------------|
 | -128   | `10000000` | n/a |
 | -127   | `10000001` | n/a |
 | -126   | `10000010` | n/a |
@@ -443,15 +443,16 @@ def float_to_int16(as_float):
 ```{code-cell} ipython3
 :cell_style: split
 
-# pour écouter
-MyAudio(float_to_int16(la_do), autoplay=True)
+# décommenter pour écouter
+#MyAudio(float_to_int16(la_do), autoplay=True)
 ```
 
 ```{code-cell} ipython3
 :cell_style: split
 
+# décommenter pour écouter
 # sans conversion
-MyAudio(la_do, autoplay=True)
+#MyAudio(la_do, autoplay=True)
 ```
 
 ## fréquences des notes de la gamme
@@ -855,6 +856,7 @@ on va utiliser matplotlib pour afficher le signal
 affichez le signal du morceau (la position de la membrane) en fonction du temps à l'aide de la fonction `plt.plot()`
 
 ````{tip}
+
 * c'est important d'avoir un rendu interactif (souvenez vous de `%matplotlib`)
 * pour pouvoir zoomer dans le diagramme
 * notamment utiles: pour zoomer (icône carrée), déplacer (les deux flêches croisées), revenir au point de vue de départ (la maison)..
@@ -877,6 +879,7 @@ sauf que si on s'y prend comme cela:
 
 * les deux signaux apparaissent avec le même niveau sonore  
   or un effet d'echo sous-entend une atténuation du signal tardif
+
 * en plus avec le type `int16`, on risque de causer des erreurs de débordement  
   en effet si au même instant les deux signaux contiennent tous deux  
   une valeur >= 20_000, la somme va dépasser $2^{15}$ et donc provoquer  
@@ -895,6 +898,7 @@ c'est ce qu'on essaie d'illustrer ici
 * et on applique à chacun une pondération  
   par exemple 70% pour le signal de départ,
   et 30% pour le signal retardé
+
 * avant de les ajouter
 
 ```{code-cell} ipython3

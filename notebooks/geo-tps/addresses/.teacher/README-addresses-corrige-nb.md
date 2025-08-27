@@ -237,10 +237,30 @@ details = localize_one(18, 'rue', 'BERNARDINS')
 :tags: [level_intermediate]
 
 # prune-cell
-# on observe un temps de l'ordre de 100ms par requête
-# ce qui fait pas loin d'une heure pour le tout
-30_000 * .050
+# si on observe un temps de l'ordre de 100ms par requête
+# ça fait pas loin d'une heure pour le tout
+30_000 * .100
 ```
+
+````{admonition} ? et & dans l'URL
+:class: note dropdown
+
+dans une autre dimension complètement: ici on envoie donc une requête vers l'URL  
+`https://api-adresse.data.gouv.fr/search/?q=18+rue+BERNARDINS,Paris&limit=1`
+
+Les caractères `?` et `&` jouent un rôle particulier: pour information, la syntaxe générale c'est
+```
+http://le.host.name/le/path?param1=truc&param2=bidule&param3=machinechose
+```
+
+et donc de cette façon, c'est un peu comme si on appelait une fonction à distance, en lui passant
+- `q=18+rue+BERNARDINS,Paris` (`q` pour *query*)
+- et `limit=1` (pour avoir seulement la première réponse)
+
+et pour vous faire réfléchir: il se passerait quoi si par exemple dans la colonne `name` il y avait un caractère `&` (imaginez la rue *Bouvart & Ratinet*)
+````
+
++++
 
 ### en un seul coup
 
