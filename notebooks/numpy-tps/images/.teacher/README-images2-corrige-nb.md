@@ -71,86 +71,62 @@ from matplotlib import pyplot as plt
 
 ## Création d'un patchwork
 
-+++
+### v1
 
-1. Le fichier `data/rgb-codes.txt` contient une table de couleurs:
-```
-AliceBlue 240 248 255
-AntiqueWhite 250 235 215
-Aqua 0 255 255
-.../...
-YellowGreen 154 205 50
-```
-Le nom de la couleur est suivi des 3 valeurs de ses codes `R`, `G` et `B`  
-Lisez cette table en `Python` et rangez-la dans la structure qui vous semble adéquate.
+on se propose d'écrire un code pour créer des tableaux dans le genre de celui-ci (affiché avec `plt.imshow`):
+
+![](media/patchwork-sample.png)
 
 ```{code-cell} ipython3
-# votre code
+# pour cela on se définirait par exemple
+colors = [
+[255, 0, 0],
+[0, 255, 0],
+[0, 0, 255],
+[255, 255, 0],
+[255, 0, 255],
+]
 ```
 
-```{code-cell} ipython3
-# prune-cell 1.
-colors_dict = dict()
-with open('data/rgb-codes.txt', 'r') as f:
-    for line in f:
-        name, r, g, b = line.split()
-        colors_dict[name] = [int(r), int(g), int(b)]
+après quoi on appellerait la fonction `patchwork` - que vous allez devoir écrire - comme ceci:
+
+```python
+plt.imshow(patchwork(colors))
 ```
 
-```{code-cell} ipython3
-# prune-cell 1. 
-# ou encore, en plus pédant
-colors_dict = dict()
-with open('data/rgb-codes.txt', 'r') as f:
-    for line in f:
-        name, *rgb = line.split()
-        colors_dict[name] = list(map(int, rgb))
+remarquez les choses suivantes:
+
+- si par exemple on avait passé 9 couleurs, on aurait créé un carré 3x3, mais comme ici on a passé à la fonction une liste de 5 couleurs, pour que ça tienne dans un rectangle, on se décide sur un rectangle de taille 2x3
+- la taille totale de l'image est de 10x15, car par défaut chaque petite tuile a une taille de 5 pixels
+- du coup le dernier carré est rempli avec une couleur par défaut - ici antiquewhite
+
+on va permettre à l'appelant de changer ces valeurs par défaut  
+ça signifie que si on appelait
+
+```python
+plt.imshow(patchwork(colors+colors, side=10, background=[0, 0, 0]))
 ```
 
-2. Affichez, à partir de votre structure, les valeurs rgb entières des couleurs suivantes  
-`'Red'`, `'Lime'`, `'Blue'`
+on obtiendrait cette fois (observez la taille en pixels de l'image)
 
-```{code-cell} ipython3
-# votre code
-```
-
-```{code-cell} ipython3
-# prune-cell 2.
-for c in ['Red', 'Lime', 'Blue']:
-    print(c, colors_dict[c])
-```
-
-3. Faites une fonction `patchwork` qui prend deux paramètres obligatoires:
-
-   * une liste de couleurs
-   * et la structure donnant le code des couleurs RGB qu'on a obtenue à l'étape 1  
-   et retourne un tableau `numpy` avec un patchwork de ces couleurs
-
-   Testez votre fonction en affichant le résultat obtenu sur un jeu de couleurs fourni
-
-````{admonition} consignes supplémentaires
-
-* chacun des carrés de couleur a une certaine "épaisseur" - pour fixer les idées disons 10 pixels  
-  ça pourrait être - comme on le suggère ci-dessous - un paramètre optionnel de la fonction `patchwork`
-
-* si besoin de compléter l'image, mettez du blanc; ici aussi si vous voulez améliorer un peu,
-  vous pouvez accepter un paramètre optionnel qui est le nom de la couleur de remplissage
-````
+![](media/patchwork-sample2.png)
 
 +++
 
-````{admonition} indices
-:class: dropdown
+**exercice**
+
++++
+
+1. écrivez une fonction `rectangle_size` qui calcule la taille du rectangle en fonction du nombre de couleurs
+
+```{admonition} indice
+:class: tip dropdown
+* votre fonction retourne un tuple avec deux morceaux: le nombre de lignes, et le nombre de colonnes
+* dans un premier temps, vous pouvez vous contenter d'une version un peu brute: on pourrait utiliser juste la racine carrée, et toujours fabriquer des carrés
   
-* sont potentiellement utiles pour cet exo:
-  * la fonction `np.indices()`
-  * [l'indexation d'un tableau par un tableau](https://numerique.info-mines.paris/numpy-optional-indexing-nb/)
-* aussi, ça peut être habile de couper le problème en deux, et de commencer par écrire une fonction `rectangle_size(n)` qui vous donne la taille du patchwork en fonction du nombre de couleurs  
-  ```{admonition} et pour calculer la taille au plus juste
-  :class: tip dropdown
+  par exemple avec 5 couleurs créer un carré 3x3 (et remplir les 4 cases restantes avec la couleur de fond)
 
-  en version un peu brute, on pourrait utiliser juste la racine carrée;
-  par exemple avec 5 couleurs créer un carré 3x3 - mais 3x2 c'est quand même mieux !
+* mais si vous avez le temps, pour 5 couleurs, un rectangle 3x2 c'est quand même mieux !
 
   voici pour vous aider à calculer le rectangle qui contient n couleurs
 
@@ -160,21 +136,22 @@ for c in ['Red', 'Lime', 'Blue']:
   2 | 1x2 | 6 | 2x3 | 10 | 3x4 | 15 | 4x4 |
   3 | 2x2 | 7 | 3x3 | 11 | 3x4 | 16 | 4x4 |
   4 | 2x2 | 8 | 3x3 | 12 | 3x4 | 17 | 4x5 |
-  ```
-````
+```
 
 ```{code-cell} ipython3
 # votre code
+
 def rectangle_size(n):
     """
     return a tuple (lines, cols) for
     the smallest rectangle that contains n cells
     """
+    # your code goes here...
     ...
 ```
 
 ```{code-cell} ipython3
-# prune-cell 3.a
+# prune-cell 1.
 
 # a rougher approach would just use a square
 def rectangle_size(n):
@@ -191,45 +168,57 @@ for n in range(1, 18):
     print(f"{n=} -> {rectangle_size(n)=}")
 ```
 
+2. écrivez la fonction `patchwork` telle que décrite en préambule
+
+````{admonition} indices
+:class: dropdown
+* sont potentiellement utiles pour cet exo:
+  * la fonction `np.indices()`
+  * [l'indexation d'un tableau par un tableau](https://numerique.info-mines.paris/numpy-optional-indexing-nb/)
+* souvenez-vous que chaque "tuile" a une taille réglable
+* et qu'il vous faut peindre les tuiles surnuméraires avec une couleur de fond paamétrable
+````
+
 ```{code-cell} ipython3
 # votre code 
-def patchwork(colors, colormap, side=10):
+
+def patchwork(colors, side=10, background=[169, 169, 169]):
     """
+    - colors is expected to be a list of n colors; it can be either
+      * a list like e.g. [[255, 0, 0], [0, 255, 0], ... ]
+      * or a numpy array of shape n, 3
+    - side is the "width" of each square
+    - optional background it used to pad the rest of the image when
+      the <n> colors are not enough to fill a rectangle
+      here we use DarkGray as the default
     """
+    # your code here
     ...
 ```
 
 ```{code-cell} ipython3
-# prune-cell 3.b
+# prune-cell 2.
 
-def patchwork (col_list, col_dict, side=5, background='White'):
-    '''
-    create an image with a patchwork of the col_list colors
-    the image contains l*c patches
-    each patch is a square of side pixels
-    the patchwork can have more patches than colors
-    the color of additional patches will be background (white by defaut)
-    '''
+def patchwork(raw_colors, side=5, background=[169, 169, 169]):
+
+    if isinstance(raw_colors, list):
+        colors = np.array(raw_colors, dtype=np.uint8)
+    elif isinstance(raw_colors, np.ndarray):
+        # if we wanted to be over protective
+        # assert colors.shape[1] == 3
+        colors = raw_colors
+
     # we compute the number of lines and columns of the patchwork
-    l, c = rectangle_size(len(col_list))
+    nb_colors = colors.shape[0]
+    l, c = rectangle_size(nb_colors)
 
-    # we create the ndarray of the colors
-    # (each color has an indice from 0 to len(col_list)-1)
-    
-    # initialized with the background color
-    # if this puzzles you, evaluate 10 * [[255, 0, 0]]
-    colormap = np.array(l*c*[col_dict[background]], dtype=np.uint8)
-
-    # at this point col_tab is of shape (l*c), 3
-    # because col_dict[background] itself has 3 values
-
-    # we assign the array with the provided colors
+    # this one will have l*c entries
+    colormap = np.empty( (l*c, 3), dtype=np.uint8)
+    # we initialize it with the background 
+    colormap[:] = background
+    # and we assign the array with the provided colors
     # remember the remaining ones are already set with the background
-    colormap[0:len(col_list)] = [col_dict[k] for k in col_list]
-
-    # again this is (l*c), 3
-    # if this puzzles you, evaluate 10 * [[255, 0, 0]]
-    # print(f"{colormap.shape=}")
+    colormap[0:nb_colors] = colors
 
     # the final image is a rectangle of (l*side, c*side) of pixels
     # we compute its indices
@@ -250,23 +239,170 @@ def patchwork (col_list, col_dict, side=5, background='White'):
 ```
 
 ```{code-cell} ipython3
-# votre code
+# si vous voulez tester
+# plt.imshow(patchwork(colors));
+```
 
-# affichez le résultat obtenu avec ce jeu de couleurs
-
-colors = [
-    'DarkBlue', 'AntiqueWhite', 'LimeGreen', 'NavajoWhite',
-    'Tomato', 'DarkGoldenrod', 'LightGoldenrodYellow', 'OliveDrab',
-    'Red', 'Lime',
-]
-
-# plt.imshow(...)
+```{code-cell} ipython3
+# si vous voulez tester
+# plt.imshow(patchwork(colors+colors, side=10, background=[0, 0, 0]))
 ```
 
 ```{code-cell} ipython3
 # prune-cell
 
-plt.imshow(patchwork(colors, colors_dict, side=5, background='DarkGray'));
+plt.imshow(patchwork(colors))
+plt.savefig("media/patchwork-sample.png")
+```
+
+```{code-cell} ipython3
+# prune-cell
+
+plt.imshow(patchwork(colors+colors, side=10, background=[0, 0, 0]))
+plt.savefig("media/patchwork-sample2.png")
+```
+
+### v2 (optionnel)
+
+dans cette version, on a envie de pouvoir faire essentiellement la même chose, mais avec des **noms de couleurs**
+
+et pour cela on vous fournit un **fichier textuel de description des couleurs** qui se trouve dans `data/rgb-codes.txt` et qui ressemble à ceci:
+
+```text
+AliceBlue 240 248 255
+AntiqueWhite 250 235 215
+Aqua 0 255 255
+.../...
+YellowGreen 154 205 50
+```
+Comme vous le devinez, le nom de la couleur est suivi des 3 valeurs 
+de ses codes `R`, `G` et `B`
+
+```{code-cell} ipython3
+# with patchwork v2 one could use this data
+
+color_names = [
+    'DarkBlue', 'AntiqueWhite', 'LimeGreen', 'NavajoWhite',
+    'Tomato', 'DarkGoldenrod', 'LightGoldenrodYellow', 'OliveDrab',
+    'Red', 'Lime',
+]
+```
+
+et ce qu'on veut, c'est pouvoir faire par exemple
+
+```python
+patchwork2(color_names)
+```
+
+pour obtenir ceci
+
+![](media/patchwork-sample3.png)
+
++++
+
+**exercice**
+
++++
+
+1. lisez le fichier des couleurs en `Python`, et rangez cela dans la structure de données qui vous semble adéquate.
+
+```{code-cell} ipython3
+# votre code
+```
+
+```{code-cell} ipython3
+# prune-cell 1.
+
+# we store colors in a dictionary
+# color-name -> [r, g, b]
+COLORS_INDEX = dict()
+
+with open('data/rgb-codes.txt', 'r') as f:
+    for line in f:
+        name, r, g, b = line.split()
+        COLORS_INDEX[name] = [int(r), int(g), int(b)]
+```
+
+```{code-cell} ipython3
+# prune-cell 1. 
+# ou encore, en plus pédant
+
+COLORS_INDEX = dict()
+with open('data/rgb-codes.txt', 'r') as f:
+    for line in f:
+        name, *rgb = line.split()
+        COLORS_INDEX[name] = list(map(int, rgb))
+```
+
+2. Affichez, à partir de votre structure, les valeurs rgb entières des couleurs suivantes  
+`'Red'`, `'Lime'`, `'Blue'`
+
+```{code-cell} ipython3
+# votre code
+```
+
+```{code-cell} ipython3
+# prune-cell 2.
+for c in ['Red', 'Lime', 'Blue']:
+    print(c, COLORS_INDEX[c])
+```
+
+3. Faites une fonction `patchwork2` qui fait ce qu'on veut
+
+   Testez votre fonction en affichant le résultat obtenu sur un jeu de couleurs fourni
+
+````{admonition} un commentaire
+:class: tip admonition-small
+
+telle qu'on l'a appelée ci-dessus i.e. `patchwork(color_names)`, on n'a pas prévu de passer en paramètre la table des couleurs - je veux dire la structure qu'on a construite à l'étape 1
+
+c'est principalement pour simplifier: utilisez cette structure comme une variable globale ! 
+
+bon sachez juste que dans la vraie vie, on évite cette pratique de passer par une variable globale; il y a plein de façons de faire ça, mais ce n'est pas notre sujet aujourd'hui, et on va rester simple :)
+
+````
+
+```{code-cell} ipython3
+# votre code
+
+def patchwork2(color_names, side=10, background_color="DarkGray"):
+    '''
+    create an image with a patchwork of the col_list colors
+    the image contains l*c patches
+    each patch is a square of side pixels
+    the patchwork can have more patches than colors
+    the color of additional patches will be background (white by defaut)
+    '''
+    # your goes goes here
+    ...
+```
+
+```{code-cell} ipython3
+# ou encore
+
+#plt.imshow(patchwork2(color_names, side=20, background="DarkGray"));
+```
+
+```{code-cell} ipython3
+# prune-cell 3.
+
+def patchwork2(color_names, side=5, background='DarkGray'):
+    colors = [COLORS_INDEX[name] for name in color_names]
+    background_color = COLORS_INDEX[background]
+    return patchwork(colors, side=side, background=background_color)
+```
+
+```{code-cell} ipython3
+# et pour le tester
+
+#plt.imshow(patchwork2(color_names));
+```
+
+```{code-cell} ipython3
+#prune-cell
+
+plt.imshow(patchwork2(color_names))
+plt.savefig("media/patchwork-sample3.png")
 ```
 
 4. Tirez aléatoirement une liste de couleurs et appliquez votre fonction à ces couleurs.
@@ -280,15 +416,15 @@ plt.imshow(patchwork(colors, colors_dict, side=5, background='DarkGray'));
 
 import random
 k = 19
-im = patchwork(random.sample(list(colors_dict.keys()), k),
-               colors_dict,
-               side=10)
+im = patchwork2(
+    random.sample(list(COLORS_INDEX.keys()), k),
+    side=10)
 
 plt.imshow(im);
 ```
 
-5. Sélectionnez toutes les couleurs à base de blanc et affichez leur patchwork  
-même chose pour des jaunes
+5. Sélectionnez toutes les couleurs à base de blanc (i.e. dont le nom contient `white`) et affichez leur patchwork  
+   même chose pour des jaunes
 
 ```{code-cell} ipython3
 # votre code
@@ -297,10 +433,10 @@ même chose pour des jaunes
 ```{code-cell} ipython3
 # prune-cell 5.
 
-for s in ['white', 'red']: #, 'blue', 'medium', 'light', 'brown'
-    colors = [k for k in colors_dict.keys() if s in k.lower()]
+for s in ['white', 'yellow']: #, 'blue', 'medium', 'light', 'brown'
+    colors = [k for k in COLORS_INDEX.keys() if s in k.lower()]
     print(f'{len(colors)} "{s}" colors')
-    plt.imshow(patchwork(colors, colors_dict))
+    plt.imshow(patchwork2(colors))
     plt.show()
 ```
 
@@ -314,7 +450,7 @@ et sauver ce patchwork dans le fichier `patchwork.png` avec `plt.imsave`
 ```{code-cell} ipython3
 # prune-cell 6.
 
-im_all = patchwork(list(colors_dict.keys()), colors_dict, side=100)
+im_all = patchwork2(list(COLORS_INDEX.keys()), side=100)
 plt.imshow(im_all);
 ```
 
@@ -338,6 +474,156 @@ plt.imsave('patchwork-all.png', im_all)
 plt.show()
 pat = plt.imread('patchwork-all.png')
 plt.imshow(pat);
+```
+
+## Image en sépia
+
++++
+
+Pour passer en sépia les valeurs R, G et B d'un pixel  
+(encodées ici sur un entier non-signé 8 bits)  
+
+1. on transforme les valeurs `R`, `G` et `B` par la transformation  
+`0.393 * R + 0.769 * G + 0.189 * B`  
+`0.349 * R + 0.686 * G + 0.168 * B`  
+`0.272 * R + 0.534 * G + 0.131 * B`  
+(attention les calculs doivent se faire en flottants pas en uint8  
+pour ne pas avoir, par exemple, 256 devenant 0)  
+1. puis on seuille les valeurs qui sont plus grandes que `255` à `255`
+1. naturellement l'image doit être ensuite remise dans un format correct  
+(uint8 ou float entre 0 et 1)
+
++++
+
+````{tip}
+jetez un coup d'oeil à la fonction `np.dot` 
+qui est si on veut une généralisation du produit matriciel
+
+dont voici un exemple d'utilisation:
+````
+
+```{code-cell} ipython3
+:scrolled: true
+
+# exemple de produit de matrices avec `numpy.dot`
+# le help(np.dot) dit: dot(A, B)[i,j,k,m] = sum(A[i,j,:] * B[k,:,m])
+
+i, j, k, m, n = 2, 3, 4, 5, 6
+A = np.arange(i*j*k).reshape(i, j, k)
+B = np.arange(m*k*n).reshape(m, k, n)
+
+C = A.dot(B)
+# or C = np.dot(A, B)
+
+print(f"en partant des dimensions {A.shape} et {B.shape}")
+print(f"on obtient un résultat de dimension {C.shape}")
+print(f"et le nombre de termes dans chaque `sum()` est {A.shape[-1]} == {B.shape[-2]}")
+```
+
+**Exercice**
+
++++
+
+1. Faites une fonction qui prend en argument une image RGB et rend une image RGB sépia  
+la fonction `numpy.dot` peut être utilisée si besoin, voir l'exemple ci-dessus
+
+```{code-cell} ipython3
+# votre code
+```
+
+```{code-cell} ipython3
+# prune-cell 1. pas à pas
+# le même code que ci-dessous mais avec plein de print()
+
+SEPIA = np.array([[0.393, 0.349, 0.272],
+                  [0.769, 0.686, 0.534],
+                  [0.189, 0.168, 0.131]])
+
+img = plt.imread('data/les-mines.jpg') # dtype = uint8
+print(img.dtype)
+print(img.shape, SEPIA.shape) # (i, j, 3) (m, 3)
+
+img_SEPIA = img.dot(SEPIA)
+# ou img_SEPIA = np.dot(img, SEPIA)
+print(img_SEPIA.dtype) # floats64
+
+print(img_SEPIA.min(), img_SEPIA.max()) # de 0 à 344.505
+
+# plt.imshow demande un type correct
+# soit uint8 (donc des valeurs entre 0 et 255)
+# soit float64 avec des valeurs entre 0 et 1
+# (et pas entre 0 et 344.505)
+# on doit donc seuiller au dessous de 255 et passer en uint8
+img_SEPIA[img_SEPIA>255] = 255
+img_SEPIA = img_SEPIA.astype(np.uint8)
+
+plt.imshow(img_SEPIA);
+```
+
+```{code-cell} ipython3
+# prune-cell 1. avec dot()
+# dans ce cas de figure on peut utiliser indifféremment
+# np.dot ou @ (aka np.matmul)
+# https://numpy.org/doc/stable/reference/generated/numpy.dot.html
+
+def sepia(im, SEPIA=np.array([[0.393, 0.349, 0.272],
+                              [0.769, 0.686, 0.534],
+                              [0.189, 0.168, 0.131]])):
+# les deux marchent
+    result = np.dot(im, SEPIA)
+#    result = im @ SEPIA
+    result[result>255] = 255
+    return result.astype(np.uint8)
+
+plt.imshow(
+    sepia(plt.imread('data/les-mines.jpg')));
+```
+
+prune-cell: comment ça marche ?
+
+la doc dit que
+> `dot(a, b)[i,j,k,m] = sum(a[i,j,:] * b[k,:,m])`
+
+dans notre cas:
+
+* a est de dimension 3, et `a.shape = lines, cols, 3`, et
+* b est de dimension 2, avec `b.shape = 3, 3`, ce qui donne
+
+> `dot(image, SEPIA)[i, j, canal]
+  = sum(image[i, j, :] * SEPIA[:, canal])`  
+  cqfd $\diamond$
+
++++
+
+2. Passez votre patchwork de couleurs en sépia  
+Lisez le fichier `patchwork-all.jpg` si vous n'avez pas de fichier perso
+
+```{code-cell} ipython3
+# votre code
+```
+
+```{code-cell} ipython3
+:cell_style: center
+
+# prune-cell 2.
+
+file = 'media/patchwork-all.jpg'
+im = plt.imread(file)
+plt.imshow(sepia(im));
+```
+
+3. Passez l'image `data/les-mines.jpg` en sépia
+
+```{code-cell} ipython3
+# votre code
+```
+
+```{code-cell} ipython3
+# prune-cell 3.
+
+im_sepia = sepia(plt.imread('data/les-mines.jpg'))
+plt.imshow(im_sepia)
+plt.imsave('data/les-mines-sepia.jpg', im_sepia)
 ```
 
 ## Somme dans une image & overflow
@@ -494,156 +780,6 @@ regardez les valeurs différentes que vous avez dans votre image en noir et blan
 ```{code-cell} ipython3
 # prune-cell 8.
 print(np.unique(gr3))
-```
-
-## Image en sépia
-
-+++
-
-Pour passer en sépia les valeurs R, G et B d'un pixel  
-(encodées ici sur un entier non-signé 8 bits)  
-
-1. on transforme les valeurs `R`, `G` et `B` par la transformation  
-`0.393 * R + 0.769 * G + 0.189 * B`  
-`0.349 * R + 0.686 * G + 0.168 * B`  
-`0.272 * R + 0.534 * G + 0.131 * B`  
-(attention les calculs doivent se faire en flottants pas en uint8  
-pour ne pas avoir, par exemple, 256 devenant 0)  
-1. puis on seuille les valeurs qui sont plus grandes que `255` à `255`
-1. naturellement l'image doit être ensuite remise dans un format correct  
-(uint8 ou float entre 0 et 1)
-
-+++
-
-````{tip}
-jetez un coup d'oeil à la fonction `np.dot` 
-qui est si on veut une généralisation du produit matriciel
-
-dont voici un exemple d'utilisation:
-````
-
-```{code-cell} ipython3
-:scrolled: true
-
-# exemple de produit de matrices avec `numpy.dot`
-# le help(np.dot) dit: dot(A, B)[i,j,k,m] = sum(A[i,j,:] * B[k,:,m])
-
-i, j, k, m, n = 2, 3, 4, 5, 6
-A = np.arange(i*j*k).reshape(i, j, k)
-B = np.arange(m*k*n).reshape(m, k, n)
-
-C = A.dot(B)
-# or C = np.dot(A, B)
-
-print(f"en partant des dimensions {A.shape} et {B.shape}")
-print(f"on obtient un résultat de dimension {C.shape}")
-print(f"et le nombre de termes dans chaque `sum()` est {A.shape[-1]} == {B.shape[-2]}")
-```
-
-**Exercice**
-
-+++
-
-1. Faites une fonction qui prend en argument une image RGB et rend une image RGB sépia  
-la fonction `numpy.dot` peut être utilisée si besoin, voir l'exemple ci-dessus
-
-```{code-cell} ipython3
-# votre code
-```
-
-```{code-cell} ipython3
-# prune-cell 1. pas à pas
-# le même code que ci-dessous mais avec plein de print()
-
-SEPIA = np.array([[0.393, 0.349, 0.272],
-                  [0.769, 0.686, 0.534],
-                  [0.189, 0.168, 0.131]])
-
-img = plt.imread('data/les-mines.jpg') # dtype = uint8
-print(img.dtype)
-print(img.shape, SEPIA.shape) # (i, j, 3) (m, 3)
-
-img_SEPIA = img.dot(SEPIA)
-# ou img_SEPIA = np.dot(img, SEPIA)
-print(img_SEPIA.dtype) # floats64
-
-print(img_SEPIA.min(), img_SEPIA.max()) # de 0 à 344.505
-
-# plt.imshow demande un type correct
-# soit uint8 (donc des valeurs entre 0 et 255)
-# soit float64 avec des valeurs entre 0 et 1
-# (et pas entre 0 et 344.505)
-# on doit donc seuiller au dessous de 255 et passer en uint8
-img_SEPIA[img_SEPIA>255] = 255
-img_SEPIA = img_SEPIA.astype(np.uint8)
-
-plt.imshow(img_SEPIA);
-```
-
-```{code-cell} ipython3
-# prune-cell 1. avec dot()
-# dans ce cas de figure on peut utiliser indifféremment
-# np.dot ou @ (aka np.matmul)
-# https://numpy.org/doc/stable/reference/generated/numpy.dot.html
-
-def sepia(im, SEPIA=np.array([[0.393, 0.349, 0.272],
-                              [0.769, 0.686, 0.534],
-                              [0.189, 0.168, 0.131]])):
-# les deux marchent
-    result = np.dot(im, SEPIA)
-#    result = im @ SEPIA
-    result[result>255] = 255
-    return result.astype(np.uint8)
-
-plt.imshow(
-    sepia(plt.imread('data/les-mines.jpg')));
-```
-
-prune-cell: comment ça marche ?
-
-la doc dit que
-> `dot(a, b)[i,j,k,m] = sum(a[i,j,:] * b[k,:,m])`
-
-dans notre cas:
-
-* a est de dimension 3, et `a.shape = lines, cols, 3`, et
-* b est de dimension 2, avec `b.shape = 3, 3`, ce qui donne
-
-> `dot(image, SEPIA)[i, j, canal]
-  = sum(image[i, j, :] * SEPIA[:, canal])`  
-  cqfd $\diamond$
-
-+++
-
-2. Passez votre patchwork de couleurs en sépia  
-Lisez le fichier `patchwork-all.jpg` si vous n'avez pas de fichier perso
-
-```{code-cell} ipython3
-# votre code
-```
-
-```{code-cell} ipython3
-:cell_style: center
-
-# prune-cell 2.
-
-file = 'media/patchwork-all.jpg'
-im = plt.imread(file)
-plt.imshow(sepia(im));
-```
-
-3. Passez l'image `data/les-mines.jpg` en sépia
-
-```{code-cell} ipython3
-# votre code
-```
-
-```{code-cell} ipython3
-# prune-cell 3.
-
-im_sepia = sepia(plt.imread('data/les-mines.jpg'))
-plt.imshow(im_sepia)
-plt.imsave('data/les-mines-sepia.jpg', im_sepia)
 ```
 
 ## Exemple de qualité de compression
