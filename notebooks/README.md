@@ -48,7 +48,7 @@ distinction between notebooks and pure Python or pure markdown
 ## note on autoreload in ipython or notebooks
 
 if you use IPython or Jupyter on your laptop, make sure to read  
-<https://ue12-p24-intro.readthedocs.io/en/main/1-01-installations-nb.html#configuration-de-l-autoreload>
+<https://intro.info-mines.paris/1-1-installations/#-configuration-de-lautoreload>
 
 it's in French, but gives you the recipe to get IPython and the notebooks to play along if you're doing module development (otherwise you'll be bitten by the caching of modules)
 

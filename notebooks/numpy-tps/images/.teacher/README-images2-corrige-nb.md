@@ -11,8 +11,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 nbhosting:
   title: suite du TP simple avec des images
 ---
@@ -45,7 +45,7 @@ from matplotlib import pyplot as plt
 * sur les tableaux `numpy.ndarray`
   * `reshape()`, masques booléens, *ufunc*, agrégation, opérations linéaires
   * pour l'exercice `patchwork`:  
-    on peut le traiter sans, mais l'exercice se prête bien à l'utilisation d'une [indexation d'un tableau par un tableau - voyez par exemple ceci](https://ue12-p24-numerique.readthedocs.io/en/main/1-14-numpy-optional-indexing-nb.html)
+    on peut le traiter sans, mais l'exercice se prête bien à l'utilisation d'une [indexation d'un tableau par un tableau - voyez par exemple ceci](https://numerique.info-mines.paris/numpy-optional-indexing-nb/)
 
   * pour l'exercice `sepia`:  
     ici aussi on peut le faire "naivement" mais l'utilisation de `np.dot()` peut rendre le code beaucoup plus court
@@ -144,7 +144,7 @@ for c in ['Red', 'Lime', 'Blue']:
   
 * sont potentiellement utiles pour cet exo:
   * la fonction `np.indices()`
-  * [l'indexation d'un tableau par un tableau](https://ue12-p24-numerique.readthedocs.io/en/main/1-14-numpy-optional-indexing-nb.html)
+  * [l'indexation d'un tableau par un tableau](https://numerique.info-mines.paris/numpy-optional-indexing-nb/)
 * aussi, ça peut être habile de couper le problème en deux, et de commencer par écrire une fonction `rectangle_size(n)` qui vous donne la taille du patchwork en fonction du nombre de couleurs  
   ```{admonition} et pour calculer la taille au plus juste
   :class: tip dropdown
