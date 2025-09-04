@@ -98,13 +98,16 @@ remarquez les choses suivantes:
 
 - si par exemple on avait passé 9 couleurs, on aurait créé un carré 3x3, mais comme ici on a passé à la fonction une liste de 5 couleurs, pour que ça tienne dans un rectangle, on se décide sur un rectangle de taille 2x3
 - la taille totale de l'image est de 10x15, car par défaut chaque petite tuile a une taille de 5 pixels
-- du coup le dernier carré est rempli avec une couleur par défaut - ici antiquewhite
+- du coup le dernier carré est rempli avec une couleur par défaut - ici DarkGray
+  (dans la v2 on pourra utiliser les couleurs par leur nom, mais n'anticipons pas; pour l'instant notez que DarkGray c'est 169, 169, 169) 
 
 on va permettre à l'appelant de changer ces valeurs par défaut  
 ça signifie que si on appelait
 
 ```python
-plt.imshow(patchwork(colors+colors, side=10, background=[0, 0, 0]))
+# cette fois on passe 10 couleurs (colors + colors est une liste de 10 couleurs)
+# et on fixe la taille des tuiles, et la couleur de fond noire
+plt.imshow(patchwork(colors + colors, side=10, background=[0, 0, 0]))
 ```
 
 on obtiendrait cette fois (observez la taille en pixels de l'image)
@@ -367,11 +370,10 @@ bon sachez juste que dans la vraie vie, on évite cette pratique de passer par u
 
 def patchwork2(color_names, side=10, background_color="DarkGray"):
     '''
-    create an image with a patchwork of the col_list colors
-    the image contains l*c patches
-    each patch is a square of side pixels
-    the patchwork can have more patches than colors
-    the color of additional patches will be background (white by defaut)
+    create a patchwork image with <color_names>, which are resolved
+    from the text file loaded above
+    the other two parameters are passed to the `patchwork` function above
+    except that the background color is expected to ba a color name too
     '''
     # your goes goes here
     ...
@@ -457,12 +459,6 @@ plt.imshow(im_all);
 7. Relisez et affichez votre fichier  
    attention si votre image vous semble floue c'est juste que l'affichage grossit vos pixels
 
-vous devriez obtenir quelque chose comme ceci
-
-```{image} media/patchwork-all.jpg
-:align: center
-```
-
 ```{code-cell} ipython3
 # votre code
 ```
@@ -476,30 +472,41 @@ pat = plt.imread('patchwork-all.png')
 plt.imshow(pat);
 ```
 
+vous devriez obtenir quelque chose comme ceci
+
+```{image} media/patchwork-all.jpg
+:width: 400px
+:align: center
+```
+
++++
+
 ## Image en sépia
 
 +++
 
-Pour passer en sépia les valeurs R, G et B d'un pixel  
-(encodées ici sur un entier non-signé 8 bits)  
+Pour passer en sépia les valeurs R, G et B d'un pixel, on applique la transformation suivante
+```text
+R' = 0.393 * R + 0.769 * G + 0.189 * B
+G' = 0.349 * R + 0.686 * G + 0.168 * B
+B' = 0.272 * R + 0.534 * G + 0.131 * B
+```
 
-1. on transforme les valeurs `R`, `G` et `B` par la transformation  
-`0.393 * R + 0.769 * G + 0.189 * B`  
-`0.349 * R + 0.686 * G + 0.168 * B`  
-`0.272 * R + 0.534 * G + 0.131 * B`  
-(attention les calculs doivent se faire en flottants pas en uint8  
-pour ne pas avoir, par exemple, 256 devenant 0)  
-1. puis on seuille les valeurs qui sont plus grandes que `255` à `255`
-1. naturellement l'image doit être ensuite remise dans un format correct  
-(uint8 ou float entre 0 et 1)
+```{admonition} notes sur les types
+
+* dans notre cas on suppose qu'en entrée on a des entiers non-signé 8 bits
+* mais attention, les calculs vont devoir se faire en flottants, et pas en uint8  
+pour ne pas avoir, par exemple, 256 devenant 0
+* toutefois on veut tout de même en sortie des entiers non-signé 8 bits !
+
+ça signifie qu'il va sans doute vous falloir faire un peu de gymnastique avec les types de vos tableaux
+```
 
 +++
 
-````{tip}
-jetez un coup d'oeil à la fonction `np.dot` 
-qui est si on veut une généralisation du produit matriciel
-
-dont voici un exemple d'utilisation:
+````{tip} indice
+vous devriez jeter un coup d'oeil à la fonction `np.dot` qui est, si on veut, une généralisation du produit matriciel  
+et dont voici un exemple d'utilisation:
 ````
 
 ```{code-cell} ipython3
@@ -524,8 +531,7 @@ print(f"et le nombre de termes dans chaque `sum()` est {A.shape[-1]} == {B.shape
 
 +++
 
-1. Faites une fonction qui prend en argument une image RGB et rend une image RGB sépia  
-la fonction `numpy.dot` peut être utilisée si besoin, voir l'exemple ci-dessus
+1. Faites une fonction `sepia` qui prend en argument une image RGB et rend une image RGB sépia  
 
 ```{code-cell} ipython3
 # votre code
@@ -595,36 +601,34 @@ dans notre cas:
 
 +++
 
-2. Passez votre patchwork de couleurs en sépia  
-Lisez le fichier `patchwork-all.jpg` si vous n'avez pas de fichier perso
+2. Passez l'image `data/les-mines.jpg` en sépia
 
 ```{code-cell} ipython3
 # votre code
 ```
 
 ```{code-cell} ipython3
-:cell_style: center
-
 # prune-cell 2.
-
-file = 'media/patchwork-all.jpg'
-im = plt.imread(file)
-plt.imshow(sepia(im));
-```
-
-3. Passez l'image `data/les-mines.jpg` en sépia
-
-```{code-cell} ipython3
-# votre code
-```
-
-```{code-cell} ipython3
-# prune-cell 3.
 
 im_sepia = sepia(plt.imread('data/les-mines.jpg'))
 plt.imshow(im_sepia)
-plt.imsave('data/les-mines-sepia.jpg', im_sepia)
+plt.imsave('media/les-mines-sepia.png', im_sepia)
 ```
+
+Voici ce que vous devriez obtenir avec l'images des Mines
+
+````{grid} 2 2 2 2
+```{card}
+:header: l'original
+![](data/les-mines.jpg)
+```
+```{card}
+:header: la version sepia
+![](media/les-mines-sepia.png)
+```
+````
+
++++
 
 ## Somme dans une image & overflow
 
