@@ -29,9 +29,12 @@ pour réaliser ce TP localement sur votre ordi, si ce n'est pas déjà fait, {do
 
 merci à Wikipedia et à stackoverflow
 
-**le but de ce TP n'est pas d'apprendre le traitement d'image  
-on se sert d'images pour égayer des exercices avec `numpy`  
+```{admonition} disclaimer
+:class: danger
+
+**le but de ce TP n'est pas d'apprendre le traitement d'image - on se sert d'images pour égayer des exercices avec `numpy`  
 (et parce que quand on se trompe ça se voit)**
+```
 
 ```{code-cell} ipython3
 import numpy as np
@@ -531,7 +534,7 @@ print(f"et le nombre de termes dans chaque `sum()` est {A.shape[-1]} == {B.shape
 
 +++
 
-1. Faites une fonction `sepia` qui prend en argument une image RGB et rend une image RGB sépia  
+1. Faites une fonction `sepia` qui prend en argument une image RGB et rend une image RGB sépia
 
 ```{code-cell} ipython3
 # votre code

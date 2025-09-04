@@ -29,9 +29,12 @@ pour réaliser ce TP localement sur votre ordi, si ce n'est pas déjà fait, {do
 
 merci à Wikipedia et à stackoverflow
 
-**le but de ce TP n'est pas d'apprendre le traitement d'image  
-on se sert d'images pour égayer des exercices avec `numpy`  
+```{admonition} disclaimer
+:class: danger
+
+**le but de ce TP n'est pas d'apprendre le traitement d'image - on se sert d'images pour égayer des exercices avec `numpy`  
 (et parce que quand on se trompe ça se voit)**
+```
 
 ```{code-cell} ipython3
 import numpy as np
