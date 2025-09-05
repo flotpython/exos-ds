@@ -819,8 +819,10 @@ Reprenez les trois images en niveau de gris que vous aviez produites ci-dessus:
   B: celle obtenue avec la correction Y  
   C: celle obtenue avec la racine carrée
 
-1. Affichez les trois images côte à côte  
+1. Affichez les trois images côte à côte
+   ```text
    A B C
+   ```
 
 ```{code-cell} ipython3
 # votre code
@@ -844,10 +846,12 @@ axes[2].set_title('racine')
 plt.show()
 ```
 
-2. Affichez-les en damier:  
+2. Affichez-les en damier:
+   ```text
    A B C
    C A B
    B C A
+   ```
 
 ```{code-cell} ipython3
 # votre code
