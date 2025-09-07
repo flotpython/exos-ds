@@ -974,6 +974,7 @@ as a slight elaboration upon the previous scenario, it is possible to fine tune 
 ```
 
 so let's say we want to spot
+
 * **shoulders** (11 & 12)
 * **hips** (23, 24)
 * **knees** (25, 26)

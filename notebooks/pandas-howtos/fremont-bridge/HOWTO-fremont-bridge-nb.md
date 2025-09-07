@@ -356,6 +356,7 @@ pivoted.plot(legend=False, alpha=0.01);
 ici il s'agit de classifier les jours en deux familles, qu'on voit très distinctement sur la figure
 
 on veut faire une ACP sur un tableau qui aurait 
+
 * les 24 heures en colonnes
 * les jours en lignes
 
@@ -412,7 +413,7 @@ plt.scatter(pca_output[:, 0], pca_output[:, 1], c=labels, cmap='rainbow')
 plt.colorbar();
 ```
 
-### première famille : `label==0` 
+### première famille : `label==0`
 
 ```{code-cell} ipython3
 # pour vérifier notre classification on peut redessiner

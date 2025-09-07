@@ -15,16 +15,16 @@ nbhosting:
   title: primer pandas
 ---
 
+# pandas basics
+
+`california_cities.csv` contains the population and area in km2 for california cities
+
 ```{code-cell} ipython3
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
 ```
-
-# pandas basics
-
-`california_cities.csv` contains the population and area in km2 for california cities
 
 ```{code-cell} ipython3
 URL = "http://www-sop.inria.fr/members/Arnaud.Legout/formationPython/Exos/california_cities.csv"

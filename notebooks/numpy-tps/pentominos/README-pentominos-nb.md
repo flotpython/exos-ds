@@ -14,9 +14,6 @@ jupyter:
     pygments_lexer: ipython3
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat   -  (images courtesy of wikipedia)
-
-
 # pentominoes and exact cover
 
 ```{image} media/board-8x8-pretty.png
@@ -27,6 +24,9 @@ in order to work on this exercise from your laptop, {download}`start with downlo
 
 this activity is about solving puzzles like the one pictured on the right, using a standard combinatorial algorithm
 
+
+
+Licence CC BY-NC-ND, Thierry Parmentelat   -  (images courtesy of wikipedia)
 
 
 ## the exact cover problem
@@ -247,6 +247,7 @@ you have 12 pieces and 60 slots to fill, so you need 72 columns
 ### model the problem
 
 decide how to represent the board and pieces:
+
 * using nd-arrays, so rectangular spaces
 * use only **booleans** to model **obstacles** in the board and the actual **contour** of pieces
 

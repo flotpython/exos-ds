@@ -478,6 +478,7 @@ en pratique ça se fait en deux temps
 * sur l'objet `Series` on applique l'attribut `dt` pour, en quelque sorte, se projeter dans l'espace des 'date-time'  
   c'est exactement comme on l'a vu déjà avec le `.str` lorsqu'on a eu besoin d'appliquer des méthodes comme `.lower()` ou `replace()` sur les chaines et non pas sur la série  
   plus de détails ici <https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.html>
+
 * de là on peut appeler toutes les méthodes disponibles sur les objets `timedelta` - on pourra en particulier s'intéresser à `total_seconds`
 
 +++ {"tags": ["level_basic"], "slideshow": {"slide_type": ""}}

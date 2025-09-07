@@ -130,6 +130,7 @@ maintenant on va aussi prendre en compte l'âge
 
 **[consigne]** produisez une table avec 12 valeurs, avec pour chacun des 6 groupes le **taux de survie** et la **moyenne d'âge**  
   visez de présenter les données
+
   * sur deux lignes (selon le sexe)
   * et sur chaque ligne, 3 valeurs (selon la classe) pour le taux de survie, et 3 valeurs pour la moyenne d'âge
 
@@ -162,6 +163,7 @@ ce ne sont plus les mêmes chiffres que l'on doit obtenir ici
 **[consigne]** on répartit arbitrairement les individus en 5 classes d'âge: les enfants de moins de 10 ans, les adolescents de moins de 20ans, les jeunes adultes de moins de 40 ans, les adultes en dessous de 60 ans, et les seniors au delà.
 
 affichez maintenant le taux de survie selon 10 groupes, liés à 
+
   * le sexe
   * la classe d'âge
 

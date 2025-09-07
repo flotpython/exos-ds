@@ -15,14 +15,14 @@ nbhosting:
   title: visualization
 ---
 
+# pandas visu
+
 ```{code-cell} ipython3
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 ```
-
-# pandas visu
 
 ```{code-cell} ipython3
 iris = sns.load_dataset("iris")

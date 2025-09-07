@@ -47,7 +47,6 @@ there are ways to run this kind of code inside a Jupyter notebook
 
 ### connecting data
 
-
 +++
 
 ### tightly integrated with `plotly` - pro or con

@@ -107,7 +107,7 @@ What is the timespan coverred by the dataset (**earliest** and **latest** events
 
 so, given that there is no overlap, we can assume this corresponds to "reservations" attached to a unique resource (hence the term  *lease*)
 
-write a code that computes the **overall reservation time**, as well as the **average usage ratio** over the active period  
+write a code that computes the **overall reservation time**, as well as the **average usage ratio** over the active period
 
 ```{code-cell} ipython3
 # your code

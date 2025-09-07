@@ -17,11 +17,11 @@ nbhosting:
   title: mosaique pandas
 ---
 
-*Quand les exercices font partie d'une série d'exercices, faites les dans l'ordre, ils se servent des précédents...**
+# mosaique (un peu de tout)
 
 +++
 
-# mosaique (un peu de tout)
+*Quand les exercices font partie d'une série d'exercices, faites les dans l'ordre, ils se servent des précédents...**
 
 +++
 
@@ -502,6 +502,7 @@ cars.head(5)
 - supprimer les colonnes qui ont plus de $5$ NaN 
 
 **indices**
+
 * la taille originale de notre dataframe est 157 lignes et 16 colonnes
 * voyez `pandas.dropna`
 * ça concerne une colonne

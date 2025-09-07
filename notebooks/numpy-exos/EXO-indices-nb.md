@@ -15,13 +15,11 @@ nbhosting:
   title: utiliser les indices
 ---
 
+# broadcasting / dimensions
+
 ```{code-cell} ipython3
 import numpy as np
 ```
-
-# broadcasting / dimensions
-
-+++
 
 on va commencer par quelques rappels et astuces
 

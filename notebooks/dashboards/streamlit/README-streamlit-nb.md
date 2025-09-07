@@ -141,6 +141,7 @@ vous trouverez enfin dans ce même dossier deux exemples (si nécessaire: {downl
   :align: center
   :width: 500px
   ```
+
 * [approximation de taylor](./streamlit-taylor.py)  
   un peu plus évolué, on affiche l'approximation de `sin(x)` par une série de Taylor, et on choisit le degré
   ```{image} media/streamlit-taylor.png

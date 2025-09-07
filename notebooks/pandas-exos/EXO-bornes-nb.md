@@ -73,11 +73,13 @@ il s'agit donc de démêler l'écheveau pour fabriquer une table qui a 6 lignes,
 
 * on a vu dans le cours que sur un objet Series on pouvait avoir besoin
   occasionnellement d'utiliser l'attribut `str`
+
 * ici on a envie de passer par un objet liste; notamment je vous rappelle
   * la méthode `replace()` sur les chaines de caractères
   * la méthode `split()` sur les chaines de caractères
 * une fois que vous êtes arrivés à mettre une liste dans une cellule d'une Series, 
   il peut être intéressant de remplacer ce contenu par .. un objet Series
+
 * vous pourrez ensuite invoquer la méthode `.stack()` sur la Series englobante
 
 +++

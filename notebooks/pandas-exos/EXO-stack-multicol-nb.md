@@ -15,11 +15,11 @@ nbhosting:
   title: stack() multi-colonnes
 ---
 
+# `stack()`: usage un peu plus avancé
+
 ```{code-cell} ipython3
 import pandas as pd
 ```
-
-# `stack()`: usage un peu plus avancé
 
 ```{code-cell} ipython3
 df = pd.read_csv("data/stack-multicol.csv")

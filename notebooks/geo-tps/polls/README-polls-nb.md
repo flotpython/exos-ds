@@ -90,7 +90,7 @@ first_harris_date = ...
 
 ## race end
 
-from this part we will focus on the period after `first_harris_date` 
+from this part we will focus on the period after `first_harris_date`
 
 ```{code-cell} ipython3
 :tags: [level_basic]

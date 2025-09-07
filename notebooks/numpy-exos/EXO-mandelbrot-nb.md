@@ -16,6 +16,17 @@ language_info:
 notebookname: Mandelbrot
 ---
 
+# l'ensemble de Mandelbrot
+
+il s'agit de calculer l'image de la convergence de mandelbrot:
+
+```{image} media/mandelbrot.svg
+:width: 400px
+:align: right
+```
+
++++
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
@@ -30,17 +41,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib ipympl
 ```
-
-# l'ensemble de Mandelbrot
-
-il s'agit de calculer l'image de la convergence de mandelbrot:
-
-```{image} media/mandelbrot.svg
-:width: 400px
-:align: right
-```
-
-+++
 
 ## comment ça marche ?
 
@@ -58,13 +58,16 @@ il s'agit pour nous de
 
 * partir d'un pavé rectangulaire; par exemple sur la figure, on a pris l'habituel  
   $re \in [-2, 0.8]$ et  $im \in [-1.4, 1.4]$
+
 * découper ce pavé en un maillage de $h \times w$ points  (sur la figure, 1000 x 1000)
 * on se fixe un nombre maximal `max` d'itérations (disons 20)  
   et pour chaque point du maillage, on va calculer si la suite diverge avant `max` itérations
+
 * c'est-à-dire plus spécifiquement on calcule un tableau `diverge` de la taille du maillage
   * pour chaque point `z`, on calcule les `max` premiers termes de la suite
   * et à la première itération `n` où la suite diverge (son module est supérieur à 2)  
     alors on affecte `diverge[z] = n`
+
 * on n'a plus qu'à afficher ensuite l'image obtenue `diverge` avec `plt.imshow`
 
 +++ {"slideshow": {"slide_type": "slide"}}

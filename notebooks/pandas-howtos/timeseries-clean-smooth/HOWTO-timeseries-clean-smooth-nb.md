@@ -15,17 +15,17 @@ nbhosting:
   title: "des timeseries r\xE9alistes"
 ---
 
-<div class="licence">
-<span>Licence CC BY-NC-ND</span>
-<span>Thierry Parmentelat</span>
-</div>
-
-+++
-
 # time series: nettoyer et lisser 
 
 pour exécuter ce code localement sur votre ordi, 
 {download}`commencez par télécharger le zip<./ARTEFACTS-timeseries-clean-smooth.zip>`
+
++++
+
+<div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Thierry Parmentelat</span>
+</div>
 
 +++
 

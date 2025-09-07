@@ -72,6 +72,7 @@ counts
 ```
 
 how to understand this ? e.g. the **first line** means that:
+
 * among the people who gave a **rating of 1**:
   * 2 have mentioned oxford as their favorite,
   * and 1 have mentioned oxford as their least-liked

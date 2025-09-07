@@ -17,14 +17,6 @@ nbhosting:
   title: TP simple avec des images
 ---
 
-Licence CC BY-NC-ND, Valérie Roy & Thierry Parmentelat
-
-+++
-
-pour réaliser ce TP localement sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-images.zip>`
-
-+++
-
 # TP images (1/2)
 
 merci à Wikipedia et à stackoverflow
@@ -35,6 +27,14 @@ merci à Wikipedia et à stackoverflow
 **vous n'allez pas faire ici de traitement d'image - on se sert d'images pour égayer des exercices avec `numpy`  
 (et parce que quand on se trompe: on le voit)**
 ```
+
++++
+
+Licence CC BY-NC-ND, Valérie Roy & Thierry Parmentelat
+
++++
+
+pour réaliser ce TP localement sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-images.zip>`
 
 +++
 
@@ -84,11 +84,13 @@ ou toute autre librairie d'affichage que vous aimez et/ou savez utiliser: `seabo
   :width: 100px
   :align: right
   ```
+
 * l'affichage à l'écran, d'une image couleur `rgb`, utilise les règles de la synthèse additive  
 `(r, g, b) = (255, 255, 255)` donne la couleur blanche  
 `(r, g, b) = (0, 0, 0)` donne du noir  
 `(r, g, b) = (255, 0, 0)` donne du rouge
 `(r, g, b) = (255, 255, 0)` donne du jaune ...
+
 * pour afficher le tableau `im` comme une image, utilisez: `plt.imshow(im)`
 * pour afficher plusieurs images dans une même cellule de notebook faire `plt.show()` après chaque `plt.imshow(...)`
 ````
@@ -100,6 +102,7 @@ ou toute autre librairie d'affichage que vous aimez et/ou savez utiliser: `seabo
 1. Créez un tableau **non initialisé**, pour représenter une image carrée **de 91 pixels de côté**, d'entiers 8 bits non-signés, et affichez-le  
    ```{admonition} indices
    :class: tip
+
    * il vous faut pouvoir stocker 3 `uint8` par pixel pour ranger les 3 couleurs
    * on s'intéresse uniquement à la taille, et pas au contenu puisqu'on a dit "non initialisé"; que vous ayez du blanc, du noir ou du bruit, c'est OK
    ```
@@ -211,6 +214,7 @@ ou toute autre librairie d'affichage que vous aimez et/ou savez utiliser: `seabo
 
 * vous pouvez créer plusieurs figures depuis une seule cellule  
   pour cela, faites plusieurs fois la séquence `plt.imshow(...); plt.show()`
+
 * vous pouvez ensuite choisir de 'replier' ou non la zone *output* en hauteur;  
   c'est-à-dire d'afficher soit toute la hauteur, soit une zone de taille fixe avec une scrollbar pour naviguer  
   pour cela cliquez dans la marge gauche de la zone *output*
@@ -255,6 +259,7 @@ affichez-le pour `(l, c) = (10, 20)`) puis `(l, c) = (100, 200)`
     * mais pour afficher une image unidimensionnelle contenant des nombres de `0` à `255`, 
       il faut bien lui dire à quoi correspondent les valeurs  
       (lors de l'affichage, le `255` des rouges n'est pas le même `255` des verts)
+
     * du coup, voyez le paramètre `cmap=` de `plt.imshow`; et notamment avec `'Reds'`,  `'Greens'` ou  `'Blues'`
     ```
 
@@ -269,6 +274,7 @@ affichez-le pour `(l, c) = (10, 20)`) puis `(l, c) = (100, 200)`
 ```
 
 5. Copiez l'image, et dans la copie, remplacer le carré de taille `(200, 200)` en bas à droite:
+
    * d'abord par un carré de couleur RGB `(219, 112, 147)` (vous obtenez quelle couleur)  
    * puis par un carré blanc avec des rayures horizontales rouges de 1 pixel d'épaisseur
 

@@ -252,7 +252,3 @@ ax.plot_wireframe(X, Y, Z, rstride=10, cstride=10)
 
 plt.show()
 ```
-
-```{code-cell} ipython3
-
-```
