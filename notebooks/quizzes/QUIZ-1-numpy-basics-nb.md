@@ -1,36 +1,37 @@
-# -*- coding: utf-8 -*-
-# ---
-# jupyter:
-#   jupytext:
-#     formats: py:percent
-#     text_representation:
-#       extension: .py
-#       format_name: percent
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
-#   language_info:
-#     name: python
-#     nbconvert_exporter: python
-#     pygments_lexer: ipython3
-#   nbhosting:
-#     title: basic numpy
-# ---
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+  encoding: '# -*- coding: utf-8 -*-'
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
+language_info:
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
+nbhosting:
+  title: basic numpy
+---
 
-# %%
+```{code-cell} ipython3
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+```
 
-# %% [markdown]
-# # data loading
+# data loading
 
-# %% [markdown]
-# Let's load a dataset on rain precipitations on Seattle on 2014
++++
 
-# %%
+Let's load a dataset on rain precipitations on Seattle on 2014
+
+```{code-cell} ipython3
+:lines_to_next_cell: 2
+
 # we download the file from Internet and save it
 # easiest way, we can pass a URL to read_csv (or a local file)
 URL = "http://www-sop.inria.fr/members/Arnaud.Legout/formationPython/Exos/Seattle2014.csv"
@@ -49,61 +50,61 @@ rainfall = pd.read_csv(URL)["PRCP"].to_numpy()
 # rainfall is an array of precipitation per day 
 # for each day of 2014
 # rainfall = pd.read_csv('Seattle2014.csv')['PRCP'].to_numpy()
+```
 
+## Let's visualize
 
-# %% [markdown]
-# ## Let's visualize
++++
 
-# %% [markdown]
-# **[assignement]**: plot the amount of rain (in mm) over time; make sure you put a proper label on both axes, and on the global figure
-#
+**[assignement]**: plot the amount of rain (in mm) over time; make sure you put a proper label on both axes, and on the global figure
 
-# %%
+```{code-cell} ipython3
 # your code here
+```
 
-# %% [markdown]
-# ## Let's answer the following questions
+## Let's answer the following questions
 
-# %% [markdown]
-# **What is the shape and dype of the ndarray?**
++++
 
-# %%
+**What is the shape and dype of the ndarray?**
+
+```{code-cell} ipython3
 # your code here
+```
 
-# %% [markdown]
-# **How many rainy days?**
+**How many rainy days?**
 
-# %%
+```{code-cell} ipython3
 # your code here
+```
 
-# %% [markdown]
-# **Average precipitation on the year?**
+**Average precipitation on the year?**
 
-# %%
+```{code-cell} ipython3
 # your code here
+```
 
-# %% [markdown]
-# **Average precipitation on the rainy days?**
+**Average precipitation on the rainy days?**
 
-# %%
+```{code-cell} ipython3
 # your code here
+```
 
-# %% [markdown]
-# **Mean precipitation on January?**
+**Mean precipitation on January?**
 
-# %%
+```{code-cell} ipython3
 # your code here
+```
 
-# %% [markdown]
-# **Mean precipitation on January on the rainy days?**
+**Mean precipitation on January on the rainy days?**
 
-# %%
+```{code-cell} ipython3
 # your code here
+```
 
-# %% [markdown]
-# # A transition to pandas
+# A transition to pandas
 
-# %%
+```{code-cell} ipython3
 # But in practice we don’t do that. Here is what we do…
 # We start to convert to a pandas Series
 s = pd.Series(rainfall)
@@ -114,11 +115,12 @@ s.index = pd.to_datetime(s.index, unit='D',
 
 # possibly resample per month to get the total monthly rain
 s = s.resample('m').max()
+```
 
-# %%
+```{code-cell} ipython3
 # then plot
 
-# %matplotlib ipympl
+%matplotlib ipympl
 
 s.plot.bar()
 plt.xlabel('month')
@@ -127,6 +129,6 @@ plt.title('Rainy days in 2014 at Seattle')
 fig = plt.gcf()
 fig.autofmt_xdate()
 # plt.show() # if in a terminal
+```
 
-# %% [markdown]
-# ***
+***

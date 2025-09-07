@@ -1,103 +1,110 @@
-# ---
-# jupyter:
-#   jupytext:
-#     cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted,-editable
-#     notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version,
-#       -jupytext.text_representation.format_version,-language_info.version, -language_info.codemirror_mode.version,
-#       -language_info.codemirror_mode,-language_info.file_extension, -language_info.mimetype,
-#       -toc, -rise, -version
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
-#   language_info:
-#     name: python
-#     nbconvert_exporter: python
-#     pygments_lexer: ipython3
-# ---
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
+language_info:
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
+---
 
-# # `opencv` & `yolo` use cases
-#
-# let's see some basic code samples that involve:
-#
-# * basic features of `opencv` and `yolo`
-# * pre-trained machine-learning models
-# * these reworked samples were inspired by this MOOC in French  
-#   <https://www.linkedin.com/learning/l-essentiel-d-opencv-avec-python-pour-le-deep-learning/solution-suivre-les-positions-des-epaules-et-des-genoux>
-#
-# ````{admonition} warning: run this code locally !
-# :class: warning
-#
-# the techniques used for viewing images and videos in this notebook cannot easily work in an HTML environment  
-# for this reason, the HTML output is poor and you will be much better off **running the notebook locally !**
-#
-# and for that, {download}`your first step will be to download the zip<./ARTEFACTS-opencv-yolo.zip>`
-#
-# ````
+# `opencv` & `yolo` use cases
 
-# +
+let's see some basic code samples that involve:
+
+* basic features of `opencv` and `yolo`
+* pre-trained machine-learning models
+* these reworked samples were inspired by this MOOC in French  
+  <https://www.linkedin.com/learning/l-essentiel-d-opencv-avec-python-pour-le-deep-learning/solution-suivre-les-positions-des-epaules-et-des-genoux>
+
+````{admonition} warning: run this code locally !
+:class: warning
+
+the techniques used for viewing images and videos in this notebook cannot easily work in an HTML environment  
+for this reason, the HTML output is poor and you will be much better off **running the notebook locally !**
+
+and for that, {download}`your first step will be to download the zip<./ARTEFACTS-opencv-yolo.zip>`
+
+````
+
+```{code-cell} ipython3
 # numpy
 
 import numpy as np
+```
 
-# +
+```{code-cell} ipython3
 # a utility to display images in the notebook
 
 from IPython.display import Image
+```
 
-# +
+```{code-cell} ipython3
 # the name of the pypi package is odd, but life is odd, so..
 # here's the name to use with pip
-# # %pip install opencv-python
+# %pip install opencv-python
 
 import cv2
+```
 
-# +
+```{code-cell} ipython3
 # finally, our own utilities
 
 from utils_image import show_image
+```
 
-# +
+```{code-cell} ipython3
 # ...
 # beware that there are a few other more exotic dependencies
 # that you will have to pip-install as we go
-# -
+```
 
-# ## images
-#
-# the first part of this notebook is about dealing with images
+## images
 
-# ### reading and displaying an image
-#
-# openCV comes with its own API for displaying and interacting with an image
-#
-# ````{admonition} how we display images in this notebook
-# :class: important
-#
-# we use our own function `show_image` - and actually we will use it all the time (see its code in `utils_image.py`)  
-# here's what it does:
-#
-# * it displays an image in a separate window
-# * and **waits for you** to close the window; for that you can either
-#     - type a character - any character
-#     - left-click
-#     - or use the system shortcut to close a window (Alt-F4 or Command-w)
-#
-# once you do it, **and only then**, the window is destroyed and one can **go ahead with the notebook**
-# ````
+the first part of this notebook is about dealing with images
 
++++
+
+### reading and displaying an image
+
+openCV comes with its own API for displaying and interacting with an image
+
+````{admonition} how we display images in this notebook
+:class: important
+
+we use our own function `show_image` - and actually we will use it all the time (see its code in `utils_image.py`)  
+here's what it does:
+
+* it displays an image in a separate window
+* and **waits for you** to close the window; for that you can either
+    - type a character - any character
+    - left-click
+    - or use the system shortcut to close a window (Alt-F4 or Command-w)
+
+once you do it, **and only then**, the window is destroyed and one can **go ahead with the notebook**
+````
+
+```{code-cell} ipython3
 import cv2
 from utils_image import show_image
+```
 
+```{code-cell} ipython3
 img = cv2.imread('./media/people-2.jpg')
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img)
+```
 
-# +
+```{code-cell} ipython3
 # BEWARE: the image loaded with cv2 is encoded as BGR, and not! RGB
 
 # so if I pass this (cv-encoded) image to matplotlib,
@@ -105,70 +112,93 @@ show_image(img)
 
 import matplotlib.pyplot as plt
 plt.imshow(img);
+```
 
-# +
+```{code-cell} ipython3
 # if you need to reorder the channels
 # in the order expected by mpl you can do e.g. this
 
 plt.imshow(img[:, :, ::-1]);
-# -
+```
 
-# ### RGB-alpha
+### RGB-alpha
 
+```{code-cell} ipython3
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 from utils_image import show_image
+```
 
+```{code-cell} ipython3
 img = cv2.imread('./media/people-2.jpg')
+```
 
+```{code-cell} ipython3
 b, g, r = img[:, :, 0], img[:, :, 1], img[:, :, 2]
+```
 
-# +
+```{code-cell} ipython3
 # we will display each of the the 3 channels
 # and as we don't specify a colormap,
 # the result is rendered in black and white
 # and black means a low value for that channel
 
 imgs = np.concatenate((b, g, r), axis=1)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(imgs)
-# -
+```
 
+```{code-cell} ipython3
 # let us add a transparency that amounts to b (why not..)
 img_b = cv2.merge((b, g, r, b))
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 # imshow does not show transparency - we save in a png file ...
 show_image(img_b, store_in_filename="BGRB.png")
+```
 
-# +
+```{code-cell} ipython3
 # ... so that we can check transparency with another tool
 # here mpl
 
 plt.imshow(plt.imread("BGRB.png"));
-# -
+```
 
-# ### Rotation
+### Rotation
 
+```{code-cell} ipython3
 import cv2
 from utils_image import show_image
+```
 
+```{code-cell} ipython3
 img = cv2.imread('./media/people-2.jpg')
+```
 
-# +
+```{code-cell} ipython3
 # rotating by pi/4 clockwise around the top left corner (0, 0)
 
 # compute the matrix
 R1 = cv2.getRotationMatrix2D((0,0), -45, 1)
 # apply it
 rotated_1 = cv2.warpAffine(img, R1, (img.shape[0], img.shape[1]))
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(rotated_1)
+```
 
-# +
+```{code-cell} ipython3
 # rotating by pi/2 anti clockwise around the center
 
 # get size
@@ -177,135 +207,177 @@ h, w, _ = img.shape
 R2 = cv2.getRotationMatrix2D((w/2, h/2), -90, 1)
 # apply it
 rotated_2 = cv2.warpAffine(img, R2, (img.shape[1], img.shape[0]))
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(rotated_2)
-# -
+```
 
-# ### Blurring
+### Blurring
 
+```{code-cell} ipython3
 import cv2
 from utils_image import show_image
+```
 
-# +
+```{code-cell} ipython3
 img = cv2.imread('./media/people-2.jpg')
 
 blur = cv2.GaussianBlur(img, (51, 51), 0)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(blur)
-# -
+```
 
-# ### resize / strech
+### resize / strech
 
+```{code-cell} ipython3
 import cv2
 from utils_image import show_image
+```
 
-# +
+```{code-cell} ipython3
 img = cv2.imread('./media/abstract.jpg')
 
 # scaling down by 0.5 in x and y
 img_res = cv2.resize(img, (0, 0), fx=0.5, fy=0.5)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img_res)
+```
 
-# +
+```{code-cell} ipython3
 # scaling up with different factors along x and y
 # NOTE that x is horizontal and y vertical
 #      that's the usual way (but unlike mpl !)
 
 img_res = cv2.resize(img, (0, 0), fx=3, fy=0.5)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img_res)
+```
 
-# +
+```{code-cell} ipython3
 # scale to target image size 500 x 500 pixels
 
 img_res = cv2.resize(img, (500, 500))
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img_res)
-# -
+```
 
-# ### HSV
-#
-# HSV stands for hue    saturation value  
-# (in French TSV = teinte saturation valeur)
-#
-# we'll see a use case in the next section
-#
-# ```{image} media/HSV-cone.png
-# :width: 300px
-# ```
-#
-# ```{admonition} the full story
-# see <https://en.wikipedia.org/wiki/HSL_and_HSV> for an in-depth article
-# ```
+### HSV
 
+HSV stands for hue    saturation value  
+(in French TSV = teinte saturation valeur)
+
+we'll see a use case in the next section
+
+```{image} media/HSV-cone.png
+:width: 300px
+```
+
+```{admonition} the full story
+see <https://en.wikipedia.org/wiki/HSL_and_HSV> for an in-depth article
+```
+
+```{code-cell} ipython3
 import cv2
 import numpy as np
 from IPython.display import Image
 from utils_image import show_image
+```
 
-# +
+```{code-cell} ipython3
 # let us look at the 3 channels
 # for this input image
 
 img = cv2.imread('./media/abstract.jpg')
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img)
+```
 
-# +
+```{code-cell} ipython3
 # here are the 3 channels on top of one another
 
 img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV) # le faire en numpy
 
 h, s, v = img_hsv[:, :, 0], img_hsv[:, :, 1], img_hsv[:, :, 2]
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(np.concatenate((h, s, v), axis=0))
-# -
+```
 
-# ````{admonition} exercise: write it in numpy
-# :class: seealso dropdown
-#
-# the formulas for translating RGB into HSV are given here:  
-# <https://en.wikipedia.org/wiki/HSL_and_HSV#General_approach>  
-# you may want to write your own conversion tool in raw numpy
-# ````
+````{admonition} exercise: write it in numpy
+:class: seealso dropdown
 
-# ### detecting specific areas
-#
-# trying to find skin-like colors
-# (and a use case for HSV coordinates)
+the formulas for translating RGB into HSV are given here:  
+<https://en.wikipedia.org/wiki/HSL_and_HSV#General_approach>  
+you may want to write your own conversion tool in raw numpy
+````
 
++++
+
+### detecting specific areas
+
+trying to find skin-like colors
+(and a use case for HSV coordinates)
+
+```{code-cell} ipython3
 import cv2
 import numpy as np
 from utils_image import show_image
+```
 
-# +
+```{code-cell} ipython3
 # reading colors is the default behaviour
 img = cv2.imread('./media/people-2.jpg', cv2.IMREAD_COLOR)
 
 # moving to HSV coordinates
 img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img)
+```
 
-# +
+```{code-cell} ipython3
 # display the 3 channels
 
 h, s, v = img_hsv[:, :, 0], img_hsv[:, :, 1], img_hsv[:, :, 2]
 hsv_split = np.concatenate((h, s, v), axis=1)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(hsv_split, window_name='img_hsv')
+```
 
-# +
+```{code-cell} ipython3
 # for an - arguable - skin detection:
 
 # 1) saturation becomes 255 if > à 40
@@ -318,30 +390,40 @@ ret_h, max_h = cv2.threshold(h, 15, 255, cv2.THRESH_BINARY_INV)
 #    i.e. keep only pixels that have both criteria
 #    s > 40 and h < 15
 img_skin = cv2.bitwise_and(min_s, max_h)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img_skin)
-# -
+```
 
-# ### edge detection
+### edge detection
 
+```{code-cell} ipython3
 import cv2
 import numpy as np
 from utils_image import show_image
+```
 
-# +
+```{code-cell} ipython3
 # an image using grayscale
 
 img = cv2.imread('./media/abstract.jpg', cv2.IMREAD_GRAYSCALE)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img)
-# -
+```
 
+```{code-cell} ipython3
 # only one channel here, values in 0..255
 img.shape, img.dtype
+```
 
-# +
+```{code-cell} ipython3
 # a tentative approach with numpy only
 # put 0 or 1 depending on
 # value < threshold -> 0
@@ -352,22 +434,30 @@ threshold = 150
 
 img_bw = np.zeros(img.shape)
 img_bw[img > threshold] = 255
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img_bw)
+```
 
-# +
+```{code-cell} ipython3
 # the same idea using cv2
 # still not convincing of course
 
 threshold = 150
 
 ret, img_bw_cv2 = cv2.threshold(img, threshold, 255, cv2.THRESH_BINARY) # idem
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img_bw_cv2)
+```
 
-# +
+```{code-cell} ipython3
 # BUT much better if
 # the threshold is COMPUTED for each pixel - here on a 11x11 square
 
@@ -379,30 +469,39 @@ img_nb_cv2_adap = cv2.adaptiveThreshold(
     5,  # constant that is subtracted from the mean or weighted sum of the neighbourhood pixels
         # something loosely related to contrast...
 )
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img_nb_cv2_adap, window_name='img_gris adaptative')
-# -
+```
 
-# ### selecting among detected edges
-#
-# as an example, let's find the contour that has the largest area
+### selecting among detected edges
 
+as an example, let's find the contour that has the largest area
+
+```{code-cell} ipython3
 import cv2
 import numpy as np
 from IPython.display import Image
 from utils_image import show_image
+```
 
-# +
+```{code-cell} ipython3
 img = cv2.imread('./media/abstract.jpg')
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 thresh = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 1)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(thresh)
+```
 
-# +
+```{code-cell} ipython3
 # another method to find contours
 
 contours, hierar = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -413,11 +512,15 @@ thickness = 2
 color = (0, 0, 0)
 
 img3 = cv2.drawContours(img2, contours, -1, color, thickness)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img3)
+```
 
-# +
+```{code-cell} ipython3
 # let's find the one with maximal area
 
 areas = [cv2.contourArea(c) for c in contours]
@@ -430,18 +533,23 @@ i = areas.index(max(areas))
 # and corresponds to a global frame around the picture
 
 the_largest_contour = contours[i]
+```
 
-# +
+```{code-cell} ipython3
 # just the contour
 
 img4 = cv2.drawContours(
     np.ones(img2.shape, dtype="uint8")*255,
     [the_largest_contour], -1, color, thickness)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img4)
+```
 
-# +
+```{code-cell} ipython3
 # so we're going to ignore this one, and take the second largest
 
 # remove that contour from the list
@@ -451,24 +559,30 @@ contours2 = contours[:i] + contours[i+1:]
 areas = [cv2.contourArea(c) for c in contours2]
 i = areas.index(max(areas))
 the_largest_contour = contours2[i]
+```
 
-# +
+```{code-cell} ipython3
 # just the contour
 
 img4 = cv2.drawContours(
     np.ones(img2.shape, dtype="uint8")*255,
     [the_largest_contour], -1, color, thickness)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img4)
-# -
+```
 
-# ### face detection with pre-trained model
+### face detection with pre-trained model
 
+```{code-cell} ipython3
 import cv2
 from utils_image import show_image
+```
 
-# +
+```{code-cell} ipython3
 img = cv2.imread('./media/people-3.jpg')
 # remember we're in BGR at this point
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -485,18 +599,23 @@ faces = face_cascade.detectMultiScale(
 # outline detected faces on the image
 for (x, y, w, h) in faces:
     cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 # and voilà
 show_image(img, window_name="face-detection")
-# -
+```
 
-# ### eyes detection with pre-trained model
+### eyes detection with pre-trained model
 
+```{code-cell} ipython3
 import cv2
 from utils_image import show_image
+```
 
-# +
+```{code-cell} ipython3
 # same business of course, let's see the results
 
 # performs well on people-2, not so much on the others
@@ -517,30 +636,36 @@ for (x, y, w, h) in eyes:
     yc = y + h//2
     rc = w//2
     cv2.circle(img, (xc, yc), rc, (255, 255, 0), 2)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img, window_name="eyes-detection") # attention peut détecter des tas d'oeils partout !
-# -
+```
 
-# ## dealing with videos
-#
-# let us now see how opencv can help display and deal with videos
+## dealing with videos
 
-# ### display a video and react to mouse events
-#
-# in this first example, we are going to
-#
-# - display a short video
-# - let the user click with the mouse, and add a red circle at the clicked position
-# - user can also quit earlier by typing 'q'
-#
-# feel free to first watch the video in `./media/cars-city.mp4` using your usual viewer, so you can see the changes.
+let us now see how opencv can help display and deal with videos
 
++++
+
+### display a video and react to mouse events
+
+in this first example, we are going to
+
+- display a short video
+- let the user click with the mouse, and add a red circle at the clicked position
+- user can also quit earlier by typing 'q'
+
+feel free to first watch the video in `./media/cars-city.mp4` using your usual viewer, so you can see the changes.
+
+```{code-cell} ipython3
 import cv2
 from IPython.display import Image
+```
 
-
-# +
+```{code-cell} ipython3
 # for starters we define a 'callback'
 # i.e. a function that will be called
 # each time an event occurs
@@ -568,9 +693,12 @@ def mouse_callback(event, x, y, flags, param):
         mouse_x, mouse_y = (x, y)
         # and this is GREEN
         color = (0, 255, 0)
+```
 
+```{code-cell} ipython3
+:tags: [skip-execution]
+:lines_to_next_cell: 0
 
-# + tags=["skip-execution"]
 # and now we can write the code for achieving the goal (see above)
 
 # being global, these variables can be read
@@ -642,35 +770,44 @@ cv2.destroyAllWindows()
 # like with show_image, this is required for smooth operation
 # on MacOS at least
 cv2.waitKey(1);
-# -
-# ````{admonition} exercise: refactor into a function
-# :class: seealso dropdown
-#
-# you may want to refactor this code so that it all fits into a single function, say `display_video_track_mouse_clicks(filename)`
-#
-# ```{admonition} tip
-# :class: dropdown tip
-#
-# if you go down this road, you may wish to check for the `nonlocal` Python keyword
-#
-# indeed one of the advantages of refactoring would be to remove the need for global variables, which are *always* a bad idea ;)
-# ```
-#
-# ````
+```
 
-# ### face detection on video
+````{admonition} exercise: refactor into a function
+:class: seealso dropdown
 
-# it is possible to go way further than just that; for example here we display another video, and in the process we **outline human faces** as recognized by an AI model.
-#
-# the input video can be watched in `./media/friends.mov`
-#
-# of course the callback mechanism is still available if needed, but for the sake of simplicity we do not use it here
+you may want to refactor this code so that it all fits into a single function, say `display_video_track_mouse_clicks(filename)`
 
+```{admonition} tip
+:class: dropdown tip
+
+if you go down this road, you may wish to check for the `nonlocal` Python keyword
+
+indeed one of the advantages of refactoring would be to remove the need for global variables, which are *always* a bad idea ;)
+```
+
+````
+
++++
+
+### face detection on video
+
++++
+
+it is possible to go way further than just that; for example here we display another video, and in the process we **outline human faces** as recognized by an AI model.
+
+the input video can be watched in `./media/friends.mov`
+
+of course the callback mechanism is still available if needed, but for the sake of simplicity we do not use it here
+
+```{code-cell} ipython3
 import cv2
 from IPython.display import Image
 # from utils_image import show_image
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 def display_video_highlight_faces(
     # one mandatory parameter
     video_filename,
@@ -725,9 +862,9 @@ def display_video_highlight_faces(
     cv2.destroyAllWindows()
     # like always, required at least on MacOS
     cv2.waitKey(1)
+```
 
-
-# +
+```{code-cell} ipython3
 def init_model():
     path='data/haarcascade_frontalface_default.xml'
     return cv2.CascadeClassifier(path)
@@ -737,9 +874,11 @@ def run_model(img, model, **kwargs):
     faces = model.detectMultiScale(gray, **kwargs)
     for (x, y, w, h) in faces:
         cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
+```
 
+```{code-cell} ipython3
+:lines_to_next_cell: 2
 
-# +
 # cap = cv2.VideoCapture("./media/friends.mov")
 display_video_highlight_faces(
     "./media/friends.mov", init_model, run_model,
@@ -748,37 +887,50 @@ display_video_highlight_faces(
     # and thus to detectMultiScale()
     scaleFactor=1.10, minNeighbors=5, minSize=(40, 40), maxSize=(80, 80),
 )
-# -
+```
 
+as you can see the result is intersting, although not quite perfect yet...
 
-# as you can see the result is intersting, although not quite perfect yet...
-#
-# ```{admonition} exercise: timing
-#
-# - find out what is the actual duration of the video
-# - and measure how long it takes for our function to display it
-#
-# why is it not the same ?
+```{admonition} exercise: timing
 
-# ### pose detection (human body structure)
-#
-# in this section we demonstrate a utility that can detect the overall position of human body
-#
-# this time the original video is in `./media/player-man.mov`
+- find out what is the actual duration of the video
+- and measure how long it takes for our function to display it
 
+why is it not the same ?
+
++++
+
+### pose detection (human body structure)
+
+in this section we demonstrate a utility that can detect the overall position of human body
+
+this time the original video is in `./media/player-man.mov`
+
+```{code-cell} ipython3
 # if needed:
-# %pip install mediapipe
+%pip install mediapipe
+```
 
+```{code-cell} ipython3
 import cv2
 from IPython.display import Image
 import mediapipe as mp
+```
 
+```{code-cell} ipython3
 draw_tool = mp.solutions.drawing_utils
 posEstimation = mp.solutions.pose
+```
 
+```{code-cell} ipython3
 pose = posEstimation.Pose() # INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+```
 
-# + scrolled=true tags=["skip-execution"]
+```{code-cell} ipython3
+:scrolled: true
+:tags: [skip-execution]
+:lines_to_next_cell: 0
+
 # here again a function would come in handy...
 
 # you know the drill..
@@ -811,35 +963,44 @@ while ret:
 capture.release()
 cv2.destroyAllWindows()
 cv2.waitKey(1);
-# -
-# ### pose estimation - spotting specific body parts
-#
-# as a slight elaboration upon the previous scenario, it is possible to fine tune the set of points we are interested in, picking among these:
-#
-# ```{image} ./media/pose_landmarks_explained.png
-# :width: 600px
-# ```
-#
-# so let's say we want to spot
-# * **shoulders** (11 & 12)
-# * **hips** (23, 24)
-# * **knees** (25, 26)
-# * and **ankles** (27, 28)
-#
-# here's the code to do that  
-# original video this time is located in `./media/player-woman.mov`
+```
 
+### pose estimation - spotting specific body parts
+
+as a slight elaboration upon the previous scenario, it is possible to fine tune the set of points we are interested in, picking among these:
+
+```{image} ./media/pose_landmarks_explained.png
+:width: 600px
+```
+
+so let's say we want to spot
+* **shoulders** (11 & 12)
+* **hips** (23, 24)
+* **knees** (25, 26)
+* and **ankles** (27, 28)
+
+here's the code to do that  
+original video this time is located in `./media/player-woman.mov`
+
+```{code-cell} ipython3
 LANDMARKS = [11, 12, 23, 24, 25, 26, 27, 28]
 WHITE = (255, 255, 255)
+```
 
+```{code-cell} ipython3
 import mediapipe as mp
 import cv2
+```
 
+```{code-cell} ipython3
 draw_tool = mp.solutions.drawing_utils
 posEstimation = mp.solutions.pose
 pose = posEstimation.Pose() # INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 capture = cv2.VideoCapture("./media/player-woman.mov")
 
 ret, frame = capture.read()
@@ -881,50 +1042,61 @@ while ret:
 capture.release()
 cv2.destroyAllWindows()
 cv2.waitKey(1);
-# -
+```
 
-# ## yolo
+## yolo
 
-# ### detecting objects on an image
++++
 
-# +
+### detecting objects on an image
+
+```{code-cell} ipython3
 # make sure to install these if needed
 
-# # %pip install ultralytics
-# # %pip install supervision
+# %pip install ultralytics
+# %pip install supervision
+```
 
-# +
+```{code-cell} ipython3
 import cv2
 from ultralytics import YOLO
 import supervision as sv
 
 from utils_image import show_image
+```
 
-# +
+```{code-cell} ipython3
 # model = YOLO("yolov8l.pt")
+```
 
-# +
+```{code-cell} ipython3
 # we go fetch the model from the Internet
 # it seems like the file will be automatically cached locally by YOLO
 
 model = YOLO("https://github.com/ultralytics/assets/releases/download/v8.1.0/yolov8n.pt")
-# -
+```
 
+```{code-cell} ipython3
 img = cv2.imread('./media/cars-city.png', 1)
+```
 
-# +
+```{code-cell} ipython3
 # YOLO detects objects
 # here we run the model on the image
 # it is actually a shorthand for
 # res = model.predict(img)[0]
 
 res = model(img)[0]
-# -
+```
 
+```{code-cell} ipython3
 # from_yolov8 is deprecated and replace by from_ultralytics
 detections = sv.Detections.from_ultralytics(res)
+```
 
-# +
+```{code-cell} ipython3
+:lines_to_next_cell: 2
+
 # let us inspect what the model has found
 # as of ultralytics verion 8.2
 # each detection object can be unpacked with 6 fields
@@ -933,15 +1105,16 @@ first_detection = next(iter(detections))
 a,b,c,d,e,f = first_detection
 
 a,b,c,d,e,f
+```
 
-
-# +
+```{code-cell} ipython3
 # so the ones that we are interested in are these 2:
 
 _, _, confidence, _, _, details = first_detection
 confidence, details
+```
 
-# +
+```{code-cell} ipython3
 # so here is how to produce one label per detection
 
 labels = [
@@ -950,16 +1123,18 @@ labels = [
 ]
 
 labels[:4]
+```
 
-# +
+```{code-cell} ipython3
 # rendering the result as an annotated image
 
 # the easy way:
 
 plotted = res.plot()
 show_image(plotted)
+```
 
-# +
+```{code-cell} ipython3
 # rendering the result as an annotated image
 
 # the less easy, but more customizable way:
@@ -972,25 +1147,34 @@ box_annotator = sv.BoxAnnotator(
 )
 
 img = box_annotator.annotate(scene=img, detections=detections, labels=labels)
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 show_image(img, window_name="YOLO")
-# -
+```
 
-# ### detecting objects in a video
-#
-# it's just a matter of applying the above method on each frame
-#
-# not exactly smooth though, with a regular CPU...
+### detecting objects in a video
 
+it's just a matter of applying the above method on each frame
+
+not exactly smooth though, with a regular CPU...
+
+```{code-cell} ipython3
 import cv2
 from ultralytics import YOLO
 import supervision as sv
 from utils_image import show_image
+```
 
+```{code-cell} ipython3
 model = YOLO("yolov8l.pt")
+```
 
-# + tags=["skip-execution"]
+```{code-cell} ipython3
+:tags: [skip-execution]
+
 # on this clip we would detect persons
 capture = cv2.VideoCapture("./media/friends.mov")
 
@@ -1022,3 +1206,4 @@ while ret:
 capture.release()
 cv2.destroyAllWindows()
 cv2.waitKey(1)
+```

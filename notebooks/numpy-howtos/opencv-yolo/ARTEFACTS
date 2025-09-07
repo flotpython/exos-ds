@@ -11,5 +11,5 @@ media/player-man.mov
 media/player-woman.mov
 media/pose_landmarks_explained.png
 media/pose_landmarks_index.png
-HOWTO-opencv-yolo-nb.py
+HOWTO-opencv-yolo-nb.md
 utils_image.py
