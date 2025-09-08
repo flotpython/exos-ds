@@ -40,7 +40,7 @@ site:
     # and use Path -> Object to Path to convert the text to a path
     # and so, remove the dependency to font
     favicon: media/flotpython-favicon.svg
-    logo: media/logo-python-numerique.svg
+    logo: media/logo-exos-ds.svg
     # very visible in the header
     logo_text: "Python Numérique - exos"
     style: "_static/style.css"
