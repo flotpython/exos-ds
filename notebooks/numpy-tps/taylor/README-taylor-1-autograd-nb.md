@@ -9,8 +9,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # Taylor (1/3): intro à autograd
@@ -86,9 +86,9 @@ calculez le domaine des réels entre 0 et 2π
 ```
 
 ```{code-cell} ipython3
-# et pour tester
-#
-sin_der(X)
+# décommentez pour tester:
+
+#sin_der(X)
 ```
 
 ### Q3

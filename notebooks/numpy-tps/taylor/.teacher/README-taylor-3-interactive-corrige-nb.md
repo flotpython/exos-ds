@@ -9,8 +9,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 nbhosting:
   title: Taylor interactif
 ---
@@ -90,15 +90,15 @@ bref, à vous de faire ce qu'il faut pour définir ces deux symboles
 ```
 
 ```{code-cell} ipython3
-# prune-begin
-```
-
-```{code-cell} ipython3
 # ! pip install autograd
 import autograd.numpy as np
 import matplotlib.pyplot as plt
 
 from math import factorial
+```
+
+```{code-cell} ipython3
+# prune-begin
 ```
 
 ```{code-cell} ipython3
@@ -182,7 +182,7 @@ c'est normal, on ne l'a pas "branché"
 pour que ma réglette serve à quelque chose, on va lui attacher une *callback*  
 c'est-à-dire **une fonction** qui sera **appelée lorsqu'il y aura un changement**  
 
-pour commencer j'écris cette *callback*, c'est une fonction Python, 
+pour commencer j'écris cette *callback*, c'est une fonction Python,
 
 ```{code-cell} ipython3
 def knob_has_changed(change):
@@ -234,7 +234,7 @@ VBox([
 ```
 
 vous remarquez d'ailleurs que les trois réglettes sont synchrones, c'est normal car elles servent à définir **une seule valeur** !  
-qui est d'ailleurs en permanence accessible comme 
+qui est d'ailleurs en permanence accessible comme
 
 ```{code-cell} ipython3
 # par contre le résultat de cette cellule ne va pas
