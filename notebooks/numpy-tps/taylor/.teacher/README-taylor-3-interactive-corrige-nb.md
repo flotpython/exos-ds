@@ -51,7 +51,7 @@ la solution à cet exercice est relativement différente selon le mode de restit
   c'est plutôt plus simple à coder, mais le résultat est vraiment rustique du coup, bref c'est plutôt déconseillé d'investir dans cette voie
 * `%matplotlib notebook` qui était déjà plus moderne; avec ce mode on peut agrandir / zoomer mais il est **devenu obsolète**
 * `%matplotlib ipympl` qui est, en 2024, le successeur du précédent - notamment si vous voulez visualiser vos rendus interactifs  
-  ce mode nécessite une installation supplémentaire (et [voir aussi cette page pour plus de détails](label-dashboard-ipympl))
+  ce mode nécessite une installation supplémentaire (et [voir aussi cette page pour plus de détails](#label-dashboard-ipympl))
   ```shell
   pip install ipympl
   ```
