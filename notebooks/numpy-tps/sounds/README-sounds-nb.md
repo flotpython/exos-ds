@@ -456,10 +456,10 @@ dans cette partie, nous allons calculer les fréquences des notes de la gamme
 :class: dropdown tip
 
 sachez que, pour simplifier : la gamme chromatique (toutes les notes du piano) contient 12 notes  
-$do$ ・ $do\sharp$ ・ $ré$ ・ $ré\sharp$ ・ $mi$ ・ $fa$ ・ $fa\sharp$ ・ $sol$ ・ $sol\sharp$ ・ $la$ ・ $la\sharp$ ・ $si$  
-séparées de 1/2 ton (le $la\sharp$ s'appelle aussi $si\flat$ mais c'est une autre histoire...)
+*do* ・ *do*$\sharp$ ・ *ré* ・ *ré*$\sharp$ ・ *mi* ・ *fa* ・ *fa*$\sharp$ ・ *sol* ・ *sol*$\sharp$ ・ *la* ・ *la*$\sharp$ ・ *si*  
+séparées de 1/2 ton (le *la*$\sharp$ s'appelle aussi *si*$\flat$ mais c'est une autre histoire...)
 
-et si on rajoute la note suivante (qu'on appelle $do'$), cela fait 13 notes donc 12 intervalles
+et si on rajoute la note suivante (qu'on appelle *do'*), cela fait 13 notes donc 12 intervalles
 ```
 
 +++
@@ -518,7 +518,7 @@ un demi-ton correspond à un rapport constant - qu'on va appeler $\alpha$ entre 
 
 $$
 \frac{do\sharp}{do} =
-\frac{ré}{do\sharp} =
+\frac{re}{do\sharp} =
 \ldots
 \frac{si}{la\sharp} =
 \frac{do'}{si} = \alpha
@@ -533,7 +533,7 @@ $
 
 mais c'est aussi
 $
-\frac{do'}{do} = \frac{do'}{si}.\frac{si}{la\sharp}.\frac{la\sharp}{la}...\frac{ré}{do\sharp}.\frac{do\sharp}{do} = \alpha^{12}
+\frac{do'}{do} = \frac{do'}{si}.\frac{si}{la\sharp}.\frac{la\sharp}{la}...\frac{re}{do\sharp}.\frac{do\sharp}{do} = \alpha^{12}
 $
 
 d'où il ressort que $\alpha^{12} = 2$
@@ -553,7 +553,7 @@ $$
 \begin{array}{cccc}
 0 & 1 & 2^0 & do\\
 1 & \sqrt[^{12}]{2} & 2^{1/12} & do\sharp\\
-2 & (\sqrt[^{12}]{2})^2 & 2^{2/12} & ré\\
+2 & (\sqrt[^{12}]{2})^2 & 2^{2/12} & re\\
 ...\\
 11 & (\sqrt[^{12}]{2})^{11} & 2^{11/12} & la\sharp\\
 12 & 2 & 2^{12/12} & do'\\
