@@ -10,8 +10,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 +++ {"tags": []}
@@ -463,7 +463,8 @@ slideshow:
   slide_type: ''
 tags: []
 ---
-df.duration.dt.components
+# une fois que vous avez bien converti vous pourrez faire ceci
+# df.duration.dt.components
 ```
 
 +++ {"slideshow": {"slide_type": ""}, "tags": []}
@@ -478,7 +479,6 @@ en pratique ça se fait en deux temps
 * sur l'objet `Series` on applique l'attribut `dt` pour, en quelque sorte, se projeter dans l'espace des 'date-time'  
   c'est exactement comme on l'a vu déjà avec le `.str` lorsqu'on a eu besoin d'appliquer des méthodes comme `.lower()` ou `replace()` sur les chaines et non pas sur la série  
   plus de détails ici <https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.html>
-
 * de là on peut appeler toutes les méthodes disponibles sur les objets `timedelta` - on pourra en particulier s'intéresser à `total_seconds`
 
 +++ {"tags": ["level_basic"], "slideshow": {"slide_type": ""}}
@@ -555,11 +555,11 @@ slideshow:
   slide_type: ''
 tags: [raises-exception]
 ---
-# pour vérifier
-(    np.all(df.loc[0, ['hour', 'minute', 'second']] == [2, 6, 29])
- and df.hour.dtype == int
- and df.minute.dtype == int 
- and df.second.dtype == int)
+# pour vérifier, vous décommentez tout ceci et ça doit afficher True
+# (    np.all(df.loc[0, ['hour', 'minute', 'second']] == [2, 6, 29])
+#  and df.hour.dtype == int
+#  and df.minute.dtype == int 
+#  and df.second.dtype == int)
 ```
 
 +++ {"slideshow": {"slide_type": ""}, "tags": []}
@@ -596,9 +596,9 @@ slideshow:
   slide_type: ''
 tags: [raises-exception]
 ---
-# pour vérifier
-(    np.all(df.loc[0, ['hour', 'minute', 'second']] == [2, 6, 29])
- and df.hour.dtype == int
- and df.minute.dtype == int 
- and df.second.dtype == int)
+# pour vérifier: même consigne
+# (    np.all(df.loc[0, ['hour', 'minute', 'second']] == [2, 6, 29])
+#  and df.hour.dtype == int
+#  and df.minute.dtype == int 
+#  and df.second.dtype == int)
 ```

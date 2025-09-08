@@ -10,8 +10,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 +++ {"tags": []}
@@ -616,6 +616,17 @@ slideshow:
   slide_type: ''
 tags: []
 ---
+# une fois que vous avez bien converti vous pourrez faire ceci
+# df.duration.dt.components
+```
+
+```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
+# prune-cell
 df.duration.dt.components
 ```
 
@@ -736,11 +747,25 @@ slideshow:
   slide_type: ''
 tags: [raises-exception]
 ---
-# pour vérifier
+# prune-cell
+# pour vérifier, vous décommentez tout ceci et ça doit afficher True
 (    np.all(df.loc[0, ['hour', 'minute', 'second']] == [2, 6, 29])
  and df.hour.dtype == int
  and df.minute.dtype == int 
  and df.second.dtype == int)
+```
+
+```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: [raises-exception]
+---
+# pour vérifier, vous décommentez tout ceci et ça doit afficher True
+# (    np.all(df.loc[0, ['hour', 'minute', 'second']] == [2, 6, 29])
+#  and df.hour.dtype == int
+#  and df.minute.dtype == int 
+#  and df.second.dtype == int)
 ```
 
 +++ {"slideshow": {"slide_type": ""}, "tags": []}
@@ -800,7 +825,21 @@ slideshow:
   slide_type: ''
 tags: [raises-exception]
 ---
-# pour vérifier
+# pour vérifier: même consigne
+# (    np.all(df.loc[0, ['hour', 'minute', 'second']] == [2, 6, 29])
+#  and df.hour.dtype == int
+#  and df.minute.dtype == int 
+#  and df.second.dtype == int)
+```
+
+```{code-cell} ipython3
+---
+slideshow:
+  slide_type: ''
+tags: [raises-exception]
+---
+# prune-cell 
+# pour vérifier: même consigne
 (    np.all(df.loc[0, ['hour', 'minute', 'second']] == [2, 6, 29])
  and df.hour.dtype == int
  and df.minute.dtype == int 
