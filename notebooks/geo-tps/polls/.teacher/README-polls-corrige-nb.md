@@ -62,6 +62,29 @@ as of 2025 **this URL is no longer online** so we'll just
 CACHE = "data/DATA.csv"
 ```
 
+```{code-cell} ipython3
+# prune-cell
+
+from pathlib import Path
+
+def reload():
+    if Path(CACHE).exists():
+        df = pd.read_csv(CACHE)
+    else:
+        print(f"the URL is no longer online, make sure you find the {CACHE} file")
+        return
+        # df = pd.read_csv(URL)
+        # df.to_csv(CACHE)
+
+    # convert into time; but we cannot save this in the csv
+    # so we must do it afterwards
+    df['date'] = pd.to_datetime(df.date, format="%Y-%m-%d")
+    return df
+
+df = reload()
+df.head(2)
+```
+
 And what we want to do is to plot the average of the polls for each candidate.  
 In other words, you should obtain something like this - we will arbitrarily focus on the 2024 year only
 
@@ -74,6 +97,35 @@ In other words, you should obtain something like this - we will arbitrarily focu
 :tags: [level_basic]
 
 # your code
+```
+
+```{code-cell} ipython3
+# prune-cell
+
+# extract 2024
+
+df_original = df
+df = df[df.date.dt.year >= 2024].copy()
+df.sort_values('date', inplace=True)
+df
+```
+
+```{code-cell} ipython3
+# prune-cell
+
+# pivot and plot
+
+(df
+    .pivot_table(
+        values='pct_estimate',
+        aggfunc='mean',
+        index='date',
+        columns='candidate'
+    )
+).plot(figsize=(10, 4))
+
+# this saved version is shown above
+plt.savefig('polls-over-time-2024.png')
 ```
 
 using the interactive view (after all we are using `%matplotlib ipympl`), zoom into the figure and retrieve
@@ -90,6 +142,15 @@ also write a line of code to compute this second date
 first_harris_date = ...
 ```
 
+```{code-cell} ipython3
+# prune-cell
+
+df.candidate.value_counts()
+
+first_harris_date = df[df.candidate == "Harris"].sort_values('date').iloc[0].loc['date']
+first_harris_date
+```
+
 ## race end
 
 from this part we will focus on the period after `first_harris_date`
@@ -100,6 +161,15 @@ from this part we will focus on the period after `first_harris_date`
 # your code
 ```
 
+```{code-cell} ipython3
+# prune-cell
+
+df = reload()
+df = df[df.date >= first_harris_date]
+
+df
+```
+
 how many candidates are still in the data ?  
 make sure to keep only the 2 most famous ones
 
@@ -107,6 +177,23 @@ make sure to keep only the 2 most famous ones
 :tags: [level_basic]
 
 # your code
+```
+
+```{code-cell} ipython3
+# prune-cell
+
+df.value_counts(['candidate'])
+```
+
+```{code-cell} ipython3
+# prune-cell
+
+df = df[df.candidate != 'Kennedy']
+
+# double check with
+df.value_counts('candidate')
+# or
+df.candidate.value_counts()
 ```
 
 ## geographic rendering
@@ -279,6 +366,55 @@ given this knowledge, you should be able to produce our target graph, namely aga
 # your code
 ```
 
+```{code-cell} ipython3
+# prune-begin
+```
+
+```{code-cell} ipython3
+# compute a dataframe
+# state-name -> average-harris average-trump
+
+pivot = df.pivot_table(
+    values="pct_estimate",
+    index="state",
+    columns=["candidate"],
+).reset_index()
+```
+
+```{code-cell} ipython3
+gdf_scores = gdf.merge(pivot, left_on="NAME", right_on="state")
+gdf_scores.head()
+```
+
+```{code-cell} ipython3
+gdf_scores['ratio'] = gdf_scores['Harris'] / gdf_scores['Trump']
+```
+
+```{code-cell} ipython3
+gdf_scores['NAME'].unique()
+```
+
+```{code-cell} ipython3
+# just apply the recipe
+
+(
+    alt.Chart(gdf_scores)
+    .mark_geoshape(stroke='blue')
+    .encode(
+        color=alt.Color(field="ratio", type="quantitative", title="Harris / Trump"),
+        tooltip=["Harris", "Trump", "state"],
+    )
+    .properties(width=800)
+    .project('albersUsa')
+)
+
+# note: the screen shot is done manually to capture an example of the tooltip 
+```
+
+```{code-cell} ipython3
+# prune-end
+```
+
 ## focusing on swing states
 
 +++
@@ -307,4 +443,36 @@ SWING_STATES = [
 :tags: [level_basic]
 
 # your code
+```
+
+```{code-cell} ipython3
+# prune-begin
+
+from numpy import nan
+
+non_swing_mask = ~ gdf_scores.NAME.isin(SWING_STATES)
+
+gdf_scores.loc[ non_swing_mask, 'ratio'] = nan
+```
+
+```{code-cell} ipython3
+# just apply the recipe
+
+chart = (
+    alt.Chart(gdf_scores)
+    .mark_geoshape(stroke='blue')
+    .encode(
+        color=alt.Color(field="ratio", type="quantitative", title="Harris / Trump"),
+        tooltip=["Harris", "Trump", "state"],
+    )
+    .properties(width=800)
+    .project('albersUsa')
+)
+
+chart.save("swing-states-over-space.png")
+chart
+```
+
+```{code-cell} ipython3
+# prune-end
 ```
