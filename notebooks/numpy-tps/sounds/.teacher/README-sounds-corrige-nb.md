@@ -1226,7 +1226,7 @@ data2 = data[::2]
 
 # pour écouter
 
-MyAudio(data)
+# MyAudio(data)
 ```
 
 ```{code-cell} ipython3
@@ -1234,14 +1234,16 @@ MyAudio(data)
 
 # pour écouter
 
-MyAudio(data2)
+# MyAudio(data2)
 ```
 
 naturellement le profil reste le même mais l'échelle des X est plus courte (deux fois moins d'échantillons)
 
 ```{code-cell} ipython3
-plt.figure(figsize=(10, 4))
-plt.plot(data2, linewidth=0.05);
+# décommentez pour affichez votre signal
+
+# plt.figure(figsize=(10, 4))
+# plt.plot(data2, linewidth=0.05);
 ```
 
 ### transposer d'une quinte
@@ -1315,16 +1317,17 @@ data3[1::2] = (data[1::3] //2) + (data[2::3] // 2)
 ```
 
 ```{code-cell} ipython3
-# vérification de visu
+# vdécommentez pour une vérification de visu
 # ces deux segments correspondent normalement
 # au même instant dans le morceau
 
-data[12000:12007], data3[8000:8005]
+#data[12000:12007], data3[8000:8005]
 ```
 
 ```{code-cell} ipython3
 # pour écouter
-MyAudio(data3)
+
+# MyAudio(data3)
 ```
 
 +++ {"tags": ["level_intermediate"]}

@@ -18,15 +18,15 @@ nbhosting:
   title: TP - un peu de musique
 ---
 
-# TP - un peu de musique
-
-+++
-
 Licence CC BY-NC-ND, Valérie Roy & Thierry Parmentelat
 
 +++
 
 pour réaliser ce TP localement sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-sounds.zip>`
+
++++
+
+# TP - un peu de musique
 
 +++
 
@@ -368,7 +368,6 @@ ce qui nous amène à une petite digression: profitons-en pour regarder un peu c
 l'encodage des **entiers signés** fonctionne comme suit; on regarde ici les types `int8` et `uint8` car c'est plus simple, le principe est exactement le même pour des tailles plus grandes
 
 il y a deux types d'encodages pour les entiers:
-
 * `uint8` (le `u` signifie *unsigned*): les entiers **non signés** reposent sur un encodage "naturel": on décompose en base 2, et donc avec 8 bits, on peut aller **de 0 à 255**
 * `int8`: par contre pour les entiers **signés**, on va devoir utiliser **un bit comme bit de signe**, ce qui limite le spectre de ce qu'il est possible d'encoder; avec en tout 8 bits on peut encoder de **-128 à 127 inclus**
 
@@ -960,7 +959,7 @@ data2 = ...
 
 # pour écouter
 
-MyAudio(data)
+# MyAudio(data)
 ```
 
 ```{code-cell} ipython3
@@ -968,14 +967,16 @@ MyAudio(data)
 
 # pour écouter
 
-MyAudio(data2)
+# MyAudio(data2)
 ```
 
 naturellement le profil reste le même mais l'échelle des X est plus courte (deux fois moins d'échantillons)
 
 ```{code-cell} ipython3
-plt.figure(figsize=(10, 4))
-plt.plot(data2, linewidth=0.05);
+# décommentez pour affichez votre signal
+
+# plt.figure(figsize=(10, 4))
+# plt.plot(data2, linewidth=0.05);
 ```
 
 ### transposer d'une quinte
@@ -1022,16 +1023,17 @@ data3 = ...
 ```
 
 ```{code-cell} ipython3
-# vérification de visu
+# vdécommentez pour une vérification de visu
 # ces deux segments correspondent normalement
 # au même instant dans le morceau
 
-data[12000:12007], data3[8000:8005]
+#data[12000:12007], data3[8000:8005]
 ```
 
 ```{code-cell} ipython3
 # pour écouter
-MyAudio(data3)
+
+# MyAudio(data3)
 ```
 
 +++ {"tags": ["level_intermediate"]}
