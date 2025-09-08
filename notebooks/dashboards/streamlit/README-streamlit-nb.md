@@ -84,7 +84,7 @@ pensez par exemple au chargement d'une grosse table de données, on ne veut pas 
 pour ce genre d'usages il y a un utilitaire qui se présente comme ceci
 
 ```python
-do this only once, not at each re-run
+# would do this only once, not at each re-run
 
 @st.cache_data
 def load_url(url):
@@ -134,7 +134,7 @@ vous trouverez enfin dans ce même dossier deux exemples (si nécessaire: {downl
 * [la fonction sinus](./streamlit-sinux.py)
   hyper basique: on peut régler la fréquence et l'amplitude; pour le lancer
   ```bash
-  streamlit run streamlit-sinux.py
+  streamlit run streamlit-sinus.py
   ```
   ça ressemble à ceci
   ```{image} media/streamlit-sinus.png
