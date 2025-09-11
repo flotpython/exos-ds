@@ -16,11 +16,11 @@ language_info:
 
 # television (nettoyage)
 
-+++
+```{admonition} à télécharger
+:class: warning
 
 pour réaliser ce TP localement sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-television.zip>`
-
-+++
+```
 
 cet exercice est originellement proposé ici:
 

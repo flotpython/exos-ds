@@ -18,10 +18,12 @@ nbhosting:
 
 # Les vélos sur le pont de Fremont
 
-pour exécuter ce code localement sur votre ordi, 
-{download}`commencez par télécharger le zip<./ARTEFACTS-fremont-bridge.zip>`
+```{admonition} à télécharger
+:class: warning
 
-+++
+pour exécuter ce code localement sur votre ordi,
+{download}`commencez par télécharger le zip<./ARTEFACTS-fremont-bridge.zip>`
+```
 
 ````{admonition} lien vers la version originale
 

@@ -16,9 +16,15 @@ language_info:
 
 # marimo
 
-*`marimo.io`* is a recent system to build [its own kind of notebooks](https://docs.marimo.io/index.html)  
+```{admonition} download the zip
+:class: warning
 
-like many similar systems, it won't run well in Jupyter notebooks, so you can `{download}download the zip<./ARTEFACTS-marimo.zip>` to run our samples locally
+like many similar systems, it won't run well in Jupyter notebooks,
+so you can {download}`download the companion zip<./ARTEFACTS-marimo.zip>` 
+to run our samples locally
+```
+
+*`marimo.io`* is a recent system to build [its own kind of notebooks](https://docs.marimo.io/index.html)  
 
 +++
 

@@ -18,8 +18,12 @@ language_info:
 
 +++
 
+```{admonition} download the zip
+:class: warning
+
 to run this code on your own laptop,
 {download}`start with downloading the zip file<./ARTEFACTS-polls.zip>`
+```
 
 ```{code-cell} ipython3
 import pandas as pd

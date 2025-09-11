@@ -19,9 +19,11 @@ nbhosting:
 
 # collages
 
-+++
+```{admonition} à télécharger
+:class: warning
 
 pour réaliser ce TP localement sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-collages.zip>`
+```
 
 ```{code-cell} ipython3
 import pandas as pd

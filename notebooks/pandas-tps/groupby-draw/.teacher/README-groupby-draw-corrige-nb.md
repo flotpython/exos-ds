@@ -17,9 +17,11 @@ language_info:
 
 et accessoirement, lire plusieurs feuillets depuis excel
 
-{download}`mais commencez par télécharger le zip<./ARTEFACTS-groupby-draw.zip>`
+```{admonition} mais pour commencer 
+:class: warning
 
-+++
+pour travailler localement sur votre PC, {download}`commencez par télécharger le zip<./ARTEFACTS-groupby-draw.zip>`
+```
 
 le fichier excel `data/groupby-draw.xlsx` contient ici plusieurs feuillets
 

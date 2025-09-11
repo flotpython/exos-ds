@@ -20,14 +20,10 @@ nbhosting:
 
 +++
 
-Licence CC BY-NC-ND, Valérie Roy & Thierry Parmentelat
-
-+++
-
 ````{admonition} pour travailler localement sur votre PC
+:class: warning
 
 {download}`commencez par télécharger les artefacts <ARTEFACTS-covid.zip>`
-
 ````
 
 ```{code-cell} ipython3

@@ -15,9 +15,13 @@ language_info:
 
 # TP géoloc addresses
 
-ce TP vise à vous faire découvrir quelques possibilités de manipulation et d'affichage de données géographiques
+````{admonition} à télécharger
+:class: warning
 
-pour le faire sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-geo.zip>`
+pour faire cette activité sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-geo.zip>`
+````
+
+ce TP vise à vous faire découvrir quelques possibilités de manipulation et d'affichage de données géographiques
 
 +++
 
@@ -26,12 +30,12 @@ pour le faire sur votre ordi, {download}`commencez par télécharger le zip<./AR
 voici les différentes étapes du TP en résumé
 
 1. on part d'un gros paquet d'adresses parisiennes
-1. on va commencer par les géolocaliser: trouver leurs latitude/longitude
-1. on va ensuite les afficher sur une carte
-1. puis on va ajouter dans le mélange [les 80 quartiers parisiens](https://fr.wikipedia.org/wiki/Liste_des_quartiers_administratifs_de_Paris); d'abord en les affichant simplement sur la carte
-1. puis on va voir comment on ferait pour associer chaque adresse dans un quartier
-1. et pour vérifier qu'on ne s'est pas trompé, on affichera les quartiers et les adresses avec des couleurs
-1. enfin on verra comment passer à l'échelle pour visualiser plusieurs dizaines de milliers de points
+2. on va commencer par les géolocaliser: trouver leurs latitude/longitude
+3. on va ensuite les afficher sur une carte
+4. puis on va ajouter dans le mélange [les 80 quartiers parisiens](https://fr.wikipedia.org/wiki/Liste_des_quartiers_administratifs_de_Paris); d'abord en les affichant simplement sur la carte
+5. puis on va voir comment on ferait pour associer chaque adresse dans un quartier
+6. et pour vérifier qu'on ne s'est pas trompé, on affichera les quartiers et les adresses avec des couleurs
+7. enfin on verra comment passer à l'échelle pour visualiser plusieurs dizaines de milliers de points
 ````
 
 +++
@@ -251,7 +255,6 @@ curl -X POST -F data=@path/to/file.csv -F columns=voie -F columns=ville https://
   ```bash
   curl -o lapageweb.html http://github.com/flotpython/
   ```
-
 * quand on utilise une API, comme on vient de le faire pour aller chercher la position de la rue des bernardins, on doit **passer des paramètres** à l'API  
 et pour faire ça dans une requête http, il y a **deux mécanismes: GET et POST**
 
@@ -300,7 +303,6 @@ sauf que nous, on ne veut pas utiliser `curl`, on veut faire cette requête en P
 2. le résultat - toujours au format csv - pourra être également transformé en dataframe
 3. qu'il ne restera plus qu'à `merge` (ou `join` si vous préférez) avec la dataframe de départ, pour ajouter les résultats de la géolocalisation dans les données de départ
    pour cette étape on peut envisager de ne garder que certaines colonnes de la géolocalisation (assez bavarde par ailleurs), je vous recommande de conserver uniquement:
-
    * `latitude`, `longitude` - *of course*
    * `result_city` pour pouvoir vérifier la validité des résultats - ici on devrait toujours avoir `Paris`
    * `result_type` qui devrait toujours renvoyer `housenumber`, ça permet à nouveau de vérifier qu'on a bien une adresse connue
@@ -308,18 +310,15 @@ sauf que nous, on ne veut pas utiliser `curl`, on veut faire cette requête en P
 +++
 
 ````{tip}
-
 * pour envoyer un POST avec des paramètres, on peut faire
   ```python
   response = requests.post(url, file=some_dict, data=another_dict)
   ```
-
 * et donc dans notre cas, puisque `data` est un paramètre de type fichier, alors que `columns` est un paramètre usuel, on fera
   ```python
   response = requests.post(url, files={'data': file_like}, data={'columns': ['col1', ...]})
   ```
   dans lequel `file_like` désigne le résultat d'un `open()` 
-
 * enfin, `pd.read_csv` s'attend à un paramètre de type fichier, i.e. du genre de ce qu'on obtient avec `open()`  
   et du coup pour reconstruire une dataframe à partir du texte obtenu dans la requête http, on a deux choix
   1. soit on commence par sauver le texte dans un fichier temporaire (juste faire attention à choisir un nom de fichier qui n'existe pas, de préférence dans un dossier temporaire, voir le module `tempfile`)

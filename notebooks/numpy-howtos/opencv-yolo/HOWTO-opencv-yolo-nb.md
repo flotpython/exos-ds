@@ -28,8 +28,10 @@ let's see some basic code samples that involve:
 the techniques used for viewing images and videos in this notebook cannot easily work in an HTML environment  
 for this reason, the HTML output is poor and you will be much better off **running the notebook locally !**
 
+```{admonition} download the zip
+:class: warning
 and for that, {download}`your first step will be to download the zip<./ARTEFACTS-opencv-yolo.zip>`
-
+```
 ````
 
 ```{code-cell} ipython3

@@ -17,6 +17,18 @@ nbhosting:
   title: suite du TP simple avec des images
 ---
 
+Licence CC BY-NC-ND, Valérie Roy & Thierry Parmentelat
+
++++
+
+```{admonition} à télécharger
+:class: warning
+
+pour réaliser ce TP localement sur votre ordi, si ce n'est pas déjà fait, {download}`commencez par télécharger le zip<./ARTEFACTS-images.zip>`
+```
+
++++
+
 # TP images (2/2)
 
 merci à Wikipedia et à stackoverflow
@@ -27,14 +39,6 @@ merci à Wikipedia et à stackoverflow
 **le but de ce TP n'est pas d'apprendre le traitement d'image - on se sert d'images pour égayer des exercices avec `numpy`  
 (et parce que quand on se trompe ça se voit)**
 ```
-
-+++
-
-Licence CC BY-NC-ND, Valérie Roy & Thierry Parmentelat
-
-+++
-
-pour réaliser ce TP localement sur votre ordi, si ce n'est pas déjà fait, {download}`commencez par télécharger le zip<./ARTEFACTS-images.zip>`
 
 ```{code-cell} ipython3
 import numpy as np
@@ -127,7 +131,6 @@ on obtiendrait cette fois (observez la taille en pixels de l'image)
 
 ```{admonition} indice
 :class: tip dropdown
-
 * votre fonction retourne un tuple avec deux morceaux: le nombre de lignes, et le nombre de colonnes
 * dans un premier temps, vous pouvez vous contenter d'une version un peu brute: on pourrait utiliser juste la racine carrée, et toujours fabriquer des carrés
   
@@ -161,7 +164,6 @@ def rectangle_size(n):
 
 ````{admonition} indices
 :class: dropdown
-
 * sont potentiellement utiles pour cet exo:
   * la fonction `np.indices()`
   * [l'indexation d'un tableau par un tableau](https://numerique.info-mines.paris/numpy-optional-indexing-nb/)
@@ -344,7 +346,6 @@ B' = 0.272 * R + 0.534 * G + 0.131 * B
 * dans notre cas on suppose qu'en entrée on a des entiers non-signé 8 bits
 * mais attention, les calculs vont devoir se faire en flottants, et pas en uint8  
 pour ne pas avoir, par exemple, 256 devenant 0
-
 * toutefois on veut tout de même en sortie des entiers non-signé 8 bits !
 
 ça signifie qu'il va sans doute vous falloir faire un peu de gymnastique avec les types de vos tableaux

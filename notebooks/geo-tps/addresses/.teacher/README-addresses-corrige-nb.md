@@ -15,9 +15,13 @@ language_info:
 
 # TP géoloc addresses
 
-ce TP vise à vous faire découvrir quelques possibilités de manipulation et d'affichage de données géographiques
+````{admonition} à télécharger
+:class: warning
 
-pour le faire sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-geo.zip>`
+pour faire cette activité sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-geo.zip>`
+````
+
+ce TP vise à vous faire découvrir quelques possibilités de manipulation et d'affichage de données géographiques
 
 +++
 
@@ -26,12 +30,12 @@ pour le faire sur votre ordi, {download}`commencez par télécharger le zip<./AR
 voici les différentes étapes du TP en résumé
 
 1. on part d'un gros paquet d'adresses parisiennes
-1. on va commencer par les géolocaliser: trouver leurs latitude/longitude
-1. on va ensuite les afficher sur une carte
-1. puis on va ajouter dans le mélange [les 80 quartiers parisiens](https://fr.wikipedia.org/wiki/Liste_des_quartiers_administratifs_de_Paris); d'abord en les affichant simplement sur la carte
-1. puis on va voir comment on ferait pour associer chaque adresse dans un quartier
-1. et pour vérifier qu'on ne s'est pas trompé, on affichera les quartiers et les adresses avec des couleurs
-1. enfin on verra comment passer à l'échelle pour visualiser plusieurs dizaines de milliers de points
+2. on va commencer par les géolocaliser: trouver leurs latitude/longitude
+3. on va ensuite les afficher sur une carte
+4. puis on va ajouter dans le mélange [les 80 quartiers parisiens](https://fr.wikipedia.org/wiki/Liste_des_quartiers_administratifs_de_Paris); d'abord en les affichant simplement sur la carte
+5. puis on va voir comment on ferait pour associer chaque adresse dans un quartier
+6. et pour vérifier qu'on ne s'est pas trompé, on affichera les quartiers et les adresses avec des couleurs
+7. enfin on verra comment passer à l'échelle pour visualiser plusieurs dizaines de milliers de points
 ````
 
 +++

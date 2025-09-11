@@ -21,7 +21,11 @@ Licence CC BY-NC-ND, Valérie Roy & Thierry Parmentelat
 
 +++
 
+```{admonition} à télécharger
+:class: warning
+
 pour réaliser ce TP localement sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-images.zip>`
+```
 
 +++
 

@@ -16,7 +16,11 @@ language_info:
 
 # grouping through time and category
 
+```{admonition} download the zip
+:class: warning
+
 to work on this assignment locally on your laptop, {download}`start with downloading the zip<./ARTEFACTS-leases.zip>`
+```
 
 in this TP we work on 
 

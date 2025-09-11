@@ -15,13 +15,16 @@ language_info:
 
 # un mot sur folium
 
+```{admonition} à télécharger
+:class: warning
+
+pour exécuter ce notebook sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-folium.zip>`
+```
+
 la bibliothèque `folium` (<https://python-visualization.github.io/folium/latest/>) est un utilitaire qui permet de dessiner des cartes géographiques
 
 elle est donc souvent utilisée en conjonction avec `geopandas`
 
-+++
-
-pour exécuter ce notebook sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-folium.zip>`
 
 +++
 

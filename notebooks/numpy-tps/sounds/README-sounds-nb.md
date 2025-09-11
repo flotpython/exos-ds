@@ -18,25 +18,21 @@ nbhosting:
   title: TP - un peu de musique
 ---
 
-Licence CC BY-NC-ND, Valérie Roy & Thierry Parmentelat
-
-+++
-
-pour réaliser ce TP localement sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-sounds.zip>`
-
-+++
-
 # TP - un peu de musique
 
-+++
+```{admonition} à télécharger
+:class: warning
+
+pour réaliser ce TP localement sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-sounds.zip>`
+```
 
 ## avertissement
 
-+++
+```{admonition} moins fort !
+:class: danger
 
 pour le confort de chacun, veuillez vous assurer avant de commencer que le volume de votre haut parleur est réglé au minimum audible pour vous :)
-
-+++
+```
 
 ## imports
 

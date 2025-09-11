@@ -15,7 +15,18 @@ language_info:
 
 # un mot sur streamlit
 
+```{admonition} à télécharger
+:class: warning
+
+comme avec beaucoup d'autres système de ce genre, on ne peut pas faire tourner `streamlit` dans le
+notebook, {download}`vous trouverez deux exemples dans le .zip à télécharger<./ARTEFACTS-streamlit.zip>`, 
+mais voici pour commencer un aperçu rapide de ce qu'on peut en faire
+```
+
 la bibliothèque `streamlit` (<https://streamlit.io/>) est un utilitaire qui permet de réaliser rapidement des applis de type *dashboard* - c'est-à-dire par exemple une visualisation interactive où on peut faire varier différents paramètres d'entrée, pour explorer interactivement des données
+
+
+
 
 +++
 
@@ -34,7 +45,7 @@ mais voyons un peu comment ça marche...
 
 ## c'est du Python, mais ..
 
-le code est du Python, avec toutefois une particularité car **il ne se lance pas**,  
+le code est du Python, avec toutefois une particularité car **il ne se lance pas**,
 comme on en a l'habitude, avec `python monscript.py`, mais avec 
 
 ```bash

@@ -19,15 +19,24 @@ Licence CC BY-NC-ND, Thierry Parmentelat   -  (images courtesy of wikipedia)
 
 # pentominoes and exact cover
 
+`````{grid} 2 2 2 2
+````{card}
+this activity is about solving puzzles like the one pictured on the right, using a standard combinatorial algorithm
+````
+
+````{card}
 ```{image} media/board-8x8-pretty.png
 :align: right
 :width: 300px
-```
+````
+`````
+
+
+```{admonition} download the zip
+:class: warning
+
 in order to work on this exercise from your laptop, {download}`start with downloading the zip<./ARTEFACTS-pentominos.zip>`
-
-this activity is about solving puzzles like the one pictured on the right, using a standard combinatorial algorithm
-
-
+```
 
 ## the exact cover problem
 

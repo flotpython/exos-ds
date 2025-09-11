@@ -16,18 +16,14 @@ nbhosting:
   title: "TP sur les donn\xE9es coronavirus"
 ---
 
-Licence CC BY-NC-ND, Valérie Roy & Thierry Parmentelat
-
-+++
-
 # les données covid
 
 +++
 
 ````{admonition} pour travailler localement sur votre PC
+:class: warning
 
 {download}`commencez par télécharger les artefacts <ARTEFACTS-covid.zip>`
-
 ````
 
 ```{code-cell} ipython3

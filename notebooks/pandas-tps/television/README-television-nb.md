@@ -16,11 +16,11 @@ language_info:
 
 # television (nettoyage)
 
-+++
+```{admonition} à télécharger
+:class: warning
 
 pour réaliser ce TP localement sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-television.zip>`
-
-+++
+```
 
 cet exercice est originellement proposé ici:
 
@@ -80,7 +80,6 @@ le TP comporte plusieurs étapes
 1. enlever les colonnes pleines de vide; pour fixer les idées, nous nettoyons **les colonnes qui contiennent seulement des n/a ou des 0**
  
    dans le corrigé on va voir deux méthodes
-
   * rapide
   * manuelle: comment on ferait si le nettoyage devait être fait sur un critère plus spécifique; on verra comment faire sur la base d'une fonction qui, pour une colonne, indique si elle doit être gardée ou pas
 

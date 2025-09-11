@@ -14,11 +14,13 @@ language_info:
   nbconvert_exporter: python
 ---
 
-+++ {"tags": []}
-
 # marathon (divers basique)
 
+```{admonition} à télécharger
+:class: warning
+
 pour réaliser ce TP localement sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-marathon.zip>`
+```
 
 un petit TP pour travailler
 

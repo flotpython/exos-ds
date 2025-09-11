@@ -16,7 +16,13 @@ language_info:
 
 # dash
 
-dash-made dashboards won't run well in Jupyter notebooks, so you can `{download}download the zip<./ARTEFACTS-dash.zip>` to run our samples locally
+```{admonition} download the zip
+:class: warning
+
+like many similar systems, dash-made dashboards won't run well in Jupyter notebooks,
+so you can {download}`download the companion zip<./ARTEFACTS-dash.zip>` 
+to run our samples locally
+```
 
 +++
 
