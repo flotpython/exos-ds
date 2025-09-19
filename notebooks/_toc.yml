@@ -18,6 +18,7 @@ parts:
   - file: numpy-tps/images/README-images-toc-nb
     sections:
     - glob: numpy-tps/images/README-images[0-9]-nb
+  - file: numpy-tps/n-body/README-n-body-nb.md
   - file: numpy-tps/taylor/README-taylor-toc-nb.md
     sections:
     - glob: numpy-tps/taylor/README-taylor-[0-9]*-nb
