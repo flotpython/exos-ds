@@ -9,6 +9,8 @@ project:
       children:
       - file: numpy-exos/EXO-indices-nb.md
       - file: numpy-exos/EXO-mandelbrot-nb.md
+      - pattern: numpy-exos/.teacher/EXO-*corrige-nb.md
+        hidden: true
 
 
     - title: numpy HOWTOs
@@ -16,6 +18,7 @@ project:
       - file: numpy-howtos/meshgrid/HOWTO-meshgrid-nb.md
       - file: numpy-howtos/opencv-yolo/HOWTO-opencv-yolo-nb.md
       # title: "images et vidéos avec OpenCV YOLO"
+
 
     - title: numpy TPs
       children:
@@ -29,6 +32,9 @@ project:
         children:
         - pattern: numpy-tps/taylor/README-taylor*-nb.md
       - file: numpy-tps/pentominos/README-pentominos-nb.md
+      - pattern: numpy-tps/*/.teacher/README-*-corrige-nb.md
+        hidden: true
+
 
     - title: pandas exercices
       children:
@@ -37,6 +43,9 @@ project:
       - file: pandas-exos/EXO-stack-simple-nb.md
       - file: pandas-exos/EXO-bornes-nb.md
       - file: pandas-exos/EXO-stack-multicol-nb.md
+      - pattern: pandas-exos/.teacher/EXO-*corrige-nb.md
+        hidden: true
+
 
     - title: pandas HOWTOs
       children:
@@ -50,6 +59,7 @@ project:
       # to no longer work very well, under jbook at least
       # - file: pandas-howtos/HOWTO-covid-interact-obsolete-nb.md
 
+
     - title: pandas TPs
       children:
       - file: pandas-tps/television/README-television-nb.md
@@ -58,12 +68,18 @@ project:
       - file: pandas-tps/groupby-draw/README-groupby-draw-nb.md
       - file: pandas-tps/covid/README-covid-nb.md
       - file: pandas-tps/leases/README-leases-nb.md
+      - pattern: pandas-tps/*/.teacher/README-*-corrige-nb.md
+        hidden: true
+
 
     - title: geo data & maps
       children:
       - file: geo-tps/polls/README-polls-nb.md
       - file: geo-howtos/folium/HOWTO-folium-nb.md
       - file: geo-tps/addresses/README-addresses-nb.md
+      - pattern: geo-tps/*/*/README-*-corrige-nb.md
+        hidden: true
+
 
     - title: dashboards
       children:
@@ -72,7 +88,7 @@ project:
       - file: dashboards/marimo/README-marimo-nb.md
       - file: dashboards/dash/README-dash-nb.md
 
+
     - title: quizzes pandas
       children:
-      - glob: quizzes/QUIZ*-nb.md
-
+      - pattern: quizzes/QUIZ*-nb.md
