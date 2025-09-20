@@ -1,4 +1,6 @@
 ---
+authors: [Aubin Geoffre, Thierry Parmentelat]
+date: 2025-09-20
 jupytext:
   formats: md:myst
   text_representation:

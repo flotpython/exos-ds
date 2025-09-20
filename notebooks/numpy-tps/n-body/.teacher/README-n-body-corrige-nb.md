@@ -12,6 +12,10 @@ language_info:
   name: python
   pygments_lexer: ipython3
   nbconvert_exporter: python
+authors:
+  - Aubin Geoffre
+  - Thierry Parmentelat
+date: 2025-09-20
 ---
 
 # n-body problem
