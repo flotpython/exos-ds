@@ -5,7 +5,7 @@ this repo contains exercises and TPs that [complement the Python MOOC](https://w
 excluded are the auto-corrected exercises mentioned in the MOOC
 [these are bundled in the main course repo](https://github.com/flotpython/course)
 
-in any case, in the present repo we try to gather all the other, generally more
+in the present repo we try to gather all the other, generally more
 informal, material for **practising the Data-Science ecosystem** (for stuff about pure Python, see the other repo <https://github.com/flotpython/exos-python>)
 
 ## there is no runtime tool here !

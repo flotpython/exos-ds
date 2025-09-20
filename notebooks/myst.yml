@@ -26,7 +26,7 @@ project:
 site:
   template: book-theme
   # used in the tab name
-  title: flotpython-exos-ds
+  title: numerique-exos
   # this would be for the horizontal header bar - not used here (yet)
   # nav: []
   # actions:
