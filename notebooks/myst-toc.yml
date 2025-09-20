@@ -24,7 +24,7 @@ project:
         children:
         - file: numpy-tps/images/README-images1-nb.md
         - file: numpy-tps/images/README-images2-nb.md
-      - file: numpy-tps/n-bodies/README-n-bodies-nb.md
+      - file: numpy-tps/n-body/README-n-body-nb.md
       - title: "séries de Taylor"
         children:
         - pattern: numpy-tps/taylor/README-taylor*-nb.md
