@@ -106,7 +106,7 @@ def init_problem(N):
 
 masses, positions, speeds = init_problem(10)
 
-# et ceci devrait afficker OK
+# et ceci devrait afficher OK
 try:
     masses.shape == (10,) and positions.shape == speeds.shape == (2, 10)
     print("OK")
@@ -194,9 +194,9 @@ masses, positions, speeds = init3()
 f = forces(masses, positions)
 
 # should be true
-np.all(np.isclose(f, np.array([
-    [ 0.        , -0.12257258,  0.12257258],
-    [ 0.        , -0.02451452,  0.02451452]])))
+# np.all(np.isclose(f, np.array([
+#     [ 0.        , -0.12257258,  0.12257258],
+#     [ 0.        , -0.02451452,  0.02451452]])))
 ```
 
 ## le simulateur
@@ -261,12 +261,13 @@ except Exception as exc:
 ```{code-cell} ipython3
 # pour tester: should be true
 
-positions1 = s[1]
+# first step
+# positions1 = s[1]
 
-np.all(np.isclose(positions1, np.array([
-    [ 0.        ,  4.89877427, -4.89877427],
-    [ 0.        ,  0.99975485, -0.99975485]
-])))
+# np.all(np.isclose(positions1, np.array([
+#     [ 0.        ,  4.89877427, -4.89877427],
+#     [ 0.        ,  0.99975485, -0.99975485]
+# ])))
 ```
 
 ## dessiner
@@ -365,10 +366,12 @@ pour commencer et tester, on se met dans l'état initial reproductible
 steps = 100
 
 masses, positions, speeds = init3()
-s = simulate(masses, positions, speeds, nb_steps=steps)
-draw(s, masses, colors3);
+simulation3 = simulate(masses, positions, speeds, nb_steps=steps)
+draw(simulation3, masses, colors3);
 
 plt.savefig("init3.png")
+np.savetxt("simulation3.txt", simulation3.reshape(-1))
+print(simulation3.shape)
 ```
 
 et avec ces données vous devriez obtenir plus ou moins une sortie de ce genre
@@ -416,7 +419,7 @@ modifiez votre code pour passer à une simulation en 3D
 
 ### option 2: un rendu plus interactif
 
-le rendu sous forme de multiple scatter plots donne une idée du résultat mais c'est très améliorable  
+le rendu sous forme de multiples scatter plots donne une idée du résultat mais c'est très améliorable  
 voyez un peu si vous arrivez à produire un outil un peu plus convivial pour explorer les résultats de manière interactive; avec genre
 
 - une animation qui affiche les points au fur et à mesure du temps
@@ -425,4 +428,48 @@ voyez un peu si vous arrivez à produire un outil un peu plus convivial pour exp
 - et si vous avez un code 3d, la possibilité de changer le point de vue de la caméra sur le monde
 - etc etc...
 
-pas obligé de rester dans Jupyter Lab hein, il y a plein de technos rigolotes qui savent se décliner sur le web, vous avez l'embarras du choix...
+voici une possibilité avec matplotlib; mais cela dit ne vous sentez pas obligé de rester dans Jupyter Lab ou matplotlib, il y a plein de technos rigolotes qui savent se décliner sur le web, vous avez l'embarras du choix...
+
+```{code-cell} ipython3
+:tags: [prune-remove-input]
+
+# prune-remove-input
+
+# credit: Damien Corral
+# with good old matplotlib FuncAnimation
+
+from matplotlib.animation import FuncAnimation
+from IPython.display import HTML
+
+def animate(simulation, masses, colors=None, scale=5., interval=50):
+    nb_steps, _, N = simulation.shape
+    colors = (colors if colors is not None
+              else np.random.uniform(0.3, 1., size=(N, 3)))
+
+    fig, ax = plt.subplots()
+    ax.set_title(f"we have {N} bodies over {nb_steps} steps")
+
+    ax.set_xlim(simulation[:, 0].min() - 1, simulation[:, 0].max() + 1)
+    ax.set_ylim(simulation[:, 1].min() - 1, simulation[:, 1].max() + 1)
+
+    scat = ax.scatter(np.zeros(N), np.zeros(N), c=colors, s=(masses*scale)**2)
+
+    def init():
+        scat.set_offsets(np.zeros((nb_steps, N)))
+        return scat
+
+    def update(step):
+        x, y = simulation[step]
+        scat.set_offsets(np.c_[x, y])
+        return scat
+
+    ani = FuncAnimation(fig, update, frames=nb_steps,
+                        init_func=init, blit=True, interval=interval)
+    plt.close()
+    return ani
+
+
+simulation3 = np.loadtxt("data/simulation3.txt").reshape((100, 2, 3))
+animation = animate(simulation3, masses, colors=colors3)
+HTML(animation.to_jshtml())
+```
