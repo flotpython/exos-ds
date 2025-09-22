@@ -319,12 +319,19 @@ def draw(simulation, masses, colors=None, scale=5.):
     # ax.set_aspect('equal')
 
     ax.set_title(f"we have {N} bodies over {nb_steps} steps")
-    for step in range(nb_steps):
+    # looping on bodies, instead of on steps,
+    # so we can also plot each trajectory
+    for body_index, color in enumerate(colors):
+        mass = masses[body_index]
         ax.scatter(
             # the X's and Y's
-            simulation[step, 0, :], simulation[step, 1, :], 
+            simulation[:, 0, body_index], simulation[:, 1, body_index], 
             # marker size is actually an area
-            c=colors, s=(masses*scale)**2,
+            color=color, s=(mass*scale)**2,
+        )
+        ax.plot(
+            simulation[:, 0, body_index], simulation[:, 1, body_index], 
+            color=color, alpha=0.5, linewidth=0.1
         )
     return ax
 ```
