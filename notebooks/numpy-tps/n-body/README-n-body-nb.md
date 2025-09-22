@@ -216,7 +216,7 @@ si j'avais voulu implémenter 2.b il faudrait tripoter un peu plus nos interface
 ```{code-cell} ipython3
 # votre code
 
-def draw(simulation, masses, colors=None):
+def draw(simulation, masses, colors=None, scale=10.):
     """
     takes as input the result of simulate() above,
     and draws the nb_steps positions of each of the N bodies
@@ -224,6 +224,9 @@ def draw(simulation, masses, colors=None):
 
     one can provide a collection of N colors to use for each body
     if not provided this is randomized
+
+    also the optional scale parameter is used as a constant
+    multiplier to obtain the final size of each dot on the figure
     """
     pass
 ```

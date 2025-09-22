@@ -285,7 +285,7 @@ si j'avais voulu implémenter 2.b il faudrait tripoter un peu plus nos interface
 ```{code-cell} ipython3
 # votre code
 
-def draw(simulation, masses, colors=None):
+def draw(simulation, masses, colors=None, scale=10.):
     """
     takes as input the result of simulate() above,
     and draws the nb_steps positions of each of the N bodies
@@ -293,6 +293,9 @@ def draw(simulation, masses, colors=None):
 
     one can provide a collection of N colors to use for each body
     if not provided this is randomized
+
+    also the optional scale parameter is used as a constant
+    multiplier to obtain the final size of each dot on the figure
     """
     pass
 ```
@@ -300,7 +303,7 @@ def draw(simulation, masses, colors=None):
 ```{code-cell} ipython3
 # prune-cell
 
-def draw(simulation, masses, colors=None):
+def draw(simulation, masses, colors=None, scale=5.):
 
     nb_steps, _, N = simulation.shape
     # use colors if provided, else randomize
@@ -308,17 +311,21 @@ def draw(simulation, masses, colors=None):
               # not too dark
               else np.random.uniform(0.3, 1., size=(N, 3)))
 
-    # create a figure and its axes    
+    # create a figure and its axes
     fig, ax = plt.subplots()
 
     # not really needed but may come in handy though
     # ax.axis("off")
     # ax.set_aspect('equal')
 
-
     ax.set_title(f"we have {N} bodies over {nb_steps} steps")
     for step in range(nb_steps):
-        ax.scatter(simulation[step, 0, :], simulation[step, 1, :], c=colors, s=masses)
+        ax.scatter(
+            # the X's and Y's
+            simulation[step, 0, :], simulation[step, 1, :], 
+            # marker size is actually an area
+            c=colors, s=(masses*scale)**2,
+        )
     return ax
 ```
 
