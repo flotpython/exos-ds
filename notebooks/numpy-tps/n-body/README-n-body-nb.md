@@ -121,7 +121,7 @@ def init3():
 
 ## les forces
 
-à présent, on va écrire un fonction qui va calculer les influences de toutes les particules entre elles, suivant la loi de Newton
+à présent, on va écrire une fonction qui va calculer les influences de toutes les particules entre elles, suivant la loi de Newton
 
 
 $$
@@ -248,7 +248,7 @@ pour commencer et tester, on se met dans l'état initial reproductible
 # décommentez ceci pour tester votre code
 
 # masses, positions, speeds = init3()
-# draw(simulate(masses, positions, speeds), masses, colors)
+# draw(simulate(masses, positions, speeds), masses, colors3)
 ```
 
 et avec ces données vous devriez obtenir plus ou moins une sortie de ce genre
