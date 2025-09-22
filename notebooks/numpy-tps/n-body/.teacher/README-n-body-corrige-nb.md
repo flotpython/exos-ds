@@ -375,14 +375,28 @@ et avec ces données vous devriez obtenir plus ou moins une sortie de ce genre
 ```{image} media/init3.png
 ```
 
-```{code-cell} ipython3
-# après vous avez le droit de vous enhardir avec des scénarii plus compliqués
-# par exemple
++++
 
-# m5, p5, s5 = init_problem(5)
-# sim5 = simulate(m5, p5, s5, nb_steps=200)
-# draw(sim5, m5);
+`````{grid} 2 2 2 2 
+````{card}
+après vous avez le droit de vous enhardir avec des scénarii plus compliqués
+par exemple avec ce code
+
+```python
+m5, p5, s5 = init_problem(5)
+sim5 = simulate(m5, p5, s5, nb_steps=1000)
+draw(sim5, m5, scale=3);
+plt.savefig("random5.png")
 ```
+````
+````{card}
+j'ai pu obtenir ceci
+```{image} media/random5.png
+```
+````
+`````
+
++++
 
 ***
 ***
