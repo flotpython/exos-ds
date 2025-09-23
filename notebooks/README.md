@@ -1,5 +1,12 @@
 # flotpython exos: data-science 
 
+[![Published](https://img.shields.io/badge/Published-Website-green)](https://numerique-exos.info-mines.paris)
+[![MyST Build Status](https://img.shields.io/github/actions/workflow/status/flotpython/exos-ds/myst-to-pages.yml?branch=main&label=MyST%20Build%20Status)](https://github.com/flotpython/exos-ds/actions/workflows/myst-to-pages.yml)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/flotpython/exos-ds)
+<!-- [![Open in Codespaces](https://img.shields.io/badge/Open%20in-Codespaces-blue?logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=ue12-p25%2Fnumerique) -->
+
+[![License: CC BY-NC-ND](https://img.shields.io/badge/License-CC%20BY--NC--ND-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/) *Thierry Parmentelat*
+
 this repo contains exercises and TPs that [complement the Python MOOC](https://www.fun-mooc.fr/en/cours/python-3-des-fondamentaux-aux-concepts-avances-du-langage/)
 
 excluded are the auto-corrected exercises mentioned in the MOOC
@@ -48,4 +55,4 @@ distinction between notebooks and pure Python or pure markdown
 if you use IPython or Jupyter on your laptop, make sure to read  
 <https://intro.info-mines.paris/1-1-installations/#-configuration-de-lautoreload>
 
-it's in French, but gives you the recipe to get IPython and the notebooks to play along if you're doing module development (otherwise you'll be bitten by the caching of modules)
+it's in French, but gives you the recipe to get IPython and the notebooks to play along if you're doing module development (otherwise you'll be bitten by module caching)
