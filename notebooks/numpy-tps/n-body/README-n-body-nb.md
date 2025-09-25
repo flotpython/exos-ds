@@ -1,4 +1,7 @@
 ---
+authors:
+- name: Aubin Geoffre
+- name: Thierry Parmentelat
 jupytext:
   formats: md:myst
   text_representation:
