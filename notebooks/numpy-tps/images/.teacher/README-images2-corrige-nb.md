@@ -228,7 +228,7 @@ def patchwork(raw_colors, side=5, background=[169, 169, 169]):
     colormap[:] = background
     # and we assign the array with the provided colors
     # remember the remaining ones are already set with the background
-    colormap[0:nb_colors] = colors
+    colormap[:nb_colors] = colors
 
     # the final image is a rectangle of (l*side, c*side) of pixels
     # we compute its indices
@@ -579,9 +579,11 @@ plt.imshow(img_SEPIA);
 # np.dot ou @ (aka np.matmul)
 # https://numpy.org/doc/stable/reference/generated/numpy.dot.html
 
-def sepia(im, SEPIA=np.array([[0.393, 0.349, 0.272],
-                              [0.769, 0.686, 0.534],
-                              [0.189, 0.168, 0.131]])):
+SEPIA = np.array([[0.393, 0.349, 0.272],
+                  [0.769, 0.686, 0.534],
+                  [0.189, 0.168, 0.131]])
+
+def sepia(im):
 # les deux marchent
     result = np.dot(im, SEPIA)
 #    result = im @ SEPIA
