@@ -1,10 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -243,6 +239,7 @@ maintenant on va aussi prendre en compte l'âge
 
 **[consigne]** produisez une table avec 12 valeurs, avec pour chacun des 6 groupes le **taux de survie** et la **moyenne d'âge**  
   visez de présenter les données
+
   * sur deux lignes (selon le sexe)
   * et sur chaque ligne, 3 valeurs (selon la classe) pour le taux de survie, et 3 valeurs pour la moyenne d'âge
 
@@ -291,6 +288,7 @@ df1
 **[consigne]** on répartit arbitrairement les individus en 5 classes d'âge: les enfants de moins de 10 ans, les adolescents de moins de 20ans, les jeunes adultes de moins de 40 ans, les adultes en dessous de 60 ans, et les seniors au delà.
 
 affichez maintenant le taux de survie selon 10 groupes, liés à 
+
   * le sexe
   * la classe d'âge
 

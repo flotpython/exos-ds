@@ -539,7 +539,7 @@ print('shape for France', df.shape)
 country_dfs.append(df)
 ```
 
-+++ {"tags": ["framed_cell"], "slideshow": {"slide_type": ""}}
++++ {"tags": ["framed_cell"]}
 
 ````{admonition} exo
 
@@ -563,7 +563,7 @@ df_fr_it = pd.concat(country_dfs)
 print('shape for france+italy', df_fr_it.shape)
 ```
 
-+++ {"tags": ["framed_cell"], "slideshow": {"slide_type": ""}}
++++ {"tags": ["framed_cell"]}
 
 ````{admonition} exo
 5. généralisez et construisez une dataframe avec tous les pays  

@@ -81,8 +81,6 @@ import pandas as pd
 vous pouvez charger le fichier `data/addresses.csv`; toutes ces adresses sont situées à PARIS
 
 ```{code-cell} ipython3
-:tags: []
-
 # load the data in data/addresses.csv
 # and display a few first lines
 
@@ -174,8 +172,6 @@ import requests
 ```
 
 ```{code-cell} ipython3
-:tags: []
-
 # here's how to use the API
 
 def localize_one(num, typ, nom):
@@ -286,6 +282,7 @@ curl -X POST -F data=@path/to/file.csv -F columns=voie -F columns=ville https://
   ```bash
   curl -o lapageweb.html http://github.com/flotpython/
   ```
+
 * quand on utilise une API, comme on vient de le faire pour aller chercher la position de la rue des bernardins, on doit **passer des paramètres** à l'API  
 et pour faire ça dans une requête http, il y a **deux mécanismes: GET et POST**
 
@@ -334,6 +331,7 @@ sauf que nous, on ne veut pas utiliser `curl`, on veut faire cette requête en P
 2. le résultat - toujours au format csv - pourra être également transformé en dataframe
 3. qu'il ne restera plus qu'à `merge` (ou `join` si vous préférez) avec la dataframe de départ, pour ajouter les résultats de la géolocalisation dans les données de départ
    pour cette étape on peut envisager de ne garder que certaines colonnes de la géolocalisation (assez bavarde par ailleurs), je vous recommande de conserver uniquement:
+
    * `latitude`, `longitude` - *of course*
    * `result_city` pour pouvoir vérifier la validité des résultats - ici on devrait toujours avoir `Paris`
    * `result_type` qui devrait toujours renvoyer `housenumber`, ça permet à nouveau de vérifier qu'on a bien une adresse connue
@@ -341,15 +339,18 @@ sauf que nous, on ne veut pas utiliser `curl`, on veut faire cette requête en P
 +++
 
 ````{tip}
+
 * pour envoyer un POST avec des paramètres, on peut faire
   ```python
   response = requests.post(url, file=some_dict, data=another_dict)
   ```
+
 * et donc dans notre cas, puisque `data` est un paramètre de type fichier, alors que `columns` est un paramètre usuel, on fera
   ```python
   response = requests.post(url, files={'data': file_like}, data={'columns': ['col1', ...]})
   ```
   dans lequel `file_like` désigne le résultat d'un `open()` 
+
 * enfin, `pd.read_csv` s'attend à un paramètre de type fichier, i.e. du genre de ce qu'on obtient avec `open()`  
   et du coup pour reconstruire une dataframe à partir du texte obtenu dans la requête http, on a deux choix
   1. soit on commence par sauver le texte dans un fichier temporaire (juste faire attention à choisir un nom de fichier qui n'existe pas, de préférence dans un dossier temporaire, voir le module `tempfile`)
@@ -365,8 +366,6 @@ je vous recommande d'y aller pas à pas, commencez par juste l'étape 1, puis 1 
 c'est utile aussi de commencer par une toute petite dataframe pour ne pas attendre des heures pendant la mise au point...
 
 ```{code-cell} ipython3
-:tags: []
-
 import requests
 # this one is to fake a file from a string
 import io

@@ -22,10 +22,6 @@ notebookname: Mandelbrot
 </div>
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib ipympl
@@ -44,7 +40,7 @@ il s'agit de calculer l'image de la convergence de mandelbrot:
 
 ## comment ça marche ?
 
-+++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
++++ {"cell_style": "center"}
 
 * dans l'espace complexe, on définit pour chaque $c\in\mathbb{C}$ la suite
    * $z_0 = c$
@@ -52,22 +48,25 @@ il s'agit de calculer l'image de la convergence de mandelbrot:
 * on démontre que 
   * lorsque $|z_n|>2$, la suite diverge
 
-+++ {"cell_style": "center", "slideshow": {"slide_type": "-"}}
++++ {"cell_style": "center"}
 
 il s'agit pour nous de 
 
 * partir d'un pavé rectangulaire; par exemple sur la figure, on a pris l'habituel  
   $re \in [-2, 0.8]$ et  $im \in [-1.4, 1.4]$
+
 * découper ce pavé en un maillage de $h \times w$ points  (sur la figure, 1000 x 1000)
 * on se fixe un nombre maximal `max` d'itérations (disons 20)  
   et pour chaque point du maillage, on va calculer si la suite diverge avant `max` itérations
+
 * c'est-à-dire plus spécifiquement on calcule un tableau `diverge` de la taille du maillage
   * pour chaque point `z`, on calcule les `max` premiers termes de la suite
   * et à la première itération `n` où la suite diverge (son module est supérieur à 2)  
     alors on affecte `diverge[z] = n`
+
 * on n'a plus qu'à afficher ensuite l'image obtenue `diverge` avec `plt.imshow`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ````{admonition} indices
 
@@ -127,24 +126,16 @@ et je vous demande de mettre ici quelques tests de votre deuxième fonction
 
 # solution
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 * une adaptation libre de l'[implementation proposée dans le tutorial scipy](https://docs.scipy.org/doc/numpy/user/quickstart.html#indexing-with-boolean-arrays)
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 # it's a little confusing that 
 # real part = column = second dimension
 # imag part = line =   first  dimension
@@ -194,10 +185,6 @@ def mandelbrot(height, width, *,
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 plt.figure(figsize=(10, 10))
 diverge = mandelbrot(1024, 1024)
 plt.imshow(diverge)

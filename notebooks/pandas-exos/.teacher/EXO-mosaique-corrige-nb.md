@@ -1,10 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
   encoding: '# -*- coding: utf-8 -*-'
-  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
-    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
-    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -818,8 +814,6 @@ cars = pd.read_csv("data/car_sales.csv")
 cars.head(5)
 ```
 
-+++
-
 * le nombre de lignes dans la dataframe
 
 ```{code-cell} ipython3
@@ -838,8 +832,6 @@ cars.head(5)
 # option 2
 len(cars)
 ```
-
-+++
 
 * nombre de colonnes dans la dataframe
 
@@ -904,8 +896,6 @@ cars.iloc[9:14]
 np.sum(cars.isna())
 ```
 
-+++
-
 * le nombre de NaN par ligne
 
 ```{code-cell} ipython3
@@ -935,6 +925,7 @@ cars.isna().any(axis=0).count()
 - supprimer les colonnes qui ont plus de $5$ NaN 
 
 **indices**
+
 * la taille originale de notre dataframe est 157 lignes et 16 colonnes
 * voyez `pandas.dropna`
 * ça concerne une colonne

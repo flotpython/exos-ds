@@ -256,6 +256,7 @@ you have 12 pieces and 60 slots to fill, so you need 72 columns
 ### model the problem
 
 decide how to represent the board and pieces:
+
 * using nd-arrays, so rectangular spaces
 * use only **booleans** to model **obstacles** in the board and the actual **contour** of pieces
 

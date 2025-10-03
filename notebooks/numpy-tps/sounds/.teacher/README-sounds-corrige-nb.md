@@ -183,11 +183,8 @@ def MyAudio(what, **kwds):
 ```
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: ''
-tags: [raises-exception, gridwidth-1-2]
----
+:tags: [raises-exception, gridwidth-1-2]
+
 # je peux me contenter de faire ceci
 
 MyAudio(la_1seconde)
@@ -259,8 +256,6 @@ def sine(freq, duration=1):
 #MyAudio(sine(LA, 1.5), autoplay=True)
 ```
 
-+++ {"tags": []}
-
 ### pour les rapides
 
 on veut obtenir un effet de 'note qui monte'
@@ -270,16 +265,12 @@ améliorer un peu pour générer une courbe avec un fréquence qui croit (ou dé
 écrire une fonction `sine_linear(freq1, freq2, duration)`
 
 ```{code-cell} ipython3
-:tags: []
-
 # votre code
 def sine_linear(freq1, freq2, duration):
     ...
 ```
 
 ```{code-cell} ipython3
-:tags: []
-
 # prune-cell
 def sine_linear(freq1, freq2, duration):
     t = np.linspace(0, duration, int(duration*RATE))
@@ -288,8 +279,6 @@ def sine_linear(freq1, freq2, duration):
 ```
 
 ```{code-cell} ipython3
-:tags: []
-
 # décommenter pour écouter
 #MyAudio(sine_linear(440, 660, 3))
 ```
@@ -477,6 +466,7 @@ ce qui nous amène à une petite digression: profitons-en pour regarder un peu c
 l'encodage des **entiers signés** fonctionne comme suit; on regarde ici les types `int8` et `uint8` car c'est plus simple, le principe est exactement le même pour des tailles plus grandes
 
 il y a deux types d'encodages pour les entiers:
+
 * `uint8` (le `u` signifie *unsigned*): les entiers **non signés** reposent sur un encodage "naturel": on décompose en base 2, et donc avec 8 bits, on peut aller **de 0 à 255**
 * `int8`: par contre pour les entiers **signés**, on va devoir utiliser **un bit comme bit de signe**, ce qui limite le spectre de ce qu'il est possible d'encoder; avec en tout 8 bits on peut encoder de **-128 à 127 inclus**
 
