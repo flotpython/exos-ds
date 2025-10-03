@@ -123,8 +123,6 @@ def taylor2(X, f, n):
 ### avec sinus au degré 10
 
 ```{code-cell} ipython3
-:tags: []
-
 # Y est le sinus de X
 # Y2 est l'image de X par l'approximation de Taylor pour sinus au degré 10
 

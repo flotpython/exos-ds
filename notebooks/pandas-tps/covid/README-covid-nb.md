@@ -474,7 +474,7 @@ ajoutez à cette dataframe une colonne de nom `'country'` contenant `'France'` �
 # votre code
 ```
 
-+++ {"tags": ["framed_cell"], "slideshow": {"slide_type": ""}}
++++ {"tags": ["framed_cell"]}
 
 ````{admonition} exo
 
@@ -486,7 +486,7 @@ et utilisez la fonction `pandas.concat` pour concaténer les deux dataframes
 # votre code
 ```
 
-+++ {"tags": ["framed_cell"], "slideshow": {"slide_type": ""}}
++++ {"tags": ["framed_cell"]}
 
 ````{admonition} exo
 5. généralisez et construisez une dataframe avec tous les pays  

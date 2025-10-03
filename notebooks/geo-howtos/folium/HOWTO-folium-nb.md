@@ -25,7 +25,6 @@ la bibliothèque `folium` (<https://python-visualization.github.io/folium/latest
 
 elle est donc souvent utilisée en conjonction avec `geopandas`
 
-
 +++
 
 ## les bases

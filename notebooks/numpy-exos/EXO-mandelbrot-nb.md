@@ -33,10 +33,6 @@ il s'agit de calculer l'image de la convergence de mandelbrot:
 </div>
 
 ```{code-cell} ipython3
----
-slideshow:
-  slide_type: slide
----
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib ipympl
@@ -44,7 +40,7 @@ import matplotlib.pyplot as plt
 
 ## comment ça marche ?
 
-+++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
++++ {"cell_style": "center"}
 
 * dans l'espace complexe, on définit pour chaque $c\in\mathbb{C}$ la suite
    * $z_0 = c$
@@ -52,7 +48,7 @@ import matplotlib.pyplot as plt
 * on démontre que 
   * lorsque $|z_n|>2$, la suite diverge
 
-+++ {"cell_style": "center", "slideshow": {"slide_type": "-"}}
++++ {"cell_style": "center"}
 
 il s'agit pour nous de 
 
@@ -70,7 +66,7 @@ il s'agit pour nous de
 
 * on n'a plus qu'à afficher ensuite l'image obtenue `diverge` avec `plt.imshow`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ````{admonition} indices
 

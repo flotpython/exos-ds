@@ -24,7 +24,7 @@ so you can {download}`download the companion zip<./ARTEFACTS-marimo.zip>`
 to run our samples locally
 ```
 
-*`marimo.io`* is a recent system to build [its own kind of notebooks](https://docs.marimo.io/index.html)  
+*`marimo.io`* is a recent system to build [its own kind of notebooks](https://docs.marimo.io/index.html)
 
 +++
 

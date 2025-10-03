@@ -25,9 +25,6 @@ mais voici pour commencer un aperçu rapide de ce qu'on peut en faire
 
 la bibliothèque `streamlit` (<https://streamlit.io/>) est un utilitaire qui permet de réaliser rapidement des applis de type *dashboard* - c'est-à-dire par exemple une visualisation interactive où on peut faire varier différents paramètres d'entrée, pour explorer interactivement des données
 
-
-
-
 +++
 
 ## pour quoi faire ?
