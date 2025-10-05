@@ -30,6 +30,8 @@ jupytext
 jupyterlab-myst
 ipywidgets
 ipympl
+itables
+
 # for some unknown reason, without this
 # I am getting version jupyterlab-widgets==1.1.5
 # which breaks interactive plots
