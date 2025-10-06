@@ -43,22 +43,13 @@ jobs:
         uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-          # - name: Install MyST Markdown
-          #   run: npm install -g mystmd
-      - name: Checkout MyST repo
-        uses: actions/checkout@v4
-        with:
-          repository: parmentelat/mystmd
-          ref: feat/prototype-hidden-in-html
-          path: mystmd
-      - name: Install MyST
-        working-directory: ./mystmd
-        run: npm install && npm run build
+          node-version: 24
+      - name: Install MyST Markdown
+        run: npm install -g mystmd
       - name: Install requirements.txt
-        run: pip install -r requirements.txt
+        run: "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
       - name: Build HTML Assets
-        run: (cd notebooks; ../mystmd/node_modules/mystmd/dist/myst.cjs build --execute --html)
+        run: (cd notebooks; myst build --execute --html)
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
