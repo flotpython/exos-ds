@@ -10,8 +10,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # television (nettoyage)
@@ -84,14 +84,14 @@ le TP comporte plusieurs étapes
   * rapide
   * manuelle: comment on ferait si le nettoyage devait être fait sur un critère plus spécifique; on verra comment faire sur la base d'une fonction qui, pour une colonne, indique si elle doit être gardée ou pas
 
-1. calculer les valeurs uniques de la colonne `cLT2FREQ`; le texte de l'exercice suggère qu'on doit trouver une poignée de valeurs
+2. calculer les valeurs uniques de la colonne `cLT2FREQ`; le texte de l'exercice suggère qu'on doit trouver une poignée de valeurs
 
-1. à ce stade, combien de lignes ont leur `cLT2FREQ` non renseignée ?  
+3. à ce stade, combien de lignes ont leur `cLT2FREQ` non renseignée ?  
   combien doit-on avoir de lignes si on nettoie sur cette base ?  
   (i.e. si on enlève toutes les lignes qui n'ont pas cette colonne renseignée)
   faites ce nettoyage et vérifiez votre résultat
 
-1. sauver le résultat dans un fichier excel
+4. sauver le résultat dans un fichier excel
 
 toujours pour fixer les idées, on doit trouver à la fin une dataframe qui a une forme de `(7386, 4)`
 
