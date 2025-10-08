@@ -13,13 +13,6 @@ project:
         hidden: true
 
 
-    - title: numpy HOWTOs
-      children:
-      - file: numpy-howtos/meshgrid/HOWTO-meshgrid-nb.md
-      - file: numpy-howtos/opencv-yolo/HOWTO-opencv-yolo-nb.md
-      # title: "images et vidéos avec OpenCV YOLO"
-
-
     - title: numpy TPs
       children:
       - file: numpy-tps/sounds/README-sounds-nb.md
@@ -36,6 +29,13 @@ project:
         hidden: true
 
 
+    - title: numpy HOWTOs
+      children:
+      - file: numpy-howtos/meshgrid/HOWTO-meshgrid-nb.md
+      - file: numpy-howtos/opencv-yolo/HOWTO-opencv-yolo-nb.md
+      # title: "images et vidéos avec OpenCV YOLO"
+
+
     - title: pandas exercices
       children:
       - file: pandas-exos/EXO-mosaique-nb.md
@@ -44,6 +44,18 @@ project:
       - file: pandas-exos/EXO-bornes-nb.md
       - file: pandas-exos/EXO-stack-multicol-nb.md
       - pattern: pandas-exos/.teacher/EXO-*corrige-nb.md
+        hidden: true
+
+
+    - title: pandas TPs
+      children:
+      - file: pandas-tps/television/README-television-nb.md
+      - file: pandas-tps/marathon/README-marathon-nb.md
+      - file: pandas-tps/collages/README-collages-nb.md
+      - file: pandas-tps/groupby-draw/README-groupby-draw-nb.md
+      - file: pandas-tps/covid/README-covid-nb.md
+      - file: pandas-tps/leases/README-leases-nb.md
+      - pattern: pandas-tps/*/.teacher/README-*-corrige-nb.md
         hidden: true
 
 
@@ -58,18 +70,6 @@ project:
       # kept for the interact part, although that seems
       # to no longer work very well, under jbook at least
       # - file: pandas-howtos/HOWTO-covid-interact-obsolete-nb.md
-
-
-    - title: pandas TPs
-      children:
-      - file: pandas-tps/television/README-television-nb.md
-      - file: pandas-tps/marathon/README-marathon-nb.md
-      - file: pandas-tps/collages/README-collages-nb.md
-      - file: pandas-tps/groupby-draw/README-groupby-draw-nb.md
-      - file: pandas-tps/covid/README-covid-nb.md
-      - file: pandas-tps/leases/README-leases-nb.md
-      - pattern: pandas-tps/*/.teacher/README-*-corrige-nb.md
-        hidden: true
 
 
     - title: geo data & maps
