@@ -87,6 +87,7 @@ project:
       - file: dashboards/streamlit/README-streamlit-nb.md
       - file: dashboards/marimo/README-marimo-nb.md
       - file: dashboards/dash/README-dash-nb.md
+      - file: dashboards/altair/README-altair-nb.md
 
 
     - title: quizzes pandas
