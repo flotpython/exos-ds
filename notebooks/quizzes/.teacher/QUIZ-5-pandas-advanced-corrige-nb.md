@@ -1,43 +1,36 @@
-# ---
-# jupyter:
-#   jupytext:
-#     cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted,-editable
-#     formats: py:percent
-#     notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version,
-#       -jupytext.text_representation.format_version,-language_info.version, -language_info.codemirror_mode.version,
-#       -language_info.codemirror_mode,-language_info.file_extension, -language_info.mimetype,
-#       -toc, -rise, -version
-#     text_representation:
-#       extension: .py
-#       format_name: percent
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
-#   language_info:
-#     name: python
-#     nbconvert_exporter: python
-#     pygments_lexer: ipython3
-#   nbhosting:
-#     title: advanced pandas
-# ---
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
+language_info:
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
+nbhosting:
+  title: advanced pandas
+---
 
-# %% [markdown]
-# # merge (join)
+# merge (join)
 
-# %%
+```{code-cell} ipython3
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+```
 
-# %% [markdown]
-# ## the data
+## the data
 
-# %% [markdown]
-# Here is a simple dataset of three tables.
++++
 
-# %%
+Here is a simple dataset of three tables.
+
+```{code-cell} ipython3
 import pandas as pd
 
 wifi_table = pd.DataFrame(
@@ -69,16 +62,17 @@ bssid_table = pd.DataFrame(
     }
 )
 print(f"**wifi_table**\n{wifi_table}\n**ssid_table**\n{ssid_table}\n**bssid_table**\n{bssid_table}")
+```
 
-# %% [markdown]
-# ### merge
-#
-# Let's start with a simple merge of `wifi_table` with `ssid_table` (on `SSID_ID` and `ID`), and with `bssid_table` (on `BSSID_ID` and `ID`). You must keep the index of `wifi_table`.
+### merge
 
-# %%
+Let's start with a simple merge of `wifi_table` with `ssid_table` (on `SSID_ID` and `ID`), and with `bssid_table` (on `BSSID_ID` and `ID`). You must keep the index of `wifi_table`.
+
+```{code-cell} ipython3
 # your code
+```
 
-# %%
+```{code-cell} ipython3
 # prune-cell
 
 (
@@ -90,51 +84,54 @@ print(f"**wifi_table**\n{wifi_table}\n**ssid_table**\n{ssid_table}\n**bssid_tabl
     .set_index("index")
     .sort_index()
 )
+```
 
-# %% [markdown]
-# ## another dataset
+## another dataset
 
-# %% [markdown]
-# Here is a new dataset
++++
 
-# %%
+Here is a new dataset
+
+```{code-cell} ipython3
 df1 = pd.DataFrame({'name': ['Bob', 'Lisa', 'Sue'],
                     'pulse': [70, 63, 81]}, 
                    index=[123, 354, 165])
 df2 = pd.DataFrame({'name': ['Eric', 'Bob', 'Marc'],
                     'weight': [60, 100, 70]},
                   index=[654, 123, 664])
+```
 
-# %% [markdown]
-# ### merge
-#
-# Let's outer merge the tables df1 and df2 on name and preserving both indexes. Name the index of df1 `ID_old` and the index of df2 `ID_new`.
+### merge
 
-# %%
+Let's outer merge the tables df1 and df2 on name and preserving both indexes. Name the index of df1 `ID_old` and the index of df2 `ID_new`.
+
+```{code-cell} ipython3
 # your code
+```
 
-# %%
+```{code-cell} ipython3
 # prune-cell 
 
 df1 = df1.reset_index().rename(columns={"index": "ID_old"})
 df2 = df2.reset_index().rename(columns={"index": "ID_new"})
 x = pd.merge(df1, df2, how='outer')
 print(x)
+```
 
-# %% [markdown]
-# **Now, consider that `ID_new` is the new person ID that must be kept, but that for some person, the new ID is missing. In that case, this missing ID must be replaced with the old person ID `ID_old`. Finally, set the new person ID as the index.**
-#
-# *Hint*: consider `combine_first`
+**Now, consider that `ID_new` is the new person ID that must be kept, but that for some person, the new ID is missing. In that case, this missing ID must be replaced with the old person ID `ID_old`. Finally, set the new person ID as the index.**
 
-# %%
+*Hint*: consider `combine_first`
+
+```{code-cell} ipython3
 # your code
+```
 
-# %%
+```{code-cell} ipython3
 # prune-cell
 
 x.loc[:,'ID_new'] = x.loc[:,'ID_new'].combine_first(x.loc[:,'ID_old'])
 x = x.drop(columns='ID_old').set_index('ID_new').sort_index()
 print(x)
+```
 
-# %% [markdown]
-# ***
+***

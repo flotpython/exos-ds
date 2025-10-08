@@ -16,14 +16,16 @@ nbhosting:
   title: basic numpy
 ---
 
-# data loading
-
 ```{code-cell} ipython3
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 ```
+
+# data loading
+
++++
 
 Let's load a dataset on rain precipitations on Seattle on 2014
 
