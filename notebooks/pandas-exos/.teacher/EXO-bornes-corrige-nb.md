@@ -21,7 +21,6 @@ nbhosting:
 
 ```{code-cell} ipython3
 import pandas as pd
-from head import head
 ```
 
 ```{code-cell} ipython3
