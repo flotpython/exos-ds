@@ -10,11 +10,13 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
-# CURRENT STATUS:
+# using altair
+
+CURRENT STATUS:
 
 xxx
 
@@ -65,7 +67,6 @@ pip install "fastapi[standard]" altair
 ## imports
 
 ```{code-cell} ipython3
-
 import pandas as pd
 
 # here is how to import altair
@@ -84,7 +85,7 @@ this is the purpose of `fastapi_random_server.py`
 assuming you have installed fastapi as above, you can start the web service by typing in your terminal
 
 ```bash
-python fastapi_random_server.py
+fastapi dev fastapi_random_server.py
 ```
 
 this will behave a bit like `jupyter lab`, in that it will
@@ -99,16 +100,25 @@ so first off, leave this terminal running, and create another one if needed
 
 ### how to use
 
-just open a web browser and cut-n-paste the URL displayed in the terminal; something like  
-`http://localhost:4999/`
+inside the terminal where you triggered the server, you'll see a URL  
+something like <http://localhost:8000/>  
+just open a web browser and cut-n-paste that URL 
 
-as you might have got now, this means
+```{admonition} link maybe clickable ?
+:class: dropdown tip
+
+in some terminal setups, you may be able to e.g. Command-click or Alt-click on the link in the terminal to open it in your browser (this is rather likely on linux and MacOS, not sure wbout Windows)
+```
+
+as you might have guessed now, this means
 
 - use the http protocol
 - to reach a service running on the computer named `localhost` (your own laptop, that is)
-- on port 4999
+- on port 8000
 
+```{admonition} what are ports ?
 ports is a very simple mechanism to allow your computer to run many different services (in real life, you would typically have ssh on port 22, web on port 443, dns on port 53, and so on..)
+```
 
 +++
 
@@ -117,11 +127,12 @@ ports is a very simple mechanism to allow your computer to run many different se
 take a look at the source code for the server, and observe the occurrences of `@app.route`  
 this the mechanism offered by the fastapi layer, that lets us *route* incoming requests to various features
 
-so for example when you point your browser at `http://localhost:4999/` with no further indication, this will be routed to the `/` endpoint thanks to the
+so for example when you point your browser at <http://localhost:8000/> with no further indication, this will be routed to the `/` endpoint thanks to the
 ```
 @app.route('/')
 ```
-but when doing `http://localhost:4999/api/leases/1000/2024`, this time you will hit the code marked with
+
+if now you do instead <http://localhost:8000/api/leases/1000/2024>, this time you will hit the code marked with
 ```python
 @app.route('/api/leases/<how_many>/<beg>')
 ```
@@ -132,19 +143,19 @@ so you can see how the incoming URL gets bound to Python variables, and how the 
 
 ### the API outcome
 
-look more closely at the result of `http://localhost:4999/api/leases/1000/2024`  
+look more closely at the result of `http://localhost:8000/api/leases/1000/2024`  
 as opposed to the home page (that outputs HTML code thanks to the `markdown-it` library), this API endpoint produces data in a JSON format, as I'm sure you've recognized  
 
 the reason for that is the last line of the `leases()` Python function (the one bound to the api URL route), that reads
 ```python
-    return json.dumps(list_of_dicts)
+return JSONResponse(content=list_of_dicts)
 ```
 
 +++
 
 ### wrapping it up
 
-so we are kind of in the same situation os with the first TP, i.e. we have a data source with the same data essentially, except that
+so we are kind of in the same situation as with the first TP, i.e. we have a **data source** with the same data essentially, except that
 
 - it is dynamic (re-generated every time we call the API)
 - and in JSON instead of in csv
@@ -157,7 +168,7 @@ altair offers a "grammar-oriented" visualisation paradigm where the visualisatio
 
 +++
 
-### a stacked bar example
+### a stacked bar from altair's doc
 
 here's an example taken from the altair documentation
 
@@ -176,19 +187,29 @@ alt.Chart(source).mark_bar().encode(
 )
 ```
 
+### **exo**: inspect the data
+
+take some time to get a glimpse at what the data looks like...
+
 ```{code-cell} ipython3
-# take some time to get a glimpse at what the data looks like
+# your code here
+# feel free to create extra cells if needed
 ```
 
 ```{code-cell} ipython3
+# prune-cell
 
+import itables
+itables.init_notebook_mode()
+
+source
 ```
 
 +++ {"tags": ["level_basic"]}
 
-### exo
+### **exo**: write your own pivot
 
-you should be able to see a resemblance with some sort of pivot table here  
+you should be able to see a resemblance with some sort of *pivot table* here  
 would you be able to compute a pivot table that resonates with this visualisation ?
 
 ```{code-cell} ipython3
@@ -210,11 +231,12 @@ source.pivot_table(
 
 here's a few additions to that sample chart, that will make our life easier:
 
-- we set a width and height
-- as well as a title
+- we set a *width* and *height*
+- as well as a *title*
 - and make it interactive: try to scroll up or down in the figure with 2 fingers
 
 ````{admonition} not interactive ?
+:class: dropdown
 
 Oh but no, the interactive thing is not working for us here; it is because the X axis does not have numeric values !  
 but let's keep this trick in mind for later, it will come in handy at some point
@@ -237,25 +259,49 @@ alt.Chart(source).mark_bar().encode(
 ).interactive()
 ```
 
-### back to our data
+## back to our data
+
+we still need the country-to-region association - same as in the previous TP
+
+```{code-cell} ipython3
+countries = pd.read_csv("data/countries.csv")
+countries.head(3)
+```
+
+```{code-cell} ipython3
+# also to get the orders of magnitude right
+
+# e.g. to do a grouping per week
+# in altair jargon
+GROUP_UNIT = "yearweek"
+# just for the legends and titles
+NAME = "week"
+
+# we ask the API to create that number of leases
+HOW_MANY = 1000
+
+# we want to display the charts in this unit
+GRAIN = pd.Timedelta(1, 'm')
+```
 
 ```{code-cell} ipython3
 # prune-begin
 ```
 
 ```{code-cell} ipython3
-CRITERIA = 'D'
-GRAIN = pd.Timedelta('1m')
+URL = f"http://localhost:8000/api/leases/{HOW_MANY}/2025"
 
-leases = pd.read_csv("data/leases.csv")
+leases = pd.read_json(URL)
 leases['beg'] = pd.to_datetime(leases['beg'], format="ISO8601")
 leases['end'] = pd.to_datetime(leases['end'], format="ISO8601")
+
+# compute the duration in minutes
 leases['duration'] = (leases['end'] - leases['beg']) // GRAIN
-# cannot use dt.date as-is because it is a datetime object and not JSON-serializable
+
+# here we use the middle of the lease as a criteria to attach a lease to a period
 leases['date'] = pd.to_datetime((leases['beg'] + (leases['end']-leases['beg'])/2).dt.date)
 
-countries = pd.read_csv("data/countries.csv")
-
+# add the region tag to each lease
 merge = leases.merge(countries, left_on="country", right_on="name")
 ```
 
@@ -264,17 +310,20 @@ merge
 ```
 
 ```{code-cell} ipython3
-( alt.Chart(merge)
+# hard-wired 'yearweek' for now, for clarity
+
+( 
+alt.Chart(merge)
   .mark_bar()
   .encode(
-      x='date:T',
+      x=f'yearweek(date):T',
       y='sum(duration)',
       color='region',
   )
   .properties(
        height=400,
        width=800,
-       title=f"Usage by family (usage by region)",
+       title=f"Usage by region",
  )
  .interactive()
 )
@@ -285,16 +334,23 @@ merge
 ```
 
 ```{code-cell} ipython3
+# prune-cell
 
-
-
+# a more realistic version
+# no Python preprocessing ?
 
 chart = (
     alt.Chart("data/leases.csv")
+        .transform_calculate(
+            # Duration in minutes (timestamps are in ms)
+            duration="(toDate(datum.end) - toDate(datum.beg)) / (1000*60)",
+            # Midpoint as a date
+            mid="datetime((toDate(datum.end).getTime() + toDate(datum.beg).getTime())/2)"
+        )
     .mark_bar()
     .encode(
          x=alt.X(
-            f'period-middle:T',
+            f'${GROUP_UNIT}(mid):T',
             axis=alt.Axis(title=f"Period (by {name})"),
             timeUnit=f"{values['timeUnit']}",
         ),

@@ -1,3 +1,19 @@
+# ---
+# jupyter:
+#   jupytext:
+#     text_representation:
+#       extension: .py
+#       format_name: light
+#   kernelspec:
+#     display_name: Python 3 (ipykernel)
+#     language: python
+#     name: python3
+#   language_info:
+#     name: python
+#     nbconvert_exporter: python
+#     pygments_lexer: ipython3
+# ---
+
 """
 this Python code uses FastAPI to implement a http server that
 serves random data suitable to be fed in the first part of the assignment
@@ -22,24 +38,28 @@ import numpy as np
 # pip install markdown-it-py
 from markdown_it import MarkdownIt
 
+# +
 # pip install "fastapi[standard]"
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, JSONResponse
 
 
+# +
 app = FastAPI()
+# -
 
 
 # the welcome page - in markdown
 
+# +
 WELCOME = """
 # random generator
 
 ## the API endpoint
 
 use the API endpoint ```text /api/leases/how-many/beg ``` to receive a JSON
-stream of leases that have essentially the same format as `leases.csv`, i.e.
-with columns
+stream of leases that have essentially the same format as `leases.csv`  
+i.e. with columns
 
 | beg | end | country |
 |-----|-----|---------|
@@ -47,11 +67,11 @@ with columns
 
 ## beg format
 
-dates (`beg`) should be in a format that `pd.Timestamp` understands  
+dates (`beg`) should be in a format that `pd.Timestamp` understands - typically ISO8601
 
 ## the end
 
-you don't get to specify the end, as the leases are generated randomly but in
+you don't get to specify the end, as the `how-many` leases are generated randomly but in
 successive order using some hard-wired constants (see the code)
 
 ## examples
@@ -62,10 +82,14 @@ successive order using some hard-wired constants (see the code)
    yields 100 samples starting on 30th june 24 at 12:30
 """
 
+# +
 @app.route('/')
 def hello(request) -> HTMLResponse:
     renderer = MarkdownIt("gfm-like")
     return HTMLResponse(renderer.render(WELCOME))
+
+
+# -
 
 # globals
 
@@ -75,8 +99,12 @@ GRAIN = pd.Timedelta('10m')
 MIN_LEASE = pd.Timedelta('1h')
 MAX_LEASE = pd.Timedelta('2h')
 
+# +
 MIN_PAUSE = pd.Timedelta('10m')
 MAX_PAUSE = pd.Timedelta('8h')
+
+
+# -
 
 def random_leases(how_many, beg):
     lease_extent = (MAX_LEASE - MIN_LEASE) // GRAIN
