@@ -878,6 +878,7 @@ def run_model(img, model, **kwargs):
 ```
 
 ```{code-cell} ipython3
+:tags: [skip-execution]
 
 # cap = cv2.VideoCapture("./media/friends.mov")
 display_video_highlight_faces(
