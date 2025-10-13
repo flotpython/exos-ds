@@ -344,7 +344,6 @@ by_country
 ````
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
 
 # le code
 
@@ -1185,7 +1184,6 @@ et vous pouvez constater que nous avons à présent
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
-:lines_to_next_cell: 2
 
 # le code du unstack
 
@@ -1195,7 +1193,6 @@ et vous pouvez constater que nous avons à présent
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
-:lines_to_next_cell: 2
 
 # prune-cell
 

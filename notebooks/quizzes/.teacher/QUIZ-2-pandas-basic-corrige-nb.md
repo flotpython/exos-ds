@@ -59,7 +59,6 @@ df
 ```
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
 
 # prune-cell 
 

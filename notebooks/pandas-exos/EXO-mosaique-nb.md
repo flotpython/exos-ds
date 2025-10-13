@@ -17,11 +17,11 @@ nbhosting:
   title: mosaique pandas
 ---
 
-# mosaique (un peu de tout)
+*Quand les exercices font partie d'une série d'exercices, faites les dans l'ordre, ils se servent des précédents...**
 
 +++
 
-*Quand les exercices font partie d'une série d'exercices, faites les dans l'ordre, ils se servent des précédents...**
+# mosaique (un peu de tout)
 
 +++
 
@@ -215,7 +215,6 @@ df1 = ...
 
 ```{code-cell} ipython3
 :cell_style: split
-:lines_to_next_cell: 2
 
 df1
 ```

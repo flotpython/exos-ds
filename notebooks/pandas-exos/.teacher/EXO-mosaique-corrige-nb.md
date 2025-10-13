@@ -353,7 +353,6 @@ df1 = pd.read_csv("data/weight_height_no_names.csv", names=['genre', 'taille', '
 
 ```{code-cell} ipython3
 :cell_style: split
-:lines_to_next_cell: 2
 
 df1
 ```
@@ -567,7 +566,6 @@ prune-cell
 on transforme `Gender` en une catégorie; plusieurs variantes sont possibles
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
 :tags: [level_basic]
 
 # prune-cell

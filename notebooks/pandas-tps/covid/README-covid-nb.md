@@ -344,8 +344,6 @@ by_country
 ````
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
-
 # le code
 
 if by_country is not None:
@@ -972,7 +970,6 @@ et vous pouvez constater que nous avons à présent
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
-:lines_to_next_cell: 2
 
 # le code du unstack
 

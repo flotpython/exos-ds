@@ -48,8 +48,6 @@ here's an example of the outputs we will obtain
 ## imports
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
-
 import pandas as pd
 import matplotlib.pyplot as plt
 ```
@@ -209,8 +207,6 @@ you are to write a function that converts a `pd.Timedelta` into a number of hour
 2. use it to test your own implementation
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 1
-
 # your code
 
 def convert_timedelta_to_hours(timedelta: pd.Timedelta) -> int:
@@ -249,8 +245,6 @@ test_convert_timedelta_to_hours()
 ```
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
-
 # for debugging; this should return 48
 
 convert_timedelta_to_hours(pd.Timedelta(2, 'D'))

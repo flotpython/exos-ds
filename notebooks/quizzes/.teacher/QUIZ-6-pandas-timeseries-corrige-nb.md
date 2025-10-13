@@ -76,7 +76,6 @@ hos.head()
 ## What is the dtype of each columns?
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
 
 # your code
 ```
@@ -145,7 +144,6 @@ To solve the issue with bar plots, we need to work with matplotlib
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
-:lines_to_next_cell: 2
 
 from matplotlib.dates import AutoDateLocator, ConciseDateFormatter, AutoDateFormatter
 

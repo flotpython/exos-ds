@@ -699,7 +699,6 @@ def mouse_callback(event, x, y, flags, param):
 
 ```{code-cell} ipython3
 :tags: [skip-execution]
-:lines_to_next_cell: 0
 
 # and now we can write the code for achieving the goal (see above)
 
@@ -879,7 +878,6 @@ def run_model(img, model, **kwargs):
 ```
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
 
 # cap = cv2.VideoCapture("./media/friends.mov")
 display_video_highlight_faces(
@@ -931,7 +929,6 @@ pose = posEstimation.Pose() # INFO: Created TensorFlow Lite XNNPACK delegate for
 ```{code-cell} ipython3
 :scrolled: true
 :tags: [skip-execution]
-:lines_to_next_cell: 0
 
 # here again a function would come in handy...
 
@@ -1098,7 +1095,6 @@ detections = sv.Detections.from_ultralytics(res)
 ```
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
 
 # let us inspect what the model has found
 # as of ultralytics verion 8.2

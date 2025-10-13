@@ -160,7 +160,6 @@ data.head()
 ## renommons les colonnes
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
 
 # les noms de colonne ne sont pas pratiques du tout
 data.columns = ['Total', 'West', 'East']
@@ -300,7 +299,6 @@ data.resample('1D').sum().rolling(365).sum().plot();
 ```
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
 
 # on fait en sorte que le bas de l'échelle des Y soit bien 0
 # pour eviter l'effet de loupe

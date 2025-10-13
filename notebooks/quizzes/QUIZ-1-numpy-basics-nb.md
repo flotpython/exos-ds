@@ -30,8 +30,6 @@ import seaborn as sns
 Let's load a dataset on rain precipitations on Seattle on 2014
 
 ```{code-cell} ipython3
-:lines_to_next_cell: 2
-
 # we download the file from Internet and save it
 # easiest way, we can pass a URL to read_csv (or a local file)
 URL = "http://www-sop.inria.fr/members/Arnaud.Legout/formationPython/Exos/Seattle2014.csv"
