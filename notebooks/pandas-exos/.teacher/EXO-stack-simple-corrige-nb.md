@@ -9,8 +9,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 nbhosting:
   title: stack() simple
 ---
@@ -213,6 +213,33 @@ for col in df_all.columns:
 ```{code-cell} ipython3
 # pour vérifier le résultat de visu
 # df_all
+```
+
+***
+
++++
+
+## `pd.melt()`
+
+Il se trouve qu'on peut arriver à ce même résultat avec [une fonction toute faite de pandas qui s'appelle `pd.melt()`](https://pandas.pydata.org/docs/reference/api/pandas.melt.html)  
+Mais bon, pour bien comprendre la librairie c'est sans doute mieux de passer par des manipulations de base comme on vient de le faire :)
+
+```{code-cell} ipython3
+# prune-cell
+
+df = pd.read_csv("data/stack-simple.csv")
+
+df_long = pd.melt(
+    df,
+    id_vars=['city', 'postcode'],   # columns to keep
+    var_name='type',                # new column name for variable names (t1, t2, ...)
+    value_name='nombre'             # new column name for values
+)
+
+# Optionally, drop rows with zero or missing values
+df_long = df_long[df_long['nombre'] != 0].reset_index(drop=True)
+
+print(df_long)
 ```
 
 ***

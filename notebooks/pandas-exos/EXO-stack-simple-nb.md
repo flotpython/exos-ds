@@ -9,8 +9,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 nbhosting:
   title: stack() simple
 ---
@@ -135,5 +135,16 @@ et enfin, à éliminer les colonnes qui sont de trop
 # pour vérifier le résultat de visu
 # df_all
 ```
+
+***
+
++++
+
+## `pd.melt()`
+
+Il se trouve qu'on peut arriver à ce même résultat avec [une fonction toute faite de pandas qui s'appelle `pd.melt()`](https://pandas.pydata.org/docs/reference/api/pandas.melt.html)  
+Mais bon, pour bien comprendre la librairie c'est sans doute mieux de passer par des manipulations de base comme on vient de le faire :)
+
++++
 
 ***
