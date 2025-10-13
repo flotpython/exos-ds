@@ -259,7 +259,7 @@ la première amélioration vient au prix d'une ligne qu'on mentionne généralem
 :class: admonition-small
 
 il faut exécuter ceci dans Jupyter lab ou vs-code pour avoir l'interactivité  
-si vous lisez cette page en HTML statique (typiquement sur `readthedocs.io`), les graphiques restent inertes, malheureusement
+si vous lisez cette page en HTML statique (typiquement sur `info-mines.paris`), les graphiques restent inertes, malheureusement
 
 ````
 

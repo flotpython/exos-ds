@@ -9,8 +9,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 nbhosting:
   title: "\xE9clater des cellules en colonnes"
 ---
@@ -66,7 +66,7 @@ groups = df.groupby(by='city')
 ```
 
 ```{code-cell} ipython3
-groups.aggregate(sum)
+groups.aggregate("sum")
 ```
 
 mais ça c'est pas terrible parce qu'on a des chaines et qu'on va avoir du mal à compter; et aussi vous remarquez le `flowersbathroom` parce qu'on a additionné les chaines brutalement..
