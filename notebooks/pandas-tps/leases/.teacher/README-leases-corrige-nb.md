@@ -23,7 +23,7 @@ language_info:
 to work on this assignment locally on your laptop, {download}`start with downloading the zip<./ARTEFACTS-leases.zip>`
 ```
 
-in this TP we work on 
+in this TP we work on
 
 - data that represents *periods* and not just one timestamp
 - checking for overlaps
