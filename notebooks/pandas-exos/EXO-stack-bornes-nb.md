@@ -10,8 +10,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 nbhosting:
   show_up_down_buttons: true
   title: exo bornes
@@ -40,17 +40,21 @@ df3 = pd.read_csv('data/bornes3.csv', sep=';')
 
 ```{code-cell} ipython3
 :cell_style: split
+:tags: [gridwidth-1-3]
 
 df1
 ```
 
 ```{code-cell} ipython3
 :cell_style: split
+:tags: [gridwidth-1-3]
 
 df2
 ```
 
 ```{code-cell} ipython3
+:tags: [gridwidth-1-3]
+
 df3
 ```
 
