@@ -9,8 +9,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # `opencv` & `yolo` use cases
@@ -890,14 +890,15 @@ display_video_highlight_faces(
 )
 ```
 
-as you can see the result is intersting, although not quite perfect yet...
+as you can see the result is interesting, although not quite perfect yet...
 
-```{admonition} exercise: timing
+````{admonition} exercise: timing
 
 - find out what is the actual duration of the video
 - and measure how long it takes for our function to display it
 
 why is it not the same ?
+````
 
 +++
 
@@ -912,10 +913,31 @@ this time the original video is in `./media/player-man.mov`
 %pip install mediapipe
 ```
 
+::::{admonition} `mediapipe` is a little behind
+:class: danger warning
+
+WARNING: as of 2025 October, mediapipe does not yet support 3.13 !  
+you might need to downgrade to 3.12 if `pip install mediapipe` fails with a message like
+
+```text
+ERROR: Could not find a version that satisfies the requirement mediapipe (from versions: none)
+ERROR: No matching distribution found for mediapipe
+```
+
+::::
+
 ```{code-cell} ipython3
 import cv2
 from IPython.display import Image
-import mediapipe as mp
+```
+
+```{code-cell} ipython3
+try:
+    import mediapipe as mp
+
+except ModuleNotFoundError as exc:
+    print("WARNING - as of 2025 October, mediapipe works with Python <= 3.12 only")
+    raise
 ```
 
 ```{code-cell} ipython3
@@ -1096,7 +1118,6 @@ detections = sv.Detections.from_ultralytics(res)
 ```
 
 ```{code-cell} ipython3
-
 # let us inspect what the model has found
 # as of ultralytics verion 8.2
 # each detection object can be unpacked with 6 fields
