@@ -15,6 +15,7 @@ nbhosting:
   title: stack() simple
 ---
 
+(label-exo-stack-simple)=
 # `stack()`: usage typique
 
 ```{code-cell} ipython3
@@ -112,9 +113,12 @@ series
 
 +++
 
-à ce stade, que faut-il faire avec la donnée `type` pour se rapprocher de ce qu'on cherche à produire ?
+maintenant, que faut-il faire avec la donnée `type` pour se rapprocher de ce qu'on cherche à produire ?
 
-**[indice]** voyez `df.reset_index()`
+```{admonition} indice
+:class: dropdown tip
+voyez `df.reset_index()`
+```
 
 ```{code-cell} ipython3
 # à vous
@@ -166,10 +170,15 @@ df3
 
 à ce stade il ne reste plus qu'à recoller les morceaux
 
-**[indice]** `pd.merge()` et/ou `df.join()`
+```{admonition} indice
+:class: dropdown tip
+voyez `pd.merge()` et/ou `df.join()`
+```
 
 ```{code-cell} ipython3
 # à vous
+
+df_all = ...
 ```
 
 ```{code-cell} ipython3

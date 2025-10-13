@@ -41,8 +41,8 @@ project:
       - file: pandas-exos/EXO-mosaique-nb.md
       - file: pandas-exos/EXO-titanic-nb.md
       - file: pandas-exos/EXO-stack-simple-nb.md
-      - file: pandas-exos/EXO-bornes-nb.md
       - file: pandas-exos/EXO-stack-multicol-nb.md
+      - file: pandas-exos/EXO-stack-bornes-nb.md
       - pattern: pandas-exos/.teacher/EXO-*corrige-nb.md
         hidden: true
 
