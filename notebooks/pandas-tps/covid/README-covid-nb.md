@@ -10,8 +10,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 nbhosting:
   title: "TP sur les donn\xE9es coronavirus"
 ---
@@ -192,14 +192,17 @@ le fichier <https://pomber.github.io/covid19/timeseries.json> contient un objet 
 ### avec `pd.read_json`
 
 ````{admonition} →
-on ne va pas faire comme ça ici, mais sachez que c'est la méthode la plus rapide (à écrire):
+la méthode qui semble la plus rapide (à écrire) consiste à faire simplement:
 
 ```python
 data = pd.read_json(json_url)
 ```
 
-par contre ça peut être franchement long, surtout si votre **connexion réseau** n'est pas au top  
-c'est pourquoi on va voir aussi une autre méthode - que vous pouvez sauter si vous êtes pressés de voir le traitement des données *per se*
+par contre, ça ne plante pas, mais ça crée une dataframe franchement gloubi-goulba !  
+en plus ça peut être franchement long, surtout si votre **connexion réseau** n'est pas au top  
+c'est pourquoi:
+- on va pour commencer voir une technique - que vous pouvez sauter si vous êtes pressés de voir le traitement des données *per se* - pour "cacher" le fichier localement sur notre disque dur
+- et ensuite on va vous inviter à écrire votre propre code pour mettre ces données sous une forme plus propice à notre objectif
 ````
 
 +++ {"tags": ["framed_cell"]}
@@ -522,19 +525,14 @@ global_df.loc[0]
 ce qui s'est passé c'est que :  
 chacune de nos dataframe par pays a été construite à partir d'un index **séquentiel**  
 i.e. un `RangeIndex` qui commence à chaque fois à 0  
-et lors du `concat` on a conservé ces valeurs  
-ce qui crée une multitude de lignes indexées par 0 (un par pays)
+et lors du `concat` on a conservé ces valeurs, ce qui crée une multitude de lignes indexées par 0 (un par pays)
 
-c'est un trait de `pandas`  
-contrairement aux dictionnaires Python - où une clé est forcément unique  
-il est possible de **dupliquer plusieurs entrées dans les index**  
-ligne ou colonne - d'une dataframe
+c'est un trait de `pandas`: contrairement aux dictionnaires Python - où une clé est forcément unique  
+il est possible de **dupliquer plusieurs entrées dans les index** ligne ou colonne - d'une dataframe
 
-même si ça n'est en général pas souhaitable  
-c'est souvent commode de pouvoir le faire  
-pendant la phase de construction / mise au point de la dataframe  
-quitte à adopter par la suite un index plus approprié  
-(comme on va le faire bientôt)
+même si ça n'est en général **pas souhaitable**, c'est souvent **commode** de pouvoir le faire  
+pendant la phase de construction / mise au point de la dataframe - (comme c'est le cas maintenant)  
+quitte à adopter **par la suite un index plus approprié** (comme on va le faire bientôt)
 ````
 
 +++
@@ -691,7 +689,8 @@ reprenons à partir de la dataframe globale
 
 ````{admonition} exo
 1. nous avons vu la notion de *MultiIndex*  
-   quel serait d'aprés vous un bon choix pour indexer la dataframe globale ?
+   quel serait d'aprés vous un bon choix pour indexer la dataframe globale ?  
+   (réponse attendue sous forme simplement textuelle à ce stade, on va écrire le code dans la question suivante)
 ````
 
 ```{code-cell} ipython3
@@ -701,11 +700,8 @@ reprenons à partir de la dataframe globale
 +++ {"tags": ["framed_cell"]}
 
 ````{admonition} exo
-2. voyez-vous un moyen d'utiliser `pivot_table()` pour construire une nouvelle  
-   dataframe qui contienne essentiellement les mêmes informations  
-   mais avec un multi-index qui soit pertinent dans le contexte  
-   **variante** on peut aussi utiliser `set_index()`  
-   pour aboutir au même résultat
+2. voyez-vous un moyen d'utiliser `pivot_table()` pour construire une dataframe qui contienne les mêmes informations, mais avec le multi-index qu'on a décidé à la question précédente  ?   
+   **variante** on peut aussi utiliser `set_index()` pour aboutir au même résultat
 
 rangez votre résultat dans une variable `clean_df`
 ````
@@ -716,7 +712,7 @@ rangez votre résultat dans une variable `clean_df`
 
 +++ {"tags": ["framed_cell"]}
 
-### accéder via un *MultiIndex*
+## accéder via un *MultiIndex*
 
 ````{admonition} exo
 1. extrayez de la dataframe la série des 3 mesures  
@@ -755,14 +751,12 @@ rangez votre résultat dans une variable `clean_df`
 
 ````{admonition} →
 pour illustrer la puissance de pandas, et la pertinence de notre choix d'index  
-voyons comment utiliser du **slicing** (*très très avancé*)  
-pour extraire cette fois les données relatives à
+voyons comment utiliser du **slicing** (*assez avancé*) pour extraire cette fois les données relatives à
 
 * deux pays au hasard - disons `France` et `Italy`
 * à la période 1er Juillet - 15 Août 2021 inclus
 
-pour ça on va tirer profit de la structure de l'index  
-et aussi de la puissance du type `datetime64`
+pour ça on va tirer profit de la structure de l'index, et aussi de la puissance du type `datetime64`
 
 on va fabriquer :
 
@@ -771,8 +765,7 @@ on va fabriquer :
   qui en temps normal pourrait s'écrire `'july 2021' : '15 august 2021'`  
   (bornes inclusives puisque `.loc[]`)
 
-* un slice sur les colonnes  
-  mais au fait on les veut toutes, on peut utiliser `:`
+* un slice sur les colonnes; mais au fait on les veut toutes, on peut utiliser `:`
 
 l'idée serait ensuite d'écrire simplement
 
