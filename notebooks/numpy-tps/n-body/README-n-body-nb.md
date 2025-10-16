@@ -1,7 +1,4 @@
 ---
-authors:
-- name: Aubin Geoffre
-- name: Thierry Parmentelat
 jupytext:
   formats: md:myst
   text_representation:
@@ -25,7 +22,7 @@ pour faire cette activité sur votre ordi localement, {download}`commencez par t
 
 dans ce TP on vous invite à écrire un simulateur de la trajectoire de n corps qui interagissent entre eux au travers de leurs masses, pour produire des sorties de ce genre
 
-```{image} media/init3.png
+```{image} media/init3-1.png
 :align: center
 :width: 600px
 ```
@@ -258,8 +255,9 @@ pour commencer et tester, on se met dans l'état initial reproductible
 # draw(simulate(masses, positions, speeds), masses, colors3)
 ```
 
-et avec ces données vous devriez obtenir plus ou moins une sortie de ce genre
-```{image} media/init3.png
+et avec ces données vous devriez obtenir plus ou moins une sortie de ce genre  
+mais [voyez aussi la discussion ci-dessous sur les diverses stratégies possibles](label-n-body-strategies)
+```{image} media/init3-1.png
 ```
 
 +++
@@ -347,13 +345,93 @@ def animate(simulation, masses, colors=None, scale=5., interval=50):
         scat.set_offsets(np.c_[x, y])
         return scat
 
-    ani = FuncAnimation(fig, update, frames=nb_steps,
-                        init_func=init, blit=True, interval=interval)
+    animation = FuncAnimation(
+        fig, update, frames=nb_steps,
+        init_func=init, blit=True, interval=interval
+    )
     plt.close()
-    return ani
+    return animation
 
+def animate_from_file(filename):
+    simulation = np.loadtxt(filename).reshape((100, 2, 3))
+    animation = animate(simulation, masses, colors=colors3)
+    return HTML(animation.to_jshtml())
 
-simulation3 = np.loadtxt("data/simulation3.txt").reshape((100, 2, 3))
-animation = animate(simulation3, masses, colors=colors3)
-HTML(animation.to_jshtml())
+animate_from_file("data/init3-simu-1.txt")
 ```
+
+(label-n-body-strategies)=
+## plusieurs stratégies
+
+Pour les curieux, vous avez sans doute observé qu'il y a plusieurs façons possibles d'écrire la fonction `simulate()`
+
+dans ce qui suit, on note l'accélération $a$, la vitesse $s$ et la position $p$
+
+````{admonition} Approche 1
+:class: note
+dans l'implémentation qui a servi à calculer l'illustration ci-dessus, on a écrit principalement ceci:
+- on calcule l'accélération
+- ce qui permet d'extrapoler les vitesses  
+  $s = s + a.dt$
+- et ensuite d'extrapoler les positions  
+  $p = p + s.dt$
+```{admonition} 1bis
+:class: tip
+une variante consiste à intervertir les deux, en arguant du fait que la vitesse à l'instant $t$ agit sur la position à l'instant $t$
+- on extrapole d'abord les positions
+- puis seulement on calcule l'accélération
+- enfin on extrapole les vitesses
+```
+````
+````{admonition} Approche 2
+:class: tip
+dans cette approche plus fine, on utiliserait deux versions de l'accélération (l'instant présent et l'instant suivant), et un dévelopmment du second ordre, ce qui conduirait à
+- calculer la position comme $p = p + s.dt + \frac{a}{2}.dt^2$
+- calculer les accélérations $a_+$ sur la base de cette nouvelle position
+- estimer l'accélération sur l'intervalle comme la demie-somme entre les deux accélérations
+  $a_m = (a+a_+)/2$
+- mettre à jour les vitesses
+  $s = s + a_m.dt$
+- ranger $a_+$ dans $a$ pour le prochain instant
+````
+
++++
+
+Bref, vous voyez qu'il y a énormément de liberté sur la façon de s'y prendre  
+Ce qui peut expliquer pourquoi vous n'obtenez pas la même chose que les illustrations avec pourtant les mêmes données initiales
+
+D'autant que, c'est bien connu, ce problème des n-corps est l'exemple le plus célèbre de problème instable, et donc la moindre divergence entre deux méthodes de calcul peut entrainer de très sérieux écarts sur les résultats obtenus
+
++++
+
+Voici d'ailleurs les résultats obtenus avec ces deux approches alternatives, et vous pouvez constater qu'effectivement les résultats sont tous très différents !
+
++++
+
+### approche 1bis
+
++++
+
+````{grid} 2 2 2 2 
+```{image} media/init3-1bis.png
+```
+```{code-cell} python
+:tags: [remove-input]
+animate_from_file("data/init3-simu-1bis.txt")
+```
+````
+
++++
+
+### approche 2
+
++++
+
+````{grid} 2 2 2 2 
+```{image} media/init3-2.png
+```
+```{code-cell} python
+:tags: [remove-input]
+animate_from_file("data/init3-simu-2.txt")
+```
+````
