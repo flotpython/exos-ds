@@ -10,11 +10,11 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  pygments_lexer: ipython3
   nbconvert_exporter: python
+  pygments_lexer: ipython3
 ---
 
-# data from 538.com with altair
+# US polls with altair
 
 +++
 
