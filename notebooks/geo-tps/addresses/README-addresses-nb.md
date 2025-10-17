@@ -9,8 +9,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  pygments_lexer: ipython3
   nbconvert_exporter: python
+  pygments_lexer: ipython3
 ---
 
 # TP géoloc addresses
@@ -18,7 +18,7 @@ language_info:
 ````{admonition} à télécharger
 :class: warning
 
-pour faire cette activité sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-geo.zip>`
+pour faire cette activité sur votre ordi, {download}`commencez par télécharger le zip<./ARTEFACTS-addresses.zip>`
 ````
 
 ce TP vise à vous faire découvrir quelques possibilités de manipulation et d'affichage de données géographiques
@@ -40,11 +40,11 @@ voici les différentes étapes du TP en résumé
 
 +++
 
-le résultat final sera de produire une carte comme ceci
-
-+++ {"tags": ["hide-input"]}
-
-<iframe src="../../_static/addresses-final.html" style="width: 100%; height: 400px;"></iframe>
+le résultat final sera de produire une carte interactive; [pour des raisons
+techniques](https://github.com/jupyter-book/mystmd/issues/1921) on ne peut pas
+l'afficher directement ici, mais pour avoir un aperçu, cherchez dans le zip
+téléchargé le fichier `media/addresses-final.html` et ouvrez-le dans un
+navigateur web
 
 +++
 
