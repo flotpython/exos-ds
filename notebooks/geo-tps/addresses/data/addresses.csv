@@ -1,6 +1,5 @@
 number,type,name,city
 5,rue,RIQUET,Paris
-141,boulevard,ITALIE,Paris
 234,rue,FAUBOURG ST-HONORÉ,Paris
 62,rue,MICHEL BIZOT,Paris
 6,rue,OURS,Paris
@@ -283,7 +282,6 @@ number,type,name,city
 20,boulevard,CAPUCINES,Paris
 21,avenue,IÉNA,Paris
 43,rue,PETITS-CHAMPS,Paris
-12,passage,TOURNUS,Paris
 10,rue,BERNE,Paris
 4,place,RIVOLI,Paris
 25,rue,ANCIENNE COMÉDIE,Paris
@@ -353,7 +351,6 @@ number,type,name,city
 47,rue,GAY-LUSSAC,Paris
 27,rue,CLAUDE LORRAIN,Paris
 1,rue,JULES CÉSAR,Paris
-6,rue,ROCHECHOUART,Paris
 81,rue,RAMBUTEAU,Paris
 20,rue,THÉRÈSE,Paris
 152,boulevard,HAUSSMANN,Paris
@@ -400,7 +397,6 @@ number,type,name,city
 26,sentier,FALAISES,Paris
 13,rue,DAGUERRE,Paris
 65,rue,JAVEL,Paris
-22,passage,BOUCHARDY,Paris
 2,rue,ÉBRE,Paris
 71,rue,MONCEAU,Paris
 29,rue,MADAME,Paris
@@ -523,7 +519,6 @@ number,type,name,city
 8,rue,HAVRE,Paris
 44,rue,EMÉRIAU,Paris
 46,rue,BELLECHASSE,Paris
-24,rue,DENFERT-ROCHEREAU,Paris
 85,rue,POMPE,Paris
 86,rue,DUNKERQUE,Paris
 15,rue,AMÉLIE,Paris
@@ -977,7 +972,6 @@ number,type,name,city
 15,rue,ÉCOLE POLYTECHNIQUE,Paris
 32,boulevard,SAINT-MARCEL,Paris
 57,rue,TRUFFAUT,Paris
-2,impasse,SAINT-SAUVEUR,Paris
 66,rue,LONGCHAMP,Paris
 7,boulevard,DAVOUT,Paris
 59,rue,BRETAGNE,Paris
@@ -1044,7 +1038,6 @@ number,type,name,city
 11,rue,MARC SÉGUIN,Paris
 69,rue,MIROMESNIL,Paris
 34,rue,ÉGLISE,Paris
-20,passage,EPARGNE,Paris
 6,rue,PROCESSION,Paris
 73,rue,CLISSON,Paris
 20,rue,SORBONNE,Paris
@@ -1070,7 +1063,6 @@ number,type,name,city
 14,rue,DOMRÉMY,Paris
 13,rue,ÉCLUSES-ST-MARTIN,Paris
 73,rue,CHEVALERET,Paris
-2,passage,CORBEAU,Paris
 51,rue,FOLIE-REGNAULT,Paris
 75,rue,ROQUETTE,Paris
 56,rue,CHATEAU D'EAU,Paris
@@ -1172,7 +1164,6 @@ number,type,name,city
 12,rue,LAMANDÉ,Paris
 1,rue,CLOVIS,Paris
 92,rue,PRONY,Paris
-63,rue,BOISSIÈRE,Paris
 25,rue,PÉCLET,Paris
 10,passage,VANVES,Paris
 17,rue,HAUTEVILLE,Paris
@@ -1343,7 +1334,6 @@ number,type,name,city
 52,rue,BATIGNOLLES,Paris
 27,rue,BICHAT,Paris
 54,rue,JUSTICE,Paris
-19,avenue,BUGEAUD,Paris
 12,impasse,CŒUR DE VEY,Paris
 3,rue,ROBINEAU,Paris
 39,boulevard,BARBÈS,Paris
@@ -1540,7 +1530,6 @@ number,type,name,city
 80,rue,ROUSSIN,Paris
 1,rue,LE REGRATTIER,Paris
 2,rue,HONORÉ CHEVALIER,Paris
-24,rue,REMPARTS,Paris
 46,rue,AMELOT,Paris
 36,rue,ROUSSIN,Paris
 3,rue,BELLOT,Paris
@@ -1717,7 +1706,6 @@ number,type,name,city
 21,rue,GARDES,Paris
 38,rue,MOURAUD,Paris
 22,rue,GALILÉE,Paris
-16,rue,DENFERT-ROCHEREAU,Paris
 220,rue,CHARENTON,Paris
 158,rue,ROQUETTE,Paris
 196,rue,BELLEVILLE,Paris
@@ -1742,7 +1730,6 @@ number,type,name,city
 123,boulevard,HOPITAL,Paris
 66,rue,ORFILA,Paris
 37,rue,ALPHONSE,Paris
-129,boulevard,ITALIE,Paris
 129,rue,SAINT-HONORÉ,Paris
 80,rue,ROMAINVILLE,Paris
 21,rue,VIVIENNE,Paris
@@ -1822,7 +1809,6 @@ number,type,name,city
 32,rue,TAITBOUT,Paris
 34,rue,MOUFFETARD,Paris
 114,rue,DAMRÉMONT,Paris
-11,passage,GRISONS,Paris
 51,rue,VOUILLÉ,Paris
 108,boulevard,MALESHERBES,Paris
 70,rue,MICHEL BIZOT,Paris
@@ -2008,7 +1994,6 @@ number,type,name,city
 3,rue,TAITI,Paris
 14,rue,SAINT-PAUL,Paris
 47,boulevard,CHARONNE,Paris
-27,avenue,BUGEAUD,Paris
 27,rue,BOULAINVILLIERS,Paris
 9,rue,FIGUIER,Paris
 15,rue,GRÉGOIRE DE TOURS,Paris
@@ -2024,7 +2009,6 @@ number,type,name,city
 23,rue,CAUMARTIN,Paris
 36,avenue,KLÉBER,Paris
 16,rue,JUSTICE,Paris
-7,impasse,COURONNES,Paris
 19,rue,MARTYRS,Paris
 18,rue,LEGENDRE,Paris
 23,rue,BÉNARD,Paris
@@ -2055,7 +2039,6 @@ number,type,name,city
 47,rue,JEANNE D'ARC,Paris
 34,rue,DUMONT D'URVILLE,Paris
 25,rue,POPINCOURT,Paris
-6,impasse,FALAISE,Paris
 9,rue,BERNARDINS,Paris
 1,rue,ÉCOSSE,Paris
 66,rue,AQUEDUC,Paris
@@ -2251,7 +2234,6 @@ number,type,name,city
 22,passage,BONNE GRAINE,Paris
 78,rue,ÉGLISE,Paris
 68,boulevard,CHAPELLE,Paris
-5,passage,GRENELLE,Paris
 3,rue,CHARDIN,Paris
 3,rue,PÉPINIÈRE,Paris
 34,rue,LETELLIER,Paris
@@ -2276,7 +2258,6 @@ number,type,name,city
 52,avenue,WAGRAM,Paris
 65,rue,SEDAINE,Paris
 17,rue,N.-D. DE LORETTE,Paris
-10,rue,CHAMP D'ASILE,Paris
 11,rue,DELTA,Paris
 24,rue,LAHIRE,Paris
 5,rue,GUIGNIER,Paris
@@ -2843,7 +2824,6 @@ number,type,name,city
 127,boulevard,MAGENTA,Paris
 16,rue,SERPENTE,Paris
 4,rue,ARBALETE,Paris
-50,avenue,BUGEAUD,Paris
 3,rue,CHATEAUBRIAND,Paris
 41,rue,SAUSSURE,Paris
 110,rue,JAVEL,Paris
@@ -2919,7 +2899,6 @@ number,type,name,city
 13,rue,HENRI REGNAULT,Paris
 73,rue,CHARONNE,Paris
 43,rue,VOLTA,Paris
-10,passage,NOIROT,Paris
 2,rue,BAC,Paris
 76,rue,DEMOURS,Paris
 56,avenue,CHOISY,Paris
@@ -2982,7 +2961,6 @@ number,type,name,city
 2,passage,BOITON,Paris
 27,rue,ÉMILE LEPEU,Paris
 8,rue,FOURCROY,Paris
-8,impasse,BOILEAU,Paris
 38,boulevard,ARAGO,Paris
 12,place,COMMERCE,Paris
 113,rue,CHATEAU,Paris
@@ -3014,7 +2992,6 @@ number,type,name,city
 28,place,SAINT-FERDINAND,Paris
 1,rue,PORTALIS,Paris
 16,rue,MEYNADIER,Paris
-3,place,VOLTAIRE,Paris
 4,rue,LANTIEZ,Paris
 19,rue,CARDINAL-LEMOINE,Paris
 14,rue,BOISSY D'ANGLAS,Paris
@@ -3250,7 +3227,6 @@ number,type,name,city
 126,boulevard,CHARONNE,Paris
 17,rue,BISCORNET,Paris
 15,rue,FEYDEAU,Paris
-9,cité,GAILLARD,Paris
 11,rue,CHATEAU D'EAU,Paris
 4,rue,THÉODORE DECK,Paris
 81,boulevard,MÉNILMONTANT,Paris
@@ -3475,7 +3451,6 @@ number,type,name,city
 48,rue,GÉRARD,Paris
 114,rue,MOINES,Paris
 111,rue,CHERCHE-MIDI,Paris
-14,passage,PRÉVOST,Paris
 59,rue,POISSONNIERS,Paris
 26,rue,LÉCLUSE,Paris
 43,boulevard,SÉBASTOPOL,Paris
@@ -3484,7 +3459,6 @@ number,type,name,city
 19,rue,BOURET,Paris
 19,rue,GODOT DE MAUROY,Paris
 41,rue,VAUGIRARD,Paris
-2,avenue,BUGEAUD,Paris
 85,rue,RÉBEVAL,Paris
 13,rue,THÉRÈSE,Paris
 97,rue,NOLLET,Paris
@@ -3740,7 +3714,6 @@ number,type,name,city
 12,rue,VILLEHARDOUIN,Paris
 29,rue,STÉPHENSON,Paris
 27,rue,CRUSSOL,Paris
-19,impasse,RUISSEAU,Paris
 15,rue,RÉBEVAL,Paris
 1,impasse,BAIGNEUR,Paris
 5,cité,ST-JOSEPH,Paris
@@ -3838,7 +3811,6 @@ number,type,name,city
 11,rue,LALLY-TOLLENDAL,Paris
 6,rue,TIPHAINE,Paris
 40,rue,STÉPHENSON,Paris
-6,impasse,COURONNES,Paris
 17,rue,SAUFFROY,Paris
 14,rue,SAINT-GERMAIN-L’AUXERROIS,Paris
 14,rue,CHAISE,Paris
@@ -3872,7 +3844,6 @@ number,type,name,city
 15,rue,JEAN BOLOGNE,Paris
 5,impasse,GOMBOUST,Paris
 54,rue,SAINT-LOUIS en l'ILE,Paris
-18,passage,DESCHAMPS,Paris
 2,rue,MARQFOY,Paris
 128,boulevard,HOPITAL,Paris
 9,rue,TOURTILLE,Paris
@@ -3930,10 +3901,8 @@ number,type,name,city
 37,rue,MARAICHERS,Paris
 8,rue,REINE-BLANCHE,Paris
 17,rue,SAINT-NICOLAS,Paris
-1,villa,PREVOYANTS,Paris
 95,rue,SAINT-DENIS,Paris
 45,rue,VERCINGÉTORIX,Paris
-1,impasse,SAINT-SAUVEUR,Paris
 75,rue,ANJOU,Paris
 15,rue,HAUTEFEUILLE,Paris
 58,rue,VICTOIRE,Paris
@@ -4063,7 +4032,6 @@ number,type,name,city
 21,rue,DESCOMBES,Paris
 2,passage,LANDRIEU,Paris
 2,rue,MONSIGNY,Paris
-2,avenue,MONTSOURIS,Paris
 24,rue,BEZOUT,Paris
 11,rue,DURANTIN,Paris
 10,rue,PIERRE LESCOT,Paris
@@ -4088,7 +4056,6 @@ number,type,name,city
 11,rue,BERGERS,Paris
 206,boulevard,CHARONNE,Paris
 134,rue,NATIONALE,Paris
-16,rue,ROCHECHOUART,Paris
 101,rue,CHEVALERET,Paris
 72,rue,LONGCHAMP,Paris
 35,boulevard,SÉBASTOPOL,Paris
@@ -4217,7 +4184,6 @@ number,type,name,city
 66,rue,JULIEN LACROIX,Paris
 58,rue,SAINT-ANDRÉ-DES-ARTS,Paris
 9,rue,RIBLETTE,Paris
-8,rue,CHAMP D'ASILE,Paris
 193,rue,BERCY,Paris
 1,rue,MIGNET,Paris
 5,rue,BOULLE,Paris
@@ -4284,7 +4250,6 @@ number,type,name,city
 20,rue,CUSTINE,Paris
 66,rue,CLAUDE BERNARD,Paris
 10,rue,MALEBRANCHE,Paris
-3,passage,CORBEAU,Paris
 17,boulevard,BEAUMARCHAIS,Paris
 37,rue,MARE,Paris
 34,rue,RICHER,Paris
@@ -4619,7 +4584,6 @@ number,type,name,city
 12,rue,JEAN BEAUSSIRE,Paris
 20,rue,PONCELET,Paris
 24,boulevard,ROCHECHOUART,Paris
-5,impasse,MARAIS,Paris
 13,rue,ASSAS,Paris
 10,rue,SAVOIE,Paris
 9,place,PEREIRE,Paris
@@ -4661,7 +4625,6 @@ number,type,name,city
 3,rue,COURCELLES,Paris
 31,rue,VIGNOLES,Paris
 32,rue,AUDE,Paris
-2,avenue,TROCADÉRO,Paris
 42,boulevard,VOLTAIRE,Paris
 88,rue,TURENNE,Paris
 29,rue,TERRE-NEUVE,Paris
@@ -5035,7 +4998,6 @@ number,type,name,city
 49,rue,F FRANCS-BOURGEOIS,Paris
 27,rue,HAXO,Paris
 9,rue,TERRAGE,Paris
-17,passage,LAUZIN,Paris
 21,rue,MONTMORENCY,Paris
 15,rue,GAY-LUSSAC,Paris
 2,rue,STÉPHENSON,Paris
@@ -5171,7 +5133,6 @@ number,type,name,city
 27,rue,BROCHANT,Paris
 2,impasse,ROYER-COLLARD,Paris
 63,rue,VOUILLÉ,Paris
-11,impasse,FALAISE,Paris
 3,rue,PÉTION,Paris
 1,rue,CHAUVEAU-LAGARDE,Paris
 17,rue,HENRI CHEVREAU,Paris
@@ -5266,7 +5227,6 @@ number,type,name,city
 70,rue,ORFILA,Paris
 48,rue,DESSOUS DES BERGES,Paris
 9,rue,TERNES,Paris
-5,passage,BEAULIEU,Paris
 99,rue,MARCADET,Paris
 38,rue,SAUFFROY,Paris
 35,rue,ORFILA,Paris
@@ -5289,7 +5249,6 @@ number,type,name,city
 11,rue,MESNIL,Paris
 26,rue,POPINCOURT,Paris
 10,rue,LE VERRIER,Paris
-26,rue,REMPARTS,Paris
 14,rue,PACHE,Paris
 98,rue,MOINES,Paris
 10,passage,PECQUAY,Paris
@@ -5370,7 +5329,6 @@ number,type,name,city
 103,rue,THÉATRE,Paris
 9,rue,TRACY,Paris
 20,rue,BOURG-TIBOURG,Paris
-11,impasse,MARAIS,Paris
 3,impasse,MARCÈS,Paris
 13,rue,INDUSTRIE,Paris
 17,rue,SALNEUVE,Paris
@@ -5406,7 +5364,6 @@ number,type,name,city
 54,rue et place,SAINT-GEORGES,Paris
 76,rue,CURIAL,Paris
 40,passage,CAIRE,Paris
-12,impasse,FALAISE,Paris
 42,rue,MOUZAIA,Paris
 46,cité,FLEURS,Paris
 76,boulevard,CHAPELLE,Paris
@@ -5443,7 +5400,6 @@ number,type,name,city
 16,rue,MONTPARNASSE,Paris
 46,rue,MOULIN-VERT,Paris
 1,rue,ÉBLÉ,Paris
-16,passage,GOURDON,Paris
 18,passage,CHARLES-ALBERT,Paris
 1,rue,BOUTAREL,Paris
 71,rue,BOURSAULT,Paris
@@ -5559,7 +5515,6 @@ number,type,name,city
 41,boulevard,SOULT,Paris
 114,rue,CLIGNANCOURT,Paris
 44,rue,CLICHY,Paris
-8,rue,BUGEAUD,Paris
 7,rue,BUTTE-AUX-CAILLES,Paris
 33,rue,BRUNEL,Paris
 57,rue,MYRHA,Paris
@@ -5808,7 +5763,6 @@ number,type,name,city
 12,cité,DUPONT,Paris
 15,rue,MORÈRE,Paris
 94,rue,HAIES,Paris
-2,villa,PREVOYANTS,Paris
 30,rue,FAUBOURG SAINT-MARTIN,Paris
 13,rue,LANTIEZ,Paris
 10,rue,BALKANS,Paris
@@ -5909,7 +5863,6 @@ number,type,name,city
 25,rue,GRANGE-AUX-BELLES,Paris
 172,rue,SAINT-MARTIN,Paris
 3,rue,MONT-LOUIS,Paris
-6,passage,DESCHAMPS,Paris
 51,rue,CROIX-St-SIMON,Paris
 31,rue,PASQUIER,Paris
 9,rue,PAIX,Paris
@@ -5940,7 +5893,6 @@ number,type,name,city
 2,rue,DIARD,Paris
 175,quai,VALMY,Paris
 17,rue,MILTON,Paris
-4,passage,EPARGNE,Paris
 17,rue,ANJOU,Paris
 119,avenue,WAGRAM,Paris
 1,rue,BOULE-ROUGE,Paris
@@ -6008,7 +5960,6 @@ number,type,name,city
 4,rue,JEAN NICOT,Paris
 2,cité,LEMIÈRE,Paris
 45,rue,ORILLON,Paris
-11,avenue,MONTSOURIS,Paris
 45,rue,GAITÉ,Paris
 54,rue,CHARDON-LAGACHE,Paris
 31,rue,BEAUBOURG,Paris
@@ -6081,7 +6032,6 @@ number,type,name,city
 7,rue,CAPRON,Paris
 1,rue,DELAROCHE,Paris
 41,rue,CHAZELLES,Paris
-5,passage,VIDUS,Paris
 55,rue,BICHAT,Paris
 96,boulevard,RICHARD LENOIR,Paris
 23,rue,F FRANCS-BOURGEOIS,Paris
@@ -6185,7 +6135,6 @@ number,type,name,city
 65,rue,ARGOUT,Paris
 5,rue,MARCHÉ DES PATRIARCHES,Paris
 202,rue,SAINT-MARTIN,Paris
-19,passage,BOUCHARDY,Paris
 7,rue,BORROMÉE,Paris
 3,impasse,DELIGNY,Paris
 5,rue,BELLOY,Paris
@@ -6288,7 +6237,6 @@ number,type,name,city
 38,rue,BEAUJON,Paris
 49,rue,MOUFFETARD,Paris
 1,passage,ÉPINETTES,Paris
-6,rue,HERR,Paris
 22,rue,DECRÈS,Paris
 148,rue,LAMARCK,Paris
 32,rue,FAUBOURG St-JACQUES,Paris
@@ -6390,7 +6338,6 @@ number,type,name,city
 2,rue,TRÉVISE,Paris
 28,rue,TOURNELLES,Paris
 8,rue,LAS-CASES,Paris
-2,impasse,FALAISE,Paris
 144,rue,VAUGIRARD,Paris
 14,rue,EDIMBOURG,Paris
 146,rue,ROQUETTE,Paris
@@ -6574,7 +6521,6 @@ number,type,name,city
 9,passage,THIONVILLE,Paris
 77,rue,BAUDRICOURT,Paris
 2,rue,SAINTE-OPPORTUNE,Paris
-14,avenue,MONTSOURIS,Paris
 2,rue,PRESLE,Paris
 10,rue,NESLES,Paris
 41,rue,F FRANCS-BOURGEOIS,Paris
@@ -6585,7 +6531,6 @@ number,type,name,city
 138,rue,TOMBE-ISSOIRE,Paris
 49,rue,MESLAY,Paris
 59,rue,FAUBOURG ST-HONORÉ,Paris
-26,passage,PRÉVOST,Paris
 19,rue,ÉCOLE POLYTECHNIQUE,Paris
 5,rue,SAMSON,Paris
 19,rue,MARIE STUART,Paris
@@ -6654,7 +6599,6 @@ number,type,name,city
 11,rue,SENTIER,Paris
 188,rue,CRIMÉE,Paris
 21,rue,VALOIS,Paris
-1,passage,GOSSELIN,Paris
 6,rue,BIGORRE,Paris
 92,rue,LA CONDAMINE,Paris
 63,boulevard,SAINT-GERMAIN,Paris
@@ -6674,7 +6618,6 @@ number,type,name,city
 55,boulevard,MALESHERBES,Paris
 6,rue,MONTMARTRE,Paris
 15,passage,CLOS BRUNEAU,Paris
-2,rue,FLANDRE,Paris
 74,rue,CHARENTON,Paris
 73,rue,MOZART,Paris
 10,rue,MONT-THABOR,Paris
@@ -6856,7 +6799,6 @@ number,type,name,city
 34,rue,MONSIEUR LE PRINCE,Paris
 9,rue,SAINT-LAURENT,Paris
 2,rue,MICHAL,Paris
-13,passage,MOULINET,Paris
 36,rue,AUBERVILLIERS,Paris
 74,rue,DUNKERQUE,Paris
 6,rue,GUY DE LA BROSSE,Paris
@@ -6881,7 +6823,6 @@ number,type,name,city
 100,rue,OBERKAMPF,Paris
 74,rue,ROME,Paris
 5,passage,MONTGALLET,Paris
-21,rue,FRANKLIN,Paris
 1,rue,LORRAINE,Paris
 14,passage,RIVIÈRE,Paris
 6,rue,AUMAIRE,Paris
@@ -7174,7 +7115,6 @@ number,type,name,city
 26,rue,PARTANTS,Paris
 7,rue,LA JONQUIÈRE,Paris
 55,rue,BERGERS,Paris
-17,boulevard,ITALIE,Paris
 19,passage,POISSONNIERS,Paris
 21,rue,CAMPAGNE-PREMIÈRE,Paris
 1,rue,CHARLEMAGNE,Paris
@@ -7356,7 +7296,6 @@ number,type,name,city
 89,rue,AVRON,Paris
 4,rue,JARENTE,Paris
 31,rue,ABBÉ GROULT,Paris
-15,passage,EPARGNE,Paris
 1,rue,AVRE,Paris
 14,passage,MONTGALLET,Paris
 8,rue,RÉGIS,Paris
@@ -7534,7 +7473,6 @@ number,type,name,city
 20,rue,ÉCHIQUIER,Paris
 5,rue,LINOIS,Paris
 159,rue,CHAMPIONNET,Paris
-11,passage,MARCHÉ DES PATRIARCHES,Paris
 10,rue,BOIS DE BOULOGNE,Paris
 1,rue,GIFFARD,Paris
 123,rue,MONGE,Paris
@@ -7734,7 +7672,6 @@ number,type,name,city
 121,rue,SAINT-LAZARE,Paris
 126,rue,TOCQUEVILLE,Paris
 7,rue,MONT DORE,Paris
-6,avenue,TROCADÉRO,Paris
 16,rue,LAGRANGE,Paris
 49,rue,ALLERAY,Paris
 18,rue,CLAUDE VELLEFAUX,Paris
@@ -7822,7 +7759,6 @@ number,type,name,city
 28,rue,CHATEAU D'EAU,Paris
 33,rue,APENNINS,Paris
 4,rue,MONTESQUIEU,Paris
-11,passage,BEAULIEU,Paris
 21,rue,EUPATORIA,Paris
 22,rue,SAINT-MERRI,Paris
 43,rue,FONDARY,Paris
@@ -8073,7 +8009,6 @@ number,type,name,city
 209,rue,SAINT-HONORÉ,Paris
 3,rue,MIGNARD,Paris
 21,rue,PONT-AUX-CHOUX,Paris
-53,boulevard,ITALIE,Paris
 1,boulevard,BERCY,Paris
 13,passage,GATBOIS,Paris
 2,rue,ABBÉ GRÉGOIRE,Paris
@@ -8179,7 +8114,6 @@ number,type,name,city
 15,rue,SAINT-SULPICE,Paris
 179,rue,ROQUETTE,Paris
 24,rue,BERLIOZ,Paris
-6,passage,GOURDON,Paris
 11,rue,POT DE FER,Paris
 21,rue,CHAUDRON,Paris
 51,rue,TOCQUEVILLE,Paris
@@ -8400,7 +8334,6 @@ number,type,name,city
 56,rue,MOULIN DES PRÉS,Paris
 90,boulevard,MASSÉNA,Paris
 191,rue,FAUBOURG ST-HONORÉ,Paris
-16,passage,REUSS,Paris
 1,passage,ROCHEBRUNE,Paris
 55,rue,F FRANCS-BOURGEOIS,Paris
 43,rue,ABBESSES,Paris
@@ -8623,7 +8556,6 @@ number,type,name,city
 7,impasse,LETORT,Paris
 110,rue,DIDOT,Paris
 109,rue,TOMBE-ISSOIRE,Paris
-26,impasse,RUISSEAU,Paris
 190,rue,VAUGIRARD,Paris
 54,rue,RAMUS,Paris
 8,rue,N.-D. DES VICTOIRES,Paris
@@ -8695,7 +8627,6 @@ number,type,name,city
 28,rue,DUSSOUBS,Paris
 4,impasse,POPINCOURT,Paris
 33,quai,VALMY,Paris
-2,passage,MENGUY,Paris
 94,avenue,IVRY,Paris
 32,rue,BALLU,Paris
 52,rue,CLAUDE DECAEN,Paris
@@ -8743,7 +8674,6 @@ number,type,name,city
 72,rue,SAINT-ANDRÉ-DES-ARTS,Paris
 19,rue,FAUVET,Paris
 73,rue,PERNETY,Paris
-8,passage,REUSS,Paris
 57,rue,TOMBE-ISSOIRE,Paris
 17,rue,RENDEZ-VOUS,Paris
 73,rue,GRENELLE,Paris
@@ -8799,7 +8729,6 @@ number,type,name,city
 65,rue,PETIT,Paris
 1,rue,BEAUTREILLIS,Paris
 168,rue,ALÉSIA,Paris
-5,rue,ROCHECHOUART,Paris
 11,passage,ROCHEBRUNE,Paris
 37,rue,ROUSSELET,Paris
 37,rue,PASCAL,Paris
@@ -8917,7 +8846,6 @@ number,type,name,city
 36,rue,LOUVRE,Paris
 52,rue,SANTÉ,Paris
 19,rue,GABRIELLE,Paris
-51,avenue,BUGEAUD,Paris
 12,passage,LATHUILE,Paris
 17,rue,AQUEDUC,Paris
 8,place,VICTOIRES,Paris
@@ -8961,7 +8889,6 @@ number,type,name,city
 15,rue,VIRGINIE,Paris
 45,rue,LACORDAIRE,Paris
 35,rue,ENGHIEN,Paris
-19,passage,RONDONNEAUX,Paris
 2,cité,BAUER,Paris
 3,rue,BEUDANT,Paris
 1,rue,MARTEL,Paris
@@ -9005,7 +8932,6 @@ number,type,name,city
 8,impasse,BŒUFS,Paris
 18,villa,HERRAN,Paris
 168,avenue,CLICHY,Paris
-15,boulevard,ITALIE,Paris
 151,avenue,ITALIE,Paris
 36,rue,AMPÈRE,Paris
 39,rue,SAINTE-ANNE,Paris
@@ -9092,7 +9018,6 @@ number,type,name,city
 60,avenue,MONTAIGNE,Paris
 82,rue,ÉGLISE,Paris
 1,impasse,ANGLAIS,Paris
-149,boulevard,ITALIE,Paris
 7,rue,ÉCOUFFES,Paris
 22,rue,VÉGA,Paris
 53,avenue,OBSERVATOIRE,Paris
@@ -9208,7 +9133,6 @@ number,type,name,city
 23,avenue,NIEL,Paris
 37,rue,LEMERCIER,Paris
 67,rue,GRENÉTA,Paris
-8,passage,PUÉBLA,Paris
 29,rue,COLONNES DU TRONE,Paris
 38,avenue,NIEL,Paris
 58,rue,PROVENCE,Paris
@@ -9218,7 +9142,6 @@ number,type,name,city
 1,rue,QUATRE-FILS,Paris
 6,rue,LEROUX,Paris
 8,rue,HÉLIOPOLIS,Paris
-13,passage,BEAULIEU,Paris
 31,boulevard,PICPUS,Paris
 51,rue,CLAUDE BERNARD,Paris
 49,rue,PHILIPPE DE GIRARD,Paris
@@ -9231,7 +9154,6 @@ number,type,name,city
 3,rue,DAUBIGNY,Paris
 124,rue,CHERCHE-MIDI,Paris
 6,rue,ROUGEMONT,Paris
-40,boulevard,ITALIE,Paris
 16,rue,DAVAL,Paris
 4,impasse,CLIGNANCOURT,Paris
 62,rue,HALLÉ,Paris
@@ -9466,7 +9388,6 @@ number,type,name,city
 25,rue,FONTAINE-AU-ROI,Paris
 21,rue,TRUFFAUT,Paris
 3,rue,CONDÉ,Paris
-17,passage,TIVOLI,Paris
 120,boulevard,GRENELLE,Paris
 1,rue,BIRAGUE,Paris
 15,rue,ROI D'ALGER,Paris
@@ -9729,7 +9650,6 @@ number,type,name,city
 6,rue,GEOFFROY L'ANGEVIN,Paris
 3,rue,CLOCHE,Paris
 7,rue,HOUDON,Paris
-5,passage,RONCE,Paris
 44,rue,ARCHIVES,Paris
 7,rue,SAINT-FLORENTIN,Paris
 9,passage,WATTIAUX,Paris
@@ -9745,7 +9665,6 @@ number,type,name,city
 43,rue,MONCEAU,Paris
 1,rue,CYGNE,Paris
 15,rue,MONTHOLON,Paris
-19,passage,ALLEMAGNE,Paris
 35,rue,CHATEAU D'EAU,Paris
 77,rue,LAURISTON,Paris
 56,cité,FLEURS,Paris
@@ -9843,9 +9762,7 @@ number,type,name,city
 1,rue,NICOLAS CHUQUET,Paris
 8,rue,MAIL,Paris
 6,rue,SAINTE-OPPORTUNE,Paris
-9,passage,GRISONS,Paris
 47,rue,FAUBOURG SAINT-MARTIN,Paris
-8,passage,NOIROT,Paris
 22,rue,AQUEDUC,Paris
 2,cité,FROCHOT,Paris
 41,rue,POPINCOURT,Paris
@@ -9862,7 +9779,6 @@ number,type,name,city
 66,rue,MADEMOISELLE,Paris
 48,rue,BERTHE,Paris
 79,avenue,LA BOURDONNAIS,Paris
-2,passage,TIVOLI,Paris
 2,rue,MAURICE MAYER,Paris
 58,rue,LISBONNE,Paris
 23,rue,NIGER,Paris
@@ -9880,7 +9796,6 @@ number,type,name,city
 6,passage,ORTEAUX,Paris
 157,boulevard,MURAT,Paris
 53,rue,MAUBEUGE,Paris
-14,rue,DENFERT-ROCHEREAU,Paris
 25,rue,MARGUETTES,Paris
 10,rue,MONTHOLON,Paris
 142,rue,DAMRÉMONT,Paris
@@ -9918,7 +9833,6 @@ number,type,name,city
 1,rue,LOUIS BRAILLE,Paris
 7,rue,CAUMARTIN,Paris
 17,passage,BRUNE,Paris
-13,cité,BLUETS,Paris
 62,rue,MONTPARNASSE,Paris
 133,rue,NATIONALE,Paris
 28,rue,DOUDEAUVILLE,Paris
@@ -9993,7 +9907,6 @@ number,type,name,city
 55,rue,COMPANS,Paris
 9,rue,MOULIN DE LA POINTE,Paris
 44,rue,FRANÇOIS MIRON,Paris
-12,passage,RONCE,Paris
 1,rue,DEPARCIEUX,Paris
 3,rue,CORDERIE,Paris
 11,rue,JOUBERT,Paris
@@ -10027,7 +9940,6 @@ number,type,name,city
 21,rue,SAINT-SÉVERIN,Paris
 3,rue,GRANCEY,Paris
 41,passage,CAIRE,Paris
-16,passage,DORÉ,Paris
 81,rue,MOINES,Paris
 43,rue,SAUFFROY,Paris
 85,rue,DENFERT-ROCHEREAU,Paris
@@ -10174,7 +10086,6 @@ number,type,name,city
 61,rue,CARDINET,Paris
 3,rue,ROI-DORÉ,Paris
 10,rue,EUGÈNE DELACROIX,Paris
-20,passage,ALLEMAGNE,Paris
 59,boulevard,CLICHY,Paris
 182,rue,COURCELLES,Paris
 13,rue,DOMAT,Paris
@@ -10377,7 +10288,6 @@ number,type,name,city
 12,rue,LÉCUIROT,Paris
 15,impasse,DECRÈS,Paris
 6,place,PALAIS-BOURBON,Paris
-15,passage,DESCHAMPS,Paris
 3,rue,GRACIEUSE,Paris
 23,rue,EUGÈNE FLACHAT,Paris
 3,rue,BIGORRE,Paris
@@ -10497,7 +10407,6 @@ number,type,name,city
 64,boulevard,ROCHECHOUART,Paris
 48,rue,CHARENTON,Paris
 88,rue,PROCESSION,Paris
-5,impasse,COQ,Paris
 60,rue,LEIBNITZ,Paris
 148,rue,TEMPLE,Paris
 57,avenue,GAMBETTA,Paris
@@ -10576,12 +10485,10 @@ number,type,name,city
 11,rue,CROIX DES PETITS-CHAMPS,Paris
 23,rue,BRÉA,Paris
 18,rue,BAUDELIQUE,Paris
-1,place,VOLTAIRE,Paris
 1,rue,BERGERS,Paris
 86,rue,SAINT-DOMINIQUE,Paris
 13,rue,NICE,Paris
 14,rue,MARSEILLE,Paris
-24,passage,DHIER,Paris
 15,rue,SAINT-AMBROISE,Paris
 4,rue,UNIVERSITÉ,Paris
 3,rue,MARCADET,Paris
@@ -10613,7 +10520,6 @@ number,type,name,city
 188,rue,FAUBOURG SAINT-ANTOINE,Paris
 17,rue,HELDER,Paris
 31,rue,FÉLICITÉ,Paris
-2,passage,NOIROT,Paris
 6,rue,DUÉE,Paris
 9,rue,VAUGIRARD,Paris
 203,avenue,MAINE,Paris
@@ -10645,14 +10551,12 @@ number,type,name,city
 1,rue,SAINT-BERNARD,Paris
 2,rue,EMÉRIAU,Paris
 45,rue,BABYLONE,Paris
-20,passage,MASLIER,Paris
 23,rue,MONTORGUEIL,Paris
 101,rue,MARCADET,Paris
 1,cité,FLEURS,Paris
 154,boulevard,SAINT-GERMAIN,Paris
 2,rue,DUBRUNFAUT,Paris
 16,rue,SPONTINI,Paris
-17,rue,FRANKLIN,Paris
 40,rue,VERNEUIL,Paris
 68,rue,LOURMEL,Paris
 16,avenue,BOUVINES,Paris
@@ -10826,7 +10730,6 @@ number,type,name,city
 118,boulevard,MASSÉNA,Paris
 29,rue,SAINT- SABIN,Paris
 6,boulevard,BELLEVILLE,Paris
-38,avenue,BUGEAUD,Paris
 50,rue,TROIS FRÈRES,Paris
 30,rue,MOURAUD,Paris
 89,rue,COMMERCE,Paris
@@ -10962,10 +10865,8 @@ number,type,name,city
 29,avenue,MONTAIGNE,Paris
 180,rue,FAUBOURG SAINT-MARTIN,Paris
 5,rue,DANVILLE,Paris
-22,rue,DENFERT-ROCHEREAU,Paris
 39,quai,SEINE,Paris
 10,rue,JARENTE,Paris
-52,boulevard,ITALIE,Paris
 57,rue,MIROMESNIL,Paris
 41,rue,GABRIELLE,Paris
 15,rue,CHALGRIN,Paris
@@ -11011,7 +10912,6 @@ number,type,name,city
 5,place,ALLERAY,Paris
 57,rue,OURCQ,Paris
 15,rue,DUPLEIX,Paris
-4,impasse,FLEURY,Paris
 103,boulevard,LEFEBVRE,Paris
 44,avenue,RÉPUBLIQUE,Paris
 8,rue,PORTEFOIN,Paris
@@ -11023,7 +10923,6 @@ number,type,name,city
 120,boulevard,COURCELLES,Paris
 14,rue,SAINTE-ISAURE,Paris
 37,rue,LA QUINTINIE,Paris
-10,rue,SAY,Paris
 23,rue,RENNEQUIN,Paris
 10,rue,VINCENT COMPOINT,Paris
 52,rue,RUISSEAU,Paris
@@ -11053,7 +10952,6 @@ number,type,name,city
 97,rue,CHEMIN-VERT,Paris
 44,rue,BERGERS,Paris
 15,rue,SIMON-LE-FRANC,Paris
-4,place,ÉTOILE,Paris
 37,avenue,FRIEDLAND,Paris
 23,boulevard,CLICHY,Paris
 5,rue,SAUVAL,Paris
@@ -11122,7 +11020,6 @@ number,type,name,city
 5,rue,LÉONCE REYNAUD,Paris
 12,rue,BROCA,Paris
 2,rue,JEAN COTTIN,Paris
-10,rue,BUGEAUD,Paris
 2,rue,CONSTANCE,Paris
 12,rue,GRÉGOIRE DE TOURS,Paris
 64,rue,LOMBARDS,Paris
@@ -11257,7 +11154,6 @@ number,type,name,city
 7,rue,CAILLÉ,Paris
 34,rue,MANIN,Paris
 7,passage,TOURELLES,Paris
-24,passage,FOURNEAUX,Paris
 43,rue,ROQUETTE,Paris
 36,rue,BLOMET,Paris
 31,rue,LA TOUR D'AUVERGNE,Paris
@@ -11329,7 +11225,6 @@ number,type,name,city
 10,rue,TANNERIES,Paris
 3,impasse,LEMIÈRE,Paris
 67,avenue,TERNES,Paris
-15,rue,FRANKLIN,Paris
 27,rue,BIENFAISANCE,Paris
 4,passage,VANVES,Paris
 32,rue,LUBECK,Paris
@@ -11396,7 +11291,6 @@ number,type,name,city
 44,rue,LA CONDAMINE,Paris
 15,rue,BROCHANT,Paris
 53,rue,SAINT-ROCH,Paris
-58,boulevard,ITALIE,Paris
 56,rue,FÉDÉRATION,Paris
 27,rue,MARCADET,Paris
 136,avenue,MAINE,Paris
@@ -11452,7 +11346,6 @@ number,type,name,city
 22,rue,FOSSES-ST-JACQUES,Paris
 6,avenue,RUYSDAEL,Paris
 7,passage,RONDONNEAUX,Paris
-5,passage,DESCHAMPS,Paris
 29,avenue,HOCHE,Paris
 15,square,MESSINE,Paris
 6,rue,CENSIER,Paris
@@ -11534,7 +11427,6 @@ number,type,name,city
 112,avenue,KLÉBER,Paris
 20,rue,PRESSOIR,Paris
 17,rue,PETIT PONT,Paris
-73,boulevard,ITALIE,Paris
 96,rue,VICTOIRE,Paris
 21,rue,RENARD,Paris
 16,cours,REINE,Paris
@@ -11624,7 +11516,6 @@ number,type,name,city
 32,rue,FESSART,Paris
 42,rue,BERZÉLIUS,Paris
 10,place,MALESHERBES,Paris
-2,passage,DUCLOS,Paris
 144,boulevard,PEREIRE,Paris
 27,rue,DEUX-PONTS,Paris
 78,rue et place,REUNION,Paris
@@ -11718,7 +11609,6 @@ number,type,name,city
 4,rue,LEVERT,Paris
 9,avenue,LA MOTTE-PICQUET,Paris
 19,rue,HARPE,Paris
-14,passage,MASLIER,Paris
 9,rue,TERNAUX,Paris
 221,rue,CROIX-NIVERT,Paris
 80,rue,BEAUBOURG,Paris
@@ -11789,7 +11679,6 @@ number,type,name,city
 12,rue,DESCOMBES,Paris
 18,rue,DUBAN,Paris
 45,boulevard,BEAUSÉJOUR,Paris
-24,passage,MASLIER,Paris
 31,rue,BELLECHASSE,Paris
 3,rue,BOURSAULT,Paris
 11,rue,VALENCE,Paris
@@ -11866,7 +11755,6 @@ number,type,name,city
 40,boulevard,DIDEROT,Paris
 19,rue,DAREAU,Paris
 43,rue,FONTAINE,Paris
-20,passage,REUSS,Paris
 7,rue,GODEFROY-CAVAIGNAC,Paris
 12,rue,SAINT-QUENTIN,Paris
 74,boulevard,MASSÉNA,Paris
@@ -12178,7 +12066,6 @@ number,type,name,city
 4,rue,DU SOMMERARD,Paris
 9,passage,HAUTES-FORMES,Paris
 59,boulevard,SÉBASTOPOL,Paris
-18,passage,GOURDON,Paris
 3,rue,VICQ d'AZIR,Paris
 31,rue,SAINT-AMBROISE,Paris
 23,avenue,GRANDE-ARMÉE,Paris
@@ -12727,7 +12614,6 @@ number,type,name,city
 12,rue,CHATEAUDUN,Paris
 5,impasse,MAUBERT,Paris
 23,villa,PROGRÈS,Paris
-7,rue,ROCHECHOUART,Paris
 3,passage,SAINT-SÉBASTIEN,Paris
 145,rue,SAINT-MAUR,Paris
 13,rue,DELAMBRE,Paris
@@ -12812,7 +12698,6 @@ number,type,name,city
 57,avenue,MAINE,Paris
 42,rue,STENDHAL,Paris
 15,rue,DAUNOU,Paris
-29,avenue,MONTSOURIS,Paris
 100,avenue,PARMENTIER,Paris
 13,rue,MAITRE-ALBERT,Paris
 11,passage,AUSTERLITZ,Paris
@@ -12927,7 +12812,6 @@ number,type,name,city
 8,passage,BASFROI,Paris
 97,rue,ROQUETTE,Paris
 68,rue,AUTEUIL,Paris
-14,passage,EPARGNE,Paris
 10,rue,COUSTOU,Paris
 10,passage,VAUCOULEURS,Paris
 9,rue,CHALIGNY,Paris
@@ -13089,7 +12973,6 @@ number,type,name,city
 24,rue,GUILLAUME-TELL,Paris
 44,rue,MALTE,Paris
 92,rue,AUBERVILLIERS,Paris
-11,rue,ROCHECHOUART,Paris
 85,rue,BROCA,Paris
 43,rue,ALPHONSE,Paris
 18,passage,SOUPIRS,Paris
@@ -13129,7 +13012,6 @@ number,type,name,city
 18,rue,ÉLYSEE,Paris
 2,rue,LINOIS,Paris
 11,rue,DESRENAUDES,Paris
-13,impasse,RUISSEAU,Paris
 29,rue,PETIT-MUSC,Paris
 1,rue,SAINTE-ANNE,Paris
 21,rue,MORAND,Paris
@@ -13148,7 +13030,6 @@ number,type,name,city
 176,rue,FAUBOURG SAINT-DENIS,Paris
 11,rue,ANCIENNE COMÉDIE,Paris
 78,rue,DUHESME,Paris
-26,passage,SUISSES,Paris
 11,rue,VANEAU,Paris
 14,boulevard,ARAGO,Paris
 6,impasse,CROZATIER,Paris
@@ -13190,7 +13071,6 @@ number,type,name,city
 40,cours,REINE,Paris
 9,passage,DUBAIL,Paris
 9,rue,BOUQUET DE LONGCHAMP,Paris
-18,rue,ROCHECHOUART,Paris
 4,rue,SULLY,Paris
 10,rue,PETITE-TRUANDERIE,Paris
 27,rue,ALÉSIA,Paris
@@ -13261,7 +13141,6 @@ number,type,name,city
 30,rue,LETORT,Paris
 89,rue,MANIN,Paris
 250,boulevard,VOLTAIRE,Paris
-12,passage,ALLEMAGNE,Paris
 23,rue,ABBÉ GRÉGOIRE,Paris
 17,avenue,MATIGNON,Paris
 10,rue,RIGOLES,Paris
@@ -13411,7 +13290,6 @@ number,type,name,city
 22,rue,LE BUA,Paris
 62,rue,BERGERS,Paris
 19,cité,BAUER,Paris
-17,rue,ROCHECHOUART,Paris
 9,rue,FESSART,Paris
 42,rue,CAUMARTIN,Paris
 12,rue,COLOMBE,Paris
@@ -13502,7 +13380,6 @@ number,type,name,city
 83,boulevard,SUCHET,Paris
 4,rue,DEPARTEMENT,Paris
 16,rue,CASSINI,Paris
-4,passage,BOUCHARDY,Paris
 9,rue,AVE MARIA,Paris
 4,rue,ODÉON,Paris
 6,avenue,RAPP,Paris
@@ -13559,7 +13436,6 @@ number,type,name,city
 103,rue,SAINT-MAUR,Paris
 9,rue,PY,Paris
 78,boulevard,KELLERMANN,Paris
-6,impasse,MARAIS,Paris
 27,rue,DOMBASLE,Paris
 2,rue,MUSSET,Paris
 129,avenue,ITALIE,Paris
@@ -13604,7 +13480,6 @@ number,type,name,city
 24,rue,TOURTILLE,Paris
 6,rue,GUERSANT,Paris
 50,rue,MATHURINS,Paris
-19,passage,FOURNEAUX,Paris
 25,rue,BIOT,Paris
 136,avenue,PARMENTIER,Paris
 133,avenue,WAGRAM,Paris
@@ -13704,7 +13579,6 @@ number,type,name,city
 59,rue,PASCAL,Paris
 93,rue,AMPÈRE,Paris
 46,rue,SAINT-FERDINAND,Paris
-2,chemin,CARRIÈRES,Paris
 157,boulevard,SAINT-GERMAIN,Paris
 43,rue,SEDAINE,Paris
 54,rue,ORTEAUX,Paris
@@ -13785,7 +13659,6 @@ number,type,name,city
 59,rue,PERGOLÈSE,Paris
 62,rue,SAUSSURE,Paris
 35,rue,FÉLICITÉ,Paris
-9,passage,PUÉBLA,Paris
 47,rue,HAIES,Paris
 9,rue,BARBANÈGRE,Paris
 169,rue,MARCADET,Paris
@@ -13948,7 +13821,6 @@ number,type,name,city
 17,boulevard,ARAGO,Paris
 15,rue,VILLEDO,Paris
 135,rue,MICHEL-ANGE,Paris
-2,passage,CROUIN,Paris
 46,rue,SAINT-LOUIS en l'ILE,Paris
 8,rue,FRÉDÉRIC BASTIAT,Paris
 10,passage,MOUFLE,Paris
@@ -14016,7 +13888,6 @@ number,type,name,city
 7,rue,FIGUIER,Paris
 78,rue,RÉBEVAL,Paris
 11,rue,PRADIER,Paris
-14,passage,PROCESSION,Paris
 8,villa,BELLEVUE,Paris
 8,rue,SAINT-FERDINAND,Paris
 107,rue,MONTREUIL,Paris
@@ -14034,7 +13905,6 @@ number,type,name,city
 5,rue,MONSIEUR,Paris
 20,rue,POINTE D'IVRY,Paris
 45,rue,MOURAUD,Paris
-17,passage,RONCE,Paris
 6,rue,AVRE,Paris
 6,rue,BERTIN-POIRÉE,Paris
 2,rue,LEKAIN,Paris
@@ -14225,7 +14095,6 @@ number,type,name,city
 38,rue,POISSONNIERS,Paris
 25,rue,LINOIS,Paris
 1,rue,NATIONALE,Paris
-1,passage,TIVOLI,Paris
 204,avenue,VERSAILLES,Paris
 87,rue,HAXO,Paris
 11,rue,ASSAS,Paris
@@ -14425,7 +14294,6 @@ number,type,name,city
 154,boulevard,HAUSSMANN,Paris
 45,rue,CAUMARTIN,Paris
 70,boulevard,CLICHY,Paris
-4,boulevard,ITALIE,Paris
 58,rue,BOURSAULT,Paris
 9,rue,ÉRARD,Paris
 78,rue,MICHEL-ANGE,Paris
@@ -14467,7 +14335,6 @@ number,type,name,city
 24,rue,TORCY,Paris
 7,rue,LORD BYRON,Paris
 7,rue,FENOUX,Paris
-12,rue,CAMOU,Paris
 2,square,LA TOUR-MAUBOURG,Paris
 29,rue,MESLAY,Paris
 11,rue,TROIS COURONNES,Paris
@@ -14563,7 +14430,6 @@ number,type,name,city
 14,rue,VÉRON,Paris
 125,avenue,PARMENTIER,Paris
 67,rue,MANIN,Paris
-17,passage,GOURDON,Paris
 3,avenue,GRANDE-ARMÉE,Paris
 294,rue,SAINT-JACQUES,Paris
 32,rue,RENDEZ-VOUS,Paris
@@ -14771,7 +14637,6 @@ number,type,name,city
 48,rue,NOLLET,Paris
 19,rue,POITOU,Paris
 10,rue,TAITBOUT,Paris
-17,passage,BEAULIEU,Paris
 42,rue,LEROY-DUPRÉ,Paris
 18,rue,LETORT,Paris
 2,place,IÉNA,Paris
@@ -14923,7 +14788,6 @@ number,type,name,city
 123,rue,MOZART,Paris
 97,rue,JAVEL,Paris
 21,rue,MOULINET,Paris
-18,rue,DENFERT-ROCHEREAU,Paris
 10,rue,JEANNE,Paris
 105,boulevard,HOPITAL,Paris
 45,rue,CHAUSSÉE D'ANTIN,Paris
@@ -14934,7 +14798,6 @@ number,type,name,city
 16,rue,PIERRE LEVÉE,Paris
 6,rue,SAVOIE,Paris
 88,boulevard,BELLEVILLE,Paris
-16,passage,CORBEAU,Paris
 47,rue,CHARENTON,Paris
 10,passage,DAGORNO,Paris
 138,avenue,PARMENTIER,Paris
@@ -15031,7 +14894,6 @@ number,type,name,city
 40,rue,CLAUDE VELLEFAUX,Paris
 9,rue,ANCIENNE COMÉDIE,Paris
 7,rue,ANDROUET,Paris
-6,impasse,CÉLESTIN,Paris
 59,rue,EMÉRIAU,Paris
 75,avenue,RÉPUBLIQUE,Paris
 68,rue,OUEST,Paris
@@ -15285,7 +15147,6 @@ number,type,name,city
 15,rue,N.-D. DE NAZARETH,Paris
 82,rue,ROME,Paris
 69,passage,CHOISEUL,Paris
-8,rue,REMPARTS,Paris
 116,avenue,CLICHY,Paris
 42,avenue,BRETEUIL,Paris
 1,passage,AUSTERLITZ,Paris
@@ -15307,7 +15168,6 @@ number,type,name,city
 15,boulevard,DIDEROT,Paris
 30,rue,SAINT-AUGUSTIN,Paris
 62,rue,BOURSAULT,Paris
-9,passage,RONCE,Paris
 17,rue,TERRASSE,Paris
 12,rue,DARU,Paris
 122,rue,HAXO,Paris
@@ -15398,7 +15258,6 @@ number,type,name,city
 18,rue,PÉTION,Paris
 22,rue,FABRE d'ÉGLANTINE,Paris
 20,rue,COTTE,Paris
-1,place,HOTEL DE VILLE,Paris
 35,rue,LE MAROIS,Paris
 23,rue,CONSTANTINOPLE,Paris
 12,avenue,MONTAIGNE,Paris
@@ -15474,7 +15333,6 @@ number,type,name,city
 21,rue,MONTPENSIER,Paris
 12,rue,BOUTEBRIE,Paris
 7,rue,PAJOU,Paris
-16,passage,BOUCHARDY,Paris
 4,place,CONCORDE,Paris
 62,rue,BATIGNOLLES,Paris
 1,rue,SAINT-ROCH,Paris
@@ -15593,7 +15451,6 @@ number,type,name,city
 3,boulevard,PICPUS,Paris
 95,rue,FAUBOURG ST-HONORÉ,Paris
 29,rue,BEAUREPAIRE,Paris
-11,passage,TIVOLI,Paris
 103,rue,ABBÉ GROULT,Paris
 33,rue,TANGER,Paris
 19,rue,GUSTAVE COURBET,Paris
@@ -15714,7 +15571,6 @@ number,type,name,city
 72,avenue,GOBELINS,Paris
 50,rue,PETITS-CHAMPS,Paris
 27,rue,POTEAU,Paris
-2,rue,ROCHECHOUART,Paris
 31,rue,FÉLICIEN DAVID,Paris
 11,rue,L'OLIVE,Paris
 10,rue,"F,  FOUR",Paris
@@ -15742,7 +15598,6 @@ number,type,name,city
 2,rue,TAINE,Paris
 39,cité,FLEURS,Paris
 21,rue,COLLÉGIALE,Paris
-13,passage,BOUCHARDY,Paris
 33,rue,CASCADES,Paris
 16,rue,SAINT-GILLES,Paris
 16,rue,GUILLAUME-TELL,Paris
@@ -15897,7 +15752,6 @@ number,type,name,city
 313,rue,BELLEVILLE,Paris
 2,passage,SAINT-HIPPOLYTE,Paris
 5,rue,JEAN LANTIER,Paris
-24,avenue,MONTSOURIS,Paris
 24,cité,GUÉNOT,Paris
 70,rue,FRANÇOIS MIRON,Paris
 2,rue,SAINT-BENOIT,Paris
@@ -15960,7 +15814,6 @@ number,type,name,city
 16,rue,CLAUDE BERNARD,Paris
 53,rue,MYRHA,Paris
 21,rue,BAUSSET,Paris
-155,boulevard,ITALIE,Paris
 14,rue,HERMEL PROLONGÉE,Paris
 24,rue,FRÉMICOURT,Paris
 147,boulevard,CHARONNE,Paris
@@ -16015,7 +15868,6 @@ number,type,name,city
 28,rue,MÉNILMONTANT,Paris
 47,rue,VERRERIE,Paris
 10,rue,PONT-LOUIS-PHILIPPE,Paris
-3,rue,REMPARTS,Paris
 24,rue,PARTANTS,Paris
 55,rue,REUILLY,Paris
 347,rue,PYRÉNÉES,Paris
@@ -16151,7 +16003,6 @@ number,type,name,city
 4,rue,JOUY,Paris
 10,rue,GROS,Paris
 4,cité,MAIRIE,Paris
-10,passage,GOURDON,Paris
 23,rue,TOURLAQUE,Paris
 10,passage,MONTGALLET,Paris
 17,rue,PASTEUR,Paris
@@ -16291,7 +16142,6 @@ number,type,name,city
 21,rue,RÉBEVAL,Paris
 135,rue,MONTMARTRE,Paris
 9,avenue,VILLA DE LA RÉUNION,Paris
-43,boulevard,ITALIE,Paris
 34,rue,FRÉMICOURT,Paris
 26,rue,SERVANDONI,Paris
 44,rue,BABYLONE,Paris
@@ -16504,7 +16354,6 @@ number,type,name,city
 16,rue,SÉGUIER,Paris
 2,passage,DAGORNO,Paris
 84,rue,PRÉ-ST-GERVAIS,Paris
-16,passage,DESCHAMPS,Paris
 56,rue,ALEXANDRE DUMAS,Paris
 61,rue,STÉPHENSON,Paris
 22,rue,MALHER,Paris
@@ -16543,7 +16392,6 @@ number,type,name,city
 43,chemin,PÉRICHAUX,Paris
 77,rue,CROZATIER,Paris
 10,passage,CHARLES BERTHEAU,Paris
-3,passage,DUCLOS,Paris
 16,rue,FRIANT,Paris
 17,impasse,ALEXANDRE LÉCUYER,Paris
 6,rue,BOULLE,Paris
@@ -16688,7 +16536,6 @@ number,type,name,city
 33,rue,FESSART,Paris
 37,cité,FLEURS,Paris
 1,place,PINEL,Paris
-125,boulevard,ITALIE,Paris
 8,passage,MONTGALLET,Paris
 157,avenue,MALAKOFF,Paris
 18,rue,CAMBRAI,Paris
@@ -16712,7 +16559,6 @@ number,type,name,city
 147,rue,FAUBOURG SAINT-DENIS,Paris
 134,avenue,MALAKOFF,Paris
 36,rue,MONTPENSIER,Paris
-14,passage,ALLEMAGNE,Paris
 45,rue,LA JONQUIÈRE,Paris
 3,rue,TOUSSAINT-FÉRON,Paris
 30,rue,BRUXELLES,Paris
@@ -16725,7 +16571,6 @@ number,type,name,city
 18,rue,GLACIÈRE,Paris
 56,rue,AUBERVILLIERS,Paris
 8,rue,HENRI REGNAULT,Paris
-8,passage,BEAULIEU,Paris
 160,rue,RIVOLI,Paris
 51,rue,PONCELET,Paris
 42,rue,BLANCS-MANTEAUX,Paris
@@ -16878,7 +16723,6 @@ number,type,name,city
 25,rue,CLAUDE VELLEFAUX,Paris
 72,rue,BLANCHE,Paris
 71,rue,PRAIRIES,Paris
-19,passage,EPARGNE,Paris
 48,rue,SIMPLON,Paris
 8,rue,AUBRY-LE-BOUCHER,Paris
 8,rue,HALLES,Paris
@@ -16916,7 +16760,6 @@ number,type,name,city
 21,rue,FABRE d'ÉGLANTINE,Paris
 6,rue,POT DE FER,Paris
 95,rue,CHAPELLE,Paris
-26,passage,DHIER,Paris
 2,rue,MARSEILLE,Paris
 50,rue,GAUTHEY,Paris
 6,passage,DEUX-SŒURS,Paris
@@ -16934,7 +16777,6 @@ number,type,name,city
 31,rue,THOLOZÉ,Paris
 218,rue,FAUBOURG SAINT-MARTIN,Paris
 75,rue,SAINT-FARGEAU,Paris
-6,passage,BEAULIEU,Paris
 15,rue,ALLERAY,Paris
 4,rue,BIZET,Paris
 16,rue,SEINE,Paris
@@ -16946,7 +16788,6 @@ number,type,name,city
 87,rue,LEGENDRE,Paris
 159,rue,CHARENTON,Paris
 8,rue,BOIS DE BOULOGNE,Paris
-117,boulevard,ITALIE,Paris
 21,rue,PICPUS,Paris
 14,rue,CAUMARTIN,Paris
 30,rue,RIGOLES,Paris
@@ -17109,7 +16950,6 @@ number,type,name,city
 16,rue,CINQ-DIAMANTS,Paris
 6,rue,COURCELLES,Paris
 163,boulevard,VILLETTE,Paris
-1,avenue,MONTSOURIS,Paris
 12,rue,TLEMCEN,Paris
 41,boulevard,SÉBASTOPOL,Paris
 11,avenue,SÉGUR,Paris
@@ -17228,7 +17068,6 @@ number,type,name,city
 33,rue,BRANCION,Paris
 4,avenue,TRONE,Paris
 127,rue,VERCINGÉTORIX,Paris
-30,rue,DENFERT-ROCHEREAU,Paris
 18,rue,DUHESME,Paris
 174,rue,CHARONNE,Paris
 1,cité,MARTIGNAC,Paris
@@ -17243,14 +17082,12 @@ number,type,name,city
 24,rue,SAINT-BLAISE,Paris
 36,rue,OURCQ,Paris
 15,rue,TREILHARD,Paris
-10,passage,FOURNEAUX,Paris
 183,rue,GRENELLE,Paris
 54,rue,MONTPARNASSE,Paris
 113,rue,CHATEAU DES RENTIERS,Paris
 9,rue,VILLE L'ÉVÊQUE,Paris
 39,rue,RAYNOUARD,Paris
 3,rue,AUGUSTE MIE,Paris
-4,impasse,MARAIS,Paris
 16,rue,ROI DE SICILE,Paris
 19,rue,BERGER,Paris
 3,cité,CARDINAL-LEMOINE,Paris
@@ -17399,7 +17236,6 @@ number,type,name,city
 19,rue,MOULIN DES PRÉS,Paris
 6,rue,PAUL-LOUIS COURRIER,Paris
 5,rue,MORNAY,Paris
-1,rue,BUGEAUD,Paris
 69,avenue,SÉGUR,Paris
 9,rue,CHATEAUDUN,Paris
 8,rue,ECURIES D'ARTOIS,Paris
@@ -17509,7 +17345,6 @@ number,type,name,city
 18,avenue,MAC-MAHON,Paris
 31,rue,TERRE-NEUVE,Paris
 33,rue,VIVIENNE,Paris
-11,cité,BLUETS,Paris
 15,rue,SAUSSURE,Paris
 6,impasse,NABOULET,Paris
 18,rue,PERDONNET,Paris
@@ -17670,7 +17505,6 @@ number,type,name,city
 94,boulevard,PICPUS,Paris
 42,rue,BABYLONE,Paris
 31,rue,LA BARRE,Paris
-21,rue,ROCHECHOUART,Paris
 64,rue,MOULIN DE LA POINTE,Paris
 18,rue,SAINT-SÉVERIN,Paris
 2,rue,PÉRIGNON,Paris
@@ -17901,14 +17735,12 @@ number,type,name,city
 46,rue,BAUDRICOURT,Paris
 14,rue,CORTAMBERT,Paris
 23,rue,BECCARIA,Paris
-10,boulevard,ITALIE,Paris
 7,rue,LAUGIER,Paris
 8,rue,MONDÉTOUR,Paris
 6,cour,PETITES ÉCURIES,Paris
 24,passage,CHAMPIONNET,Paris
 16,rue,MONTMORENCY,Paris
 121,rue,CHATEAU,Paris
-10,passage,MASLIER,Paris
 169,rue,CHATEAU,Paris
 32,rue,DAUPHINE,Paris
 20,rue,PIXÉRÉCOURT,Paris
@@ -18032,7 +17864,6 @@ number,type,name,city
 45,cours,VINCENNES,Paris
 75,rue,VERCINGÉTORIX,Paris
 12,rue,BISSON,Paris
-15,passage,BEAULIEU,Paris
 22,rue,CROZATIER,Paris
 25,rue,ABBÉ GRÉGOIRE,Paris
 1,rue,OURS,Paris
@@ -18078,7 +17909,6 @@ number,type,name,city
 72,rue,GAY-LUSSAC,Paris
 58,rue,DUNKERQUE,Paris
 6,rue,MALEVILLE,Paris
-41,boulevard,ITALIE,Paris
 135,rue,CHATEAU,Paris
 12,rue,MONTREUIL,Paris
 11,rue,POTEAU,Paris
@@ -18093,7 +17923,6 @@ number,type,name,city
 69,rue,POISSONNIERS,Paris
 150,rue,POMPE,Paris
 1,rue,HAVRE,Paris
-10,passage,EPARGNE,Paris
 84,rue,DESNOUETTES,Paris
 22,rue,ROSIERS,Paris
 80,rue,CURIAL,Paris
@@ -18332,7 +18161,6 @@ number,type,name,city
 21,boulevard,SAINT-MARTIN,Paris
 41,rue,VICTOIRE,Paris
 91,rue,BUZENVAL,Paris
-7,passage,GOURDON,Paris
 6,rue,MORNAY,Paris
 14,rue,MICHAL,Paris
 108,rue,TOUR,Paris
@@ -18397,7 +18225,6 @@ number,type,name,city
 4,cité,AUBRY,Paris
 59,rue,PANOYAUX,Paris
 13,rue,DAUTANCOURT,Paris
-5,rue,FRANKLIN,Paris
 4,rue,JEAN COTTIN,Paris
 6,rue,ÉCOLE POLYTECHNIQUE,Paris
 4,rue,BERNE,Paris
@@ -18426,7 +18253,6 @@ number,type,name,city
 2,rue,FONTAINE-à-MULARD,Paris
 159,rue,AMELOT,Paris
 26,rue,BERZÉLIUS,Paris
-3,chemin,CARRIÈRES,Paris
 66,avenue,LEDRU-ROLLIN,Paris
 33,rue,RODIER,Paris
 67,rue,WATTIGNIES,Paris
@@ -18472,7 +18298,6 @@ number,type,name,city
 89,rue,MARCADET,Paris
 4,rue,DANGEAU,Paris
 1,rue,SOMMET DES ALPES,Paris
-2,boulevard,ITALIE,Paris
 142,rue,GRENELLE,Paris
 2,rue,BELLAY,Paris
 5,rue,LABAT,Paris
@@ -18522,7 +18347,6 @@ number,type,name,city
 80,rue,JEAN-JACQUES ROUSSEAU,Paris
 22,rue,TEMPLE,Paris
 4,rue,RETRAIT,Paris
-8,impasse,RUISSEAU,Paris
 71,rue,BROCA,Paris
 4,place,POSSOZ,Paris
 7,rue,DUBRUNFAUT,Paris
@@ -18572,7 +18396,6 @@ number,type,name,city
 31,rue,TIQUETONNE,Paris
 6,rue,THORIGNY,Paris
 20,rue,FRÉMICOURT,Paris
-8,passage,RONCE,Paris
 14,rue,HERMEL,Paris
 53,rue,ROUELLE,Paris
 12,rue,ROLI,Paris
@@ -18580,7 +18403,6 @@ number,type,name,city
 30,rue,"F,  FOUR",Paris
 18,rue,COUTURES-St-GERVAIS,Paris
 15,rue,ÉCOLES,Paris
-9,passage,MARCHÉ DES PATRIARCHES,Paris
 15,rue,VÉZELAY,Paris
 29,rue,DAUPHINE,Paris
 237,rue,MARCADET,Paris
@@ -18618,14 +18440,12 @@ number,type,name,city
 47,rue,AQUEDUC,Paris
 2,rue,PONT DE LODI,Paris
 85,rue,AMSTERDAM,Paris
-3,passage,WATERLOO,Paris
 41,rue,ARTISTES,Paris
 3,rue,GARANCIÈRE,Paris
 20,rue,LA MICHODIÈRE,Paris
 8,rue,CLÉMENT MAROT,Paris
 19,rue,NIEPCE,Paris
 15,rue,BLANCS-MANTEAUX,Paris
-4,impasse,FALAISE,Paris
 14,avenue,VICTOR-HUGO,Paris
 24,rue,GANNERON,Paris
 10,rue,JEAN BART,Paris
@@ -18825,7 +18645,6 @@ number,type,name,city
 21,rue,TOURNON,Paris
 58,rue,JEAN-JACQUES ROUSSEAU,Paris
 10,rue,ÉCLUSES-ST-MARTIN,Paris
-7,rue,SAY,Paris
 22,villa,DUTHY,Paris
 14,rue,DESCOMBES,Paris
 2,rue,CICÉ,Paris
@@ -18836,10 +18655,8 @@ number,type,name,city
 65,rue,DAMESME,Paris
 23,rue,LA REYNIE,Paris
 25,rue,THIONVILLE,Paris
-22,passage,EPARGNE,Paris
 92,rue,SAINT-ANTOINE,Paris
 107,rue,CLIGNANCOURT,Paris
-1,passage,DUCLOS,Paris
 40,boulevard,HOPITAL,Paris
 54,rue,BATIGNOLLES,Paris
 1,rue,POTEAU,Paris
@@ -18870,7 +18687,6 @@ number,type,name,city
 31,rue,AUDE,Paris
 1,rue,SCHOMBERG,Paris
 2,rue,VERDERET,Paris
-8,passage,VIDUS,Paris
 15,rue,ORSEL,Paris
 63,rue,ROME,Paris
 29,rue,SAINT-PÉTERSBOURG,Paris
@@ -18966,7 +18782,6 @@ number,type,name,city
 7,rue,TORRICELLI,Paris
 15,rue,PÉPINIÈRE,Paris
 148,rue,VAUGIRARD,Paris
-91,boulevard,ITALIE,Paris
 94,rue,MOZART,Paris
 100,rue,MONTREUIL,Paris
 44,rue,DOUDEAUVILLE,Paris
@@ -19003,7 +18818,6 @@ number,type,name,city
 21,rue,CORTAMBERT,Paris
 29,rue,SAINT-SAUVEUR,Paris
 74,avenue,ITALIE,Paris
-5,passage,EPARGNE,Paris
 18,rue,TROIS BORNES,Paris
 13,place,NATION,Paris
 41,rue,ENVIERGES,Paris
@@ -19032,14 +18846,12 @@ number,type,name,city
 82,rue,POUCHET,Paris
 3,rue,MOLITOR,Paris
 93,rue,VICTOIRE,Paris
-18,passage,DORÉ,Paris
 5,rue,JASMIN,Paris
 2,rue,GUDIN,Paris
 2,rue,DESNOUETTES,Paris
 24,rue,LISBONNE,Paris
 53,rue,AUMAIRE,Paris
 99,rue,CHARENTON,Paris
-28,impasse,RUISSEAU,Paris
 121,rue,RENNES,Paris
 89,rue,LEMERCIER,Paris
 2,rue,MONTESQUIEU,Paris
@@ -19136,8 +18948,6 @@ number,type,name,city
 22,rue,BAGNOLET,Paris
 17,passage,RIVIÈRE,Paris
 44,rue,PY,Paris
-2,rue,HERR,Paris
-75,boulevard,ITALIE,Paris
 87,rue,DULONG,Paris
 12,rue,RUTY,Paris
 17,rue,SAINT-DOMINIQUE,Paris
@@ -19225,7 +19035,6 @@ number,type,name,city
 15,rue,TERRASSE,Paris
 103,rue,POISSONNIERS,Paris
 4,rue,LA BOETIE,Paris
-1,rue,REMPARTS,Paris
 3,impasse,CHAUSSON,Paris
 15,rue,LORD BYRON,Paris
 86,rue,DULONG,Paris
@@ -19262,7 +19071,6 @@ number,type,name,city
 21,rue,PIERRE LEVÉE,Paris
 9,rue,ROUSSIN,Paris
 113,rue,MICHEL BIZOT,Paris
-1,rue,ANTOINETTE,Paris
 1,square,LAMARTINE,Paris
 62,rue,ABBÉ GROULT,Paris
 57,rue,ENTREPRENEURS,Paris
@@ -19301,7 +19109,6 @@ number,type,name,city
 4,cité,ANNIBAL,Paris
 5,rue,GEOFFROY-MARIE,Paris
 62,rue,GRENÉTA,Paris
-2,rue,SAY,Paris
 157,rue,BAGNOLET,Paris
 44,rue,SAINTS-PÈRES,Paris
 147,boulevard,VOLTAIRE,Paris
@@ -19445,7 +19252,6 @@ number,type,name,city
 5,impasse,SAINT-OUEN,Paris
 11,rue,BOULETS,Paris
 50,avenue,MARCEAU,Paris
-16,passage,BRÉMANT,Paris
 25,rue,CLAUDE TILLIER,Paris
 68,rue,AQUEDUC,Paris
 15,rue,MONT DORE,Paris
@@ -19483,7 +19289,6 @@ number,type,name,city
 4,rue,MARENGO,Paris
 18,place,MADELEINE,Paris
 45,rue,BLANCS-MANTEAUX,Paris
-16,passage,ALLEMAGNE,Paris
 25,rue,CLAUDE LORRAIN,Paris
 6,rue,LEVERT,Paris
 97,rue,VIEILLE DU TEMPLE,Paris
@@ -19509,11 +19314,9 @@ number,type,name,city
 31,rue,QUINCAMPOIX,Paris
 41,rue,TRUFFAUT,Paris
 5,rue,DAUBENTON,Paris
-12,cité,GAILLARD,Paris
 112,rue,MONT-CENIS,Paris
 19,rue,ROSENWALD,Paris
 3,rue,LONDRES,Paris
-3,cité,BLUETS,Paris
 25,rue,VERTUS,Paris
 1,rue,SINGER,Paris
 16,rue,LA CONDAMINE,Paris
@@ -19538,7 +19341,6 @@ number,type,name,city
 9,rue,VIALA PROLONGÉE,Paris
 7,villa,BELLEVUE,Paris
 14,avenue,MAC-MAHON,Paris
-21,passage,DUCLOS,Paris
 34,rue,PRAIRIES,Paris
 75,rue,VERCINGÉTORIX,Paris
 10,rue,CONDÉ,Paris
@@ -19601,7 +19403,6 @@ number,type,name,city
 28,rue,NAPLES,Paris
 32,rue,PETIT-MUSC,Paris
 3,place,ALMA,Paris
-44,boulevard,ITALIE,Paris
 1,rue,NIGER,Paris
 11,rue,MORAND,Paris
 17,rue,PÉTRAROUE,Paris
@@ -19667,8 +19468,6 @@ number,type,name,city
 291,rue,CHARENTON,Paris
 102,cours,VINCENNES,Paris
 15,rue,MYRHA,Paris
-3,passage,BOUCHARDY,Paris
-9,passage,TIVOLI,Paris
 6,impasse,FONTAINE d'HAUTPOUL,Paris
 19,rue,FIGUIER,Paris
 2,rue,CANDOLLE,Paris
@@ -19696,7 +19495,6 @@ number,type,name,city
 28,avenue,LAUMIÈRE,Paris
 177,rue,LEGENDRE,Paris
 19,rue,LORRAINE,Paris
-7,passage,TIVOLI,Paris
 50,rue,DAMES,Paris
 27,rue,SEINE,Paris
 5,rue,BRILLAT-SAVARIN,Paris
@@ -19706,7 +19504,6 @@ number,type,name,city
 17,rue,DAUPHINE,Paris
 56,rue,BASSANO,Paris
 58,rue,DAGUERRE,Paris
-21,boulevard,ITALIE,Paris
 21,rue,CARDINAL-LEMOINE,Paris
 7,rue,PIAT,Paris
 56,boulevard,REUILLY,Paris
@@ -19747,7 +19544,6 @@ number,type,name,city
 3,cité,FÉNELON,Paris
 27,rue,VENISE,Paris
 6,rue,VAVIN,Paris
-14,passage,FOURNEAUX,Paris
 99,avenue,CLICHY,Paris
 33,rue,SAINT-FARGEAU,Paris
 24,rue,PRAIRIES,Paris
@@ -19915,12 +19711,10 @@ number,type,name,city
 30,rue,OURCQ,Paris
 39,rue,DUNOIS,Paris
 8,rue,ABREUVOIR,Paris
-18,avenue,BUGEAUD,Paris
 6,rue,PÉTION,Paris
 26,rue,MONGE,Paris
 20,villa,ADOUR,Paris
 8,rue,DAUTANCOURT,Paris
-35,rue,FRANKLIN,Paris
 25,rue,ARTISTES,Paris
 49,boulevard,RICHARD LENOIR,Paris
 117,rue,CHERCHE-MIDI,Paris
@@ -20092,8 +19886,6 @@ number,type,name,city
 4,passage,POUCHET,Paris
 201,rue,LECOURBE,Paris
 8,rue,CELS,Paris
-6,impasse,ÉPINETTES,Paris
-3,impasse,FALAISE,Paris
 31,avenue,BRETEUIL,Paris
 18,rue,RIVOLI,Paris
 6,rue,CORTAMBERT,Paris
@@ -20111,7 +19903,6 @@ number,type,name,city
 1,rue,SAINT-YVES,Paris
 1,passage,SAINT-MICHEL,Paris
 36,rue,SERPENTE,Paris
-24,impasse,RUISSEAU,Paris
 4,rue,DAMES,Paris
 185,rue,SAINT-JACQUES,Paris
 35,rue,JAVEL,Paris
@@ -20221,7 +20012,6 @@ number,type,name,city
 35,avenue,GOBELINS,Paris
 84,rue,CHATEAU,Paris
 12,passage,RIVIÈRE,Paris
-43,rue,FLANDRE,Paris
 9,boulevard,PICPUS,Paris
 69,rue,PELLEPORT,Paris
 56,rue,ÉCOLES,Paris
@@ -20247,7 +20037,6 @@ number,type,name,city
 32,rue,SURMELIN,Paris
 74,rue,DUHESME,Paris
 34,rue,AMANDIERS,Paris
-6,passage,TIVOLI,Paris
 2,impasse,DECRÈS,Paris
 12,rue,CHORON,Paris
 6,impasse,DELÉPINE,Paris
@@ -20277,7 +20066,6 @@ number,type,name,city
 64,rue,MÉNILMONTANT,Paris
 6,rue,LIONS,Paris
 10,rue,LEBOUIS,Paris
-18,passage,EPARGNE,Paris
 45,rue,OLIVIER DE SERRES,Paris
 50,boulevard,BARBÈS,Paris
 10,passage,GAUTHIER,Paris
@@ -20301,7 +20089,6 @@ number,type,name,city
 27,rue,PONTHIEU,Paris
 6,rue,BARBET DE JOUY,Paris
 158,rue,CRIMÉE,Paris
-11,passage,TOURNUS,Paris
 35,rue,POISSONNIERS,Paris
 1,rue,CORVISART,Paris
 57,rue,LA BOETIE,Paris
@@ -20397,7 +20184,6 @@ number,type,name,city
 43,avenue,HOCHE,Paris
 43,rue,COURONNES,Paris
 16,rue,BERRI,Paris
-4,impasse,RUISSEAU,Paris
 25,rue,ORILLON,Paris
 22,rue,DUPLEIX,Paris
 6,passage,KRACHER,Paris
@@ -20419,7 +20205,6 @@ number,type,name,city
 3,rue,AUMALE,Paris
 2,rue,UNIVERSITÉ,Paris
 250,rue,FAUBOURG ST-HONORÉ,Paris
-12,passage,PUÉBLA,Paris
 27,boulevard,SAINT-JACQUES,Paris
 44,rue,CHABROL,Paris
 44,rue,POPINCOURT,Paris
@@ -20692,7 +20477,6 @@ number,type,name,city
 52,avenue,MAINE,Paris
 13,passage,BRIE,Paris
 51,rue,CHARDON-LAGACHE,Paris
-12,passage,REUSS,Paris
 87,rue,PYRÉNÉES,Paris
 25,rue,CHAUDRON,Paris
 16,rue,EUGÈNE DELACROIX,Paris
@@ -20744,7 +20528,6 @@ number,type,name,city
 81,rue,DESNOUETTES,Paris
 18,rue,COLONNES DU TRONE,Paris
 64,rue,HAUTEVILLE,Paris
-9,passage,ALLEMAGNE,Paris
 1,rue,CHANOINESSE,Paris
 32,rue,ABBÉ GROULT,Paris
 52,rue,SAINT-FARGEAU,Paris

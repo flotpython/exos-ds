@@ -9,8 +9,8 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 ---
 
 # TP géoloc addresses
@@ -62,14 +62,22 @@ on va utiliser principalement
 
 +++
 
-## géolocalisation
+## l'API de géolocalisation
 
-pour obtenir des coordonnées latitude/longitude à partir d'une adresse, en France on peut utiliser un service public et gratuit ici  
-**<https://adresse.data.gouv.fr/api-doc/adresse>**  
-lisez bien cette page, et notamment tout en bas il y a une zone où vous pouvez faire une recherche en ligne
+pour obtenir des coordonnées latitude/longitude à partir d'une adresse, en France on peut utiliser un service public et gratuit:
+- la documentation *swagger* est ici **<https://data.geopf.fr/geocodage/openapi>**
+
+```{admonition} anciennes URLs
+:class: dropdown
+dans une version antérieure, c'était cette URL <https://adresse.data.gouv.fr/api-doc/adresse>
+qui donnait le mode d'emploi de l'API de géolocalisation  
+mais ! en Octobre 2025, la documentation semble en pleine refonte,  
+et si l'URL existe toujours, **elle ne contient plus cette information**...
+```
 
 ```{code-cell} ipython3
-# for starters, we only need the 'regular fit' pandas
+# for starters, for now we only need regular pandas
+# we'll go to geopandas a bit later
 
 import pandas as pd
 ```
@@ -85,6 +93,10 @@ addresses.head(4)
 ```
 
 et la première chose qu'on va faire, c'est naturellement d'utiliser cette API pour géolocaliser ces adresses
+
++++
+
+### un petit extrait
 
 mais avant cela, je vous recommande de produire un fichier `addresses-small.csv` qui contient un petit extrait, disons les 10 ou 20 premières lignes; ce sera très utile pour débugger
 
@@ -103,19 +115,19 @@ mais avant cela, je vous recommande de produire un fichier `addresses-small.csv`
 c'est très pratique de pouvoir faire une recherche des adresses 'une par une'; voici comment ça on s'y prendrait:
 
 - après avoir bien lu la doc de l'API, commencez par taper dans un navigateur  
-  `https://api-adresse.data.gouv.fr/search/?q=3+rue+tourelles,Paris`
+  `https://data.geopf.fr/geocodage/search/?q=3+rue+tourelles,Paris`
 - observez le format de ce que vous recevez, qu'est-ce que ça peut être ?
 - ajoutez `&limit=1` à l'url pour que cela donne  
-  `https://api-adresse.data.gouv.fr/search/?q=3+rue+tourelles,Paris&limit=1`
-  quelle est la différence ?
+  `https://data.geopf.fr/geocodage/search/?q=3+rue+tourelles,Paris&limit=1`  
+  quelle différence observez-vous dans le résultat ?
 
 +++
 
 ````{admonition} ? et & dans l'URL
-:class: note
+:class: note dropdown
 
 ici lorsqu'on envoie donc une requête vers l'URL  
-`https://api-adresse.data.gouv.fr/search/?q=18+rue+BERNARDINS,Paris&limit=1`  
+`https://data.geopf.fr/geocodage/search/?q=18+rue+BERNARDINS,Paris&limit=1`  
 les caractères `?` et `&` **jouent un rôle particulier**
 
 pour information, la syntaxe générale c'est
@@ -151,7 +163,8 @@ et notamment vous devriez tomber sur une page qui commence avec cet exemple
 {'private_gists': 419, 'total_private_repos': 77, ...}
 ```
 
-qui devrait vous inspirer pour l'écriture de la fonction suivante
+qui devrait vous éclairer sur l'usage de base de la librairie  
+(sachant que dans notre cas c'est encore plus simple puisque nous n'avons pas besoin de nous authentifier)
 
 ```{code-cell} ipython3
 # requests is the swiss knife for doing http
@@ -160,12 +173,14 @@ import requests
 ```
 
 ```{code-cell} ipython3
-# here's how to use the API
+# to localize ONE address
+# we just need to forge the right URL
 
 def localize_one(num, typ, nom):
 
     # we build the URL which directly contains the address pieces
-    url = f"https://api-adresse.data.gouv.fr/search/?q={num}+{typ}+{nom},Paris&limit=1"
+    url = f"https://data.geopf.fr/geocodage/search/?q={num}+{typ}+{nom},Paris&limit=1"
+    
     # print(f"localize_one is fetching page\n{url}")
 
     # sending request to the web server
@@ -173,7 +188,7 @@ def localize_one(num, typ, nom):
 
     # if all is OK, http returns a code in the [200 .. 300[ range
     if not (200 <= response.status_code < 300):
-        print("WHOOPS....")
+        print(f"WHOOPS.... {response.status_code=}")
         return
 
     # we can then read the answer 
@@ -211,32 +226,12 @@ localize_one(18, 'rue', 'BERNARDINS')
 # your code here
 ```
 
-````{admonition} ? et & dans l'URL
-:class: note dropdown
-
-dans une autre dimension complètement: ici on envoie donc une requête vers l'URL  
-`https://api-adresse.data.gouv.fr/search/?q=18+rue+BERNARDINS,Paris&limit=1`
-
-Les caractères `?` et `&` jouent un rôle particulier: pour information, la syntaxe générale c'est
-```
-http://le.host.name/le/path?param1=truc&param2=bidule&param3=machinechose
-```
-
-et donc de cette façon, c'est un peu comme si on appelait une fonction à distance, en lui passant
-- `q=18+rue+BERNARDINS,Paris` (`q` pour *query*)
-- et `limit=1` (pour avoir seulement la première réponse)
-
-et pour vous faire réfléchir: il se passerait quoi si par exemple dans la colonne `name` il y avait un caractère `&` (imaginez la rue *Bouvart & Ratinet*)
-````
-
-+++
-
 ### en un seul coup
 
 si vous avez bien lu la page qui décrit l'API, vous devez avoir remarqué qu'il y a une autre façon de lui soumettre une recherche  
 c'est ce qui est indiqué ici (**cherchez `search/csv` dans la page de l'API**)
 ```
-curl -X POST -F data=@path/to/file.csv -F columns=voie -F columns=ville https://api-adresse.data.gouv.fr/search/csv/
+curl -X POST -F data=@path/to/file.csv -F columns=voie -F columns=ville https://data.geopf.fr/geocodage/search/csv/
 ```
 
 +++ {"tags": ["framed_cell"]}
@@ -263,7 +258,7 @@ et pour faire ça dans une requête http, il y a **deux mécanismes: GET et POST
 dans ce mode de fonctionnement les paramètres sont passés **directement dans l'URL** comme on l'a fait tout à l'heure quand on avait vu ceci
 ```console
 localize_one is fetching page
-https://api-adresse.data.gouv.fr/search/?q=18+rue+BERNARDINS,Paris&limit=1
+https://data.geopf.fr/geocodage/search/?q=18+rue+BERNARDINS,Paris&limit=1
 ```
 ````
 
@@ -277,7 +272,7 @@ bon je sais ça ne vous parle pas forcément, et ce n'est pas hyper important de
 et donc pour revenir à notre phrase:
 
 ```
-curl -X POST -F data=@path/to/file.csv -F columns=voie -F columns=ville https://api-adresse.data.gouv.fr/search/csv/
+curl -X POST -F data=@path/to/file.csv -F columns=voie -F columns=ville https://data.geopf.fr/geocodage/search/csv/
 ```
 
 ce qu'il se passe ici, c'est qu'on utilise `curl` pour envoyer une requête `POST` avec des paramètres `data` et `columns`  
@@ -348,7 +343,7 @@ def mass_post(filename, col_number, col_type, col_name, col_city):
 
     with open(filename) as feed:
         response = requests.post(
-            "https://api-adresse.data.gouv.fr/search/csv/", 
+            "https://data.geopf.fr/geocodage/search/csv/", 
             files={'data': feed},
             data={'columns': [col_number, col_type, col_name, col_city]})
     if not (200 <= response.status_code < 300):
@@ -366,7 +361,7 @@ def mass_post(filename, col_number, col_type, col_name, col_city):
 def localize_many(filename, col_number, col_type, col_name, col_city):
     df = pd.read_csv(filename)
     geoloc = mass_post(filename, col_number, col_type, col_name, col_city)
-    # because we don't set an index, it it safe to merge
+    # because we don't set an index, it is safe to merge
     geoloc = geoloc[['latitude', 'longitude', 'result_city', 'result_type']]
     return df.merge(geoloc, left_index=True, right_index=True)
 ```
@@ -374,7 +369,7 @@ def localize_many(filename, col_number, col_type, col_name, col_city):
 ```{code-cell} ipython3
 :tags: [level_basic]
 
-# try your code on the small sample for starters
+# try this code on the small sample for starters
 
 addresses_small = localize_many("data/addresses-small.csv", "number", "type", "name", "city")
 addresses_small
