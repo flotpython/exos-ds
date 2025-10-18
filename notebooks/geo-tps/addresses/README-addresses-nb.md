@@ -752,6 +752,10 @@ def convert_lat_lon(df):
     # declare the new column as the active one
     geo_df.set_geometry('position', inplace=True)
 
+    # a technicality: turns out the shapefile was created
+    # withthis coordinate reference system
+    geo_df.set_crs(epsg=4326, inplace=True)
+
     return geo_df
 ```
 
@@ -940,10 +944,12 @@ map_addresses(geoaddresses_small_extended)
 # and if all goes well we can try and display the full monty
 
 # first prepare the full dataset
-
 geoaddresses = add_quartiers(convert_lat_lon(addresses))
+
+# and create the map from that
 final_map = map_addresses(geoaddresses)
 
+# display the map
 final_map
 ```
 
