@@ -48,7 +48,6 @@ here's an example of the outputs we will obtain
 ## imports
 
 ```{code-cell} ipython3
-
 import pandas as pd
 import matplotlib.pyplot as plt
 ```
@@ -56,6 +55,8 @@ import matplotlib.pyplot as plt
 1. make sure to use matplotlib in interactive mode - aka `ipympl`
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # your code
 ```
 
@@ -69,6 +70,8 @@ import matplotlib.pyplot as plt
 2. optional: setup itables, so that we can have scrollable tables
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # your code
 ```
 
@@ -93,6 +96,8 @@ leases.head(10)
 surely the columns dtypes need some care
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # your code
 ```
 
@@ -106,6 +111,8 @@ leases['end'] = pd.to_datetime(leases['end'], format="ISO8601")
 ```
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 # check it
 
 leases.dtypes
@@ -116,6 +123,8 @@ leases.dtypes
 check that the data is well-formed, i.e. **the `end`** timestamp **happens after `beg`**
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # your code
 ```
 
@@ -138,6 +147,8 @@ nothing in the rest depends on this question, so if you find this too hard, you 
 ```
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # your code
 ```
 
@@ -194,6 +205,8 @@ diff.tail(3)
 What is the timespan covered by the dataset (**earliest** and **latest** events, and **duration** in-between) ?
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # your code
 ```
 
@@ -217,6 +230,8 @@ so, given that there is no overlap, we can assume this corresponds to "reservati
 write a code that computes the **overall reservation time**, as well as the **average usage ratio** over the overall timespan
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # your code
 ```
 
@@ -260,8 +275,9 @@ you should produce something like e.g.
 we'll make cosmetic improvements below, and [the final results look like this](#label-leases-output), but let's not get ahead of ourselves
 `````
 
-
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # your code
 ```
 
@@ -357,6 +373,8 @@ SPACES = {
 ```
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # your code
 ```
 
@@ -391,6 +409,7 @@ you are to write a function that converts a `pd.Timedelta` into a number of hour
 2. use it to test your own implementation
 
 ```{code-cell} ipython3
+:tags: [level_basic]
 
 # your code
 
@@ -399,7 +418,6 @@ def convert_timedelta_to_hours(timedelta: pd.Timedelta) -> int:
 ```
 
 ```{code-cell} ipython3
-
 # prune-cell
 
 import numpy as np
@@ -410,6 +428,8 @@ def convert_timedelta_to_hours(timedelta):
 ```
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 # test it
 
 # if an hour has started even by one second, it is counted
@@ -441,6 +461,7 @@ test_convert_timedelta_to_hours()
 ```
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
 
 # for debugging; this should return 48
 
@@ -453,6 +474,8 @@ keep the same visu, but display **the Y axis in hours**
 btw, what was the unit in the graphs above ?
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # your code
 ```
 
@@ -491,6 +514,8 @@ countries.head(3)
 what's the most effective way to see how many regions and how many countries per region ?
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # your code
 ```
 
@@ -511,6 +536,8 @@ your mission is to now show the same graphs, but we want to reflect the relative
 most likely your first move is to tag all leases with a `region` column
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # your code
 ```
 
@@ -525,12 +552,13 @@ leases2.drop(columns=['name'], inplace=True)
 leases2
 ```
 
-
 ### visu by period by region
 
 you can now produce [the target figures, again they look like this](#label-leases-output)
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # your code
 ```
 

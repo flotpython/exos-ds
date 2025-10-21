@@ -69,6 +69,8 @@ speed_max = 1.
 ```
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 
 def init_problem(N):
@@ -100,6 +102,8 @@ def init_problem(N):
 ```
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 # pour tester
 
 # normalement vous devez pouvoir faire ceci
@@ -151,6 +155,8 @@ $$
 pour cela on se propose d'écrire la fonction suivante
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 
 def forces(masses, positions, G=1.0):
@@ -187,6 +193,8 @@ def forces(masses, positions, G=1.0):
 ```
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 # pour tester, voici les valeurs attendues avec la config prédéfinie
 
 masses, positions, speeds = init3()
@@ -206,6 +214,8 @@ f = forces(masses, positions)
 cela pourrait se passer dans une fonction qui ressemblerait à ceci
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 
 def simulate(masses, positions, speeds, dt=0.1, nb_steps=100):
@@ -245,6 +255,8 @@ def simulate(masses, positions, speeds, dt=0.1, nb_steps=100):
 ```
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 # pour tester
 
 SMALL_STEPS = 4
@@ -259,6 +271,8 @@ except Exception as exc:
 ```
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 # pour tester: should be true
 
 # first step
@@ -284,6 +298,8 @@ si j'avais voulu implémenter 2.b il faudrait tripoter un peu plus nos interface
 ```
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 
 def draw(simulation, masses, colors=None, scale=10.):
@@ -354,6 +370,8 @@ colors3 = np.array([
 pour commencer et tester, on se met dans l'état initial reproductible
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 # décommentez ceci pour tester votre code
 
 # masses, positions, speeds = init3()
