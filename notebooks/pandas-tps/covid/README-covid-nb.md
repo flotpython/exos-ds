@@ -412,6 +412,8 @@ vous devez obtenir quelque chose comme cela
 ````
 
 ```{code-cell} ipython3
+:tags: [level_advanced]
+
 # votre code
 # rangez votre résultat dans la variable global_df
 
@@ -448,6 +450,8 @@ construisez la dataframe à partie de la valeur de cette clé
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -460,6 +464,8 @@ combien y-a-t-il d'entrées (de mesures différentes)
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -472,6 +478,8 @@ ajoutez à cette dataframe une colonne de nom `'country'` contenant `'France'` �
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -484,6 +492,8 @@ et utilisez la fonction `pandas.concat` pour concaténer les deux dataframes
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -495,6 +505,8 @@ vous aurez sans doute besoin d'utiliser un `for` python
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -630,6 +642,8 @@ reprenons à partir de la dataframe globale
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -643,6 +657,8 @@ reprenons à partir de la dataframe globale
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -655,6 +671,8 @@ reprenons à partir de la dataframe globale
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -667,6 +685,8 @@ reprenons à partir de la dataframe globale
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -678,6 +698,8 @@ reprenons à partir de la dataframe globale
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -694,6 +716,8 @@ reprenons à partir de la dataframe globale
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre réponse
 ```
 
@@ -707,6 +731,8 @@ rangez votre résultat dans une variable `clean_df`
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -720,6 +746,8 @@ rangez votre résultat dans une variable `clean_df`
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -732,6 +760,8 @@ rangez votre résultat dans une variable `clean_df`
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -742,6 +772,8 @@ rangez votre résultat dans une variable `clean_df`
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -868,6 +900,8 @@ mais avant de réfléchir à comment faire ça, commençons par le cas simple d'
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -878,6 +912,8 @@ mais avant de réfléchir à comment faire ça, commençons par le cas simple d'
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -894,6 +930,8 @@ il nous reste maintenant à traiter le cas de plusieurs pays
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -906,6 +944,8 @@ il nous reste maintenant à traiter le cas de plusieurs pays
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # votre code
 ```
 
@@ -973,7 +1013,7 @@ et vous pouvez constater que nous avons à présent
 ### ne reste qu'à plotter
 
 ```{code-cell} ipython3
-:tags: [raises-exception]
+:tags: [raises-exception, level_basic]
 
 # que du coup il n'y a plus qu'à plotter
 # 
@@ -993,3 +1033,9 @@ les rapides peuvent écrire une fonction `extract()` qui prend en paramètres
 
 et qui retourne une dataframe prête à être affichée comme on l'a fait plus haut
 ````
+
+```{code-cell} ipython3
+:tags: [level_basic]
+
+# bonus code
+```
