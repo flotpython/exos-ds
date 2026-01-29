@@ -14,29 +14,28 @@ jupyter:
     pygments_lexer: ipython3
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat   -  (images courtesy of wikipedia)
-
-
 # pentominoes and exact cover
 
-`````{grid} 2 2 2 2
+Licence CC BY-NC-ND, Thierry Parmentelat   -  (images courtesy of wikipedia)
+
+---
+
+`````{grid} 2
 ````{card}
 this activity is about solving puzzles like the one pictured on the right, using a standard combinatorial algorithm
-````
-
-````{card}
-```{image} media/board-8x8-pretty.png
-:align: right
-:width: 300px
-````
-`````
-
 
 ```{admonition} download the zip
 :class: warning
 
-in order to work on this exercise from your laptop, {download}`start with downloading the zip<./ARTEFACTS-pentominos.zip>`
+in order to work on this exercise from your laptop,  
+{download}`start with downloading the zip<./ARTEFACTS-pentominos.zip>`
 ```
+````
+
+````{card}
+```{image} media/board-8x8-pretty.png
+````
+`````
 
 ## the exact cover problem
 
@@ -45,7 +44,7 @@ in order to work on this exercise from your laptop, {download}`start with downlo
 in a nutshell, the exact cover problem is a standard, very basic mathematical problem; let's start with an example  
 you feed the algorithm with a set of vectors that all have the same length, and contain 0 and 1, like e.g.
 
-```
+```text
 0:  (1 0 0 1 1 0 1 0)
 1:  (1 0 0 0 1 1 0 1)
 2:  (1 0 0 0 1 1 1 0)
@@ -67,23 +66,26 @@ and the goal is to find **a subset** of the input vectors, such that **each colu
 solutions, but let's not dwelve into that, for now at least..)  
 so in the above example, there would be 2 solutions, namely
 
-```
+```text
 # a solution has exactly one 1 in each column
 
 5:  (1 0 1 1 1 0 0 0)
 13: (0 1 0 0 0 1 1 1)
 ```
+
 and
-```
+
+```text
 6:  (1 0 0 0 0 1 1 1)
 12: (0 1 1 1 1 0 0 0)
 ```
 
-
 ### the algorithm and its implementation in Python
 
-one possible way to solve this problem has been the subject of a famous article by Donald Knuth - one of
-the fathers of Computer Science - and is known as Knuth's Algorithm X - interested students can find [more details in the links section below](#links).  
+one possible way to solve this problem has been the subject of a famous article
+by Donald Knuth - one of the fathers of Computer Science - and is known as
+Knuth's Algorithm X - interested students can find [more details in the links
+section below](#links).  
 we're not going to go into the details of the algorithm either, but rather focus
 on the application to solving pentominoes (see next section)
 
@@ -91,14 +93,14 @@ let us just outline that
 
 - Algorithm X, also known as dancing links, is an extremely efficient
   implementation for solving the exact cover problem
-- and fortunately for us, there are several Python implementations of it (see pypi.org for details):
+- and fortunately for us, there are several Python implementations of it (search them on
+  pypi.org for details):
   - `xcover`
   - `exact-cover`
   - `exact-cover-py`
 
-So your first task is to search for one of these packages (`xcover` seems the most efficient one),
-install it, and read the basics about how to use it
-
+So your first task is to search for one of these packages - `xcover` seems the most efficient one,
+install it, and read the basics about how to use it; for example, use it to solve the problem above.
 
 ## application to pentominoes
 
@@ -112,7 +114,6 @@ they have been given names, letters actually:
 :width: 60%
 :align: center
 ```
-
 
 ### some standard problems
 
@@ -132,20 +133,30 @@ as well as this one within a 8x8 square and a hole inside
 :align: center
 ```
 
-
 ### how to solve such a problem
 
 the trick is to **transform the puzzle problem into an exact cover problem**  
-there are many resources on the Internet that explain how to do that - and feel free to use them too  
-on our end, let's consider a smaller problem as depicted ; note that the white squares are holes, and of course not part of the problem
-
+there are many resources on the Internet that explain how to do that - and feel
+free to use them too  
+on our end, let's consider a smaller problem as depicted below; note that the white
+squares are holes, and of course not part of the problem
 
 #### our small example
 
+::::{grid} 2
+
+```{div}
+imagine you want to fill the 6 colored squares (again the white space
+is not part of the problem) using 2 identical pieces - like shown on the
+right; obviously there are exactly 2 solutions, the one shown, and the one where
+both pieces are swapped.
+```
+
 ```{image} media/small-problem.png
-:width: 150px
 :align: center
 ```
+
+::::
 
 it turns out this problem can be mapped to the sample input quoted above in the introduction, i.e.
 
@@ -170,48 +181,60 @@ it turns out this problem can be mapped to the sample input quoted above in the 
 
 #### how is this obtained ?
 
-you will find one line for each possible position of a piece on the board  
-this line will contain:
+::::{grid} 2
+
+```{div}
+you will find one line for each possible position of a piece on the board; this line will contain:
 
 - the first 2 columns (we have 2 pieces) correspond to the piece number  
   we set exactly one 1 to indicate which piece we're talking about  
   so for example the first 7 rows correspond to the 7 positions where we can place piece#0
-- because there are 6 squares to be filled, the next 6 columns correspond to the slots that the piece in that position would occupy  
-  (1 means the slot is occupied)  
+- because there are 6 squares to be filled, the next 6 columns correspond to the slots that the piece in that position would occupy
+  (1 means the slot is filled, 0 means it is not)  
   and since the 2 pieces are identical, the 7 last rows carry the same information, but for piece#1
+```
 
-````{admonition} note
+```{image} media/subtitles.png
+```
+::::
+
+```{admonition} note
 :class: attention
 
 obstacles (the white squares) in the board **must not** be given a column:
 there would be only 0's in that column, and `exact_cover` would find no solution
-````
-
-```{image} media/subtitles.png
-:align: right
-:width: 300px
 ```
 
+::::{grid} 2
+
+```{div}
 and so for example with our small problem, the line `3:` means:
 
 - this is about piece#0 (hence col0=1 and col1=0)
 - and that piece may be placed on the board in the following position
-
 ```
+
+```text
+
 X o X
 . o o
 X . .
 ```
 
+::::
+
 which, once you remove the obstacles, and flatten, reads `1 0 1 1 0 0`: the right-hand-side of first line
 
-<!-- #region -->
 #### how to read a solution ?
 
-if you pick `xcover` as a solver engine, it will expose a generator over solutions; this means that you can wrote something like
+if you pick `xcover` as a solver engine, it will expose a generator over
+solutions; this means that you can write something like
 
-```
+```python
+# returns immediately
 solutions = covers_bool(problem)
+
+# gets the 1st solution - may take a bit of time
 first = next(solutions)
 print(first)
 -> [5, 13]
@@ -219,7 +242,7 @@ print(first)
 
 which maps to the following rows into the input problem:
 
-```
+```text
 5:  (1 0   1 1 1 0 0 0)
 13: (0 1   0 0 0 1 1 1)
 ```
@@ -255,10 +278,7 @@ you have 12 pieces and 60 slots to fill, so you need 72 columns
 
 ### model the problem
 
-decide how to represent the board and pieces:
-
-* using nd-arrays, so rectangular spaces
-* use only **booleans** to model **obstacles** in the board and the actual **contour** of pieces
+decide how to represent the board and pieces; be careful to be able to handle obstacles if you go for nd-arrays
 
 you will find some helper code in `pentominos_data.py` if you wish to use it  
 in particular, note the presence of `SMALL_BOARD` and `SMALL_PIECE`
@@ -283,7 +303,7 @@ compute all the possible locations on the board
 
 ### prepare the exact_cover input
 
-given a board and a set of pieces, compute the input to `covers_bool()`
+given a board and a set of pieces, compute the input that you need to pass to the library of your choice
 
 
 ### pretty-print a solution
@@ -376,16 +396,28 @@ you should find at least one solution for
 - 2 rectangles 5x6
 - ... and many more of course, like e.g. `BOARD_8_9` in `pentominos_data`
 
-
 ## what now ?
+
+### a GUI ?
+
+if time permits, you may find it useful to build a small GUI that let people
+- define a problem
+- display the solutions graphically
+
+to this end, you may find the `flet` library useful for that - see
+<https://flet.dev/docs/quickstart/> - or any other library that you feel
+comfortable with; `pygame`, `arcade`, may come in handy as well.
 
 ### further applications
 
-you can use `exact_cover` to solve a whole range of other problems, like for example sudoku - and it's actually less obvious to do the mapping; if you're done early you can give these some thought
-
+you can use `exact_cover` to solve a whole range of other problems, like for
+example sudoku - and it's actually less obvious to do the mapping; if you're
+done early you can give these some thought
 
 ### links
 
 * <https://en.wikipedia.org/wiki/Exact_cover>
 * <https://en.wikipedia.org/wiki/Knuth%27s_Algorithm_X>
 * if you plan on going (much) further, and on implementing a solver yourself, make sure to read this step-by-step description of the algorithm (you need several hours/days to get through this ;):["The art of computer programming", section 7.2.2.1](https://www.inf.ufrgs.br/~mrpritt/lib/exe/fetch.php?media=inf5504:7.2.2.1-dancing_links.pdf)
+* also be aware that the same D. Knuth has more recently published an update to this algorithm, relying on the same idea but in a form more suitable to vectorization (xxx ref needed..)
+
