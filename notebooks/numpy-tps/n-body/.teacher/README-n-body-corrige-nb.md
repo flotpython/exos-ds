@@ -58,6 +58,12 @@ import matplotlib.pyplot as plt
 
 en fixant arbitrairement des limites dans l'espace des positions, des vitesses et des masses, la fonction `init_problem()` tire au hasard une configuration de départ pour la simulation
 
+```{admonition} vitesse max
+:class: tip
+
+on insiste sur le fait que `speed_max` est le maximum du **module** de la vitesse, et non pas de chaque composante orthogonale...
+```
+
 ```{code-cell} ipython3
 # les bornes pour le tirage au sort initial
 mass_max = 3.
@@ -201,7 +207,7 @@ masses, positions, speeds = init3()
 
 f = forces(masses, positions)
 
-# should be true
+## uncomment, should be true
 # np.all(np.isclose(f, np.array([
 #     [ 0.        , -0.12257258,  0.12257258],
 #     [ 0.        , -0.02451452,  0.02451452]])))
@@ -273,9 +279,10 @@ except Exception as exc:
 ```{code-cell} ipython3
 :tags: [level_intermediate]
 
-# pour tester: should be true
+# pour tester
+# uncomment - should be true
 
-# first step
+# # isolate first step
 # positions1 = s[1]
 
 # np.all(np.isclose(positions1, np.array([
@@ -434,7 +441,23 @@ j'ai pu obtenir ceci
 
 modifiez votre code pour passer à une simulation en 3D
 
-+++
+et appliquez-le aux conditions initiales suivantes
+
+```{code-cell} ipython3
+# des conditions initiales pour la 3D
+def init3_3d():
+    # masses: 3 bodies with the same mass
+    masses = np.array([1, 1, 1], dtype=float)
+    positions = np.array([
+        [1, 0, 0],        
+        [0, 1, 0],        
+        [0, 0, 1]], dtype=float)
+    speeds = np.array([
+        [0, 0, 1],        
+        [1, 0, 0],        
+        [0, 1, 0]], dtype=float)
+    return masses, positions, speeds    
+```
 
 ### option 2: un rendu plus interactif
 
