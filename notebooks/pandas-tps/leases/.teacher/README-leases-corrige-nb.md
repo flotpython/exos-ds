@@ -227,7 +227,7 @@ print(f"{duration=}")
 ### aggregated duration
 
 so, given that there is no overlap, we can assume this corresponds to "reservations" attached to a unique resource (hence the term  *lease*)  
-write a code that computes the **overall reservation time**, as well as the **average usage ratio** over the overall timespan
+write a code that computes the **overall reservation time**, as well as the **average usage ratio** over the overall timespan (usage ratio as in:  100% if it were used all the time)
 
 ```{code-cell} ipython3
 :tags: [level_basic]
@@ -251,18 +251,12 @@ print(f"reserved during {reserved_duration} - i.e. a ratio of {percent:.2f}%")
 grouping by periods: by week, by month or by year, display the **total usage in that period**  
 (when ambiguous, use the `beg` column to determine if a lease is in a period or the other)
 
-```{admonition} *hint*
-:class: dropdown tip
 
-There are at least 2 options to do this grouping, based on `resample()` and `to_period()`  
-advanced users may wish to write them both and to comment on their respective pros and cons
+`````{admonition} expected result
+:class: dropdown open
 
-```
-
-`````{admonition} for now, **just get the grouping right**
-:class: dropdown
-
-you should produce something like e.g.
+for now, **just get the grouping right** and produce 
+something like e.g.
 
 ````{grid} 3 3 3 3
 ```{image} media/result-bw-w.png
@@ -272,8 +266,16 @@ you should produce something like e.g.
 ```{image} media/result-bw-y.png
 ```
 ````
-we'll make cosmetic improvements below, and [the final results look like this](#label-leases-output), but let's not get ahead of ourselves
+we'll make cosmetic improvements later below, and [the final results look like this](#label-leases-output), but let's not get ahead of ourselves
 `````
+
+```{admonition} *hint*
+:class: dropdown tip
+
+There are at least 2 options to do this grouping, based on `resample()` and `to_period()`  
+advanced users may wish to write them both and to comment on their respective pros and cons
+
+```
 
 ```{code-cell} ipython3
 :tags: [level_basic]
@@ -420,11 +422,19 @@ def convert_timedelta_to_hours(timedelta: pd.Timedelta) -> int:
 ```{code-cell} ipython3
 # prune-cell
 
-import numpy as np
-
 def convert_timedelta_to_hours(timedelta):
     seconds = timedelta.total_seconds()
     return int(((seconds-1) // 3600) + 1)
+```
+
+```{code-cell} ipython3
+# prune-cell
+
+# or more simply
+import math
+
+def convert_timedelta_to_hours(timedelta):
+    return math.ceil(timedelta.total_seconds() /3600)
 ```
 
 ```{code-cell} ipython3

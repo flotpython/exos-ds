@@ -136,7 +136,7 @@ What is the timespan covered by the dataset (**earliest** and **latest** events,
 ### aggregated duration
 
 so, given that there is no overlap, we can assume this corresponds to "reservations" attached to a unique resource (hence the term  *lease*)  
-write a code that computes the **overall reservation time**, as well as the **average usage ratio** over the overall timespan
+write a code that computes the **overall reservation time**, as well as the **average usage ratio** over the overall timespan (usage ratio as in:  100% if it were used all the time)
 
 ```{code-cell} ipython3
 :tags: [level_basic]
@@ -151,18 +151,12 @@ write a code that computes the **overall reservation time**, as well as the **av
 grouping by periods: by week, by month or by year, display the **total usage in that period**  
 (when ambiguous, use the `beg` column to determine if a lease is in a period or the other)
 
-```{admonition} *hint*
-:class: dropdown tip
 
-There are at least 2 options to do this grouping, based on `resample()` and `to_period()`  
-advanced users may wish to write them both and to comment on their respective pros and cons
+`````{admonition} expected result
+:class: dropdown open
 
-```
-
-`````{admonition} for now, **just get the grouping right**
-:class: dropdown
-
-you should produce something like e.g.
+for now, **just get the grouping right** and produce 
+something like e.g.
 
 ````{grid} 3 3 3 3
 ```{image} media/result-bw-w.png
@@ -172,8 +166,16 @@ you should produce something like e.g.
 ```{image} media/result-bw-y.png
 ```
 ````
-we'll make cosmetic improvements below, and [the final results look like this](#label-leases-output), but let's not get ahead of ourselves
+we'll make cosmetic improvements later below, and [the final results look like this](#label-leases-output), but let's not get ahead of ourselves
 `````
+
+```{admonition} *hint*
+:class: dropdown tip
+
+There are at least 2 options to do this grouping, based on `resample()` and `to_period()`  
+advanced users may wish to write them both and to comment on their respective pros and cons
+
+```
 
 ```{code-cell} ipython3
 :tags: [level_basic]
