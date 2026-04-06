@@ -353,53 +353,7 @@ voyez un peu si vous arrivez à produire un outil un peu plus convivial pour exp
 
 voici une possibilité avec matplotlib; mais cela dit ne vous sentez pas obligé de rester dans Jupyter Lab ou matplotlib, il y a plein de technos rigolotes qui savent se décliner sur le web, vous avez l'embarras du choix...
 
-```{code-cell} ipython3
-:tags: [prune-remove-input, remove-input]
-
-# prune-remove-input
-
-# credit: Damien Corral
-# with good old matplotlib FuncAnimation
-
-from matplotlib.animation import FuncAnimation
-from IPython.display import HTML
-
-def animate(simulation, masses, colors=None, scale=5., interval=50):
-    nb_steps, _, N = simulation.shape
-    colors = (colors if colors is not None
-              else np.random.uniform(0.3, 1., size=(N, 3)))
-
-    fig, ax = plt.subplots()
-    ax.set_title(f"we have {N} bodies over {nb_steps} steps")
-
-    ax.set_xlim(simulation[:, 0].min() - 1, simulation[:, 0].max() + 1)
-    ax.set_ylim(simulation[:, 1].min() - 1, simulation[:, 1].max() + 1)
-
-    scat = ax.scatter(np.zeros(N), np.zeros(N), c=colors, s=(masses*scale)**2)
-
-    def init():
-        scat.set_offsets(np.zeros((nb_steps, N)))
-        return scat
-
-    def update(step):
-        x, y = simulation[step]
-        scat.set_offsets(np.c_[x, y])
-        return scat
-
-    animation = FuncAnimation(
-        fig, update, frames=nb_steps,
-        init_func=init, blit=True, interval=interval
-    )
-    plt.close()
-    return animation
-
-def animate_from_file(filename):
-    simulation = np.loadtxt(filename).reshape((100, 2, 3))
-    animation = animate(simulation, masses, colors=colors3)
-    return HTML(animation.to_jshtml())
-
-animate_from_file("data/init3-simu-1.txt")
-```
++++
 
 (label-n-body-strategies)=
 ## plusieurs stratégies
