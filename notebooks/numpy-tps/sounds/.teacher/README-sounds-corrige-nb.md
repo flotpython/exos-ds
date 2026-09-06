@@ -463,14 +463,32 @@ aussi nous allons maintenant nous poser la question de changer d'échelle - et d
 ### entiers signés ou non
 
 ce qui nous amène à une petite digression: profitons-en pour regarder un peu comment sont encodés les entiers;  
-l'encodage des **entiers signés** fonctionne comme suit; on regarde ici les types `int8` et `uint8` car c'est plus simple, le principe est exactement le même pour des tailles plus grandes
+on regarde ici les types `int8` et `uint8` car c'est plus simple, le principe est exactement le même pour des tailles plus grandes
 
 il y a deux types d'encodages pour les entiers:
 
-* `uint8` (le `u` signifie *unsigned*): les entiers **non signés** reposent sur un encodage "naturel": on décompose en base 2, et donc avec 8 bits, on peut aller **de 0 à 255**
-* `int8`: par contre pour les entiers **signés**, on va devoir utiliser **un bit comme bit de signe**, ce qui limite le spectre de ce qu'il est possible d'encoder; avec en tout 8 bits on peut encoder de **-128 à 127 inclus**
+* `uint8` (le `u` signifie *unsigned*): les entiers **non signés** reposent sur un encodage "naturel":  
+  on décompose en base 2, et donc avec 8 bits, on peut aller **de 0 à 255**
+* `int8`: par contre pour les entiers **signés**, on peut encoder de **-128 à 127 inclus**
 
 ```{admonition} les deux codages int8 et uint8
+:class: tip dropdown
+| binaire | uint8 | int8 |
+|:----------:|:----------:|:--------:|
+| `00000000` | `0` | `0` |
+| `00000001` | `1` | `1` |
+| ... | ***`n`*** | ***`n`*** |
+| `01111110` | `126` | `126` |
+| `01111111` | `127` | `127` |
+| - | - | - |
+| `10000000` | `128` | `-128` |
+| `10000001` | `129` | `-127` |
+| ... | ***`n`*** | ***`n-256`*** |
+| `11111110` | `254` | `-2` |
+| `11111111` | `255` | `-1` |
+```
+
+```{admonition} ou dans l'autre sens, si on préfère
 :class: tip dropdown
 | [-128..-1] | int8 only  | [0..127] | (u)int8    | 128..255 | uint8 only |
 |:----------:|:----------:|:--------:|:----------:|:--------:|:----------:|
