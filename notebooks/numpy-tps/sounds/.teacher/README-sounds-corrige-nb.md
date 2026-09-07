@@ -471,7 +471,12 @@ il y a deux types d'encodages pour les entiers:
   on décompose en base 2, et donc avec 8 bits, on peut aller **de 0 à 255**
 * `int8`: par contre pour les entiers **signés**, on peut encoder de **-128 à 127 inclus**
 
-```{admonition} les deux codages int8 et uint8
+::::{admonition} on peut le voir comme ça
+```{image} media/signed-unsigned.excalidraw.svg
+```
+::::
+
+```{admonition} binaire ➡ valeur
 :class: tip dropdown
 | binaire | uint8 | int8 |
 |:----------:|:----------:|:--------:|
@@ -488,9 +493,9 @@ il y a deux types d'encodages pour les entiers:
 | `11111111` | `255` | `-1` |
 ```
 
-```{admonition} ou dans l'autre sens, si on préfère
+```{admonition} valeur ➡ binaire
 :class: tip dropdown
-| [-128..-1] | int8 only  | [0..127] | (u)int8    | 128..255 | uint8 only |
+| [-128..-1] | `int8` only  | [0..127] |     *both*   | [128..255] | `uint8` only |
 |:----------:|:----------:|:--------:|:----------:|:--------:|:----------:|
 | -128       | `10000000` | 000      | `00000000` |  128     | `10000000` |
 | -127       | `10000001` | 001      | `00000001` |  129     | `10000001` |
@@ -506,6 +511,7 @@ il y a deux types d'encodages pour les entiers:
 du coup avec le type `int16` on va pouvoir encoder l'intervalle [-32768, 32767]
 
 ```{code-cell} ipython3
+# parce que
 2**15
 ```
 
