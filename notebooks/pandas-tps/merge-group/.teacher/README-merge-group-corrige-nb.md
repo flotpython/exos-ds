@@ -757,6 +757,8 @@ seaborn's `pairplot()` draws, for a set of numerical columns:
 - the histogram of each column (on the diagonal), and
 - the scatter plot of every pair
 
+see [this page for a short intro to seaborn](https://numerique.info-mines.paris/seaborn-intro-nb/)
+
 1. on the 2019 data, draw a `pairplot` of the columns `life_exp`, `gdp_per_capita` and `population`, with a color per `region`  
 2. the result is not very readable; why ?
    try to fix this by using the logarithm of the two last columns (`numpy.log10`)
