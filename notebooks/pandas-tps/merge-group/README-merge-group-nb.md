@@ -1,4 +1,5 @@
 ---
+date: 2026/10/01
 jupytext:
   encoding: '# -*- coding: utf-8 -*-'
   text_representation:
