@@ -53,6 +53,7 @@ project:
       - file: pandas-tps/marathon/README-marathon-nb.md
       - file: pandas-tps/collages/README-collages-nb.md
       - file: pandas-tps/groupby-draw/README-groupby-draw-nb.md
+      - file: pandas-tps/merge-group/README-merge-group-nb.md
       - file: pandas-tps/covid/README-covid-nb.md
       - file: pandas-tps/leases/README-leases-nb.md
       - pattern: pandas-tps/*/.teacher/README-*-corrige-nb.md
