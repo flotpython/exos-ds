@@ -393,6 +393,9 @@ for period in 'W', 'M', 'Y':
         columns=[],
         aggfunc='sum',
     )
+    # plain string labels, so that the bars sit at positions 0..n-1 and the ticks below are right
+    # (with a PeriodIndex, pandas 3 plots the bars at the period ordinals instead)
+    draw_df.index = draw_df.index.astype(str)
     ax = draw_df.plot.bar(
         title=f"Duration in ns per {LEGEND[period]}"
     )
@@ -501,6 +504,7 @@ for period in 'W', 'M', 'Y':
         aggfunc="sum",
     ).map(convert_timedelta_to_hours)
 
+    draw_df.index = draw_df.index.astype(str)
     ax = draw_df.plot.bar(
         title=f"Duration in hours per {LEGEND[period]}"
     )
@@ -589,6 +593,7 @@ for period in 'W', 'M', 'Y':
         .map(convert_timedelta_to_hours)
     )
 
+    draw_df.index = draw_df.index.astype(str)
     ax = draw_df.plot.bar(
         title=f"Duration in hours per {LEGEND[period]}",
         stacked=True,
