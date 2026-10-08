@@ -298,10 +298,6 @@ indicators = (life
               .merge(pop[keys + ["population"]], on=keys, how="outer"))
 ```
 
-```{raw-cell}
-
-```
-
 ```{code-cell} ipython3
 :tags: [level_intermediate]
 
@@ -327,7 +323,7 @@ indicators.gdp_per_capita.isna().sum() == expected_undefined
 # prune-end
 ```
 
-which kind of merge one do you prefer here, and why ?  
+which kind of merge do you prefer here, and why ?  
 (for the rest of the assignment, we keep the outer version, to see the missing values)
 
 +++

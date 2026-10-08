@@ -147,7 +147,7 @@ the `country` column is already in `life`, so you do not want to get it again fr
 # your code
 ```
 
-which kind of merge one do you prefer here, and why ?  
+which kind of merge do you prefer here, and why ?  
 (for the rest of the assignment, we keep the outer version, to see the missing values)
 
 +++
