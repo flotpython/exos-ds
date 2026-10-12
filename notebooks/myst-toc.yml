@@ -56,6 +56,7 @@ project:
       - file: pandas-tps/merge-group/README-merge-group-nb.md
       - file: pandas-tps/covid/README-covid-nb.md
       - file: pandas-tps/timeseries/README-timeseries-nb.md
+      - file: pandas-tps/timeseries-events/README-timeseries-events-nb.md
       - file: pandas-tps/leases/README-leases-nb.md
       - pattern: pandas-tps/*/.teacher/README-*-corrige-nb.md
         hidden: true
