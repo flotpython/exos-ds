@@ -9,7 +9,7 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-short_title: timeseries, fixed interval
+short_title: timeseries, regular
 ---
 
 # time series, the basics
