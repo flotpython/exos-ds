@@ -8,3 +8,4 @@ teacher
 node_modules
 .vite
 ARTEFACTS.list
+scratch-*
