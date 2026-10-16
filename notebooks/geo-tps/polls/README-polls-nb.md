@@ -8,10 +8,6 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-language_info:
-  name: python
-  nbconvert_exporter: python
-  pygments_lexer: ipython3
 ---
 
 # US polls with altair
@@ -26,6 +22,7 @@ to run this code on your own laptop,
 ```
 
 ```{code-cell} ipython3
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -35,36 +32,22 @@ import geopandas as gpd
 # %matplotlib ipympl
 ```
 
-## presidential averages
+## 1. loading presidential averages
 
-538.com - actually it is <http://fivethirtyeight.com> - is a site hosted by ABC news, that exposes data about the US presidential election
+538.com - actually <http://fivethirtyeight.com> - was a site that published data about the US presidential election  
+the site is no longer online, so we use a copy of its **presidential averages** that is stored in `data/DATA.csv`
 
-we're gonna use the data in this URL:
-
-```{code-cell} ipython3
-URL = "https://projects.fivethirtyeight.com/polls/data/presidential_general_averages.csv"
-```
-
-```{admonition} update 2025
-
-initially we would have written a function that loads this URL; it would
-
-- cache it on your hard drive so you can reload it faster
-- do any type conversion that you see fit
-
-as of 2025 **this URL is no longer online** so we'll just 
-
-- load the data from `data/DATA.csv`
-- still be careful about the columns types
-```
+load this file into a dataframe `df`; make sure to
+- be careful about the types of the columns, in particular `date`, that must be a proper timestamp
+- notice that the first column is a leftover index, and so ensure it does not end up as a column in `df`
 
 ```{code-cell} ipython3
 :tags: [level_basic]
 
 # your code
-
-CACHE = "data/DATA.csv"
 ```
+
+## 2. plotting
 
 And what we want to do is to plot the average of the polls for each candidate.  
 In other words, you should obtain something like this - we will arbitrarily focus on the 2024 year only
@@ -80,9 +63,18 @@ In other words, you should obtain something like this - we will arbitrarily focu
 # your code
 ```
 
-using the interactive view (after all we are using `%matplotlib ipympl`), zoom into the figure and retrieve
+## 3. use interactivity
+
+using the interactive view (if under Jupyter Lab) make sure to use `%matplotlib ipympl`, and zoom into the figure and retrieve
 - the date for the last data about Joe Biden
 - the date for the first data about Kamala Harris
+
+```{code-cell} ipython3
+:tags: [level_basic]
+
+# your answer in english - as a comment
+# ...
+```
 
 also write a line of code to compute this second date
 
@@ -94,9 +86,12 @@ also write a line of code to compute this second date
 first_harris_date = ...
 ```
 
-## race end
+## 4. race end
 
 from this part we will focus on the period after `first_harris_date`
+1. how many candidates are still in the data ?
+1. make sure to keep only the 2 most famous ones
+1. how many data points do we have now for each of them ?
 
 ```{code-cell} ipython3
 :tags: [level_basic]
@@ -104,26 +99,7 @@ from this part we will focus on the period after `first_harris_date`
 # your code
 ```
 
-how many candidates are still in the data ?  
-make sure to keep only the 2 most famous ones
-
-```{code-cell} ipython3
-:tags: [level_basic]
-
-# your code
-```
-
-## geographic rendering
-
-in this section we will produce a summary map, which looks like this  
-the color depicts the ratio between, otoh Harris's average score over time, and otoh Trump's  
-also the tooltips allow to expose more details on the individual results
-
-```{image} media/polls-over-space-2024.png
-
-+++
-
-### digression 1: loading shapefiles with geopandas
+## 5: loading shapefiles with geopandas
 
 ```{code-cell} ipython3
 # here's the typical nickname for geopandas
@@ -131,47 +107,39 @@ also the tooltips allow to expose more details on the individual results
 import geopandas as gpd
 ```
 
-first we need a definition of the various US states; there is one here
+we want to plot this data on a geographic map; first we need a definition of the various US states; this comes from the US Census Bureau (file `us-states.zip`), and we have a copy of it under `data/`
+
+we load this shapefile into a geopandas object
+
+```{code-cell} ipython3
+gdf = gpd.read_file("data/us-states.zip")
+```
+
+1. how many entries ?
+
+```{code-cell} ipython3
+:tags: [level_basic]
+
+# your code
+```
+
+2. what are the various column types
 
 +++
 
-```{admonition} update 2025
-
-here again, there's been a change since 2024: this URL no longer comes with a valid SSL certificate  
-so we'll use the version stored under `data/` again
-
-```
-
-```{code-cell} ipython3
-# no longer easily readable by geopandas because of an SSL certificate issue
-US_STATES_SHAPEFILE_URL = "https://www2.census.gov/geo/tiger/GENZ2018/shp/cb_2018_us_state_20m.zip"
-
-US_STATES_SHAPEFILE_CACHE = "data/us-states.zip"
-```
-
-and we can load it like so:
-
-```{code-cell} ipython3
-# so instead of doing this
-# gdf = gpd.read_file(US_STATES_SHAPEFILE_URL)
-
-# we'll do this
-gdf = gpd.read_file(US_STATES_SHAPEFILE_CACHE)
-
-# and we get this
-gdf.head()
-```
-
-so as you can see this is almost like a regular dataframe, except for the `geometry` column; which is a geographic entity, hence the term `geo-dataframe`
+as you can see, this is almost like a regular dataframe, except for the `geometry` column; which is a geographic entity, hence the term `geo-dataframe`
 
 +++
 
-### digression 2: using altair to produce a geographic visualization
+## digression: using altair to produce a geographic viz
 
+```{admonition} this may require an installation
+:class: dropdown tip
 of course you might have to install `altair`...  how do you go about doing that again ?
+```
 
-````{admonition} see also
-:class: dropdown
+````{admonition} see also on altair and its use on geographic data
+:class: dropdown warning
 
 more details on this topic can be found here: 
 
@@ -187,14 +155,20 @@ import altair as alt
 alt.renderers.enable("html")
 ```
 
+Here are a few examples of what we can do with this library
+
++++
+
+### the simplest chart
+
 ```{code-cell} ipython3
 # to show a geographic map from that geo-df
+# (suboptimal, we'll improve that...)
 
-alt.Chart(gdf).mark_geoshape()
-```
+# we could just write this and it would render
+# alt.Chart(gdf).mark_geoshape()
 
-```{code-cell} ipython3
-# or we can also use it like this if we prefer
+# but we can also this more usual form
 
 chart = (
     alt.Chart(gdf)
@@ -204,23 +178,41 @@ chart = (
 chart.display()
 ```
 
+### improving that view
+
++++
+
 now in terms of presentation, it is a little suboptimal, let's improve this a bit
 
 ```{code-cell} ipython3
+# we can improve by:
+# (1) setting a width
+# (2) using the albersUsa projection, which puts Alaska and Hawai under mainland
+#     this way we use space more effectively
+# NOTE that in the process Alaska is artificially shrunk down
+#      it's actually the largest US state
 (
     alt.Chart(gdf)
     .mark_geoshape()
-    .properties(width=800)
+    .properties(width=600)
     .project('albersUsa')
 )
 ```
 
-now, the initial geo-dataframe has some numeric values, that we can use to color the map !
+### using colors
 
-for example, there are `AWATER` and `ALAND` - that I take it mean *area of water* and *area of land* respectively  
-and we can use one of these to color the different states
++++
 
-for that we just do, like for simpler altair plots we call `encode()` like so
+now, the initial geo-dataframe has some numeric values, that we can use to color the map !  
+for example, there are `AWATER` and `ALAND`  
+which we can interpret as meaning *area of water* (as in lakes) and *area of land* respectively
+
+```{code-cell} ipython3
+gdf.head(2)
+```
+
+and we can use one of these to color the different states  
+for that we would use `encode()` like so
 
 ```{code-cell} ipython3
 (
@@ -229,10 +221,12 @@ for that we just do, like for simpler altair plots we call `encode()` like so
     .encode(
         color="ALAND:Q",          # Q stands for quantitative
     )
-    .properties(width=800)
+    .properties(width=600)
     .project('albersUsa')
 )
 ```
+
+### better with a legend
 
 ```{code-cell} ipython3
 # or if we prefer, same result essentially
@@ -241,17 +235,26 @@ for that we just do, like for simpler altair plots we call `encode()` like so
 (
     alt.Chart(gdf)
     .mark_geoshape()
+    # legend
     .encode(
         color=alt.Color(field="ALAND", type="quantitative", title="land area")
     )
-    .properties(width=800)
+    # a bit narrower so the legend shows up
+    .properties(width=600)
     .project('albersUsa')
 )
 ```
 
+### even better with tooltips
+
 ```{code-cell} ipython3
 # also useful with altair, we can give a `tooltip` parameter to encode
 # and this shows when your mouse hovers on a state
+
+# NOTE: altair can only see the columns, not the index
+# so as we want to show the name of the state, we need it in a regular column
+# so you had made the choice to use the state as the index
+# you may need to reset_index()
 
 (
     alt.Chart(gdf)
@@ -261,21 +264,30 @@ for that we just do, like for simpler altair plots we call `encode()` like so
         # and we can show there anything from the table
         tooltip=["NAME", "ALAND"],
     )
-    .properties(width=800)
+    .properties(width=600)
     .project('albersUsa')
 )
 ```
 
-### back to our data
+## our goal: geographic rendering
 
-+++
+in this following we will produce a summary map, which looks like this:
+- for all the states where we have data
+- the color depicts the ratio between, Harris's and Trump's average scores over time
+- also the tooltips allow to expose more details on the individual results
 
-given this knowledge, you should be able to produce our target graph, namely again
-
-```{image} media/polls-over-space-2024.png
+```{image} media/states-with-data.png
 :width: 800px
 :align: center
 ```
+
++++
+
+## 6. first map
+
++++
+
+1. for how many states do we have polls data ? which are they ?
 
 ```{code-cell} ipython3
 :tags: [level_basic]
@@ -283,16 +295,39 @@ given this knowledge, you should be able to produce our target graph, namely aga
 # your code
 ```
 
-## focusing on swing states
+2. for this data, compute a table with the state as index, and the two contestants polls (averaged)
+
+```{code-cell} ipython3
+:tags: [level_basic]
+
+# your code
+```
+
+3. using what you've seen in the digression, and what you will gather if needed on the Internet,  produce the above map
+
+```{code-cell} ipython3
+:tags: [level_basic]
+
+# your code
+```
+
+## 7. outlining swing states
 
 +++
 
-from the graph above, keep only the following states
+from the graph above, we want to outline the swing states  
+for example, we could come up with something like
 
-````{admonition} *hint*
+```{image} media/swing-states-outlined.png
+:width: 800px
+:align: center
+```
+
+````{admonition} *hints*
 :class: dropdown
 
-the method `pd.Series.isin()` might come in handy for this step
+- the method `pd.Series.isin()` might come in handy for this step
+- also you will probably need to search a bit by yourself, outside of what we've covered in the digression
 ````
 
 ```{code-cell} ipython3
@@ -302,9 +337,30 @@ SWING_STATES = [
     'Wisconsin',
     'Michigan',
     'Pennsylvania',
-    'Georgia',    
+    'Georgia',
     'North Carolina',
 ]
+```
+
+```{code-cell} ipython3
+:tags: [level_basic]
+
+# your code
+```
+
+## 8. filling gaps (optional)
+
+this is not very readable; instead we want to still get the missing states show up in gray,  
+and to keep the outlining of the swing states, i.e.
+
+```{image} media/all-states.png
+:width: 800px
+:align: center
+```
+
+```{admonition} tip
+:class: dropdown tip
+this one is less obvious, and you are allowed to use an IA to find the solution !
 ```
 
 ```{code-cell} ipython3
