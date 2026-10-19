@@ -16,17 +16,6 @@ language_info:
 notebookname: Mandelbrot
 ---
 
-# l'ensemble de Mandelbrot
-
-il s'agit de calculer l'image de la convergence de mandelbrot:
-
-```{image} media/mandelbrot.svg
-:width: 400px
-:align: right
-```
-
-+++
-
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat &amp; Arnaud Legout</span>
@@ -37,6 +26,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib ipympl
 ```
+
+# l'ensemble de Mandelbrot
+
+il s'agit de calculer l'image de la convergence de mandelbrot:
+
+```{image} media/mandelbrot.svg
+:width: 400px
+:align: right
+```
+
++++
 
 ## comment ça marche ?
 
@@ -74,6 +74,8 @@ pour fabriquer la grille des points de départ, on pourra regarder `np.linspace`
 ````
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # à vous de jouer
 
 def mandelbrot(h, w):
@@ -81,6 +83,8 @@ def mandelbrot(h, w):
 ```
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 # et pour la tester, pour produire la mème figure que ci-dessus
 
 mandelbrot(1000, 1000)
@@ -97,6 +101,8 @@ mandelbrot(1000, 1000)
   * affichez cette depuis votre notebook
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # à vous de jouer
 # je vous laisse définir la signature de votre fonction
 
@@ -107,14 +113,20 @@ def mandelbrot2():
 et je vous demande de mettre ici quelques tests de votre deuxième fonction
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # test #1
 ```
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # test #2
 ```
 
 ```{code-cell} ipython3
+:tags: [level_basic]
+
 # test #3
 ```
 
