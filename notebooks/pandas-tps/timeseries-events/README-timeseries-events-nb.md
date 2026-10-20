@@ -161,6 +161,7 @@ in the daily counts, you can see a peak, that corresponds to one big earthquake 
 
 * `idxmax()` gives the index of the maximum, so here a timestamp
 * you can add or remove a duration to a timestamp, e.g. with `pd.Timedelta("1h")`
+* also `df.nlargest()` could come in handy if e.g. question 1. was about spotting the 3 most important events
 :::
 
 ```{code-cell} ipython3

@@ -4,12 +4,12 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.17.3
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-date: 2026/10/12
-short_title: timeseries, irregular
 ---
 
 # time series: events
@@ -121,9 +121,16 @@ df.index.dtype
 :tags: [level_intermediate]
 
 # 3.
-
 # what do we throw away
-print(df[df.type != "earthquake"])
+
+df[df.type != "earthquake"]
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+# 3.
+# filter out the noise
 
 df = df[df.type == "earthquake"]
 ```
@@ -172,6 +179,7 @@ here we are in a different situation: the time between 2 consecutive rows is not
 
 # the index is not a Series, so we convert it first
 gaps = df.index.to_series().diff()
+
 # the values are Timedelta objects
 gaps.head()
 ```
@@ -249,7 +257,7 @@ print(daily.idxmax(), daily.max())
 
 # 2.
 
-# this time, no: the count of events in an empty interval is a legitimate 0
+# this time, no: the count of events in a day can be a legitimate 0
 # (we know that there was no earthquake)
 (daily == 0).sum()
 ```
@@ -259,7 +267,7 @@ print(daily.idxmax(), daily.max())
 
 # 3.
 
-# on the other hand, the maximum magnitude of no earthquake is undefined
+# on the other hand, the maximum magnitude of a day with no earthquake is undefined
 max_mag = df.mag.resample("D").max()
 print(max_mag.isna().sum())
 max_mag.plot(marker=".", linestyle="");
@@ -270,7 +278,14 @@ max_mag.plot(marker=".", linestyle="");
 
 # 4.
 
-df.resample("W").size().plot(kind="bar")
+df.resample("W").size().plot(kind="bar");
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+# 4.
+
 df.resample("ME").size().plot(kind="bar");
 ```
 
@@ -296,6 +311,7 @@ in the daily counts, you can see a peak, that corresponds to one big earthquake 
 
 * `idxmax()` gives the index of the maximum, so here a timestamp
 * you can add or remove a duration to a timestamp, e.g. with `pd.Timedelta("1h")`
+* also `df.nlargest()` could come in handy if e.g. question 1. was about spotting the 3 most important events
 :::
 
 ```{code-cell} ipython3
@@ -328,7 +344,7 @@ df.nlargest(3, "mag")
 
 burst = df.loc[big - pd.Timedelta("1h"): big + pd.Timedelta("6h")]
 print(len(burst))
-burst[["mag", "place"]].head(10)
+burst[["mag", "place"]]
 ```
 
 ```{code-cell} ipython3
@@ -377,7 +393,7 @@ but here a difference is that **the rows are not evenly spaced in time**, so a w
 
 # the window is expressed as a duration; this only works because the index is a DatetimeIndex
 last_7d = df.mag.rolling("7D").agg(["count", "max"])
-last_7d.head()
+last_7d
 ```
 
 ```{code-cell} ipython3
@@ -396,8 +412,20 @@ last_7d["count"].plot(ylabel="earthquakes over the last 7 days");
 
 # rolling(7) is the maximum over the last 7 EARTHQUAKES, which can be a couple of hours or some weeks
 # depending on the period, so these values are not comparable with each other
-# the average duration is about 7 times the mean gap
-print(f"{7 * gaps_min.mean() / 60:.1f} hours on average")
+# the average duration is about 6 times the mean gap
+
+print(f"{6 * gaps_min.mean() / 60:.1f} hours on average")
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+# 3.
+
+# or alternately, more accurate...
+
+span = df.index.to_series().diff(6).dt.total_seconds() / 3600
+print(f"{span.mean():.1f} hours on average (median {span.median():.1f})")
 ```
 
 ```{code-cell} ipython3
@@ -405,12 +433,18 @@ print(f"{7 * gaps_min.mean() / 60:.1f} hours on average")
 
 # generate the picture for the instructions, under a name with -auto
 # (the name that is used in the instructions is a manual copy)
-plt.rcParams["svg.hashsalt"] = "timeseries-events"
+
 ax = daily.plot(alpha=0.4, label="earthquakes per day", figsize=(7, 3))
 daily.rolling("7D").mean().plot(ax=ax, label="average over the last 7 days", legend=True)
 ax.set_ylabel("number of earthquakes")
-ax.figure.savefig("media/quakes-daily-auto.svg", metadata={"Date": None}, bbox_inches="tight")
+ax.figure.savefig("media/quakes-daily-auto.svg", bbox_inches="tight")
 plt.close(ax.figure)
+```
+
++++ {"tags": ["level_intermediate"]}
+
+which yields
+```{image} media/quakes-daily-auto.svg
 ```
 
 ```{code-cell} ipython3
@@ -462,10 +496,11 @@ midnights[:3]
 # a reindex only looks for EXACT matches
 # and no earthquake happens precisely at midnight
 exact = df.mag.reindex(midnights)
-print(exact.notna().sum())
+print("reindex", exact.notna().sum())
+
 # asfreq() is very similar, but starts at the first earthquake rather than at midnight
 # so the first value is defined, and that is all
-print(df.mag.asfreq("D").notna().sum())
+print("asfreq", df.mag.asfreq("D").notna().sum())
 ```
 
 ```{code-cell} ipython3
@@ -533,6 +568,8 @@ df["dayofweek"] = df.index.dayofweek
 week = df.pivot_table(index="hour", columns="dayofweek", values="mag", aggfunc="count")
 week2 = df.groupby(["hour", "dayofweek"]).size().unstack()
 print(week.equals(week2))
+
+week
 ```
 
 ```{code-cell} ipython3
@@ -553,8 +590,6 @@ sns.heatmap(week, cmap="viridis");
 
 # prune-end
 ```
-
-+++
 
 ## appendix: where the data comes from
 
