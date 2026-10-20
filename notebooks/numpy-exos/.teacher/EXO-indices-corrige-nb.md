@@ -9,15 +9,11 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 nbhosting:
   title: utiliser les indices
 ---
-
-```{code-cell} ipython3
-import numpy as np
-```
 
 # broadcasting / dimensions
 
@@ -25,7 +21,9 @@ import numpy as np
 
 on va commencer par quelques rappels et astuces
 
-+++
+```{code-cell} ipython3
+import numpy as np
+```
 
 ## broadcasting
 

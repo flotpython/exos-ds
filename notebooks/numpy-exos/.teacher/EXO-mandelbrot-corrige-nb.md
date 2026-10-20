@@ -11,21 +11,10 @@ kernelspec:
   name: python3
 language_info:
   name: python
-  nbconvert_exporter: python
   pygments_lexer: ipython3
+  nbconvert_exporter: python
 notebookname: Mandelbrot
 ---
-
-<div class="licence">
-<span>Licence CC BY-NC-ND</span>
-<span>Thierry Parmentelat &amp; Arnaud Legout</span>
-</div>
-
-```{code-cell} ipython3
-import numpy as np
-import matplotlib.pyplot as plt
-%matplotlib ipympl
-```
 
 # l'ensemble de Mandelbrot
 
@@ -36,7 +25,11 @@ il s'agit de calculer l'image de la convergence de mandelbrot:
 :align: right
 ```
 
-+++
+```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib ipympl
+```
 
 ## comment ça marche ?
 
