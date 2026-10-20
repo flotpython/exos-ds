@@ -198,7 +198,7 @@ plt.savefig("media/mandelbrot-auto.svg", format="svg")
 
 included as svg
 
-```{image} mandelbrot.svg
+```{image} media/mandelbrot-auto.svg
 :align: center
 :width: 500px
 ```
