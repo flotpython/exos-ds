@@ -843,6 +843,10 @@ weather = weather.set_index("jour")
 ```
 
 ```{code-cell} ipython3
+daily.head(2)
+```
+
+```{code-cell} ipython3
 :tags: [level_intermediate]
 
 # 3.
@@ -853,8 +857,8 @@ weather = weather.set_index("jour")
 daily_naive = daily.copy()
 daily_naive.index = daily_naive.index.tz_localize(None)
 
-both = pd.concat([daily_naive, weather], axis=1)
-# or equivalently
+both = weather.merge(daily_naive, left_index=True, right_index=True)
+# or more simply
 # both = weather.join(daily_naive)
 both.head(3)
 ```
@@ -911,6 +915,23 @@ both.plot.scatter(x="temperature", y="n_bikes", alpha=0.5);
 # a weak but visible effect: warmer is better, rain is worse
 
 both.corr()
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+# OR 
+import seaborn as sns
+
+sns.pairplot(both);
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+# or even
+
+pd.plotting.scatter_matrix(both) 
 ```
 
 ```{code-cell} ipython3
