@@ -229,8 +229,6 @@ df.head()
 # prune-end
 ```
 
-+++
-
 ## 2. the `.dt` accessor
 
 +++
@@ -740,7 +738,13 @@ the aliases for the frequency are `"W"` for weeks, and `"ME"` for the end of the
 
 weekly = df.n_bikes.resample("W").sum(min_count=1)
 monthly = df.n_bikes.resample("ME").sum(min_count=1)
-weekly.plot(kind="bar")
+weekly.plot(kind="bar");
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+# 1. 
 monthly.plot(kind="bar");
 # the label is the END of the interval: weeks end on a Sunday, and months on the last day
 # the first/last intervals are partial
@@ -760,6 +764,32 @@ daily.resample("ME").mean().plot(kind="bar");
 # 3.
 
 daily.resample("ME").agg(["sum", "mean", "max"])
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+# 1bis - week
+# an alternative using to_period()
+
+df.groupby(df.index.to_period("W")).n_bikes.sum().plot(kind="bar");
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+# one drawback is, a period cannot retain tz information
+# so to avoid the warning, we could do this instead
+
+df.groupby(df.index.tz_localize(None).to_period("W")).n_bikes.sum().plot(kind="bar");
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+# 1bis - month
+
+df.groupby(df.index.tz_localize(None).to_period("M")).n_bikes.sum().plot(kind="bar");
 ```
 
 ```{code-cell} ipython3
