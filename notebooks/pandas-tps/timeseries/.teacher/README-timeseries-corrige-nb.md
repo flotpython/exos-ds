@@ -1,4 +1,5 @@
 ---
+date: 2026/10/12
 jupytext:
   encoding: '# -*- coding: utf-8 -*-'
   text_representation:
@@ -321,11 +322,26 @@ df.groupby("hour").n_bikes.mean().plot(kind="bar");
 # 2.
 
 profile = df.groupby(["is_weekend", "hour"]).n_bikes.mean().unstack(0)
+profile.plot()
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
 
 # or, equivalently, with a pivot_table
 profile2 = df.pivot_table(
     index="hour", columns="is_weekend", values="n_bikes", aggfunc="mean")
+profile2.plot()
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
 print(profile.equals(profile2))
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
 
 profile.columns = ["week days", "week ends"]
 profile.plot(grid=True, ylabel="average number of bikes");
@@ -467,6 +483,10 @@ print(df.n_bikes.isna().sum())
 hourly = df.asfreq("h")
 missing = hourly[hourly.n_bikes.isna()]
 print(len(missing))
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
 
 # a day is completely missing if we have 24 of these
 # note that the index is a DatetimeIndex, so we have .date and similar attributes right on it
